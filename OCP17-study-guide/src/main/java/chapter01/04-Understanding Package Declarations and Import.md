@@ -71,3 +71,123 @@ public class ConflictsBothDate {
 }
 
 ```
+
+## Compiling and Running Code with Packages
+
+Create first class /temp/packagea/ClassA.java
+Create second class /temp/packageb/ClassB.java
+Go to directory cd /temp
+
+```
+javac packagea/ClassA.java packageb/ClassB.java
+```
+
+### Compiling with Wildcards
+
+You can use an asterisk to specify that you’d like to include all Java files in a directory.This is convenient when you
+have a lot of files in a package. We can rewrite the previous javac command like this:
+
+```
+javac packagea/*.java packageb/*.java
+```
+
+Now that your code has compiled, you can run it by typing the following command:
+
+```
+java packageb.ClassB
+```
+
+## Compiling to Another Directory
+
+By default, the javac command places the compiled in the same directory as the source code. It also provides an option
+to place the class files into a different directory. The -d option specifies this target directory.
+
+Java options are case sensitive. This means you can not pass -D instead of -d.
+
+```
+javac -d classes packagea/ClassA.java packageb/ClassB.java
+```
+
+To run the program, you specify the classpath so Java knows where to find the classes.
+
+```
+cd /temp
+java -cp classes packageb.ClassB
+java -classpath classes packageb.ClassB 
+java --class-path classes packageb.ClassB
+```
+
+Notice that the last one requires two dashes (--), while the first two require one dash (-). If you have the wrong
+number of dashes, the program will not run.
+
+Important javac options
+
+|-cp <classpath>               |   Location of classes needed to compile the program |
+| --- | --- |
+|-classpath <classpath>        | |
+|--class-path <classpath> |
+|-d <dir>                 |          Directory in which to place generated class files|
+
+Important java options
+
+| -cp <classpath> | Location of classes needed to run the program -classpath <classpath> |
+|-----------------|----------------------------------------------------------------------|
+| --class-path    |                                                                      |
+| <classpath>     |                                                                      |
+
+## Compiling with JAR Files
+
+A Java archive (JAR) file is like a ZIP file of mainly Java class files.
+
+On Windows, you type the following:
+
+```
+java -cp ".;C:\temp\someOtherLocation;c:\temp\myJar.jar" myPackage.MyClass
+```
+
+And on macOS/Linux, you type this:
+
+```
+java -cp ".:/tmp/someOtherLocation:/tmp/myJar.jar" myPackage.MyClass
+```
+
+The period (.) indicates that you want to include the current directory in the classpath. The rest of the command says
+to look for loose class files (or packages) in someOtherLocation and within myJar.jar. Windows uses semicolons (;) to
+separate parts of the classpath; other operating systems use colons.
+
+Just like when you’re compiling, you can use a wildcard (*) to match all the JARs in a directory. Here’s an example:
+
+```
+java -cp "C:\temp\directoryWithJars\*" myPackage.MyClass
+```
+
+## Creating a JAR File
+
+The simplest commands create a jar containing the files in the current directory. You can use the short or long form for each option.
+
+```
+jar -cvf myNewFile.jar .
+jar --create --verbose --file myNewFile.jar .
+```
+
+Important jar options
+
+| Option                              | Description                               |
+|-------------------------------------|-------------------------------------------|
+| -c<br/>--create                     | Creates a new JAR file                    |
+| -v<br/>--verbose                    | Print details when working with JAR files |
+| -f <fileName><br/>--file <fileName> | JAR filename                              | 
+| -C <directory> | Directory containing files to be used to create the JAR |
+
+
+## Ordering Elements in a Class
+
+Ordering for declaring a class
+
+| Element             | Example             | Required ? | Where does it go ?                                              | 
+|---------------------|---------------------|------------|-----------------------------------------------------------------|
+| Package declaration | package abc;        | No         | First line in the file<br/> (excluding comments or blank lines) |   
+| import statements   | import java.util.*; | No         | Immediately after the package<br/>(if present)     |
+| Top-level type declaration   | public class Util   | Yes        | Immediately after the import <br/>(if any) |
+| Field declarations   | int value; | No         | Any top-level element within a class |
+| Method declarations   | void method()| No         | Any top-level element within a class |
