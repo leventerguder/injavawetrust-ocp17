@@ -108,6 +108,13 @@ While this does work, it is hard to read. Luckily, Java has text blocks, also kn
 
 A text block starts and ends with three double quotes ("""), and the contents don’t need to be escaped.
 
+Essential whitespace is part of your String and is important to you. Incidental whitespace just happens to be there to
+make the code easier to read. You can reformat your code and change the amount of incidental whitespace without any
+impact on your String value.
+
+Imagine a vertical line drawn on the leftmost non-whitespace character in your text block. Everything to the left of it
+is incidental whitespace, and everything to the right is essential whitespace.
+
 | Formatting             | Meaning in regular String                                                   | Meaning in text block      |
 | ------------------------ | ----------------------------------------------------------------------------- | ---------------------------- |
 | \\"                    | "                                                                           | "                          |
@@ -126,14 +133,16 @@ How many lines do you think are in this text block?
 
 ```
 String block = """
-    doe \ deer""";
+    doe \ 
+    deer""";
 ```
 
 Just one. The output is doe deer since the \ tells Java not to add a new line before deer.
 
 ```
 String block = """
-  doe \n deer """;
+  doe \n 
+  deer """;
 
 ```
 

@@ -23,5 +23,29 @@ public class DefiningTextBlocks {
                 * * *
                 """;
         System.out.println(pyramid);
+
+        // Text blocks require a line break after the opening """, making this one invalid.
+        // String block = """doe"""; // DOES NOT COMPILE
+
+        String block = """
+                doe \
+                deer""";
+
+        System.out.println(block);
+        System.out.println();
+
+        String block2 = """
+                doe \n
+                deer""";
+        System.out.println(block2);
+        System.out.println();
+
+        String block3 = """
+          "doe\"\"\"
+          \"deer\"""
+         """;
+
+        System.out.println(block3);
+        // All of the \" escape the ".
     }
 }
