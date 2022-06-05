@@ -189,16 +189,16 @@ switch expression must handle all possible values of the switch variable.
 - Add a default branch.
 - If the switch expression takes an enum value, add a case branch for every possible enum value.
 
-  String getWeather(Season value) {
-  return switch (value) {
-  case WINTER -> "Cold";
-  case SPRING -> "Rainy";
-  case SUMMER -> "Hot";
-  case FALL -> "Warm";
-  };
-  }
+    String getWeather(Season value) {
+      return switch (value) {
+        case WINTER -> "Cold";
+        case SPRING -> "Rainy";
+        case SUMMER -> "Hot";
+        case FALL -> "Warm";
+      };
+    }
 
-  enum Season {WINTER, SPRING, SUMMER, FALL}
+enum Season {WINTER, SPRING, SUMMER, FALL}
 
 Since all possible permutations of Season are covered, a default branch is not required in this switch expression. You
 can include an optional default branch, though, even if you cover all known values.
