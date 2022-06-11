@@ -147,4 +147,101 @@ What do you think happens in this example?
     System.out.println(Arrays.binarySearch(numbers, 3));
 
 The array isn’t sorted. This means the output will not be defined.
-    
+
+## Comparing
+
+Java alsop provides methods to compare two arrays to determine which is "smaller".
+
+### Using compare()
+
+There are a bunch of rules you need to know before calling compare().
+
+First you need to learn what the return value means.
+
+- A negative number means the first array is smaller than the second.
+- A zero means the arrays are equal.
+- A positive number means the first array is larger than the second.
+
+Let’s look at how to compare arrays of different lengths:
+
+- If both arrays are the same length and have the same values in each spot in the same order, return zero.
+- If all the elements are the same but the second array has extra elements at the end, return a negative number.
+- If all the elements are the same, but the first array has extra elements at the end, return a positive number.
+- If the first element that differs is smaller in the first array, return a negative number.
+- If the first element that differs is larger in the first array return a positive number.
+
+Finally, what does smaller mean? Here are some more rules that apply here :
+
+- null is smaller than any other value.
+- For numbers, normal numeric order applies.
+- For strings, one is smaller if it is a prefix of another.
+- For strings/characters, numbers are smaller than letters.
+- For strings/characters, uppercase is smaller than lowercase.
+
+### Using mismatch()
+
+If the arrays are equal, mismatch() returns -1. Otherwise, it returns the first index where they differ.
+
+    System.out.println(Arrays.mismatch(new int[]{1}, new int[]{1}));  // -1
+    System.out.println(Arrays.mismatch(new String[]{"a"}, new String[]{"A"})); //0
+    System.out.println(Arrays.mismatch(new int[]{1, 2}, new int[]{1})); //1
+
+| Method     | when array contain the same data | when arrays are different   |
+|------------|----------------------------------|-----------------------------|
+| equals()   | true                             | false                       | 
+| compare()  | 0                                | positive or negative number | 
+| mismatch() | -1                               | zero or positive index      | 
+
+## Using Methods with Varargs
+
+Here are three examples with a main() method:
+
+    public static void main(String[] args)
+    public static void main(String args[])
+    public static void main(String... args) // varargs
+
+## Working with Multidimensional Arrays
+
+Arrays are objects, and of course, array components can be objects.
+
+### Creating a Multidimensional Array
+
+Multiple array separators are all it takes to declare arrays with multiple dimensions.
+
+    int[][] vars1;
+    int vars2 [][];
+    int[] vars3[];
+    int[] vars4 [], space [][]; // a 2D AND a 3D array
+
+You can specify the size of your multidimensional array in the declaration if you like:
+
+    String [][] rectangle = new String[3][2];
+
+While that array happens to be rectangular in shape, an array doesn’t need to be. Consider this one:
+
+    int[][] differentSizes = {{1, 4}, {3}, {9,8,7}};
+
+Another way to create an asymmetric array is to initialize just an array’s first dimension and define the size of each
+array component in a separate statement:
+
+    int [][] args = new int[4][]; 
+    args[0] = new int[5];
+    args[1] = new int[3];
+
+### Using a Multidimensional Array
+
+The most common operation on a multidimensional array is to loop through it.
+
+    for (int i = 0; i < twoD.length; i++) {
+        for (int j = 0; j < twoD[i].length; j++)
+            System.out.print(twoD[i][j] + " "); // print element
+        System.out.println(); // time for a new row
+    }
+
+    System.out.println();
+
+    for (int[] inner : twoD) {
+        for (int num : inner)
+            System.out.print(num + " ");
+        System.out.println();
+    }
