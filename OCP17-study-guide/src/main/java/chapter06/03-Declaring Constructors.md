@@ -204,3 +204,150 @@ Here we summarize the rules you should know about constructors that we covered i
 - The compiler inserts a default no-argument constructor if no constructors are declared.
 - If a constructor calls this(), then it must be the first line of the constructor.
 - Java does not allow cyclic constructor calls.
+
+## Calling Parent Constructors with super()
+
+The first statement of every constructor is a call to a parent constructor using super() or another constructor in the
+class using this().
+
+    public class Animal { 
+        private int age;
+        public Animal(int age) {
+            super(); // Refers to constructor in java.lang.Object
+            this.age = age; 
+        }
+    }
+
+    public class Zebra extends Animal { 
+        public Zebra(int age) {
+            super(age); // Refers to constructor in Animal 
+        }
+        public Zebra() {
+            this(4); // Refers to constructor in Zebra with int argument
+        } 
+    }
+
+**super vs. super()**
+
+Like this and this(), super and super() are unrelated in Java.The first, super, is used to reference members of the
+parent class, while the second, super(), calls a parent constructor. Anytime you see the keyword super on the exam,
+make sure it is being used properly.
+
+Like calling this(), calling super() can only be used as the first statement of the constructor.
+
+    public class Zoo {
+        public Zoo() {
+            System.out.println("Zoo created");
+            super(); // DOES NOT COMPILE
+        }
+    }
+
+    public class Zoo {
+        public Zoo() {
+            super();
+            System.out.println("Zoo created");
+            super(); // DOES NOT COMPILE
+        }
+    }
+
+The first class will not compile because the call to the parent constructor must be the first statement of the
+constructor. In the second code snippet, super() is the first statement of the constructor, but it is also used as the
+third statement. Since super() can only be called once as the first statement of the constructor, the code will not
+compile.
+
+    public class Animal {
+        private int age;
+        private String name;
+    
+        public Animal(int age, String name) {
+            super();
+            this.age = age;
+            this.name = name;
+        }
+    
+        public Animal(int age) {
+            super();
+            this.age = age;
+            this.name = null;
+        }
+    }
+
+    public class Gorilla extends Animal {
+        public Gorilla(int age) {
+            super(age, "Gorilla"); // Calls the first Animal constructor
+        }
+    
+        public Gorilla() {
+            super(5); // Calls the second Animal constructor
+        }
+    }
+
+In this example, the first child constructor takes one argument, age, and calls the parent constructor, which takes two
+arguments, age and name. The second child constructor takes no arguments, and it calls the parent constructor, which
+takes one argument, age. In this example, notice that the child constructors are not required to call matching parent
+constructors. Any valid parent constructor is acceptable as long as the appropriate input parameters to the parent
+constructor are provided.
+
+### Understanding Compiler Enhancements
+
+Java compiler automatically inserts a call to the no-argument constructor super() if you do not explicitly call this()
+or super() as the first line of a constructor.
+
+For example, the following three class and constructor definitions are equivalent, because the compiler will
+automatically convert them all to the last example:
+
+    public class Donkey {}
+    
+    public class Donkey {
+        public Donkey() {}
+    }
+
+    public class Donkey {
+        public Donkey() { 
+            super();
+        }
+    }
+
+### Default Constructor Tips and Tricks
+
+What happens if we define a subclass with no constructors, or a subclass with a constructor that doesn’t include a
+super() reference?
+
+    public class Mammal {
+        public Mammal(int age) 
+        {
+        }
+    }
+
+    public class Seal extends Mammal {} // DOES NOT COMPILE
+
+    public class Elephant extends Mammal {
+        public Elephant() {} // DOES NOT COMPILE
+    } 
+
+In these cases, the compiler will not help, and you must create at least one constructor in your child class that
+explicitly calls a parent constructor via the super() command.
+
+    public class Seal extends Mammal {
+        public Seal() {
+            super(6); // Explicit call to parent constructor
+        }
+    }
+
+    public class Elephant extends Mammal {
+        public Elephant() {
+            super(4); // Explicit call to parent constructor
+        }
+    }
+
+**super() Always Refers to the Most Direct Parent**
+For constructors, though, super() always refers to the most direct parent. In this example, calling super() inside the
+AfricanElephant class always refers to the Elephant class and never to the Mammal class.
+
+We conclude this section by adding three constructor rules to your skill set:
+
+- The first line of every constructor is a call to a parent constructor using super() or an overloaded constructor using
+  this().
+- If the constructor does not contain a this() or super() reference, then the compiler automatically inserts super()
+  with no arguments as the first line of the constructor.
+- If a constructor calls super(), then it must be the first line of the constructor.
