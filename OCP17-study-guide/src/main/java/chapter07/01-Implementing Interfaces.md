@@ -177,4 +177,240 @@ What about the access level of the play() method?
         void play() {} // DOES NOT COMPILE - play() is public in Poodle
     }
 
-the method in the Georgette class reduces the access modifier on the method from public to package access.
+The method in the Georgette class reduces the access modifier on the method from public to package access.
+
+## Declaring Concrete Interface Methods
+
+While interfaces started with abstract methods and constants, they’ve grown to include a lot more.
+
+![](implementinginterfaces/interface-member-types.png)
+
+The membership type determines how it is able to be accessed. A method with a membership type of class is shared among
+all instances of the interface, whereas a method with a membership type of instance is associated with a particular
+instance of the interface.
+
+**What About protected or Package Interface Members?**
+
+Alongside public methods, interfaces now support private methods.They do not support protected access, though, as a
+class cannot extend an interface.They also do not support package access, although more likely for syntax reasons and
+backward compatibility. Since interface methods without an access modifier have been considered implicitly public,
+changing this behavior to package access would break many existing programs!
+
+### Writing a default Interface Method
+
+A default method is a method defined in an interface with the default keyword and includes a method body. It may be
+optionally overridden by a class implementing the interface.
+
+One use of default methods is for backward compatibility. You can add a new default method to an interface without the
+need to modify all of the existing classes that implement the interface. The older classes will just use the default
+implementation of the method defined in the interface.
+
+    public interface IsColdBlooded {
+        boolean hasScales();
+    
+        default double getTemperature() {
+            return 10.0;
+        }
+    }
+
+    public class Snake implements IsColdBlooded {
+        public boolean hasScales() { // Required override
+            return true;
+        }
+    
+        public double getTemperature() { // Optional override 
+            return 12;
+        }
+    }
+
+**Default Interface Method Definition Rules**
+
+- A default method may be declared only within an interface.
+- A default method must be marked with the default keyword and include a method body.
+- A default method is implicitly public.
+- A default method cannot be marked abstract, final, or static.
+- A default method may be overridden by a class that implements the interface.
+- If a class inherits two or more default methods with the same method signature, then the class must override the
+  method.
+
+ ````
+    public interface Carnivore {
+        public default void eatMeat(); // DOES NOT COMPILE 
+        public int getRequiredFoodAmount() { // DOES NOT COMPILE
+          return 13; 
+        }
+    }
+ ```` 
+
+**Inheriting Duplicate default Methods**
+
+The last rule for creating a default interface method requires some explanation.
+
+    public interface Walk {
+        public default int getSpeed() {
+            return 5;
+        }
+    }
+
+    public interface Run {
+        public default int getSpeed() {
+           return 10;
+        }
+    } 
+
+    public class Cat implements Walk, Run {} // DOES NOT COMPILE
+
+In this example, Cat inherits the two default methods for getSpeed(), so which does it use? Since Walk and Run are
+considered siblings in terms of how they are used in the Cat class, it is not clear whether the code should output 5 or
+10 .In this case, the compiler throws up its hands and says, “Too hard, I give up!” and fails.
+
+    public class Cat implements Walk, Run {
+        public int getSpeed() {
+           return 1;
+        }
+    }
+
+**Calling a Hidden default Method**
+
+    public int getWalkSpeed() { 
+        return Walk.super.getSpeed();
+    }
+
+This is an area where a default method exhibits properties of both a static and instance method. We use the interface
+name to indicate which method we want to call, but we use the super keyword to show that we are following instance
+inheritance, not class inheritance.
+Note that calling Walk.getSpeed() or Walk.this.getSpeed() would not have worked.
+
+### Declaring static Interface Methods
+
+Interfaces are also declared with static methods. These methods are defined explicitly with the static keyword and, for
+the most part, behave just like static methods defined in classes.
+
+- A static method must be marked with the static keyword and include a method body.
+- A static method without an access modifier is implicitly public.
+- A static method cannot be marked abstract or final.
+- A static method is not inherited and cannot be accessed in a class implementing the interface without a reference to
+  the interface name.
+
+ ````
+    public interface Hop {
+   
+        static int getJumpHeight() {
+            return 8;
+        }
+    }
+ ````
+
+Since the method is defined without an access modifier, the compiler will automatically insert the public access
+modifier. The method getJumpHeight() works just like a static method as defined in a class. In other words, it can be
+accessed without an instance of a class.
+
+    public class Skip {
+        public int skip() {
+            return Hop.getJumpHeight();
+        }
+    }
+
+The last rule about inheritance might be a little confusing, so let’s look at an example. The following is an example of
+a class Bunny that implements Hop and does not compile:
+
+    public class Bunny implements Hop {
+        public void printDetails() {
+            System.out.println(getJumpHeight()); // DOES NOT COMPILE 
+        }
+    }
+
+Without an explicit reference to the name of the interface, the code will not compile, even though Bunny implements Hop.
+
+    System.out.println(Hop.getJumpHeight());
+
+### Reusing Code with private Interface Methods
+
+The last two types of concrete methods that can be added to interfaces are private and private static interface methods.
+Because both types of methods are private, they can only be used in the interface declaration in which they are
+declared. For this reason, they were added primarily to reduce code duplication.
+
+    public interface Schedule {
+
+        default void wakeUp() {
+            checkTime(7);
+        }
+    
+        private void haveBreakfast() {
+            checkTime(9);
+        }
+    
+        static void workOut() {
+            checkTime(18);
+        }
+    
+        private static void checkTime(int hour) {
+            if (hour > 17) {
+                System.out.println("You're late!");
+            } else {
+                System.out.println("You have " + (17 - hour) + " hours left "
+                        + "to make the appointment");
+            }
+        }
+    }
+
+The difference between a non-static private method and a static one is analogous to the difference between an instance
+and static method declared within a class. In particular, it’s all about what methods each can be called from.
+
+**Private Interface Method Definition Rules**
+
+- A private interface method must be marked with the private modifier and include a method body.
+- A private static interface method may be called by any method within the interface definition.
+- A private interface method may only be called by default and other private nonstatic methods within the interface
+  definition.
+
+Another way to think of it is that a private interface method is only accessible to non-static methods defined within
+the interface. A private static interface method, on the other hand, can be accessed by any method in the interface. For
+both types of private methods, a class inheriting the interface cannot directly invoke them.
+
+### Calling Abstract Methods
+
+Default and private non-static methods can access abstract methods declared in the interface.
+
+    public interface ZooRenovation {
+       public String projectName();
+      
+        abstract String status();
+    
+        default void printStatus() {
+            System.out.print("The " + projectName() + " project " + status());
+        }
+    }
+
+### Reviewing Interface Members
+
+![](implementinginterfaces/interface-member-access.png)
+
+Here are some quick tips for the exam:
+
+- Treat abstract, default, and non-static private methods as belonging to an instance of the interface.
+- Treat static methods and variables as belonging to the interface class object.
+- All private interface method types are only accessible within the interface declaration.
+
+````
+    public interface ZooTrainTour {
+    
+        abstract int getTrainName();
+    
+        private static void ride() {
+        }
+    
+        default void playHorn() {
+            getTrainName();
+            ride();
+        }
+    
+        public static void slowDown() {
+            playHorn(); // DOES NOT COMPILE
+        }
+    
+        static void speedUp() {
+            ride();
+        }
+    }
+````
