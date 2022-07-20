@@ -230,3 +230,152 @@ see why this doesn’t compile?
 
 The method name is wrong. A Comparator must implement a method named compare(). Pay special attention to method names
 and the number of parameters when you see Comparator and Comparable in questions.
+
+## Comparing Multiple Fields
+
+When writing a Comparator that compares multiple instance variables, the code gets a little messy.
+
+    public class Squirrel {
+        private int weight;
+        private String species;
+        // Assume getters/setters/constructors provided
+    }
+
+We want to write a Comparator to sort by species name. If two squirrels are from the same species, we want to sort the
+one that weighs the least first. We could do this with code that looks like this:
+
+    public class MultiFieldComparator implements Comparator<Squirrel> {
+        public int compare(Squirrel s1, Squirrel s2) {
+            int result = s1.getSpecies().compareTo(s2.getSpecies());
+            if (result != 0) return result;
+            return s1.getWeight() - s2.getWeight();
+        }
+    }
+
+Alternatively, we can use method references and build the Comparator. This code represents logic for the same
+comparison:
+
+    Comparator<Squirrel> c = Comparator.comparing(Squirrel::getSpecies) .thenComparingInt(Squirrel::getWeight);
+
+Suppose we want to sort in descending order by species.
+
+    var c = Comparator.comparing(Squirrel::getSpecies).reversed();
+
+![](sortingdata/helper-default-methods-for-building-a-comparator.png)
+
+![](sortingdata/helper-default-methods-for-building-a-comparator-2.png)
+
+You’ve probably noticed by now that we often ignore null values in checking equality and comparing objects. This works
+fine for the exam. In the real world, though, things aren’t so neat. You will have to decide how to handle null values
+or prevent them from being in your object.
+
+## Sorting and Searching
+
+Now that you’ve learned all about Comparable and Comparator, we can finally do something useful with them, like sorting.
+The Collections.sort() method uses the compareTo() method to sort. It expects the objects to be sorted to be Comparable.
+
+    import java.util.ArrayList;
+    import java.util.Collections;
+    import java.util.List;
+    
+    public class SortRabbits {
+        static record Rabbit(int id) {
+        }
+
+        public static void main(String[] args) {
+        List<Rabbit> rabbits = new ArrayList<>();
+        rabbits.add(new Rabbit(3));
+        rabbits.add(new Rabbit(1));
+        // Collections.sort(rabbits); // DOES NOT COMPILE
+        }
+    }
+
+Java knows that the Rabbit record is not Comparable. It knows sorting will fail, so it doesn’t even let the code
+compile. You can fix this by passing a Comparator to sort().
+
+    Comparator<Rabbit> c = (r1, r2) -> r1.id - r2.id;
+    Collections.sort(rabbits, c);
+    System.out.println(rabbits); // [Rabbit[id=1], Rabbit[id=3]]
+
+Suppose you want to sort the rabbits in descending order. You could change the Comparator to r2.id - r1.id.
+Alternatively, you could reverse the contents of the list afterward:
+
+    Comparator<Rabbit> c = (r1, r2) -> r1.id - r2.id;
+    Collections.sort(rabbits, c);
+    Collections.reverse(rabbits);
+    System.out.println(rabbits); // [Rabbit[id=3], Rabbit[id=1]]
+
+The sort() and binarySearch() methods allow you to pass in a Comparator object when you don’t want to use the natural
+order.
+
+****Reviewing binarySearch()**
+
+The binarySearch() method requires a sorted List.
+
+    List<Integer> list = Arrays.asList(6,9,1,8);
+    Collections.sort(list); // [1, 6, 8, 9]
+    System.out.println(Collections.binarySearch(list, 6)); // 1 
+    System.out.println(Collections.binarySearch(list, 3)); // -2
+
+The number 3 would need to be inserted at index 1 (after the number 1 but before the number 6). Negating that gives us
+−1, and subtracting 1 gives us −2.
+
+There is a trick in working with binarySearch(). What do you think the following outputs?
+
+    var names = Arrays.asList("Fluffy", "Hoppy");
+    Comparator<String> c = Comparator.reverseOrder();
+    var index = Collections.binarySearch(names, "Hoppy", c); 
+    System.out.println(index);
+
+The answer happens to be -1. Before you panic, you don’t need to know that the answer is -1. You do need to know that
+the answer is not defined.
+
+This list happens to be sorted in ascending order. Line 2 creates a Comparator that reverses the natural order. Line 3
+requests a binary search in descending order. Since the list is not in that order, we don’t meet the precondition for
+doing a search.
+
+While the result of calling binarySearch() on an improperly sorted list is undefined, sometimes you can get lucky. For
+example, search starts in the middle of an odd-numbered list. If you happen to ask for the middle element, the index
+returned will be what you expect.
+
+    public class UseTreeSet {
+
+        static class Rabbit {
+            int id;
+        }
+    
+        public static void main(String[] args) {
+            Set<Duck> ducks = new TreeSet<>();
+            ducks.add(new Duck("Puddles"));
+            Set<Rabbit> rabbits = new TreeSet<>();
+            rabbits.add(new Rabbit()); // ClassCastException
+        }
+    }
+
+When TreeSet tries to sort it, Java discovers the fact that Rabbit does not implement Comparable. Java throws an
+exception that looks like this:
+
+    Exception in thread "main" java.lang.ClassCastException: class Rabbit cannot be cast to class java.lang.Comparable
+
+Just like searching and sorting, you can tell collections that require sorting that you want to use a specific
+Comparator. For example:
+
+     Set<Rabbit> rabbits = new TreeSet<>((r1, r2) -> r1.id - r2.id); 
+     rabbits.add(new Rabbit());
+
+Now Java knows that you want to sort by id, and all is well. A Comparator is a helpful object. It lets you separate
+sort order from the object to be sorted.
+
+## Sorting a List
+
+While you can call Collections.sort(list), you can also sort directly on the list object.
+
+    List<String> bunnies = new ArrayList<>(); 
+    bunnies.add("long ear");
+    bunnies.add("floppy");
+    bunnies.add("hoppy");
+    System.out.println(bunnies); // [long ear, floppy, hoppy] 
+    bunnies.sort((b1, b2) -> b1.compareTo(b2));
+    System.out.println(bunnies); // [floppy, hoppy, long ear]
+
+There is not a sort method on Set or Map. Both of those types are unordered, so it wouldn’t make sense to sort them.
