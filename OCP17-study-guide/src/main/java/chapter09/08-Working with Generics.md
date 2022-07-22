@@ -177,3 +177,118 @@ For the exam, it might be helpful for you to apply type erasure to questions inv
 compile properly. Once you’ve determined which methods are overridden and which are being overloaded, work backward,
 making sure the generic types match for overridden methods. And remember, generic methods cannot be overloaded by
 changing the generic parameter type only.
+
+## Implementing Generic Interfaces
+
+Just like a class, an interface can declare a formal type parameter. For example, the following Shippable interface uses
+a generic type as the argument to its ship() method:
+
+    public interface Shippable<T> { 
+        void ship(T t);
+    }
+
+There are three ways a class can approach implementing this interface.
+
+    class ShippableRobotCrate implements Shippable<Robot> { 
+        public void ship(Robot t) { }
+    }
+
+    class ShippableAbstractCrate<U> implements Shippable<U> { 
+        public void ship(U t) { }
+    }
+
+    class ShippableCrate implements Shippable { 
+        public void ship(Object t) { }
+    }
+
+**WhatYou Can’t Do with GenericTypes**
+
+There are some limitations on what you can do with a generic type.These aren’t on the exam, but it will be helpful to
+refer to this scenario when you are writing practice programs and run into one of these situations.
+
+Most of the limitations are due to type erasure. Oracle refers to types whose information is fully available at runtime
+as reifiable. Reifiable types can do anything that Java allows. Non-reifiable types have some limitations.
+
+Here are the things that you can’t do with generics (and by “can’t,” we mean without resorting to contortions like
+passing in a class object):
+
+**Call a constructor:** Writing new T() is not allowed because at runtime, it would be new Object().
+
+**Create an array of that generic type:** This one is the most annoying, but it makes sense because you’d be creating an
+array of Object values.
+
+**Call instanceof:** This is not allowed because at runtime List<Integer> and List<String> look the same to Java, thanks
+to
+type erasure.
+
+**Use a primitive type as a generic type parameter:** This isn’t a big deal because you can use the wrapper class
+instead. If
+you want a type of int, just use Integer.
+
+## Writing Generic Methods
+
+Up until this point, you’ve seen formal type parameters declared on the class or interface level. It is also possible to
+declare them on the method level. This is often useful for static methods since they aren’t part of an instance that can
+declare the type. However, it is also allowed on non-static methods.
+
+    public class Handler {
+
+    public static <T> void prepare(T t) {
+        System.out.println("Preparing " + t);
+    }
+
+    public static <T> Crate<T> ship(T t) {
+        System.out.println("Shipping " + t);
+        return new Crate<T>();
+    }
+
+}
+
+The method parameter is the generic type T. Before the return type, we declare the formal type parameter of <T>. In the
+ship() method, we show how you can use the generic parameter in the return type, Crate<T>, for the method.
+
+    public class More {
+
+    public static <T> void sink(T t) {
+    }
+
+    public static <T> T identity(T t) {
+        return t;
+    }
+
+    public static T noGood(T t) { return t; } // DOES NOT COMPILE
+    // Omits the formal parameter type and therefore does not compile.
+    }
+
+**Optional Syntax for Invoking a Generic Method**
+
+You can call a generic method normally, and the compiler will try to figure out which one you want. Alternatively, you
+can specify the type explicitly to make it obvious what the type is.
+
+    Box.<String>ship("package"); 
+    Box.<String[]>ship(args);
+
+When you have a method declare a generic parameter type, it is independent of the class generics. Take a look at this
+class that declares a generic T at both levels:
+
+    public class TrickyCrate<T> {
+
+        public <T> T tricky(T t) {
+            return t;
+        }
+    
+        public T tricky2(T t) {
+            return t;
+        }
+        
+        public <U> U tricky3(U u) {
+            return u;
+        }
+    }
+
+## Creating a Generic Record
+
+Generics can also be used with records. This record takes a single generic type parameter:
+
+
+
