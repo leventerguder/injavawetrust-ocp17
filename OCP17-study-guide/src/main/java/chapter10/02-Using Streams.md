@@ -158,3 +158,185 @@ This example finds an animal:
 
     s.findAny().ifPresent(System.out::println); // monkey (usually)
     infinite.findAny().ifPresent(System.out::println); // chimp
+
+### Matching
+
+The allMatch(), anyMatch(), and noneMatch() methods search a stream and return information about how the stream pertains
+to the predicate.
+
+These may or may not terminate for infinite streams.
+
+Like the find methods, they are not reductions because they do not necessarily look at all of the elements.
+
+    public boolean anyMatch(Predicate <? super T> predicate) 
+    public boolean allMatch(Predicate <? super T> predicate) 
+    public boolean noneMatch(Predicate <? super T> predicate)
+
+This example checks whether animal names begin with letters:
+
+    var list = List.of("monkey", "2", "chimp");
+    Stream<String> infinite = Stream.generate(() -> "chimp");
+    Predicate<String> pred = x -> Character.isLetter(x.charAt(0));
+
+    System.out.println(list.stream().anyMatch(pred)); // true 
+    System.out.println(list.stream().allMatch(pred)); // false 
+    System.out.println(list.stream().noneMatch(pred)); // false 
+    System.out.println(infinite.anyMatch(pred)); // true
+
+Remember that allMatch(), anyMatch(), and noneMatch() return a boolean. By contrast, the find methods return an Optional
+because they return an element of the stream.
+
+### Iterating
+
+As in the Java Collections Framework, it is common to iterate over the elements of a stream. As expected, calling
+forEach() on an infinite stream does not terminate. Since there is no return value, it is not a reduction.
+
+    public void forEach(Consumer<? super T> action)
+
+    Stream<String> s = Stream.of("Monkey", "Gorilla", "Bonobo"); 
+    s.forEach(System.out::print); // MonkeyGorillaBonobo
+
+Remember that you can call forEach() directly on a Collection or on a Stream. Don’t get confused on the exam when you
+see both approaches.
+
+Notice that you can’t use a traditional for loop on a stream.
+
+    Stream<Integer> s = Stream.of(1);
+    for (Integer i : s) {} // DOES NOT COMPILE
+
+### Reducing
+
+The reduce() method combines a stream into a single object. It is a reduction, which means it processes all elements.
+The three method signatures are these:
+
+    public T reduce(T identity, BinaryOperator<T> accumulator)
+
+    public Optional<T> reduce(BinaryOperator<T> accumulator)
+
+    public <U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)
+
+The most common way of doing a reduction is to start with an initial value and keep merging it with the next value.
+
+The identity is the initial value of the reduction, in this case an empty String. The accumulator combines the current
+result with the current value in the stream. With lambdas, we can do the same thing with a stream and reduction:
+
+    Stream<String> stream = Stream.of("w", "o", "l", "f"); 
+    String word = stream.reduce("", (s, c) -> s + c); 
+    System.out.println(word); // wolf
+
+Notice how we still have the empty String as the identity. We also still concatenate the String objects to get the next
+value. We can even rewrite this with a method reference:
+
+    Stream<String> stream = Stream.of("w", "o", "l", "f"); 
+    String word = stream.reduce("", String::concat); 
+    System.out.println(word); // wolf
+
+Let’s try another one. Can you write a reduction to multiply all of the Integer objects in a stream? Try it. Our
+solution is shown here:
+
+    Stream<Integer> stream = Stream.of(3, 5, 6); 
+    System.out.println(stream.reduce(1, (a, b) -> a*b)); // 90
+
+We set the identity to 1 and the accumulator to multiplication. In many cases, the iden- tity isn’t really necessary, so
+Java lets us omit it. When you don’t specify an identity, an Optional is returned because there might not be any data.
+There are three choices for what is in the Optional:
+
+- If the stream is empty, an empty Optional is returned.
+- If the stream has one element, it is returned.
+- If the stream has multiple elements, the accumulator is applied to combine them.
+
+The following illustrates each of these scenarios:
+
+    BinaryOperator<Integer> op = (a, b) -> a * b; 
+    Stream<Integer> empty = Stream.empty(); 
+    Stream<Integer> oneElement = Stream.of(3); 
+    Stream<Integer> threeElements = Stream.of(3, 5, 6);
+
+    empty.reduce(op).ifPresent(System.out::println);
+    oneElement.reduce(op).ifPresent(System.out::println);
+    threeElements.reduce(op).ifPresent(System.out::println);
+
+Let’s take a look at an example that counts the number of characters in each String:
+
+      Stream<String> stream = Stream.of("w", "o", "l", "f!");
+      int length = stream.reduce(0, (i, s) -> i + s.length(), (a, b) -> a + b);
+      System.out.println(length); // 5
+
+The first parameter (0) is the value for the initializer. If we had an empty stream, this would be the answer. The
+second parameter is the accumulator. Unlike the accumulators you saw previously, this one handles mixed data types. In
+this example, the first argument, i, is an Integer, while the second argument, s, is a String. It adds the length of the
+current String to our running total. The third parameter is called the combiner, which combines any intermediate totals.
+In this case, a and b are both Integer values.
+
+The three-argument reduce() operation is useful when working with parallel streams because it allows the stream to be
+decomposed and reassembled by separate threads. For example, if we needed to count the length of four 100-character
+strings, the first two values and the last two values could be computed independently. The intermediate result (200
++200)would then be combined into the final value.
+
+### Collecting
+
+The collect() method is a special type of reduction called a mutable reduction. It is more efficient than a regular
+reduction because we use the same mutable object while accumulating.
+Common mutable objects include StringBuilder and ArrayList.
+
+    public <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)
+
+    public <R,A> R collect(Collector<? super T, A,R> collector)
+
+Let’s start with the first signature, which is used when we want to code specifically how collecting should work. Our
+wolf example from reduce can be converted to use collect():
+
+    Stream<String> stream = Stream.of("w", "o", "l", "f");
+
+    StringBuilder word = stream.collect( StringBuilder::new, 
+      StringBuilder::append, 
+      StringBuilder::append);
+
+    System.out.println(word); // wolf
+
+The first parameter is the supplier, which creates the object that will store the results as we collect data. Remember
+that a Supplier doesn’t take any parameters and returns a value. In this case, it constructs a new StringBuilder.
+
+The second parameter is the accumulator, which is a BiConsumer that takes two parameters and doesn’t return anything.
+It is responsible for adding one more element to the data collection. In this example, it appends the next String to the
+StringBuilder.
+
+The final parameter is the combiner, which is another BiConsumer. It is responsible for taking two data collections and
+merging them. This is useful when we are processing in parallel. Two smaller collections are formed and then merged into
+one. This would work with StringBuilder only if we didn’t care about the order of the letters. In this case, the
+accumulator and combiner have similar logic.
+
+    Stream<String> stream = Stream.of("w", "o", "l", "f");
+
+    TreeSet<String> set = stream.collect( TreeSet::new,
+    TreeSet::add,
+    TreeSet::addAll);
+
+    System.out.println(set); // [f, l, o, w]
+
+The collector has three parts as before. The supplier creates an empty TreeSet. The accumulator adds a single String
+from the Stream to the TreeSet. The combiner adds all of the elements of one TreeSet to another in case the operations
+were done in parallel and need to be merged.
+
+We started with the long signature because that’s how you implement your own collector. It is important to know how to
+do this for the exam and understand how collectors work. In practice, many common collectors come up over and over.
+Rather than making developers keep reimplementing the same ones, Java provides a class with common collectors cleverly
+named Collectors. This approach also makes the code easier to read because it is more expressive. For example, we could
+rewrite the previous example as follows:
+
+    Stream<String> stream = Stream.of("w", "o", "l", "f");
+    TreeSet<String> set =
+            stream.collect(Collectors.toCollection(TreeSet::new));
+    System.out.println(set); // [f, l, o, w]
+
+If we didn’t need the set to be sorted, we could make the code even shorter:
+
+    Stream<String> stream = Stream.of("w", "o", "l", "f"); 
+    Set<String> set = stream.collect(Collectors.toSet()); 
+    System.out.println(set); // [f, w, l, o]
+
+You might get different output for this last one since toSet() makes no guarantees as to which implementation of Set
+you’ll get. It is likely to be a HashSet, but you shouldn’t expect or rely on that.
+
+The exam expects you to know about common predefined collectors in addition to being able to write your own by passing a
+supplier, accumulator, and combiner.
