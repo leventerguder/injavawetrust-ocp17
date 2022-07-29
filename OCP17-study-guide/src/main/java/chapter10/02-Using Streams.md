@@ -340,3 +340,203 @@ you’ll get. It is likely to be a HashSet, but you shouldn’t expect or rely o
 
 The exam expects you to know about common predefined collectors in addition to being able to write your own by passing a
 supplier, accumulator, and combiner.
+
+## Using Common Intermediate Operations
+
+Unlike a terminal operation, an intermediate operation produces a stream as its result. An intermediate operation can
+also deal with an infinite stream simply by returning another infinite stream. Since elements are produced only as
+needed, this works fine. The assembly line worker doesn’t need to worry about how many more elements are coming through
+and instead can focus on the current element.
+
+### Filtering
+
+The filter() method returns a Stream with elements that match a given expression. Here is the method signature:
+
+    public Stream<T> filter(Predicate<? super T> predicate)
+
+For example, this retains all elements that begin with the letter m:
+
+    Stream<String> s = Stream.of("monkey", "gorilla", "bonobo");
+    s.filter(x -> x.startsWith("m"))
+            .forEach(System.out::print); // monkey
+
+### Removing Duplicates
+
+The distinct() method returns a stream with duplicate values removed. The duplicates do not need to be adjacent to be
+removed. As you might imagine, Java calls equals() to determine whether the objects are equivalent.
+
+    public Stream<T> distinct()
+
+Here’s an example:
+
+    Stream<String> s = Stream.of("duck", "duck", "duck", "goose");
+    s.distinct().forEach(System.out::print); // duckgoose
+
+### Restricting by Position
+
+The limit() and skip() methods can make a Stream smaller, or limit() could make a finite stream out of an infinite
+stream. The method signatures are shown here:
+
+    public Stream<T> limit(long maxSize) 
+    public Stream<T> skip(long n)
+
+
+    Stream<Integer> s = Stream.iterate(1, n -> n + 1); s.skip(5)
+    .limit(2) .forEach(System.out::print); // 67
+
+### Mapping
+
+The map() method creates a one-to-one mapping from the elements in the stream to the elements of the next step in the
+stream. The method signature is as follows:
+
+    public <R> Stream<R> map(Function<? super T, ? extends R> mapper)
+
+The map() method on streams is for transforming data. Don’t confuse it with the Map interface, which maps keys to
+values.
+
+As an example, this code converts a list of String objects to a list of Integer objects representing their lengths:
+
+    Stream<String> s = Stream.of("monkey", "gorilla", "bonobo"); 
+    s.map(String::length).forEach(System.out::print); // 676
+
+### Using flatMap
+
+The flatMap() method takes each element in the stream and makes any elements it contains top-level elements in a single
+stream. This is helpful when you want to remove empty ele- ments from a stream or combine a stream of lists. We are
+showing you the method signature for consistency with the other methods so you don’t think we are hiding anything.
+
+    public <R> Stream<R> flatMap(
+    Function<? super T, ? extends Stream<? extends R>> mapper)
+
+
+    List<String> zero = List.of();
+    var one = List.of("Bonobo");
+    var two = List.of("Mama Gorilla", "Baby Gorilla");
+    Stream<List<String>> animals = Stream.of(zero, one, two);
+
+    animals.flatMap(m -> m.stream()).forEach(System.out::println);
+
+**Concatenating Streams**
+
+While flatMap() is good for the general case, there is a more convenient way to concatenate two streams:
+
+    var one = Stream.of("Bonobo");
+    var two = Stream.of("Mama Gorilla", "Baby Gorilla");
+    Stream.concat(one, two).forEach(System.out::println);
+
+### Sorting
+
+The sorted() method returns a stream with the elements sorted. Just like sorting arrays, Java uses natural ordering
+unless we specify a comparator. The method signatures are these:
+
+    public Stream<T> sorted()
+    public Stream<T> sorted(Comparator<? super T> comparator)
+
+Calling the first signature uses the default sort order.
+
+    Stream<String> s = Stream.of("brown-", "bear-"); 
+    s.sorted().forEach(System.out::print); // bear-brown-
+
+We can optionally use a Comparator implementation via a method or a lambda. In this example, we are using a method:
+
+    Stream<String> s = Stream.of("brown bear-", "grizzly-"); 
+    s.sorted(Comparator.reverseOrder()).forEach(System.out::print); // grizzly-brown bear-
+
+Here we pass a Comparator to specify that we want to sort in the reverse of natural sort
+order. Ready for a tricky one? Do you see why this doesn’t compile?
+
+    Stream<String> s = Stream.of("brown bear-", "grizzly-"); 
+    s.sorted(Comparator::reverseOrder); // DOES NOT COMPILE
+
+Take a look at the second sorted() method signature again. It takes a Comparator, which is a functional interface that
+takes two parameters and returns an int. However, Comparator::reverseOrder doesn’t do that. Because reverseOrder() takes
+no arguments and returns a value, the method reference is equivalent to () -> Comparator.reverseOrder(), which is really
+a Supplier<Comparator>. This is not compatible with sorted(). We bring this up to remind you that you really do need to
+know method references well.
+
+### Taking a Peek
+
+It is useful for debugging because it allows us to perform a stream operation without changing the stream. The method
+signature is as follows:
+
+    public Stream<T> peek(Consumer<? super T> action)
+
+You might notice the intermediate peek() operation takes the same argument as the terminal forEach() operation. Think of
+peek() as an intermediate version of forEach() that returns the original stream to you.
+
+    var stream = Stream.of("black bear", "brown bear", "grizzly");
+    long count = stream.filter(s -> s.startsWith("g"))
+            .peek(System.out::println).count(); // grizzly
+    System.out.println(count); // 1
+
+**Danger: Changing State with peek()**
+
+Remember that peek() is intended to perform an operation without changing the result.
+Here’s a straightforward stream pipeline that doesn’t use peek():
+
+    var numbers = new ArrayList<>(); 
+    var letters = new ArrayList<>(); 
+    numbers.add(1); 
+    letters.add('a');
+
+    Stream<List<?>> stream = Stream.of(numbers, letters); 
+    stream.map(List::size).forEach(System.out::print); // 11
+
+Now we add a peek() call and note that Java doesn’t prevent us from writing bad peek code:
+
+    Stream<List<?>> bad = Stream.of(numbers, letters); 
+    bad.peek(x -> x.remove(0))
+    .map(List::size) .forEach(System.out::print); // 00
+
+This example is bad because peek() is modifying the data structure that is used in the stream, which causes the result
+of the stream pipeline to be different than if the peek wasn’t present.
+
+## Putting Together the Pipeline
+
+Streams allow you to use chaining and express what you want to accomplish rather than how to do so.
+
+    var list = List.of("Toby", "Anna", "Leroy", "Alex");
+    list.stream()
+            .filter(n -> n.length() == 4)
+            .sorted()
+            .limit(2)
+            .forEach(System.out::println);
+
+What do you think the following does?
+
+    Stream.generate(() -> "Elsa")
+      .filter(n -> n.length() == 4)
+      .sorted()
+      .limit(2)
+      .forEach(System.out::println);
+
+It hangs until you kill the program, or it throws an exception after running out of memory. The foreperson has
+instructed sorted() to wait until everything to sort is present. That never happens because there is an infinite stream.
+
+    Stream.generate(() -> "Elsa")
+      .filter(n -> n.length() == 4) 
+      .limit(2)
+      .sorted() 
+      .forEach(System.out::println);
+
+This one prints Elsa twice. The filter lets elements through, and limit() stops the ear- lier operations after two
+elements. Now sorted() can sort because we have a finite list.
+
+    Stream.generate(() -> "Olaf Lazisson")
+      .filter(n -> n.length() == 4)
+      .limit(2)
+      .sorted()
+      .forEach(System.out::println);
+
+This one hangs as well until we kill the program. The filter doesn’t allow anything through, so limit() never sees two
+elements. This means we have to keep waiting and hope that they show up.
+
+You can even chain two pipelines together. See if you can identify the two sources and two terminal operations in this
+code.
+
+    long count = Stream.of("goldfish", "finch")
+      .filter(s -> s.length() > 5)
+      .collect(Collectors.toList())
+      .stream()
+      .count();
+    System.out.println(count); // 1
