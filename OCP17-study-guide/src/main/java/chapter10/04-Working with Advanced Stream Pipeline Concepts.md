@@ -125,3 +125,96 @@ infinite and doesn’t attempt to give you half. Instead, newBag contains a larg
 three since we call tryAdvance() three times. It would be a bad idea to call forEachRemaining() on an infinite stream!
 Note that a Spliterator can have a number of characteristics such as CONCURRENT, ORDERED, SIZED, and SORTED. You will
 only see a straightforward Spliterator on the exam. For example, our infinite stream was not SIZED.
+
+## Collecting Results
+
+### Using Basic Collectors
+
+Luckily, many of these collectors work the same way. Let’s look at an example:
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    String result = ohMy.collect(Collectors.joining(", "));
+    System.out.println(result); // lions, tigers, bears
+
+![](workingwithadvancedstreampipelineconcepts/Examples of grouping-partitioning collectors.png)
+
+![](workingwithadvancedstreampipelineconcepts/Examples of grouping-partitioning collectors-2.png)
+
+Let’s try another one. What is the average length of the three animal names?
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Double result = ohMy.collect(Collectors.averagingInt(String::length));
+    System.out.println(result); // 5.333333333333333
+
+Often, you’ll find yourself interacting with code that was written without streams. This means that it will expect a
+Collection type rather than a Stream type. No problem. You can still express yourself using a Stream and then convert to
+a Collection at the end.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    TreeSet<String> result = ohMy
+            .filter(s -> s.startsWith("t"))
+            .collect(Collectors.toCollection(TreeSet::new));
+    System.out.println(result); // [tigers]
+
+### Collecting into Maps
+
+Let’s start with a straightforward example to create a map from a stream:
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<String, Integer> map = ohMy.collect(
+            Collectors.toMap(s -> s, String::length));
+    System.out.println(map); // {lions=5, bears=5, tigers=6}
+
+Returning the same value passed into a lambda is a common operation, so Java provides a method for it. You can rewrite
+s -> s as Function.identity(). It is not shorter and may or may not be clearer, so use your judgment about whether to
+use it.
+
+Now we want to do the reverse and map the length of the animal name to the name itself. Our first incorrect attempt is
+shown here:
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Integer, String> map = ohMy.collect(Collectors.toMap(
+            String::length, 
+            k -> k)); // BAD
+
+Running this gives an exception similar to the following:
+
+    Exception in thread "main" java.lang.IllegalStateException: Duplicate key 5 (attempted merging values lions and bears)
+
+What’s wrong? Two of the animal names are the same length. We didn’t tell Java what to do. Should the collector choose
+the first one it encounters? The last one it encounters? Concatenate the two? Since the collector has no idea what to
+do, it “solves” the problem by throwing an exception and making it our problem.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Integer, String> map = ohMy.collect(Collectors.toMap(
+            String::length,
+            k -> k,
+            (s1, s2) -> s1 + "," + s2));
+    System.out.println(map); // {5=lions,bears, 6=tigers}
+    System.out.println(map.getClass()); // class java.util.HashMap
+
+It so happens that the Map returned is a HashMap. This behavior is not guaranteed. Suppose that we want to mandate
+that the code return a TreeMap instead. No problem. We would just add a constructor reference as a parameter:
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    TreeMap<Integer, String> map = ohMy.collect(Collectors.toMap(
+            String::length,
+            k -> k,
+            (s1, s2) -> s1 + "," + s2, TreeMap::new));
+    System.out.println(map); // // {5=lions,bears, 6=tigers}
+    System.out.println(map.getClass()); // class java.util.TreeMap
+
+### Grouping, Partitioning, and Mapping
+
+The exam creators like asking about groupingBy() and partitioningBy(), so make sure you understand these sections very
+well.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Integer, List<String>> map = ohMy.collect(
+            Collectors.groupingBy(String::length));
+    System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+
+The groupingBy() collector tells collect() that it should group all of the elements of the stream into a Map. The
+function determines the keys in the Map. Each value in the Map is a List of all entries that match that key.
+
+Note that the function you call in groupingBy() cannot return null. It does not allow null keys.
