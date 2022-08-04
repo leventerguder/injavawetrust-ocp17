@@ -218,3 +218,118 @@ The groupingBy() collector tells collect() that it should group all of the eleme
 function determines the keys in the Map. Each value in the Map is a List of all entries that match that key.
 
 Note that the function you call in groupingBy() cannot return null. It does not allow null keys.
+
+Suppose that we don’t want a List as the value in the map and prefer a Set instead. No problem. There’s another method
+signature that lets us pass a downstream collector. This is a second collector that does something special with the
+values.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Integer, Set<String>> map = ohMy.collect(
+            Collectors.groupingBy(String::length, Collectors.toSet()));
+    System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+
+We can even change the type of Map returned through yet another parameter.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    TreeMap<Integer, Set<String>> map = ohMy.collect(
+            Collectors.groupingBy(String::length, TreeMap::new, Collectors.toSet()));
+    System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+
+What if we want to change the type of Map returned but leave the type of values alone as a List? There isn’t a method
+for this specifically because it is easy enough to write with the existing ones.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    TreeMap<Integer, List<String>> map = ohMy.collect(
+            Collectors.groupingBy(String::length,
+                    TreeMap::new,
+                    Collectors.toList()));
+    System.out.println(map);
+
+Partitioning is a special case of grouping. With partitioning, there are only two possible groups: true and false.
+Partitioning is like splitting a list into two parts.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Boolean, List<String>> map = ohMy.collect(
+            Collectors.partitioningBy(s -> s.length() <= 5));
+    System.out.println(map); // {false=[tigers], true=[lions, bears]}
+
+Here we pass a Predicate with the logic for which group each animal name belongs in. Now suppose that we’ve figured out
+how to use a different font, and seven characters can now fit on the smaller sign. No worries. We just change the
+Predicate.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Boolean, List<String>> map = ohMy.collect(
+            Collectors.partitioningBy(s -> s.length() <= 7));
+    System.out.println(map); // {false=[], true=[lions, tigers, bears]}
+
+As with groupingBy(), we can change the type of List to something else.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Boolean, Set<String>> map = ohMy.collect(
+            Collectors.partitioningBy(s -> s.length() <= 7, Collectors.toSet()));
+    System.out.println(map); // {false=[], true=[lions, tigers, bears]}
+
+Unlike groupingBy(), we cannot change the type of Map that is returned. However, there are only two keys in the map, so
+does it really matter which Map type we use?
+
+Instead of using the downstream collector to specify the type, we can use any of the collectors that we’ve already
+shown. For example, we can group by the length of the animal name to see how many of each length we have.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Integer, Long> map = ohMy.collect(
+            Collectors.groupingBy(String::length, Collectors.counting()));
+    System.out.println(map); // {5=2, 6=1}
+
+**Debugging Complicated Generics**
+
+When working with collect(), there are often many levels of generics, making compiler errors unreadable. Here are three
+useful techniques for dealing with this situation:
+
+- Start over with a simple statement, and keep adding to it. By making one tiny change at a time, you will know which
+  code introduced the error.
+- Extract parts of the statement into separate statements. For example, try writing Collectors.groupingBy(String::
+  length, Collectors.counting());. If it compiles, you know that the problem lies elsewhere. If it doesn’t compile, you
+  have a much shorter statement to troubleshoot.
+- Use generic wildcards for the return type of the final statement: for example, Map<?, ?>. If that change alone allows
+  the code to compile, you’ll know that the problem lies with the return type not being what you expect.
+
+Finally, there is a mapping() collector that lets us go down a level and add another collector. Suppose that we wanted
+to get the first letter of the first animal alphabetically of each length.
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    Map<Integer, Optional<Character>> map = ohMy.collect(
+            Collectors.groupingBy(String::length, Collectors.mapping(
+                    s -> s.charAt(0),
+                    Collectors.minBy((a, b) -> a - b))));
+    System.out.println(map); // {5=Optional[b], 6=Optional[t]}
+
+You might see collectors used with a static import to make the code shorter. The exam might even use var for the return
+value and less indentation than we used. This means that you might see something like this:
+
+    var ohMy = Stream.of("lions", "tigers", "bears");
+    var map = ohMy.collect(groupingBy(String::length,
+            mapping(s -> s.charAt(0), minBy((a, b) -> a - b))));
+    System.out.println(map); // {5=Optional[b], 6=Optional[t]}
+
+## Teeing Collectors
+
+Suppose you want to return two things. As we’ve learned, this is problematic with streams because you only get one pass.
+The summary statistics are good when you want those operations. Luckily, you can use teeing() to return multiple
+values of your own.
+
+    record Separations(String spaceSeparated, String commaSeparated) {}
+
+    var list = List.of("x", "y", "z");
+    Separations result = list.stream()
+            .collect(Collectors.teeing(Collectors.joining(" "),
+                    Collectors.joining(","),
+                    (s, c) -> new Separations(s, c)));
+    System.out.println(result);
+
+When executed, the code prints the following:
+
+    Separations[spaceSeparated=x y z, commaSeparated=x,y,z]
+
+There are three Collectors in this code. Two of them are for joining() and produce the values we want to return. The
+third is teeing(), which combines the results into the single object we want to return. This way, Java is happy because
+only one object is returned, and we are happy because we don’t have to go through the stream twice.
