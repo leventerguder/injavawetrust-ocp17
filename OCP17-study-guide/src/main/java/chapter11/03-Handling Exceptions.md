@@ -184,3 +184,106 @@ catch expression.
     try {
       throw new IOException();
     } catch (IOException e) {}
+
+## Adding a finally Block
+
+The try statement also lets you run code at the end with a finally clause, regardless of whether an exception is thrown.
+
+There are two paths through code with both a catch and a finally. If an exception is thrown, the finally block is run
+after the catch block. If no exception is thrown, the finally block is run after the try block completes.
+
+    void explore() {
+      try {
+          seeAnimas();
+          fall();
+      } catch (Exception e) {
+          getHugFromDaddy();
+      } finally {
+          seeMoreAnimals();
+      }
+      goHome();
+    }
+
+![](handlingexceptions/the-syntax-of-a-try-statement-with-finally.png)
+
+The exam will try to trick you with missing clauses or clauses in the wrong order. Do you see why the following do or do
+not compile?
+
+    try { // DOES NOT COMPILE 
+      fall();
+    } finally {
+      System.out.println("all better");
+    } catch (Exception e) { 
+      System.out.println("get up");
+    }
+  
+    try { // DOES NOT COMPILE 
+      fall();
+    }
+
+    try { 
+      fall();
+    } finally {
+      System.out.println("all better");
+    }
+
+- The first example does not compile because the catch and finally blocks are in the wrong order.
+- The second example does not compile because there must be a catch or finally block.
+- The third example is just fine. The catch block is not required if finally is present.
+
+Most of the examples you encounter on the exam with finally are going to look contrived.
+
+    public static void main(String[] unused) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            sb.append("t");
+        } catch (Exception e) {
+            sb.append("c");
+        } finally {
+            sb.append("f");
+        }
+        sb.append("a");
+        System.out.print(sb.toString());
+    }
+
+There is one additional rule you should know for finally blocks. If a try statement with a finally block is entered,
+then the finally block will always be executed, regardless of whether the code completes successfully.
+
+    static int goHome() {
+        try {
+            System.out.print("1");
+            return -1;
+        } catch (Exception e) {
+            System.out.print("2");
+            return -2;
+        } finally {
+            System.out.print("3");
+            return -3;
+
+        }
+    }
+
+For the exam, you need to remember that a finally block will always be executed.
+
+    } finally {
+      info.printDetails();
+      System.out.print("Exiting");
+      return "zoo";
+    }
+
+If info was null, then the finally block would be executed, but it would stop and throw a NullPointerException.
+In this example, you see that while a finally block will always be executed, it may not finish.
+
+**System.exit()**
+
+There is one exception to “the finally block will always be executed” rule: Java defines a method that you call as
+System.exit(). It takes an integer parameter that represents the status code that is returned.
+
+    try { 
+      System.exit(0);
+    } finally {
+       System.out.print("Never going to get here"); // Not printed
+    }
+
+System.exit() tells Java, “Stop. End the program right now. Do not pass Go. Do not col- lect $200.” When System.exit()
+is called in the try or catch block, the finally block does not run.
