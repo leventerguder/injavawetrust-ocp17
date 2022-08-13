@@ -178,3 +178,69 @@ summarizes the rules for CompactNumberFormat:
 
 For the exam, make sure you understand the difference between the SHORT and LONG formats and common symbols like M for
 million.
+
+## Localizing Dates
+
+Like numbers, date formats can vary by locale.
+
+![](supportinginternationalizationandlocalization/Factory-methods-to-get-a-DateTimeFormatter.png)
+
+Each method in the table takes a FormatStyle parameter (or two) with possible values SHORT, MEDIUM, LONG, and FULL. For
+the exam, you are not required to know the format of each of these styles.
+
+What if you need a formatter for a specific locale? Easy enough—just append withLocale(locale) to the method call.
+
+    public static void print(DateTimeFormatter dtf, LocalDateTime dateTime, Locale locale) {
+        System.out.println(dtf.format(dateTime) + " --- " + dtf.withLocale(locale).format(dateTime));
+    }
+
+    public static void main(String[] args) {
+
+        Locale.setDefault(new Locale("en", "US"));
+        var italy = new Locale("it", "IT");
+        var dt = LocalDateTime.of(2022, Month.OCTOBER, 20, 15, 12, 34);
+
+        print(DateTimeFormatter.ofLocalizedDate(SHORT), dt, italy); // 3:12 PM --- 15:12
+        print(DateTimeFormatter.ofLocalizedTime(SHORT), dt, italy); // 10/20/22, 3:12 PM --- 20/10/22, 15:12
+        print(DateTimeFormatter.ofLocalizedDateTime(SHORT, SHORT), dt, italy);
+    }
+
+## Specifying a Locale Category
+
+When you call Locale.setDefault() with a locale, several display and formatting options are internally selected. If you
+require finer-grained control of the default locale, Java subdivides the underlying formatting options into distinct
+categories with the Locale.Category enum.
+
+The Locale.Category enum is a nested element in Locale that supports distinct locales for displaying and formatting
+data.
+
+![](supportinginternationalizationandlocalization/Locale.Category-values.png)
+
+    public static void printCurrency(Locale locale, double money) {
+        System.out.println(NumberFormat.getCurrencyInstance().format(money) + ", " + locale.getDisplayLanguage());
+    }
+
+    public static void main(String[] args) {
+
+        var spain = new Locale("es", "ES");
+        var money = 1.23;
+
+        Locale.setDefault(new Locale("en", "US"));
+        printCurrency(spain, money); // $1.23, Spanish
+
+        // Print with selected locale display
+
+        Locale.setDefault(Locale.Category.DISPLAY, spain);
+        printCurrency(spain, money); // $1.23, español
+
+        // Print with selected locale format
+        Locale.setDefault(Locale.Category.FORMAT, spain);
+        printCurrency(spain, money); // 1,23 €, español
+    }
+
+First it prints the language of the spain and money variables using the locale en_US. Then it prints it using the
+DISPLAY category of es_ES, while the FORMAT category remains en_US. Finally, it prints the data using both cate- gories
+set to es_ES.
+
+You just need to know that you can set parts of the locale independently. You should also know that calling
+Locale.setDefault(us) after the previous code snip- pet will change both locale categories to en_US.
