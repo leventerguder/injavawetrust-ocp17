@@ -139,3 +139,45 @@ only those bundles, along with the default bundle, will be used.
     System.out.print(rb.getString("open"));
     System.out.print(" ");
     System.out.print(rb.getString("visitors"));
+
+What if a property is not found in any resource bundle? Then an exception is thrown. For example, attempting to call
+rb.getString("close") in the previous program results in a MissingResourceException at runtime.
+
+## Formatting Messages
+
+Often we just want to output the text data from a resource bundle, but sometimes you want to format that data with
+parameters. In real programs, it is common to substitute variables in the middle of a resource bundle string. The
+convention is to use a number inside braces such as {0}, {1}, etc. The number indicates the order in which the
+parameters will be passed. Although resource bundles don’t support this directly, the MessageFormat class does.
+
+    helloByName=Hello, {0} and {1}
+
+Suppose we have a resource bundle rb:
+
+    String format = rb.getString("helloByName");
+    System.out.print(MessageFormat.format(format, "Tammy", "Henry"));
+
+## Using the Properties Class
+
+When working with the ResourceBundle class, you may also come across the Properties class. It functions like the HashMap
+class.
+
+    public class ZooOptions {
+    
+        public static void main(String[] args) {
+            var props = new Properties();
+            props.setProperty("name", "Our zoo");
+            props.setProperty("open", "10am");
+        }
+    }
+
+The Properties class is commonly used in handling values that may not exist.
+
+    System.out.println(props.getProperty("camel")); // null
+    System.out.println(props.getProperty("camel", "Bob")); // Bob
+
+The Properties class also includes a get() method, but only getProperty() allows for a default value. For example, the
+following call is invalid since get() takes only a single parameter:
+
+    props.get("open"); // 10am 
+    props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
