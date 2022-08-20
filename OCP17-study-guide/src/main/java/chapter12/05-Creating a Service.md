@@ -112,6 +112,110 @@ requesting a Stream gives you a different type.The reason for this is that a Str
 evaluated.Therefore, a ServiceLoader returns a Stream of Provider objects.You have to call get() to retrieve the value
 you wanted out of each Provider, such as in this example:
 
-    ServiceLoader.load(Tour.class) .stream()
-    .map(Provider::get) .mapToInt(Tour::length)
-    .max() .ifPresent(System.out::println);
+    ServiceLoader.load(Tour.class) 
+        .stream()
+        .map(Provider::get) 
+        .mapToInt(Tour::length)
+        .max() 
+        .ifPresent(System.out::println);
+
+## Invoking from a Consumer
+
+Next up is to call the service locator by a consumer. A consumer (or client) refers to a module that obtains and uses a
+service. Once the consumer has acquired a service via the service locator, it is able to invoke the methods provided
+by the service provider interface.
+
+    package zoo.visitor;
+
+    import java.util.*;
+    
+    import zoo.tours.api.*;
+    import zoo.tours.reservations.*;
+    
+    public class Tourist {
+        public static void main(String[] args) {
+            Tour tour = TourFinder.findSingleTour();
+            System.out.println("Single tour: " + tour);
+            List<Tour> tours = TourFinder.findAllTours();
+            System.out.println("# tours: " + tours.size());
+        }
+    }
+
+Our module definition doesn’t need to know anything about the implementations since the zoo.tours.reservations module is
+handling the lookup.
+
+    module zoo.visitor {
+        requires zoo.tours.api;
+        requires zoo.tours.reservations;
+    }
+
+This time, we get to run a program after compiling and packaging.
+
+    javac -p mods -d consumerModule consumerModule/zoo/visitor/*.java consumerModule/module-info.java
+
+    jar -cvf mods/zoo.visitor.jar -C consumerModule/ .
+
+    java -p mods -m zoo.visitor/zoo.visitor.Tourist
+
+## Adding a Service Provider
+
+A service provider is the implementation of a service provider interface. As we said earlier, at runtime it is possible
+to have multiple implementation classes or modules. We will stick to one here for simplicity.
+
+    package zoo.tours.agency;
+    import zoo.tours.api.*;
+        
+    public class TourImpl implements Tour {
+        public String name() {
+            return "Behind the Scenes";
+        }
+    
+        public int length() {
+            return 120;
+        }
+    
+        public Souvenir getSouvenir() {
+            return new Souvenir("stuffed animal");
+        }
+    }
+
+
+    module zoo.tours.agency {
+        requires zoo.tours.api;
+        provides zoo.tours.api.Tour with zoo.tours.agency.TourImpl;
+    }
+
+The module declaration requires the module containing the interface as a dependency. We don’t export the package that
+implements the interface since we don’t want callers referring to it directly. Instead, we use the provides directive.
+This allows us to specify that we provide an implementation of the interface with a specific implementation class. The
+syntax looks like this:
+
+    provides interfaceName with className;
+
+We have not exported the package containing the implementation. Instead, we have made the implementation available to a
+service provider using the interface.
+
+Finally, we compile it and package it up.
+
+    javac -p mods -d serviceProviderModule serviceProviderModule/zoo/tours/agency/*.java 
+    serviceProviderModule/module-info.java
+    jar -cvf mods/zoo.tours.agency.jar -C serviceProviderModule/ .
+
+Now comes the cool part. We can run the Java program again.
+
+    java -p mods -m zoo.visitor/zoo.visitor.Tourist
+
+Notice how we didn’t recompile the zoo.tours.reservations or zoo.visitor package. The service locator was able to
+observe that there was now a service provider implementation available and find it for us. This is useful when you have
+functionality that changes independently of the rest of the code base. For example, you might have custom reports or
+logging.
+
+## Reviewing Directives and Services
+
+Table 12.4 summarizes what we’ve covered in the section about services. We recommend learning really well what is needed
+when each artifact is in a separate module. That is most likely what you will see on the exam and will ensure that you
+understand the concepts. Table 12.5 lists all the directives you need to know for the exam.
+
+![](creatingaservice/Reviewing-services.png)
+
+![](creatingaservice/Reviewing-directives.png)
