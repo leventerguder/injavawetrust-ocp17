@@ -167,3 +167,148 @@ matching generic type (which could also be a null value).
     } finally {
         service.shutdown();
     }
+
+## Waiting for All Tasks to Finish
+
+After submitting a set of tasks to a thread executor, it is common to wait for the results. As you saw in the previous
+sections, one solution is to call get() on each Future object returned by the submit() method. If we don’t need the
+results of the tasks and are finished using our thread executor, there is a simpler approach.
+
+First, we shut down the thread executor using the shutdown() method. Next, we use the awaitTermination() method
+available for all thread executors. The method waits the specified time to complete all tasks, returning sooner if all
+tasks finish or an InterruptedException is detected. You can see an example of this in the following code snippet:
+
+    public static void main(String[] args) throws InterruptedException {
+
+        Runnable printInventory = () -> System.out.println("Printing zoo inventory");
+        Runnable printRecords = () -> {
+            for (int i = 0; i < 3; i++) {
+                System.out.println("Printing record: " + i);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+
+        ExecutorService service = Executors.newSingleThreadExecutor();
+        try {
+
+            System.out.println("begin");
+            service.execute(printInventory);
+            service.execute(printRecords);
+            service.execute(printInventory);
+            System.out.println("end");
+
+
+        } finally {
+            service.shutdown();
+        }
+        service.awaitTermination(1, TimeUnit.SECONDS);
+        // Check whether all tasks are finished
+
+        if (service.isTerminated())
+            System.out.println("Finished!");
+        else
+            System.out.println("At least one task is still running");
+    }
+
+## Scheduling Tasks
+
+Often in Java, we need to schedule a task to happen at some future time. We might even need to schedule the task to
+happen repeatedly, at some set interval. For example, imagine that we want to check the supply of food for zoo animals
+once an hour and fill it as needed. ScheduledExecutorService, which is a subinterface of ExecutorService, can be used
+for just such a task.
+
+Like ExecutorService, we obtain an instance of ScheduledExecutorService using a factory method in the Executors class,
+as shown in the following snippet:
+
+    ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+
+We could store an instance of ScheduledExecutorService in an ExecutorService variable, although doing so would mean we’d
+have to cast the object to call any scheduling methods.
+
+![](creatingthreadswiththeconcurrencyapi/ScheduledExecutorService-methods.png)
+
+In practice, these methods are among the most convenient in the Concurrency API, as they perform relatively complex
+tasks with a single line of code. The delay and period parameters rely on the TimeUnit argument to determine the format
+of the value, such as seconds or milliseconds.
+
+The first two schedule() methods in Table 13.4 take a Callable or Runnable, respectively; perform the task after some
+delay; and return a ScheduledFuture instance. The ScheduledFuture interface is identical to the Future interface, except
+that it includes a getDelay() method that returns the remaining delay. The following uses the schedule()
+method with Callable and Runnable tasks:
+
+    public static void main(String[] args) {
+
+        ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+        Runnable task1 = () -> System.out.println("Hello Zoo");
+        Callable<String> task2 = () -> "Monkey";
+        ScheduledFuture<?> r1 = service.schedule(task1, 10, TimeUnit.SECONDS);
+        ScheduledFuture<?> r2 = service.schedule(task2, 8, TimeUnit.MINUTES);
+    }
+
+The first task is scheduled 10 seconds in the future, whereas the second task is scheduled 8 minutes in the future.
+
+While these tasks are scheduled in the future, the actual execution may be delayed. For example, there may be no threads
+available to perform the tasks, at which point they will just wait in the queue. Also, if the ScheduledExecutorService
+is shut down by the time the scheduled task execution time is reached, then these tasks will be discarded.
+
+Each of the ScheduledExecutorService methods is important and has real-world applications. For example, you can use the
+schedule() command to check on the state of cleaning a lion’s cage. It can then send out notifications if it is not
+finished or even call schedule() to check again later.
+
+The last two methods in Table 13.4 might be a little confusing if you have not seen them before. Conceptually, they are
+similar as they both perform the same task repeatedly after an initial delay. The difference is related to the timing of
+the process and when the next task starts.
+
+The scheduleAtFixedRate() method creates a new task and submits it to the executor every period, regardless of whether
+the previous task finished. The following example executes a Runnable task every minute, following an initial
+five-minute delay:
+
+    service.scheduleAtFixedRate(command, 5, 1, TimeUnit.MINUTES
+
+The scheduleAtFixedRate() method is useful for tasks that need to be run at specific intervals, such as checking the
+health of the animals once a day. Even if it takes two hours to examine an animal on Monday, this doesn’t mean that
+Tuesday’s exam should start any later in the day.
+
+Bad things can happen with scheduleAtFixedRate() if each task consistently takes longer to run than the execution
+interval. Imagine if your boss came by your desk every minute and dropped off a piece of paper. Now imagine that it took
+you five minutes to read each piece of paper. Before long, you would be drowning in piles of paper. This is how an
+executor feels. Given enough time, the program would submit more tasks to the executor service than could fit in memory,
+causing the program to crash.
+
+On the other hand, the scheduleWithFixedDelay() method creates a new task only after the previous task has finished. For
+example, if a task runs at 12:00 and takes five minutes to finish, with a period between executions of two minutes, the
+next task will start at 12:07.
+
+    service.scheduleWithFixedDelay(task1, 0, 2, TimeUnit.MINUTES);
+
+The scheduleWithFixedDelay() method is useful for processes that you want to happen repeatedly but whose specific time
+is unimportant. For example, imagine that we have a zoo cafeteria worker who periodically restocks the salad bar
+throughout the day. The process can take 20 minutes or more, since it requires the worker to haul a large number of
+items from the back room. Once the worker has filled the salad bar with fresh food, they don’t need to check at some
+specific time, just after enough time has passed for it to become low on stock again.
+
+## Increasing Concurrency with Pools
+
+All of our examples up until now have been with a single-thread executor, which, while interesting, weren’t particularly
+useful. After all, the name of this chapter is “Concurrency,” and you can’t do a lot of that with a single-thread
+executor!
+
+We now present three additional factory methods in the Executors class that act on a pool of threads rather than on a
+single thread. A thread pool is a group of pre-instantiated reusable threads that are available to perform a set of
+arbitrary tasks. Table 13.5 includes our two previous single-thread executor methods, along with the new ones that you
+should know for the exam.
+
+![](creatingthreadswiththeconcurrencyapi/Executors-factory-methods.png)
+
+As shown in Table 13.5, these methods return the same instance types, ExecutorService and ScheduledExecutorService, that
+we used earlier in this chapter. In other words, all of our previous examples are compatible with these new
+pooled-thread executors!
+
+The difference between a single-thread and a pooled-thread executor is what happens when a task is already running.
+While a single-thread executor will wait for the thread to become available before running the next task, a
+pooled-thread executor can execute the next task concurrently. If the pool runs out of available threads, the task will
+be queued by the thread executor and wait to be completed.
