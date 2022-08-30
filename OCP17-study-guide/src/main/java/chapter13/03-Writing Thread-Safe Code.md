@@ -355,3 +355,132 @@ improvements:
 While not on the exam, ReentrantReadWriteLock is a really useful class. It includes separate locks for reading and
 writing data and is useful on data structures where reads are far more common than writes. For example, if you have a
 thousand threads reading data but only one thread writing data, this class can help you maximize concurrent access.
+
+## OrchestratingTasks with a CyclicBarrier
+
+We started the thread-safety topic by discussing protecting individual variables and then moved on to blocks of code and
+locks. We complete our discussion of thread-safety by showing how to orchestrate complex tasks with many steps.
+
+Our zoo workers are back, and this time they are cleaning pens. Imagine a lion pen that needs to be emptied, cleaned,
+and then refilled with the lions. To complete the task, we have assigned four zoo workers. Obviously, we don’t want to
+start cleaning the cage while a lion is roaming in it, lest we end up losing a zoo worker! Furthermore, we don’t want to
+let the lions back into the pen while it is still being cleaned.
+
+We could have all of the work completed by a single worker, but this would be slow and ignore the fact that we have
+three zoo workers standing by to help. A better solution would be to have all four zoo employees work concurrently,
+pausing between the end of one set of tasks and the start of the next.
+
+    import java.util.concurrent.Executors;
+    
+    public class LionPenManager {
+    
+        private void removeLions() {
+            System.out.println("Removing lions");
+        }
+    
+        private void cleanPen() {
+            System.out.println("Cleaning the pen");
+        }
+    
+        private void addLions() {
+            System.out.println("Adding lions");
+        }
+    
+        public void performTask() {
+            removeLions();
+            cleanPen();
+            addLions();
+        }
+    
+        public static void main(String[] args) {
+            var service = Executors.newFixedThreadPool(4);
+            try {
+                var manager = new LionPenManager();
+                for (int i = 0; i < 4; i++)
+                    service.submit(() -> manager.performTask());
+            } finally {
+                service.shutdown();
+            }
+        }
+    }
+
+Although the results are ordered within a single thread, the output is entirely random among multiple workers. We see
+that some lions are still being removed while the cage is being cleaned, and other lions are added before the cleaning
+process is finished. Let’s hope none of the zoo workers get eaten!
+
+We can improve these results by using the CyclicBarrier class. The CyclicBarrier takes in its constructors a limit
+value, indicating the number of threads to wait for. As each thread finishes, it calls the await() method on the cyclic
+barrier. Once the specified number of threads have each called await(), the barrier is released, and all threads can
+continue.
+
+    public class LionPenManagerCyclicBarrier {
+    
+        private void removeLions() {
+            System.out.println("Removing lions");
+        }
+    
+        private void cleanPen() {
+            System.out.println("Cleaning the pen");
+        }
+    
+        private void addLions() {
+            System.out.println("Adding lions");
+        }
+    
+        public void performTask(CyclicBarrier c1, CyclicBarrier c2) {
+            try {
+                removeLions();
+                c1.await();
+                cleanPen();
+                c2.await();
+                addLions();
+            } catch (InterruptedException | BrokenBarrierException e) { // Handle checked exceptions here
+            }
+        }
+    
+    
+        public static void main(String[] args) {
+            var service = Executors.newFixedThreadPool(4);
+            try {
+                var manager = new LionPenManagerCyclicBarrier();
+                var c1 = new CyclicBarrier(4);
+                var c2 = new CyclicBarrier(4,
+                        () -> System.out.println("*** Pen Cleaned!"));
+                for (int i = 0; i < 4; i++)
+                    service.submit(() -> manager.performTask(c1, c2));
+            } finally {
+                service.shutdown();
+            }
+        }
+    }
+
+The following is sample output based on this revised implementation of our LionPenManagerCyclicBarrier class:
+
+    Removing lions
+    Removing lions
+    Removing lions
+    Removing lions
+    Cleaning the pen
+    Cleaning the pen
+    Cleaning the pen
+    Cleaning the pen
+    *** Pen Cleaned!
+    Adding lions
+    Adding lions
+    Adding lions
+    Adding lions
+
+As you can see, all of the results are now organized. Removing the lions happens in one step, as does cleaning the pen
+and adding the lions back in. In this example, we used two different constructors for our CyclicBarrier objects, the
+latter of which executes a Runnable instance upon completion.
+
+The CyclicBarrier class allows us to perform complex, multithreaded tasks while all threads stop and wait at logical
+barriers. This solution is superior to a single-threaded solu- tion, as the individual tasks, such as removing the
+lions, can be completed in parallel by all four zoo workers.
+
+**Reusing CyclicBarrier**
+
+After a CyclicBarrier limit is reached (aka the barrier is broken), all threads are released, and the number of threads
+waiting on the CyclicBarrier goes back to zero. At this point, the CyclicBarrier may be used again for a new set of
+waiting threads. For example, if our CyclicBarrier limit is 5 and we have 15 threads that call await(), the
+CyclicBarrier will be activated a total of three times.
