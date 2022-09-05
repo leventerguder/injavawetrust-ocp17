@@ -114,3 +114,228 @@ can be added over time.
     void copy(Path source, Path target) throws IOException { 
         Files.move(source, target,LinkOption.NOFOLLOW_LINKS,StandardCopyOption.ATOMIC_MOVE); 
     }
+
+## Interacting with NIO.2 Paths
+
+Just like String values, Path instances are immutable. In the following example, the Path operation on the second line
+is lost since p is immutable:
+
+    Path p = Path.of("whale");
+    p.resolve("krill");
+    System.out.println(p); // whale
+
+### Viewing the Path
+
+The Path interface contains three methods to retrieve basic information about the path rep- resentation. The toString()
+method returns a String representation of the entire path. In fact, it is the only method in the Path interface to
+return a String. Many of the other methods in the Path interface return Path instances.
+
+The getNameCount() and getName() methods are often used together to retrieve the number of elements in the path and a
+reference to each element, respectively.
+
+    Path path = Paths.get("/land/hippo/harry.happy");
+    System.out.println("The Path Name is: " + path);
+    for (int i = 0; i < path.getNameCount(); i++)
+        System.out.println(" Element " + i + " is: " + path.getName(i));
+
+The code prints the following:
+
+    The Path Name is: /land/hippo/harry.happy
+    Element 0 is: land
+    Element 1 is: hippo
+    Element 2 is: harry.happy
+
+Even though this is an absolute path, the root element is not included in the list of names. As we said, these methods
+do not consider the root part of the path.
+
+    var p = Path.of("/");
+    System.out.print(p.getNameCount()); // 0 
+    System.out.print(p.getName(0)); // IllegalArgumentException
+
+Notice that if you try to call getName() with an invalid index, it will throw an exception at runtime.
+
+### Creating Part of the Path
+
+The Path interface includes the subpath() method to select portions of a path. It takes two parameters: an inclusive
+beginIndex and an exclusive endIndex.
+
+    var p = Paths.get("/mammal/omnivore/raccoon.image");
+    System.out.println("Path is: " + p);
+    for (int i = 0; i < p.getNameCount(); i++) {
+        System.out.println(" Element " + i + " is: " + p.getName(i));
+    }
+
+    System.out.println();
+    System.out.println("subpath(0,3): " + p.subpath(0, 3));
+    System.out.println("subpath(1,2): " + p.subpath(1, 2));
+    System.out.println("subpath(1,3): " + p.subpath(1, 3));
+
+The output of this code snippet is the following:
+
+    Path is: /mammal/omnivore/raccoon.image
+    Element 0 is: mammal
+    Element 1 is: omnivore
+    Element 2 is: raccoon.image
+    
+    subpath(0,3): mammal/omnivore/raccoon.image
+    subpath(1,2): omnivore
+    subpath(1,3): omnivore/raccoon.image
+
+Like getNameCount() and getName(), subpath() is zero-indexed and does not include the root. Also like getName(),
+subpath() throws an exception if invalid indices are provided.
+
+    var q = p.subpath(0, 4); // IllegalArgumentException 
+    var x = p.subpath(1, 1); // IllegalArgumentException
+
+### Accessing Path Elements
+
+The getFileName() method returns the Path element of the current file or directory, while getParent() returns the full
+path of the containing directory.
+
+The getParent() method returns null if operated on the root path or at the top of a relative path. The getRoot() method
+returns the root element of the file within the file system, or null if the path is a relative path.
+
+    public static void main(String[] args) {
+
+        printPathInformation(Path.of("zoo"));
+        printPathInformation(Path.of("/zoo/armadillo/shells.txt"));
+        printPathInformation(Path.of("./armadillo/../shells.txt"));
+    }
+
+    public static void printPathInformation(Path path) {
+        System.out.println("Filename is: " + path.getFileName());
+        System.out.println(" Root is: " + path.getRoot());
+        Path currentParent = path;
+        while ((currentParent = currentParent.getParent()) != null)
+            System.out.println(" Current parent is: " + currentParent);
+        System.out.println();
+    }
+
+### Resolving Paths
+
+The resolve() method provides overloaded versions that let you pass either a Path or String parameter. The object on
+which the resolve() method is invoked becomes the basis of the new Path object, with the input argument being appended
+onto the Path.
+
+    Path path1 = Path.of("/cats/../panther"); 
+    Path path2 = Path.of("food"); 
+    System.out.println(path1.resolve(path2));
+
+The code snippet generates the following output:
+
+    /cats/../panther/food
+
+Like the other methods we’ve seen, resolve() does not clean up path symbols. In this example, the input argument to the
+resolve() method was a relative path, but what if it had been an absolute path?
+
+    Path path3 = Path.of("/turkey/food"); 
+    System.out.println(path3.resolve("/tiger/cage"));
+
+    /tiger/cage
+
+For the exam, you should be cognizant of mixing absolute and relative paths with the resolve() method. If an absolute
+path is provided as input to the method, that is the value returned. Simply put, you cannot combine two absolute paths
+using resolve().
+
+On the exam, when you see resolve(), think concatenation.
+
+### Relativizing a Path
+
+The Path interface includes a relativize() method for constructing the relative path from one Path to another, often
+using path symbols. What do you think the following examples will print?
+
+    var path1 = Path.of("fish.txt");
+    var path2 = Path.of("friendly/birds.txt"); 
+    System.out.println(path1.relativize(path2)); 
+    System.out.println(path2.relativize(path1));
+
+The examples print the following:
+
+    ../friendly/birds.txt
+    ../../fish.txt
+
+The idea is this: if you are pointed at a path in the file system, what steps would you need to take to reach the other
+path? For example, to get to fish.txt from friendly/birds.txt, you need to go up two levels (the file itself counts as
+one level) and then select fish.txt.
+
+If both path values are relative, the relativize() method computes the paths as if they are in the same current working
+directory. Alternatively, if both path values are absolute, the method computes the relative path from one absolute
+location to another, regardless of the current working directory.
+
+    Path path3 = Paths.get("/habitat");
+    Path path4 = Paths.get("/sanctuary/raven/poe.txt");
+    System.out.println(path3.relativize(path4));
+    System.out.println(path4.relativize(path3));
+
+This code snippet produces the following output:
+
+    ../sanctuary/raven/poe.txt
+    ../../../habitat
+
+The relativize() method requires both paths to be absolute or relative and throws an exception if the types are mixed.
+
+    Path path1 = Paths.get("/primate/chimpanzee");
+    Path path2 = Paths.get("bananas.txt"); 
+    path1.relativize(path2); // IllegalArgumentException
+
+On Windows-based systems, it also requires that if absolute paths are used, both paths must have the same root directory
+or drive letter. For example, the following would also throw an IllegalArgumentException on a Windows-based system:
+
+    Path path3 = Paths.get("C:\\primate\\chimpanzee"); 
+    Path path4 = Paths.get("D:\\storage\\bananas.txt"); 
+    path3.relativize(path4); // IllegalArgumentException
+
+### Normalizing a Path
+
+Java provides the normalize() method to eliminate unnecessary redundancies in a path.
+Remember, the path symbol .. refers to the parent directory, while the path symbol . refers to the current directory. We
+can apply normalize() to some of our previous paths.
+
+    var p1 = Path.of("./armadillo/../shells.txt"); 
+    System.out.println(p1.normalize()); // shells.txt
+
+    var p2 = Path.of("/cats/../panther/food");
+    System.out.println(p2.normalize()); // /panther/food
+
+    var p3 = Path.of("../../fish.txt");
+    System.out.println(p3.normalize()); // ../../fish.txt
+
+The normalize() method does not remove all of the path symbols, only the ones that can be reduced.
+
+The normalize() method also allows us to compare equivalent paths. Consider the fol- lowing example:
+
+    var p1 = Paths.get("/pony/../weather.txt");
+    var p2 = Paths.get("/weather.txt"); 
+    System.out.println(p1.equals(p2)); // false 
+    System.out.println(p1.normalize().equals(p2.normalize())); // true
+
+The equals() method returns true if two paths represent the same value. In the first comparison, the path values are
+different. In the second comparison, the path values have both been reduced to the same normalized value, /weather.txt.
+This is the primary function of the normalize() method: to allow us to better compare different paths.
+
+### Retrieving the Real File System Path
+
+While working with theoretical paths is useful, sometimes you want to verify that the path exists within the file system
+using toRealPath(). This method is similar to normalize() in that it eliminates any redundant path symbols. It is also
+similar to toAbsolutePath(), in that it will join the path with the current working directory if the path is relative.
+
+Unlike those two methods, though, toRealPath() will throw an exception if the path does not exist. In addition, it will
+follow symbolic links, with an optional LinkOption varargs parameter to ignore them.
+
+Let’s say that we have a file system in which we have a symbolic link from /zebra to /horse. What do you think the
+following will print, given a current working directory of /horse/schedule?
+
+    System.out.println(Paths.get("/zebra/food.txt").toRealPath()); 
+    System.out.println(Paths.get(".././food.txt").toRealPath());
+
+The output of both lines is the following:
+
+    /horse/food.txt
+
+We can also use the toRealPath() method to gain access to the current working directory as a Path object.
+
+    System.out.println(Paths.get(".").toRealPath());
+
+### Reviewing NIO.2 Path APIs
+
+![](operatingonfileandpath/Path-APIs.png)
