@@ -1,0 +1,3 @@
+clown.txt content line1
+line2
+line3
