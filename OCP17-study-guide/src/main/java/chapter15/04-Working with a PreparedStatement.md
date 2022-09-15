@@ -141,5 +141,152 @@ each of the three key methods on PreparedStatement. Table 15.4 shows what is ret
 
 ![](workingwithapreparedstatement/Return-types-of-execute-methods.png)
 
+## Working with Parameters
 
+Suppose our zoo acquires a new elephant and we want to register it in our names table. We’ve already learned enough to
+do this.
 
+    public static void register(Connection conn) throws SQLException { 
+        var sql = "INSERT INTO names VALUES(6, 1, 'Edith')";
+        try (var ps = conn.prepareStatement(sql)) { 
+            ps.executeUpdate();
+        } 
+    }
+
+However, everything is hard-coded. We want to be able to pass in the values as parame- ters. Luckily, a
+PreparedStatement allows us to set parameters. Instead of specifying the three values in the SQL, we can use a question
+mark (?). A bind variable is a placeholder that lets you specify the actual values at runtime. A bind variable is like a
+parameter, and you will see bind variables referenced as both variables and parameters. We can rewrite our SQL statement
+using bind variables.
+
+    String sql = "INSERT INTO names VALUES(?, ?, ?)";
+
+Bind variables make the SQL easier to read since you no longer need to use quotes around String values in the SQL. Now
+we can pass the parameters to the method itself.
+
+    public static void register(Connection conn, int key, int type, String name) throws SQLException {
+    
+        String sql = "INSERT INTO names VALUES(?, ?, ?)";
+        
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, key);
+            ps.setString(3, name);
+            ps.setInt(2, type);
+            ps.executeUpdate();
+        }
+    }
+
+Notice how the bind variables are counted starting with 1 rather than 0. This is really important, so we will repeat it.
+Remember that JDBC starts counting columns with 1 rather than 0. A common exam question tests that you know this!
+
+In the previous example, we set the parameters out of order. That’s perfectly fine. The rule is only that they are each
+set before the query is executed. Let’s see what happens if you don’t set all the bind variables.
+
+    var sql = "INSERT INTO names VALUES(?, ?, ?)"; 
+    try (var ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, key);
+        ps.setInt(2, type);
+        // missing the set for parameter number 3 
+        ps.executeUpdate();
+    }
+
+The code compiles, and you get a SQLException. The message may vary based on your database driver.
+
+    Exception in thread "main" java.sql.SQLException: Parameter not set
+
+What about if you try to set more values than you have as bind variables?
+
+    var sql = "INSERT INTO names VALUES(?, ?)"; 
+    try (var ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, key); 
+        ps.setInt(2, type); 
+        ps.setString(3, name); 
+        ps.executeUpdate();
+    }
+
+Again, you get a SQLException, this time with a different message. On HyperSQL, that message was as follows:
+
+    Exception in thread "main" java.sql.SQLException: row column count mismatch in statement [INSERT INTO names VALUES(?, ?)]
+
+Table 15.5 shows the methods you need to know for the exam to set bind variables. The ones that you need to know for the
+exam are easy to remember since they are called set followed by the name of the type you are setting. There are many
+others, like dates, that are out of scope for the exam.
+
+![](workingwithapreparedstatement/PreparedStatement-methods.png)
+
+The first column shows the method name, and the second column shows the type that Java uses. The third column shows the
+type name that could be in the database. There is some variation by databases, so check your specific database
+documentation. You need to know only the first two columns for the exam.
+
+The setNull() method takes an int parameter representing the column type in the database. You do not need to know these
+types. Notice that the setObject() method works with any Java type. If you pass a primitive, it will be autoboxed into a
+wrapper type. That means we can rewrite our example as follows:
+
+    String sql = "INSERT INTO names VALUES(?, ?, ?)";
+    try (PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setObject(1, key); 
+        ps.setObject(2, type); 
+        ps.setObject(3, name); 
+        ps.executeUpdate();
+    }
+
+Java will handle the type conversion for you. It is still better to call the more specific setter methods since that
+will give you a compile-time error if you pass the wrong type instead of a runtime error.
+
+## Updating Multiple Records
+
+Suppose we get two new elephants and want to add both. We can use the same PreparedStatement object.
+
+    var sql = "INSERT INTO names VALUES(?, ?, ?)";
+    
+    try (var ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, 20); 
+        ps.setInt(2, 1); 
+        ps.setString(3, "Ester"); 
+        ps.executeUpdate();
+        ps.setInt(1, 21); 
+        ps.setString(3, "Elias"); 
+        ps.executeUpdate();
+    }    
+
+Note that we set all three parameters when adding Ester but only two for Elias. The PreparedStatement is smart enough to
+remember the parameters that were already set and retain them. You only have to set the ones that are different.
+
+**Batching Statements**
+
+JDBC supports batching so you can run multiple statements in fewer trips to the database. Often the database is located
+on a different machine than the Java code runs on. Saving trips to the database saves time because network calls can be
+expensive. For example, if you need to insert 1,000 records into the database, inserting them as a single network call (
+as opposed to 1,000 network calls) is usually a lot faster.
+
+You don’t need to know the addBatch() and executeBatch() methods for the exam, but they are useful in practice.
+
+    public static void register(Connection conn, int firstKey, int type, String... names) throws SQLException {
+        
+        var sql = "INSERT INTO names VALUES(?, ?, ?)"; 
+        var nextIndex = firstKey;
+
+        try (var ps = conn.prepareStatement(sql)) {
+            ps.setInt(2, type);
+            for(var name: names) { 
+                ps.setInt(1, nextIndex); 
+                ps.setString(3, name); 
+                ps.addBatch();nextIndex++; }
+                int[] result = ps.executeBatch();
+                System.out.println(Arrays.toString(result)); 
+            }
+        }
+    }
+
+Now we call this method with two names:
+
+    register(conn, 100, 1, "Elias", "Ester"); 
+
+The output shows that the array has two elements since there are two different items in the batch. Each added one row in
+the database.
+
+    [1, 1]
+
+You can use batching to break up large operations, such as inserting 10 million records in groups of 100. In practice,
+it takes a bit of work to determine an appropriate batch size, but the performance of using batch is normally far better
+than inserting one row at a time (or all ten million at once).
