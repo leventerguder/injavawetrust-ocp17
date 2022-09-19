@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.understanding_the_class_structure;
 
 public class Animal {
     private String name;

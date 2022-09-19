@@ -33,6 +33,8 @@ name along with any of these three formats:
 - String options[]
 - String... friends
 
+**Optional Modifiers in main() Methods**
+
 While most modifiers, such as public and static are required for main() methods, there are some optional modifiers
 allowed.
 Both final modifiers are optional.
@@ -76,6 +78,8 @@ Now we have a space in the output:
 San Diego
 Boo
 ```
+
+**Single-File Source-Code**
 
 If you get tired of typing both javac and java every time you want to try a code example, there’s a shortcut.You can
 instead run
