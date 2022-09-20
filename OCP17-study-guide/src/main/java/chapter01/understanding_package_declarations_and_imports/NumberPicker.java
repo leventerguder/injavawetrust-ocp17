@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.understanding_package_declarations_and_imports;
 
 import java.util.Random;
 // import tells us where to find Random
