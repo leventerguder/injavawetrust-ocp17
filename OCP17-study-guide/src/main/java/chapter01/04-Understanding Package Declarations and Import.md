@@ -175,6 +175,12 @@ java --class-path classes packageb.ClassB
 Notice that the last one requires two dashes (--), while the first two require one dash (-). If you have the wrong
 number of dashes, the program will not run.
 
+**Three Classpath Options**
+
+You might wonder why there are three options for the classpath.The -cp option is the short form. Developers frequently
+choose the short form because we are lazy typists.The -classpath and --class-path versions can be clearer to read but
+require more typing.
+
 Important javac options
 
 |-cp <classpath>               |   Location of classes needed to compile the program |
