@@ -7,6 +7,20 @@ Java applications contain two types of data: primitive types and reference types
 Java has eight built-in data types, referred to as the Java primitive types.
 A primitive is just a single value in memory, such as a number or character.
 
+### The Primitive Types
+
+The exam assumes you are well versed in the eight primitive data types, their relative sizes, and what can be stored in
+them.
+
+![](understanding_data_types/Primitive-types.png)
+
+**Is String a Primitive?**
+
+No, it is not.That said, String is often mistaken for a ninth primitive because Java includes built-in support for
+String literals and operators.
+
+There’s a lot of information in Table 1.6. Let’s look at some key points:
+
 - The byte, short, int, and long types are used for integer values without decimal points.
 - Each numeric type uses twice as many bits as the smaller similar type. For example, short uses twice as many bits as
   byte does.
@@ -16,6 +30,12 @@ A primitive is just a single value in memory, such as a number or character.
   interprets a decimal value as a double.
 - A long requires the letter l or L following the number so Java knows it is a long. Without an l or L, Java interprets
   a number without a decimal point as an int in most scenarios.
+
+**Signed and Unsigned: short and char**
+
+For the exam, you should be aware that short and char are closely related, as both are stored as integral types with the
+same 16-bit length.The primary difference is that short is signed, which means it splits its range across the positive
+and negative integers. Alternatively, char is unsigned, which means its range is strictly positive, including 0.
 
 For the exam, you should be aware that short and char are closely related, as both are stored as integral types with the
 same 16-bit length.The primary difference is that short is signed, which means it splits its range across the positive
@@ -70,8 +90,15 @@ create as well.
 Next, reference types can be used to call methods, assuming the reference is not null. Primitives do not have methods
 declared on them.
 
+    String reference = "hello";
+    int len = reference.length();
+    int bad = len.length(); // DOES NOT COMPILE
+
 Finally, reference types can be assigned null, which means they do not currently refer to an object. Primitive types
 will give you a compiler error if you attempt to assign them null.
+
+    int value = null; // DOES NOT COMPILE 
+    String name = null;
 
 ## Creating Wrapper Classes
 
@@ -91,8 +118,13 @@ Each primitive type has a wrapper class, which is an object type that correspond
 There is also a valueOf() variant that converts a String into the wrapper class. For example:
 
 ```
-int primitive = Integer.parseInt("123"); 
-Integer wrapper = Integer.valueOf("123");
+  int primitive = Integer.parseInt("123"); 
+  Integer wrapper = Integer.valueOf("123");
+  
+  Double apple = Double.valueOf("200.99"); 
+  System.out.println(apple.byteValue()); // -56 
+  System.out.println(apple.intValue()); // 200 
+  System.out.println(apple.doubleValue()); // 200.99
 ```
 
 ## Defining Text Blocks
@@ -103,6 +135,8 @@ Both of these are called escape characters because the backslash provides a spec
 ```
 String eyeTest = "\"Java Study Guide\"\n by Scott & Jeanne";
 ```
+
+![](understanding_data_types/Text-block.png)
 
 While this does work, it is hard to read. Luckily, Java has text blocks, also known as multiline strings.
 

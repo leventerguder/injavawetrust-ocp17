@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.creating_objects;
 
 public class Swan {
     int numberEggs; //instance variable

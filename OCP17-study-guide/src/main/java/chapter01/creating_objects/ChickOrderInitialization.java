@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.creating_objects;
 
 public class ChickOrderInitialization {
 
@@ -9,7 +9,7 @@ public class ChickOrderInitialization {
 
     /*
     {
-        System.out.println(name); // DOES NOT COMPILE private String name = "Fluffy";
+        System.out.println(name); // DOES NOT COMPILE
     }
     */
 

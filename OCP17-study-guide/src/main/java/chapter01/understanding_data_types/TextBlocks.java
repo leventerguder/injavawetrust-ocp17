@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.understanding_data_types;
 
 public class TextBlocks {
 
