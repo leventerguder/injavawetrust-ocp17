@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.initializing_variables;
 
 public class UninitializedLocalVariables {
     /*
@@ -38,4 +38,22 @@ public class UninitializedLocalVariables {
         System.out.println(answer);
         // System.out.println(onlyOneBranch); // DOES NOT COMPILE
     }
+
+
+    public int validV2() {
+        int y;
+        int x;
+        return 0;
+    }
+
+    public int notValidV2() {
+
+        int x;
+        int y;
+
+        // System.out.println(y);
+
+        return 0;
+    }
 }
+

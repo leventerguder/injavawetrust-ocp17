@@ -1,20 +1,11 @@
-package chapter01;
+package chapter01.initializing_variables;
 
-public class VarInferringType {
-
-    public void whatTypeAmI() {
-        var name = "Hello";
-        var size = 7;
-    }
-
-    //  You can only use this feature for local variables.
-    // var tricky = "Hello"; // DOES NOT COMPILE
-
+public class TypeInferenceOfVar {
 
     /*
     When you type var, you are instructing the compiler to determine the type for you.
     The compiler looks at the code on the line of the declaration and uses it to infer the type.
-     */
+ */
     public void reassignment() {
         var number = 7;
         number = 4;

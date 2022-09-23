@@ -1,6 +1,8 @@
 ## Declaring Variables
 
-A variable is a name for a piece of memory that stores data.
+A variable is a name for a piece of memory that stores data. Giving a variable a value is called initializing a
+variable.To initialize a variable, you just type the variable name followed by an equal sign, followed by the desired
+value.
 
 ## Identifying Identifiers
 
@@ -17,6 +19,8 @@ There are only four rules to remember for legal identifiers:
   that you are not allowed to use it. Remember that Java is case sensitive, so you can use versions of the keywords that
   only differ in case. Please don’t, though.
 
+![](declaring_variables/Reserved-words.png)
+
 There are other names that you can’t use. For example, true, false, and null are literal values, so they can’t be
 variable names.
 
@@ -29,11 +33,13 @@ char __SStillOkbutKnotsonice$;
 
 These examples are not legal:
 
-int 3DPointClass; // identifiers cannot begin with a number
-byte hollywood@vine; // @ is not a letter, digit, $ or _
-String *$coffee; // * is not a letter, digit, $ or _
-double public; // public is a reserved word
-short _; // a single underscore is not allowed
+    int 3DPointClass; // identifiers cannot begin with a number
+    byte hollywood@vine; // @ is not a letter, digit, $ or _
+    String *$coffee; // * is not a letter, digit, $ or _
+    double public; // public is a reserved word
+    short _; // a single underscore is not allowed
+
+**camelCase and snake_case**
 
 Although you can do crazy things with identifier names, please don’t. Java has conventions so that code is readable and
 consistent. For example, camel case has the first letter of each word capitalized.
@@ -55,6 +61,7 @@ void sandFence() {
 ```
 
 Three variables were declared: i1, i2, and i3. However, only one of those values was initialized: i3.
+
 ```
 void paintFence() 
 { 
@@ -62,8 +69,14 @@ void paintFence()
 }
 ```
 
-This code doesn’t compile because it tries to declare multiple variables of different types in the same statement. 
+This code doesn’t compile because it tries to declare multiple variables of different types in the same statement.
 
 ```
 int num, String value; // DOES NOT COMPILE
 ```
+
+Legal, valid, and compiles are all synonyms in the Java exam world. We try to use all the terminology you could
+encounter on the exam.
+
+If you want to declare multiple variables in the same statement, they must share the same type declaration and not
+repeat it.

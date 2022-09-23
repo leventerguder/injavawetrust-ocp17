@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.declaring_variables;
 
 public class DeclaringVariables {
 

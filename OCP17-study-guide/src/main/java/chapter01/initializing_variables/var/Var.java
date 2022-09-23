@@ -1,4 +1,4 @@
-package chapter01.var;
+package chapter01.initializing_variables.var;
 
 public class Var {
 
