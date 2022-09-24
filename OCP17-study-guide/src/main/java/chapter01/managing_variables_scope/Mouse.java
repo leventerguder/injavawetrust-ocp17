@@ -1,4 +1,4 @@
-package chapter01;
+package chapter01.managing_variables_scope;
 
 public class Mouse {
 

@@ -39,6 +39,15 @@ program when Java compiles it.
 The import statement doesn’t bring in child packages, fields, or methods; it imports only classes directly under the
 package.
 
+Let’s say you wanted to use the class AtomicInteger in the java.util.concurrent.atomic package.
+Which import or imports support this?
+
+    import java.util.*;
+    import java.util.concurrent.*;
+    import java.util.concurrent.atomic.*;
+
+Only the last import allows the class to be recognized because child packages are not included with the first two.
+
 You might think that including so many classes slows down your program execution, but it doesn’t. The compiler figures
 out what’s actually needed.
 
