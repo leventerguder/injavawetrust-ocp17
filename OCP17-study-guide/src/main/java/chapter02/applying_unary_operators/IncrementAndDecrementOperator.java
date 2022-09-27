@@ -1,4 +1,4 @@
-package chapter02;
+package chapter02.applying_unary_operators;
 
 public class IncrementAndDecrementOperator {
 

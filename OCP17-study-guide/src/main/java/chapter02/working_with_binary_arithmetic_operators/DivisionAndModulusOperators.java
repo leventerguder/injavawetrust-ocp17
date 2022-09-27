@@ -1,4 +1,4 @@
-package chapter02;
+package chapter02.working_with_binary_arithmetic_operators;
 
 public class DivisionAndModulusOperators {
 

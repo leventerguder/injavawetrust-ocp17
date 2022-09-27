@@ -70,3 +70,21 @@ variable can make a difference in how an expression is processed.
 | Pre-decrement    | --x     | Decreases the value by 1 and returns the new value       |
 | Post-increment   | y++     | Increases the value by 1 and returns the original value. |
 | Post-decrement   | z--     | Decreases the value by 1 and returns the original value  |
+
+The following code snippet illustrates this distinction:
+
+    int parkAttendance = 0; 
+    System.out.println(parkAttendance); // 0 
+    System.out.println(++parkAttendance); // 1
+    System.out.println(parkAttendance); // 1 
+    System.out.println(parkAttendance--); // 1 
+    System.out.println(parkAttendance); // 0
+
+The first pre-increment operator updates the value for parkAttendance and outputs the new value of 1. The next
+post-decrement operator also updates the value of parkAttendance but outputs the value before the decrement occurs.
+
+For the exam, it is critical that you know the difference between expressions like parkAttendance++ and
+++parkAttendance. The increment and decrement operators will be in multiple questions, and confusion about which value
+is returned could cause you to lose a lot of points on the exam.
+
+
