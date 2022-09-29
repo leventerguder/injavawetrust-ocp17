@@ -1,4 +1,4 @@
-package chapter02;
+package chapter02.assigning_values;
 
 public class CastingValuesVsVariables {
 

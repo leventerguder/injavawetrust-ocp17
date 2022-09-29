@@ -1,4 +1,4 @@
-package chapter02;
+package chapter02.comparing_values;
 
 public class InstanceOfOperator {
 

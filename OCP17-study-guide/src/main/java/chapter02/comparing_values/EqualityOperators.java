@@ -1,8 +1,8 @@
-package chapter02;
+package chapter02.comparing_values;
 
 import java.io.File;
 
-public class ComparingValues {
+public class EqualityOperators {
 
     public static void main(String[] args) {
         comparingValues1();

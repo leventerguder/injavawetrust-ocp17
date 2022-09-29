@@ -1,10 +1,19 @@
 # Assigning Values
 
+To be successful with the assignment operators, you should be fluent in understanding how the compiler handles numeric
+promotion and when casting is required.
+
 ## Assignment Operator
 
 An assignment operator is a binary operator that modifies, or assigns, the variable on the left side of the operator
 with the result of the value on the right side of the equation. Unlike most other Java operators, the assignment
 operator is evaluated from right to left.
+
+    int herd = 1;
+
+Java will automatically promote from smaller to larger data types, as you saw in the previous section on arithmetic
+operators, but it will throw a compiler exception if it detects that you are trying to convert from larger to smaller
+data types without casting.
 
 ## Casting Values
 
@@ -25,6 +34,8 @@ smaller one.
 
 ### Reviewing Primitive Assignments
 
+See if you can figure out why each of the following lines does not compile:
+
     int fish = 1.0; // DOES NOT COMPILE
     short bird = 1921222; // DOES NOT COMPILE
     int mammal = 9f; // DOES NOT COMPILE
@@ -39,15 +50,23 @@ larger than int allows. The literal would need a postfix L or l to be considered
 
 ### Applying Casting
 
+We can fix three of the previous examples by casting the results to a smaller data type. Remember, casting primitives is
+required any time you are going from a larger numerical data type to a smaller numerical data type, or converting from a
+floating-point number to an integral value.
+
     int fish = (int)1.0;
-    short bird = (short)1921222; // Stored as 20678 
+    short bird = (short)1921222; // Stored as 20678
     int mammal = (int)9f;
     long reptile = (long)192301398193810323; // DOES NOT COMPILE
     long reptile = 192301398193810323L;
 
+**Overflow and Underflow**
+
 Overflow is when a number is so large that it will no longer fit within the data type, so the system “wraps around” to
 the lowest negative value and counts up from there, similar to how modulus arithmetic works.There’s also an analogous
 underflow, when the number is too low to fit in the data type, such as storing -200 in a byte field.
+
+    System.out.print(2147483647+1); // -2147483648
 
     short mouse = 10;
     short hamster = 3;
@@ -69,7 +88,9 @@ The compiler doesn’t require casting when working with literal values that fit
     byte gloves = 7 * 10; 
     short scarf = 5; 
     short boots = 2 + 1;
-    
+
+All of these statements compile without issue. On the other hand, neither of these statements compiles:
+
     short boots = 2 + hat; // DOES NOT COMPILE 
     byte gloves = 7 * 100; // DOES NOT COMPILE
 

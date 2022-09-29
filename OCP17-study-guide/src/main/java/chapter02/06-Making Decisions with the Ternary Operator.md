@@ -22,7 +22,23 @@ types, although it does come into play when combined with the assignment operato
     ...
     int animal = (stripes < 9) ? 3 : "Horse"; // DOES NOT COMPILE
 
-## Ternary Expression and Unperformed Side Effects
+**Ternary Expression and Unperformed Side Effects**
 
-As we saw with the conditional operators, a ternary expression can contain an unper- formed side effect, as only one of
+As we saw with the conditional operators, a ternary expression can contain an unperformed side effect, as only one of
 the expressions on the right side will be evaluated at runtime.
+
+    int sheep = 1;
+    int zzz = 1;
+    int sleep = zzz < 10 ? sheep++ : zzz++;
+    System.out.print(sheep + "," + zzz); // 2,1
+
+Notice that since the left-hand boolean expression was true, only sheep was incremented. Contrast the preceding
+example with the following modification:
+
+    int sheep = 1;
+    int zzz = 1;
+    int sleep = sheep >= 10 ? sheep++ : zzz++;
+    System.out.print(sheep + "," + zzz); // 1,2
+
+Now that the left-hand boolean expression evaluates to false, only zzz is incremented. In this manner, we see how the
+changes in a ternary operator may not be applied if the particular expression is not used.

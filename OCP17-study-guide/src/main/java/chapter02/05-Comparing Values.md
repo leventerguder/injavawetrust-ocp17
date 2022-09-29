@@ -96,6 +96,17 @@ that compose the number.
 | Logical inclusive OR     | c &#124; d   | Value is true if at least one of the value is true.              |
 | Logical exclusive OR     | e ^ f        | Value is true only if one value is true and the other is false   |
 
+
+    boolean eyesClosed = true;
+    boolean breathingSlowly = true;
+    boolean resting = eyesClosed | breathingSlowly;
+    boolean asleep = eyesClosed & breathingSlowly;
+    boolean awake = eyesClosed ^ breathingSlowly;
+
+    System.out.println(resting); // true
+    System.out.println(asleep); // true
+    System.out.println(awake); // false
+
 ## Conditional Operators
 
 | Operator             | Example           | Description                                                                                                                    |
@@ -107,7 +118,11 @@ The conditional operators, often called short-circuit operators, are nearly iden
 except that the right side of the expression may never be evaluated if the final result can be determined by the left
 side of the expression.
 
-###Avoiding a NullPointerException
+    int hour = 10;
+    boolean zooOpen = true || (hour < 4);
+    System.out.println(zooOpen); // true
+
+### Avoiding a NullPointerException
 
 In the following example, if duck is null, the program will throw a NullPointerException at runtime:
 
