@@ -1,4 +1,4 @@
-package chapter03;
+package chapter03.creating_decision_making_statements;
 
 public class IfStatement {
 

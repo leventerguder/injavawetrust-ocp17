@@ -1,10 +1,15 @@
-package chapter03;
+package chapter03.creating_decision_making_statements;
 
 public class WatchIndentationAndBraces {
 
     public static void main(String[] args) {
 
+        withoutBraces();
+        withBraces();
 
+    }
+
+    private static void withoutBraces() {
         int hourOfDay = 12;
         int morningGreetingCount = 0;
 
@@ -18,7 +23,20 @@ public class WatchIndentationAndBraces {
         incremented if hourOfDay is less than 11, but that’s not what this code does. It will execute the print statement only
         if the condition is met, but it will always execute the increment operation.
          */
+    }
+
+
+    private static void withBraces() {
+        int hourOfDay = 12;
+        int morningGreetingCount = 0;
+
+        if (hourOfDay < 11) {
+            System.out.println("Good Morning");
+            morningGreetingCount++;
+            System.out.println(morningGreetingCount);
+        }
 
     }
+
 
 }
