@@ -1,4 +1,4 @@
-package chapter03;
+package chapter03.applying_switch_statements;
 
 public class SwitchStatementAcceptableCaseValues {
 

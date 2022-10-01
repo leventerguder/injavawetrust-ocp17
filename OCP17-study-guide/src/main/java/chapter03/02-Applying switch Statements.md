@@ -7,7 +7,9 @@ the first matching branch, known as a case statement. If no such case statement 
 optional default statement will be called. If no such default option is available, the entire switch statement will be
 skipped.
 
-### Combining case Values
+![](applying_switch_statements/The-structure-of-a-switch-statement.png)
+
+**Combining case Values**
 
 Starting with Java 14 , case values can now be combined :
 

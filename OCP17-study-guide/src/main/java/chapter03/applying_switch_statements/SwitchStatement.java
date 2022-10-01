@@ -1,10 +1,15 @@
-package chapter03;
+package chapter03.applying_switch_statements;
 
-public class SwitchExpression {
+public class SwitchStatement {
 
     public static void main(String[] args) {
-        printDayOfWeek(3);
-        printDayOfWeek(8);
+
+        printDayOfWeekV1(3);
+        printDayOfWeekV1(8);
+
+
+        printDayOfWeekV2(3);
+        printDayOfWeekV2(8);
 
         printSeason(10);
         printSeason(14);
@@ -12,7 +17,37 @@ public class SwitchExpression {
 
     }
 
-    public static void printDayOfWeek(int day) {
+    public static void printDayOfWeekV1(int day) {
+        switch (day) {
+            case 0:
+                System.out.println("Sunday");
+                break;
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            default:
+                System.out.println("Invalid value");
+                break;
+        }
+    }
+
+
+    public static void printDayOfWeekV2(int day) {
         var result = switch (day) {
             case 0 -> "Sunday";
             case 1 -> "Monday";
