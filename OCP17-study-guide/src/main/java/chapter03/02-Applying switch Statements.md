@@ -1,5 +1,19 @@
 # Applying switch Statements
 
+Difficult to read, and often not fun to maintain:
+
+    public void printDayOfWeekV1(int day) {
+        if (day == 0)
+            System.out.print("Sunday");
+        else if (day == 1)
+            System.out.print("Monday");
+        else if (day == 2)
+            System.out.print("Tuesday");
+        else if (day == 3)
+            System.out.print("Wednesday");
+        // ...
+    }
+
 ## The switch Statement
 
 A switch statement is a complex decision-making structure in which a single value is evaluated and flow is redirected to
@@ -59,6 +73,48 @@ The break statements are optional, but without them the code will execute every 
 statement, including any default statements it finds. Without break statements in each branch, the order of case and
 default statements is now extremely important.
 
+What do you think the following prints when printSeason(2) is called?
+
+    public void printSeason(int month) {
+        switch (month) {
+            case 1, 2, 3:
+            case 4, 5, 6:
+            default:
+            case 7, 8, 9:
+            case 10, 11, 12:
+        }
+    }
+
+It prints everything!
+
+    WinterSpringUnknownSummerFall
+
+It matches the first case statement and executes all of the branches in the order they are found, including the default
+statement. It is common, although certainly not required, to use a break statement after every case statement.
+
+The exam creators are fond of switch examples that are missing break statements! When evaluating switch statements on
+the exam, always consider that multiple branches may be visited in a single execution.
+
+    public static void printSeasonWithBreak(int month) {
+        switch (month) {
+            case 1, 2, 3:
+                System.out.print("Winter");
+                break;
+            case 4, 5, 6:
+                System.out.print("Spring");
+                break;
+            default:
+                System.out.print("Unknown");
+                break;
+            case 7, 8, 9:
+                System.out.print("Summer");
+                break;
+            case 10, 11, 12:
+                System.out.print("Fall");
+                break;
+        }
+    }
+
 ### Selecting switch Data Types
 
 A switch statement has a target variable that is not evaluated until runtime.
@@ -85,9 +141,48 @@ in the same expression in which it is declared.
 For example, you can’t have a case statement value that requires executing a method at runtime, even if that method
 always returns the same value.
 
+    final int getCookies() {
+        return 4;
+    }
+
+    void feedAnimals() {
+
+        final int bananas = 1;
+        int apples = 2;
+        int numberOfAnimals = 3;
+        final int cookies = getCookies();
+
+        switch (numberOfAnimals) {
+            case bananas:
+            case apples: // DOES NOT COMPILE
+            case getCookies(): // DOES NOT COMPILE
+            case cookies: // DOES NOT COMPILE
+            case 3 * 5:
+        }
+    }
+
+The bananas variable is marked final, and its value is known at compile-time, so it is valid. The apples variable is not
+marked final, even though its value is known, so it is not permitted. The next two case statements, with values
+getCookies() and cookies, do not compile because methods are not evaluated until runtime, so they cannot be used as the
+value of a case statement, even if one of the values is stored in a final variable. The last case statement, with value
+3 * 5, does compile, as expressions are allowed as case values, provided the value can be resolved at compile-time
+
 ## The switch Expression
 
+Our second implementation of printDayOfWeek() was improved but still quite long. Notice that there was a lot of
+boilerplate code, along with numerous break statements. Can we do better? Yes, thanks to the new switch expressions that
+were officially added to Java 14.
+
+A switch expression is a much more compact form of a switch statement, capable of returning a value.
+
 The switch expression supports two types of branches: an expression and a block.
+
+![](applying_switch_statements/The-structure-of-a-switch-expression.png)
+
+Like a traditional switch statement, a switch expression supports zero or many case branches and an optional default
+branch. Both also support the new feature that allows case values to be combined with a single case statement using
+commas. Unlike a traditional switch statement, though, switch expressions have special rules around when the default
+branch is required.
 
     public static void printDayOfWeek(int day) {
         var result = switch (day) {
@@ -114,6 +209,22 @@ Notice that a semicolon is required after each switch expression.
         case 30 -> "Grizzly";
         default -> "Panda";
     };
+
+As shown in Figure 3.4, case statements can take multiple values, separated by commas.
+Let’s rewrite our printSeason() method from earlier using a switch expression:
+
+    public static void printSeason(int month) {
+      switch (month) {
+          case 1, 2, 3 -> System.out.print("Winter");
+          case 4, 5, 6 -> System.out.print("Spring");
+          case 7, 8, 9 -> System.out.print("Summer");
+          case 10, 11, 12 -> System.out.print("Fall");
+      }
+
+}
+
+Calling printSeason(2) prints the single value Winter. This time we don’t have to worry about break statements, since
+only one branch is executed.
 
 All of the previous rules around switch data types and case values still apply, although we have some new rules.
 
@@ -162,7 +273,23 @@ whether you meant to exit the block or method around the switch expression.
 
 yield statements are not optional if the switch statement returns a value.
 
-### Watch Semicolons in switch Expressions
+Referring to our second rule for switch expressions, yield statements are not optional if the switch statement returns a
+value. Can you see why the following lines do not compile?
+
+      int fish = 5;
+      int length = 12;
+      var name = switch (fish) {
+          case 1 -> "Goldfish";
+          case 2 -> {} // DOES NOT COMPILE
+          case 3 -> {  // DOES NOT COMPILE
+              if (length > 10) yield "Blobfish";
+          }
+          default -> "Swordfish";
+      };
+
+      System.out.println(name);
+
+**Watch Semicolons in switch Expressions**
 
 Unlike a regular switch statement, a switch expression can be used with the assignment operator and requires a semicolon
 when doing so. Furthermore, semicolons are required for case expressions but cannot be used with case blocks.
@@ -191,6 +318,11 @@ switch expression must handle all possible values of the switch variable.
 - Add a default branch.
 - If the switch expression takes an enum value, add a case branch for every possible enum value.
 
+For enums, the second solution works well when the number of enum values is relatively small. For example, consider the
+following enum definition and method:
+
+    enum Season {WINTER, SPRING, SUMMER, FALL}  
+
     String getWeather(Season value) {
       return switch (value) {
         case WINTER -> "Cold";
@@ -199,8 +331,6 @@ switch expression must handle all possible values of the switch variable.
         case FALL -> "Warm";
       };
     }
-
-enum Season {WINTER, SPRING, SUMMER, FALL}
 
 Since all possible permutations of Season are covered, a default branch is not required in this switch expression. You
 can include an optional default branch, though, even if you cover all known values.

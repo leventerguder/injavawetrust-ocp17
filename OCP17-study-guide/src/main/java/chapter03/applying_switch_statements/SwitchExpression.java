@@ -1,6 +1,6 @@
 package chapter03.applying_switch_statements;
 
-public class SwitchStatement {
+public class SwitchExpression {
 
     public static void main(String[] args) {
 
@@ -8,12 +8,8 @@ public class SwitchStatement {
         printDayOfWeekV1(8);
 
 
-        printDayOfWeekV2(3);
-        printDayOfWeekV2(8);
-
-        printSeason(10);
-        printSeason(14);
-        printSeason(4);
+        printDayOfWeekV2SwitchExpression(3);
+        printDayOfWeekV2SwitchExpression(8);
 
     }
 
@@ -47,7 +43,7 @@ public class SwitchStatement {
     }
 
 
-    public static void printDayOfWeekV2(int day) {
+    public static void printDayOfWeekV2SwitchExpression(int day) {
         var result = switch (day) {
             case 0 -> "Sunday";
             case 1 -> "Monday";
@@ -60,33 +56,4 @@ public class SwitchStatement {
         };
         System.out.println(result);
     }
-
-    //Notice that a semicolon is required after each switch expression.
-
-    private static void semicolonRequired(int bear) {
-
-//        var result = switch (bear) {
-//            case 30 -> "Grizzly"
-//            default -> "Panda"
-//        }
-
-        var result = switch (bear) {
-            case 30 -> "Grizzly";
-            default -> "Panda";
-        };
-        System.out.println(result);
-    }
-
-    // Switch Expression ;
-    //  A default branch is required unless all cases are covered or no value is returned.
-    public static void printSeason(int month) {
-        switch (month) {
-            case 1, 2, 3 -> System.out.print("Winter");
-            case 4, 5, 6 -> System.out.print("Spring");
-            case 7, 8, 9 -> System.out.print("Summer");
-            case 10, 11, 12 -> System.out.print("Fall");
-        }
-    }
-
-
 }

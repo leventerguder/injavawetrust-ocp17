@@ -1,6 +1,6 @@
 package chapter03.applying_switch_statements;
 
-public class SwitchStatementAcceptableCaseValues {
+public class DeterminingAcceptableCaseValues {
 
     final int getCookies() {
         return 4;

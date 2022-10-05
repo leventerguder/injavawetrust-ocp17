@@ -1,6 +1,6 @@
 package chapter03.applying_switch_statements;
 
-public class SwitchExpressionMissingSemicolons {
+public class ApplyingACaseBlock3 {
 
     public static void main(String[] args) {
 

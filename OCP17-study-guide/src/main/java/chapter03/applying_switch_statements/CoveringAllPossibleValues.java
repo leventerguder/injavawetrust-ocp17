@@ -1,6 +1,6 @@
 package chapter03.applying_switch_statements;
 
-public class SwitchExpressionCoveringAllPossibleValues {
+public class CoveringAllPossibleValues {
 
     public static void main(String[] args) {
 

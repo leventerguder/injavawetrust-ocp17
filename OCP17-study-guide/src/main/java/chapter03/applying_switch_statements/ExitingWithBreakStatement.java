@@ -1,6 +1,7 @@
 package chapter03.applying_switch_statements;
 
-public class SwitchStatementWithBreak {
+public class ExitingWithBreakStatement {
+
 
     public static void main(String[] args) {
         printSeason(2);
@@ -13,15 +14,15 @@ public class SwitchStatementWithBreak {
     public static void printSeason(int month) {
         switch (month) {
             case 1, 2, 3:
-                System.out.println("Winter");
+                System.out.print("Winter");
             case 4, 5, 6:
-                System.out.println("Spring");
+                System.out.print("Spring");
             default:
-                System.out.println("Unknown");
+                System.out.print("Unknown");
             case 7, 8, 9:
-                System.out.println("Summer");
+                System.out.print("Summer");
             case 10, 11, 12:
-                System.out.println("Fall");
+                System.out.print("Fall");
         }
     }
 
@@ -50,5 +51,4 @@ public class SwitchStatementWithBreak {
                 break;
         }
     }
-
 }

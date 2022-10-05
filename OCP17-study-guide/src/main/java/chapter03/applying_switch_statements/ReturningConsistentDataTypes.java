@@ -1,6 +1,6 @@
 package chapter03.applying_switch_statements;
 
-public class SwitchExpressionReturningConsistentDataTypes {
+public class ReturningConsistentDataTypes {
 
     public static void main(String[] args) {
         int measurement = 10;

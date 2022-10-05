@@ -1,42 +1,16 @@
 package chapter03.applying_switch_statements;
 
-public class ApplyingSwitchStatements {
-
-    private void java14() {
-
-        int animal = 1;
-
-        switch (animal) {
-            case 1, 2:
-                System.out.print("Lion");
-            case 3:
-                System.out.print("Tiger");
-        }
-    }
-
-    private void beforeJava14() {
-
-        int animal = 1;
-
-        switch (animal) {
-            case 1:
-            case 2:
-                System.out.print("Lion");
-                System.out.print("Lion");
-            case 3:
-                System.out.print("Tiger");
-        }
-    }
+public class ApplyingSwitchStatements2 {
 
 
     private void switchStatements() {
         int month = 5;
-//
+
 //        switch month { // DOES NOT COMPILE
 //            case 1:
 //                System.out.print("January");
 //        }
-//
+
 //        switch (month) // DOES NOT COMPILE
 //        case 1:
 //        System.out.print("January");
