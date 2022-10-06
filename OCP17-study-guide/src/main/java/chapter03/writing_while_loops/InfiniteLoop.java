@@ -1,4 +1,4 @@
-package chapter03;
+package chapter03.writing_while_loops;
 
 public class InfiniteLoop {
 
