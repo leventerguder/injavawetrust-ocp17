@@ -1,6 +1,6 @@
-package chapter03;
+package chapter03.constructing_for_loops;
 
-public class ForUsingLoopVariablesOutsideTheLoop {
+public class UsingLoopVariablesOutsideTheLoop {
 
     public static void main(String[] args) {
 

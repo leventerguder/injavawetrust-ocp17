@@ -1,6 +1,6 @@
 package chapter03.applying_switch_statements;
 
-public class SwitchExpressionCoveringAllPossibleValuesEnum {
+public class CoveringAllPossibleValuesEnum {
 
     public static void main(String[] args) {
 

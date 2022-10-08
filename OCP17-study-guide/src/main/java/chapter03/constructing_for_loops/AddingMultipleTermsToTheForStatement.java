@@ -1,6 +1,6 @@
-package chapter03;
+package chapter03.constructing_for_loops;
 
-public class ForMultipleTerms {
+public class AddingMultipleTermsToTheForStatement {
 
     public static void main(String[] args) {
         int x = 0;

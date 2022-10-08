@@ -1,15 +1,18 @@
-package chapter03;
+package chapter03.constructing_for_loops;
 
-public class ForRedeclaringAVariableInTheInitializationBlock {
+public class RedeclaringAVariableInTheInitializationBlock {
 
     public static void main(String[] args) {
         fixRedeclaring();
     }
 
     private static void redeclaring() {
-//        int x = 0;
-//        for (int x = 4; x < 5; x++) // DOES NOT COMPILE
-//            System.out.print(x + " ");
+        /*
+        int x = 0;
+        for (int x = 4; x < 5; x++) // DOES NOT COMPILE
+            System.out.print(x + " ");
+
+        */
     }
 
     private static void fixRedeclaring() {
