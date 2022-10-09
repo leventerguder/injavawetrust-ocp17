@@ -1,4 +1,4 @@
-package chapter03;
+package chapter03.controlling_flow_with_branching;
 
 public class FindInMatrixUsingReturn {
 
