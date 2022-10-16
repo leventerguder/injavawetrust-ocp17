@@ -1,4 +1,4 @@
-package chapter04;
+package chapter04.creating_and_manipulating_strings;
 
 public class ReplacingValues {
 

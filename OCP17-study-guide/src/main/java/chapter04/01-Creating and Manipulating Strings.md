@@ -1,6 +1,7 @@
 # Creating and Manipulating Strings
 
 The String class is such a fundamental class that you'd be hard-pressed to write code without it.
+A string is basically a sequence of characters.
 
 In Java, these two snippets both create a String:
 
@@ -12,20 +13,27 @@ Further, text blocks are another way of creating a String.
     String name = """
                   Fluffy""";
 
+Since a String is a sequence of characters, you probably won’t be surprised to hear that it implements the interface
+CharSequence. This interface is a general way of representing several classes, including String and StringBuilder.
+
 ## Concatenating
 
 Placing one String before the other String and combining them is called string concatenation.
+
+There aren’t a lot of rules to know for this, but you have to know them well:
 
 - If both operands are numeric , + means numeric addition.
 - If either operand is a String, + means concatenation.
 - The expression is evaluated left to right.
 
-  System.out.println(1 + 2);
-  System.out.println("a" + "b");
-  System.out.println("a" + "b" + 3);
-  System.out.println(1 + 2 + "c");
-  System.out.println("c" + 1 + 2);
-  System.out.println("c" + null);
+````
+    System.out.println(1 + 2);
+    System.out.println("a" + "b");
+    System.out.println("a" + "b" + 3);
+    System.out.println(1 + 2 + "c");
+    System.out.println("c" + 1 + 2);
+    System.out.println("c" + null);
+````
 
 The exam takes trickery a step further and will try to fool you with something like this:
 
@@ -33,9 +41,24 @@ The exam takes trickery a step further and will try to fool you with something l
     String four = "4";
     System.out.println(1 + 2 + three + four);
 
-In this example, you just have to remember what += does.
+There is one more thing to know about concatenation, but it is easy. In this example, you just have to remember what +=
+does. Keep in mind, s += "2" means the same thing as s = s + "2".
+
+    var s = "1";    // s currently holds "1"
+    s += "2";       // s currently holds "12"
+    s += "3";       // s currently holds "123"
+    System.out.println(s);  // 123
+
+To review the rules one more time: use numeric addition if two numbers are involved, use concatenation otherwise, and
+evaluate from left to right.
 
 ## Important String Methods
+
+The String class has dozens of methods. Luckily, you need to know only a handful for the exam. The exam creators pick
+most of the methods developers use in the real world.
+
+You also need to know that a String is immutable, or unchangeable. This means calling a method on a String will return a
+different String object rather than changing the value of the reference
 
 ### Determining the Length
 
@@ -76,7 +99,9 @@ The method indexOf() looks at the characters in the string and finds the first i
 
 ### Getting a Substring
 
-It returns parts of the string.
+The method substring() also looks for characters in a string. It returns parts of the string. The first parameter is the
+index to start with for the returned string. As usual, this is a zero-based index. There is an optional second
+parameter, which is the end index you want to stop at.
 
     public String substring(int beginIndex)
     public String substring(int beginIndex, int endIndex)
@@ -86,6 +111,10 @@ It returns parts of the string.
     System.out.println(name.substring(name.indexOf('m'))); //mals
     System.out.println(name.substring(3, 4)); // m
     System.out.println(name.substring(3, 7)); // mals
+
+    System.out.println(name.substring(3, 3)); // empty string 
+    System.out.println(name.substring(3, 2)); // exception 
+    System.out.println(name.substring(3, 8)); // exception
 
 ### Adjusting Case
 
@@ -101,7 +130,7 @@ These methods make it easy to convert your data.
 
 ### Checking for Equality
 
-The equals() method checks whether two String objects contain exactly the same char- acters in the same order. The
+The equals() method checks whether two String objects contain exactly the same characters in the same order. The
 equalsIgnoreCase() method checks whether two String objects contain the same characters, with the exception that it
 ignores the characters’ case.
 
@@ -134,7 +163,7 @@ should override them.
 ### Searching for Substrings
 
 The startsWith() and endsWith() methods look at whether the provided value matches part of the String. The contains()
-method isn’t as particular; it looks for matches anywhere in the String
+method isn’t as particular; it looks for matches anywhere in the String.
 
     public boolean startsWith(String prefix) 
     public boolean endsWith(String suffix)
@@ -251,6 +280,14 @@ There are methods to format String values using formatting flags.
     public static String format(Locale loc, String format, Object args...) 
     public String formatted(Object args...)
 
+
+    var name = "Kate";
+    var orderId = 5;
+
+    System.out.println("Hello " + name + ", order " + orderId + " is ready");
+    System.out.println(String.format("Hello %s, order %d is ready", name, orderId));
+    System.out.println("Hello %s, order %d is ready".formatted(name, orderId));
+
 | Symbol | Description                                                    |
 |--------|----------------------------------------------------------------|
 | %s     | Applies to any type, commonly String values                    | 
@@ -262,6 +299,11 @@ There are methods to format String values using formatting flags.
     var score = 90.25;
     var total = 100;
     System.out.println("%s:%n Score: %f out of %d".formatted(name, score, total));
+
+Mixing data types may cause exceptions at runtime. For example, the following throws an exception because a
+floating-point number is used when an integer value is expected:
+
+    var str = "Food: %d tons".formatted(2.0); // IllegalFormatConversionException
 
 **Using format() with Flags**
 
@@ -286,6 +328,20 @@ show the start/end of the formatted value:
 ## Method Chaining
 
 Ready to put together everything you just learned about? It is common to call multiple methods as shown here:
+
+    var start = "AniMaL ";
+    var trimmed = start.trim();
+    var lowercase = trimmed.toLowerCase(); 
+    var result = lowercase.replace('a', 'A'); 
+    System.out.println(result);
   
     String result = "AniMaL ".trim().toLowerCase().replace('a', 'A');
     System.out.println(result);
+
+What do you think the result of this code is?
+
+    String a = "abc";
+    String b = a.toUpperCase();
+    b = b.replace("B", "2").replace('C', '3');
+    System.out.println("a=" + a); // abc
+    System.out.println("b=" + b); // A23
