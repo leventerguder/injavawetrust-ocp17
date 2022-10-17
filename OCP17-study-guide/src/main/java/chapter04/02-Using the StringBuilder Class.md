@@ -13,11 +13,23 @@ StringBuilder is not immutable.
 ## Mutability and Chaining
 
 When we chained String method calls, the result was a new String with the answer. Chaining StringBuilder methods doesn’t
-work this way.
+work this way. Instead, the StringBuilder changes its own state and returns a reference to itself.
 
     StringBuilder sb = new StringBuilder("start");
     sb.append("+middle"); // sb = "start+middle"
     StringBuilder same = sb.append("+end"); // "start+middle+end"
+
+The exam won’t always make the code easy to read by having only one method per line. What do you think this example
+prints?
+
+    StringBuilder a = new StringBuilder("abc");
+    StringBuilder b = a.append("de");
+    b = b.append("f").append("g");
+    System.out.println("a=" + a);
+    System.out.println("b=" + b);
+
+Did you say both print "abcdefg"? Good. There’s only one StringBuilder object here. We know that because new
+StringBuilder() is called only once.
 
 ## Creating a StringBuilder
 
@@ -26,6 +38,12 @@ There are three ways to construct a StringBuilder:
     StringBuilder sb1 = new StringBuilder(); 
     StringBuilder sb2 = new StringBuilder("animal"); 
     StringBuilder sb3 = new StringBuilder(10);
+
+The first says to create a StringBuilder containing an empty sequence of characters and assign sb1 to point to it. The
+second says to create a StringBuilder containing a specific value and assign sb2 to point to it. The first two examples
+tell Java to manage the implementation details. The final example tells Java that we have some idea of how big the
+eventual value will be and would like the StringBuilder to reserve a certain capacity, or number of slots, for
+characters.
 
 ## Important StringBuilder Methods
 

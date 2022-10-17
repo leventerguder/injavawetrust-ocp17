@@ -1,6 +1,6 @@
-package chapter04;
+package chapter04.using_the_stringbuilder_class;
 
-public class StrinBuillderMutabilityAndChaining {
+public class MutabilityAndChaining {
 
     public static void main(String[] args) {
 
