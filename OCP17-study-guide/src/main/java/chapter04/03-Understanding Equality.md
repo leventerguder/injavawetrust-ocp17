@@ -20,6 +20,10 @@ The one and three both point to same object.
 This works because the authors of the String class implemented a standard method called equals() to check the values
 inside the String rather than the string reference itself.
 
+In case you are wondering, the authors of StringBuilder did not implement equals(). If you call equals() on two
+StringBuilder instances, it will check reference equality. You can call toString() on StringBuilder to get a String to
+check for equality instead.
+
     var name = "a";
     var builder = new StringBuilder("a");
     System.out.println(name == builder); // DOES NOT COMPILE
@@ -27,7 +31,7 @@ inside the String rather than the string reference itself.
 Remember that == is checking for object reference equality. The compiler is smart enough to know that two references
 can’t possibly point to the same object when they are completely different types.
 
-## The String Pool
+### The String Pool
 
 Since strings are everywhere in Java, they use up a lot of memory. In some production applications, they can use a
 large amount of memory in the entire program. Java realizes that many strings repeat in the program and solves this
