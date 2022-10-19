@@ -1,6 +1,6 @@
-package chapter04;
+package chapter04.understanding_arrays;
 
-public class ArrayUsing {
+public class UsingAnArray {
 
     public static void main(String[] args) {
 

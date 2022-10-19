@@ -1,4 +1,4 @@
-package chapter04;
+package chapter04.understanding_arrays;
 
 public class ArrayUsingLoop {
 

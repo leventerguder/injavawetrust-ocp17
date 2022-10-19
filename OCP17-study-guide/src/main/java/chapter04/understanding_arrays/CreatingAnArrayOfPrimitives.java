@@ -1,6 +1,6 @@
-package chapter04;
+package chapter04.understanding_arrays;
 
-public class ArrayOfPrimitives {
+public class CreatingAnArrayOfPrimitives {
 
     public static void main(String[] args) {
 
@@ -17,7 +17,5 @@ public class ArrayOfPrimitives {
         int numAnimals4[];
         int numAnimals5 [];
 
-        int[] ids, types;
-        int ids2[], types2;
     }
 }

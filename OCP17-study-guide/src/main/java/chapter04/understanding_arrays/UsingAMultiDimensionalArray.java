@@ -1,6 +1,6 @@
-package chapter04;
+package chapter04.understanding_arrays;
 
-public class ArrayMultidimentionalLoop {
+public class UsingAMultiDimensionalArray {
 
     public static void main(String[] args) {
         var twoD = new int[3][2];

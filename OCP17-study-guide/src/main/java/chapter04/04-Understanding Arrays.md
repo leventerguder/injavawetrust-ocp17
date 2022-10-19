@@ -29,7 +29,7 @@ statements do the exact same thing:
     int numAnimals4[]; 
     int numAnimals5 [];
 
-### Multiple “Arrays” in Declarations ###
+ **Multiple “Arrays” in Declarations**
 
 What types of reference variables do you think the following code creates?
 
@@ -177,6 +177,8 @@ Finally, what does smaller mean? Here are some more rules that apply here :
 - For strings, one is smaller if it is a prefix of another.
 - For strings/characters, numbers are smaller than letters.
 - For strings/characters, uppercase is smaller than lowercase.
+
+![](understanding_arrays/Arrays-comparare-examples.png)
 
 ### Using mismatch()
 

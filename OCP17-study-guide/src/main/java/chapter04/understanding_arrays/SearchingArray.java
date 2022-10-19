@@ -1,8 +1,8 @@
-package chapter04;
+package chapter04.understanding_arrays;
 
 import java.util.Arrays;
 
-public class ArraySearching {
+public class SearchingArray {
 
     public static void main(String[] args) {
 
