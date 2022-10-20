@@ -1,6 +1,6 @@
-package chapter04;
+package chapter04.calculating_with_math_apis;
 
-public class MathAPIRandomNumber {
+public class GeneratingRandomNumbers {
 
     public static void main(String[] args) {
 

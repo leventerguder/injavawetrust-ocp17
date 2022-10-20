@@ -1,6 +1,6 @@
-package chapter04;
+package chapter04.calculating_with_math_apis;
 
-public class MathAPICeilingAndFloor {
+public class RoundingNumbers {
 
     public static void main(String[] args) {
 
