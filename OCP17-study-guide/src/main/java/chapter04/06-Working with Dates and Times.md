@@ -6,8 +6,16 @@ to your program:
 
     import java.time.*;
 
+**Day vs. Date**
+In American English, the word date is used to represent two different concepts. Sometimes, it is the month/day/year
+combination when something happened, such as January 1, 2000. Sometimes, it is the day of the month, such as “Today’s
+date is the 6th.”
+That’s right; the words day and date are often used as synonyms. Be alert to this on the exam, especially if you live
+someplace where people are more precise about this distinction.
+
 ## Creating Dates and Times
 
+When working with dates and times, the first thing to do is to decide how much information you need.
 The exam gives you four choices:
 
 **LocalDate** Contains just a date—no time and no time zone. A good example of LocalDate is your birthday this year. It
@@ -143,7 +151,7 @@ There’s one catch. You cannot chain methods when creating a Period.
     var wrong = Period.ofYears(1);
     wrong = Period.ofWeeks(1);
 
-![](period.png)
+![](working_with_dates_and_times/period.png)
 
 As you can see, the P always starts out the String to show it is a period measure. Then come the number of years, number
 of months, and number of days. If any of these are zero, they are omitted.
@@ -227,7 +235,7 @@ contain a time zone, and it is therefore not universally recognized around the w
 
 You only have to work with U.S. daylight saving time on the exam, and that’s what we describe here.
 
-![](daylight.png)
+![](working_with_dates_and_times/daylight.png)
 
 For example, on March 13, 2022, we move our clocks forward an hour and jump from 2:00 a.m. to 3:00 a.m. This means that
 there is no 2:30 a.m. that day. If we wanted to know the time an hour later than 1:30, it would be 3:30.
@@ -255,6 +263,5 @@ Finally, trying to create a time that doesn’t exist just rolls forward:
     var zone = ZoneId.of("US/Eastern");
     var dateTime = ZonedDateTime.of(date, time, zone);
     System.out.println(dateTime); // 2022–03–13T03:30–04:00[US/Eastern]
-
 
 Java is smart enough to know that there is no 2:30 a.m. that night and switches over to the appropriate GMT offset.
