@@ -1,6 +1,6 @@
 # Designing Methods
 
-![](method-declaration.png)
+![](designing_methods/method-declaration.png)
 
 ## Access Modifiers
 
@@ -41,7 +41,7 @@ There are a number of optional specifiers for methods. You can have multiple spe
 all combinations are legal). When this happens, you can specify them in any order.
 You can have zero or more specifiers in a method declaration.
 
-![](optional-specifiers.png)
+![](designing_methods/optional-specifiers.png)
 
 While access modifiers and optional specifiers can appear in any order, they must all appear before the return type.
 In practice, it is common to list the access modifier first.
@@ -76,14 +76,40 @@ the return type.
             // Exit early, nothing to do!
             return; 
         }
-    System.out.print("Fish is swimming " + distance + " meters"); 
+        System.out.print("Fish is swimming " + distance + " meters"); 
     }
 
 When returning a value, it needs to be assignable to the return type.
 
+    public class Measurement {
+
+    // When returning a value, it needs to be assignable to the return type.
+    int getHeight1() {
+        int temp = 9;
+        return temp;
+    }
+
+
+    int getHeight2() {
+        int temp = 9L; // DOES NOT COMPILE
+        return temp;
+     }
+    
+        // The getHeight2() method doesn’t compile because you can’t assign a long to an int.
+    
+    int getHeight3() {
+       long temp = 9L;
+       return temp; // DOES NOT COMPILE
+    }
+    
+    // The method getHeight3() method doesn’t compile because you can’t return a long value as an int.
+    
+    }
+
+
 ## Method Name
 
-An identifier may only contain letters, numbers, currency sym- bols, or _. Also, the first character is not allowed to
+An identifier may only contain letters, numbers, currency symbols, or _. Also, the first character is not allowed to
 be a number, and reserved words are not allowed. Finally, the single underscore character is not allowed.
 
 By convention, methods begin with a lowercase letter, but they are not required to.

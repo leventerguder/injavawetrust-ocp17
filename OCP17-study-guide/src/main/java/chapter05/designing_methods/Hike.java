@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.designing_methods;
 
 public class Hike {
 
