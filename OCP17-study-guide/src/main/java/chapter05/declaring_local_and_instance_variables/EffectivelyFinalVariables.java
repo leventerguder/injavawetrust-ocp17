@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.declaring_local_and_instance_variables;
 
 public class EffectivelyFinalVariables {
 
