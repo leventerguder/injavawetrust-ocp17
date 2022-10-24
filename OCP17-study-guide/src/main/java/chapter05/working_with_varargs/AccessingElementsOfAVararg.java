@@ -1,6 +1,6 @@
-package chapter05;
+package chapter05.working_with_varargs;
 
-public class VarArgAccessingElements {
+public class AccessingElementsOfAVararg {
 
     public static void main(String[] args) {
         run(11, 77); // 77

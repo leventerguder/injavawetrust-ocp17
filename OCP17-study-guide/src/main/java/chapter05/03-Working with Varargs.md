@@ -9,11 +9,9 @@ There are a number of important rules for creating a method with a varargs param
 
   public class VisitAttractions {
 
-        public void walk1(int... steps) {
-        }
+        public void walk1(int... steps) { }
     
-        public void walk2(int start, int... steps) {
-        }
+        public void walk2(int start, int... steps) { }
     
         // public void walk3(int... steps, int start) {} // DOES NOT COMPILE 
     
@@ -26,18 +24,19 @@ When calling a method with a varargs parameter, you have a choice. You can pass 
 elements of the array and let Java create it for you.
 
     // Pass an array
-    int[] data = new int[] {1, 2, 3}; walk1(data);
+    int[] data = new int[] {1, 2, 3}; 
+    walk1(data);
 
     // Pass a list of values 
     walk1(1,2,3);
 
 You can even omit the varargs values in the method call, and Java will create an array of length zero for you.
-    
+
     walk1();
 
 ## Accessing Elements of a Vararg
 
-Accessing a varargs parameter is just like accessing an array. 
+Accessing a varargs parameter is just like accessing an array.
 
     public static void main(String[] args) {
         run(11, 77); // 77
@@ -65,6 +64,11 @@ Can you figure out why each method call outputs what it does?
       }
     }
 
-It just passes on the null array object to walkDog(). Then the walkDog() method throws an exception because it tries to determine the length of null.
+It just passes on the null array object to walkDog(). Then the walkDog() method throws an exception because it tries to
+determine the length of null.
 
     walkDog(1, null); // Triggers NullPointerException in walkDog()
+
+Since null isn’t an int, Java treats it as an array reference that happens to be null. It just passes on the null array
+object to walkDog(). Then the walkDog() method throws an exception because it tries to determine the length of null.
+

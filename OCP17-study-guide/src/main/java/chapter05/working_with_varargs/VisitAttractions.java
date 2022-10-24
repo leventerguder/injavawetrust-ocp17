@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.working_with_varargs;
 
 public class VisitAttractions {
 
