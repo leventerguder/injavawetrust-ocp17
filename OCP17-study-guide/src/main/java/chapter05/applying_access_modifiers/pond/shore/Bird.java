@@ -1,4 +1,4 @@
-package chapter05.pond.shore;
+package chapter05.applying_access_modifiers.pond.shore;
 
 public class Bird {
 

@@ -1,6 +1,6 @@
-package chapter05.pond.inland;
+package chapter05.applying_access_modifiers.pond.inland; // Different package than Bird
 
-import chapter05.pond.shore.Bird;
+import chapter05.applying_access_modifiers.pond.shore.Bird;
 
 public class BirdWatcherFromAFar { // Not a subclass of Bird
 

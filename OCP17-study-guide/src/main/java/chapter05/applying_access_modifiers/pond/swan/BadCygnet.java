@@ -1,6 +1,6 @@
-package chapter05.pond.swan;
+package chapter05.applying_access_modifiers.pond.swan;
 
-import chapter05.pond.duck.MotherDuck;
+import chapter05.applying_access_modifiers.pond.duck.MotherDuck;
 
 public class BadCygnet {
 

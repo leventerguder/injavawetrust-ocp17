@@ -1,4 +1,4 @@
-package chapter05.pond.duck;
+package chapter05.applying_access_modifiers.pond.duck;
 
 public class DuckTeacher {
 

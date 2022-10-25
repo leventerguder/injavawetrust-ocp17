@@ -1,6 +1,6 @@
-package chapter05.pond.goose;
+package chapter05.applying_access_modifiers.pond.goose;
 
-import chapter05.pond.shore.Bird;
+import chapter05.applying_access_modifiers.pond.shore.Bird;
 
 public class Goose extends Bird {
 

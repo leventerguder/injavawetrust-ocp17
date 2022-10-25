@@ -1,6 +1,6 @@
-package chapter05.pond.swan;
+package chapter05.applying_access_modifiers.pond.swan; // Different package than Bird
 
-import chapter05.pond.shore.Bird; // Different package than Bird
+import chapter05.applying_access_modifiers.pond.shore.Bird;
 
 public class Swan extends Bird { // Swan is a subclass of Bird
 

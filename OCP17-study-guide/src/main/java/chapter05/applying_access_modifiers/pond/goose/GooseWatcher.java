@@ -1,4 +1,4 @@
-package chapter05.pond.goose;
+package chapter05.applying_access_modifiers.pond.goose;
 
 public class GooseWatcher {
 
