@@ -9,8 +9,27 @@ Methods and variables declared static don’t require an instance of the class. 
 class.
 
     public class Penguin {
+    
         String name;
         static String nameOfTallestPenguin;
+    
+        public static void main(String[] args) {
+    
+            var p1 = new Penguin();
+            p1.name = "Lilly";
+            p1.nameOfTallestPenguin = "Lilly";
+    
+            var p2 = new Penguin();
+            p2.name = "Willy";
+            p2.nameOfTallestPenguin = "Willy";
+    
+            System.out.println(p1.name); // Lilly
+            System.out.println(p1.nameOfTallestPenguin); // Willy
+            System.out.println(p2.name); // Willy
+            System.out.println(p2.nameOfTallestPenguin); // Willy
+    
+    
+        }
     }
 
 The main() method is a static method.
@@ -49,22 +68,92 @@ for the type of the reference and uses that instead of the object—which is sne
     s = null;
     System.out.println(s.hiss);
 
+Remember to look at the reference type for a variable when you see a static method or variable. The exam creators will
+try to trick you into thinking a NullPointerException is thrown because the variable hap- pens to be null. Don’t be
+fooled!
+
+    Snake.hiss = 4;
+    Snake snake1 = new Snake();
+    Snake snake2 = new Snake();
+    snake1.hiss = 6;
+    snake2.hiss = 5;
+    System.out.println(Snake.hiss); // 5
+
 ## Class vs Instance Membership
 
 There’s another way the exam creators will try to trick you regarding static and instance members. A static member
 cannot call an instance member without referencing an instance of the class.
 
+    public class MantaRay {
+    
+        private String name = "Sammy";
+    
+        public static void first() {
+        }
+    
+        public static void second() {
+        }
+    
+        public void third() {
+            System.out.print(name);
+        }
+    
+        public static void main(String[] args) {
+            first();
+            second();
+            third(); // DOES NOT COMPILE
+    
+        }
+    }
+
+The compiler will give you an error about making a static reference to an instance method. If we fix this by adding
+static to third(), we create a new problem.
+
+      var ray = new MantaRay();
+      ray.third();
+
 Only an instance method can call another instance method on the same class without using a reference variable, because
 instance methods do require an object.
 
     public class Giraffe {
-      public void eat(Giraffe g) {}
-      public void drink() {}
-      public static void allGiraffeGoHome(Giraffe g) {}
-      public static void allGiraffeComeOut() {}
+        public void eat(Giraffe g) {}
+        public void drink() {}
+        public static void allGiraffeGoHome(Giraffe g) {}
+        public static void allGiraffeComeOut() {}
     }
 
 ![](static-vs-instance-calls.png)
+
+Let’s try one more example so you have more practice at recognizing this scenario.
+
+
+    public class Gorilla {
+    
+        public static int count;
+    
+        public static void addGorilla() {
+            count++;
+        }
+    
+        public void babyGorilla() {
+            count++;
+        }
+    
+        public void announceBabies() {
+            addGorilla();
+            babyGorilla();
+        }
+    
+        public static void announceBabiesToEveryone() {
+            addGorilla();
+            babyGorilla(); // DOES NOT COMPILE
+        }
+    
+        public int total;
+
+        public static double average = total / count; // DOES NOT COMPILE
+    
+    }
 
 A common use for static variables is counting the number of instances:
 
