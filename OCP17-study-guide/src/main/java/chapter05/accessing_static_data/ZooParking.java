@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.accessing_static_data;
 
 import java.util.List;
 

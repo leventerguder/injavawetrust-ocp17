@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.accessing_static_data;
 
 import static java.lang.Integer.MAX_VALUE;
 // import static java.lang.Long.MAX_VALUE;

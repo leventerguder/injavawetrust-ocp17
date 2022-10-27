@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.accessing_static_data;
 
 // import static java.util.Arrays; // DOES NOT COMPILE
 // Remember that static imports are only for importing static members like a method or variable.

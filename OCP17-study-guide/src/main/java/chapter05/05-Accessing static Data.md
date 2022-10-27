@@ -126,7 +126,6 @@ instance methods do require an object.
 
 Let’s try one more example so you have more practice at recognizing this scenario.
 
-
     public class Gorilla {
     
         public static int count;
@@ -174,8 +173,9 @@ instance) variables are automatically initialized to the default value for that 
 
 ## static Variable Modifiers
 
-change as the program runs, like our count example, others are meant to never change. This type of static variable is
-known as a constant. It uses the final modifier to ensure the variable never changes.
+While some static variables are meant to change as the program runs, like our count example, others are meant to never
+change. This type of static variable is known as a constant. It uses the final modifier to ensure the variable never
+changes.
 
 Constants use the modifier static final and a different naming convention than other variables.
 
@@ -192,15 +192,15 @@ Constants use the modifier static final and a different naming convention than o
 
 The compiler will make sure that you do not accidentally try to update a final variable.
 
-public class ZooInventoryManager {
-
-      private static final String[] treats = new String[10];
-  
-      public static void main(String[] args) {
-          treats[0] = "popcorn";
-      }
-
-}
+    public class ZooInventoryManager {
+    
+          private static final String[] treats = new String[10];
+      
+          public static void main(String[] args) {
+              treats[0] = "popcorn";
+          }
+    
+    }
 
 It actually does compile since treats is a reference variable. We are allowed to modify the referenced object or array’s
 contents. All the compiler can do is check that we don’t try to reassign treats to point to a different object.
@@ -239,7 +239,19 @@ similar. They add the static keyword to specify that they should be run when the
 
 All static initializers run when the class is first used, in the order they are defined.
 
-### Try to Avoid static and Instance Initializers
+    private static int one;
+    private static final int two;
+    private static final int three = 3;
+    private static final int four; // DOES NOT COMPILE - never initialized
+
+    static {
+        one = 1;
+        two = 2;
+        three = 3; // DOES NOT COMPILE - final variable!
+        two = 4; // DOES NOT COMPILE - final variable!
+    }
+
+**Try to Avoid static and Instance Initializers**
 
 Using static and instance initializers can make your code much harder to read. Everything that could be done in an
 instance initializer could be done in a constructor instead. Many people find the constructor approach easier to read.
