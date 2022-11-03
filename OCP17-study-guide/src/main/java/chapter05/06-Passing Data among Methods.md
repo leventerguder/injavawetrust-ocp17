@@ -44,7 +44,7 @@ As an example, here is code that calls a method on the StringBuilder passed into
         s.append("Georgette");
     }
 
-### Pass-by-Value vs. Pass-by-Reference
+**Pass-by-Value vs. Pass-by-Reference**
 
 Different languages handle parameters in different ways. Pass-by-value is used by many languages, including Java. In
 this example, the swap() method does not change the original values. It only changes a and b within the method.

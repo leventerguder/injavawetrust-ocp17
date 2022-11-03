@@ -1,6 +1,6 @@
-package chapter05;
+package chapter05.passing_data_among_methods;
 
-public class Dog2 {
+public class Swap {
 
     public static void main(String[] args) {
         var name = new StringBuilder("Webby");
