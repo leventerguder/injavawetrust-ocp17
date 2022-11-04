@@ -1,4 +1,4 @@
-package chapter05;
+package chapter05.overloading_methods;
 
 public class Eagle {
     public void fly(int numMiles) {

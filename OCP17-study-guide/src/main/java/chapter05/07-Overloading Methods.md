@@ -157,12 +157,11 @@ Even though the code doesn’t look the same, it compiles to the same parameter 
 
 ## Putting It All Together
 
-Java calls
-the most specific method it can. When some of the types interact, the Java rules focus on backward compatibility. A long
-time ago, autoboxing and varargs didn’t exist. Since old code still needs to work, this means autoboxing and varargs
-come last when Java looks at overloaded methods.
+Java calls the most specific method it can. When some of the types interact, the Java rules focus on backward
+compatibility. A long time ago, autoboxing and varargs didn’t exist. Since old code still needs to work, this means
+autoboxing and varargs come last when Java looks at overloaded methods.
 
-![](order-of-overloaded-method.png)
+![](overloading_methods/order-of-overloaded-method.png)
 
     public class Glider {
 

@@ -122,7 +122,7 @@ instance methods do require an object.
         public static void allGiraffeComeOut() {}
     }
 
-![](static-vs-instance-calls.png)
+![](accessing_static_data/static-vs-instance-calls.png)
 
 Let’s try one more example so you have more practice at recognizing this scenario.
 
