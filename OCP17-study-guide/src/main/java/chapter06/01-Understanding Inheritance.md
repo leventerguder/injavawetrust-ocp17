@@ -7,7 +7,7 @@ primitives, objects, or methods, defined in the parent class.
 
 Let’s begin with the declaration of a class and its subclass.
 
-![](subclass-and-superclass-declarations.png)
+![](understanding_inheritance/subclass-and-superclass-declarations.png)
 
 We indicate a class is a subclass by declaring it with the extends keyword. We don’t need to declare anything in the
 superclass other than making sure it is not marked final.
@@ -18,15 +18,43 @@ then X is considered a subclass or descendant of Z.
 When one class inherits from a parent class, all public and protected members are automatically available as part of the
 child class. If the two classes are in the same package, then package members are available to the child class. Last but
 not least, private members are restricted to the class they are defined in and are never available via inheritance.
+This doesn’t mean the parent class can’t have private members that can hold data or modify an object; it just means the
+subclass doesn’t have direct access to them.
+
+    public class BigCat {
+        protected double size;
+    }
+
+    public class Jaguar extends BigCat {
+        public Jaguar() {
+            size = 10.2;
+        }
+    
+        public void printDetails() {
+            System.out.print(size);
+        }
+    
+        public static void main(String[] args) {
+            Jaguar jaguar = new Jaguar();
+            jaguar.printDetails();
+        }
+    }
+
+    public class Spider {
+        public void printDetails() {
+            System.out.println(size); // DOES NOT COMPILE 
+        }
+    }
 
 ## Class Modifiers
 
 Like methods and variables, a class declaration can have various modifiers.
 
-![](class-modifiers.png)
+![](understanding_inheritance/class-modifiers.png)
 
 The final modifier prevents a class from being extended any further.
 
+    public class Mammal
     public final class Rhinoceros extends Mammal { }
     public class Clara extends Rhinoceros { } // DOES NOT COMPILE
 
@@ -42,7 +70,7 @@ often difficult-to-maintain data models.
 Java does allow one exception to the single inheritance rule, which you see in Chapter 7—a class may implement multiple
 interfaces.
 
-![](types-of-inheritance.png)
+![](understanding_inheritance/types-of-inheritance.png)
 
 ## Inheriting Object
 

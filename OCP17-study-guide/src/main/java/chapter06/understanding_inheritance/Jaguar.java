@@ -1,4 +1,4 @@
-package chapter06;
+package chapter06.understanding_inheritance;
 
 public class Jaguar extends BigCat {
     public Jaguar() {
