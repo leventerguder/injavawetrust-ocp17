@@ -1,4 +1,4 @@
-package chapter06;
+package chapter06.creating_classes;
 
 // private class BlueTang { } //DOES NOT COMPILE
 

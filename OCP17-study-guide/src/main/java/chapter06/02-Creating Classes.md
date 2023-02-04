@@ -42,6 +42,10 @@ The age variable exists in the parent Animal class and is not directly accessibl
 indirectly accessible via the setAge() method. The name variable is protected, so it is inherited in the Lion class and
 directly accessible.
 
+    public void roar() {
+        System.out.print("Lions age: " + age); // DOES NOT COMPILE 
+    }
+
 Remember when working with subclasses that private members are never inherited, and package members are only inherited
 if the two classes are in the same package.
 
@@ -185,3 +189,6 @@ Let’s see if you’ve gotten the hang of this and super.
 Since label is defined in the parent class, it is accessible via both this and super references.
 The variable age is defined only in the current class, making it accessible via this but not super.
 In this example, this.numberOfLegs and super.numberOfLegs refer to different variables with distinct values.
+
+Since this includes inherited members, you often only use super when you have a naming conflict via inheritance. For
+example, you have a method or variable defined in the current class that matches a method or variable in a parent class. 

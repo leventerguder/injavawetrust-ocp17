@@ -1,4 +1,4 @@
-package chapter06;
+package chapter06.creating_classes;
 
 // protected class ClownFish { } //DOES NOT COMPILE
 
