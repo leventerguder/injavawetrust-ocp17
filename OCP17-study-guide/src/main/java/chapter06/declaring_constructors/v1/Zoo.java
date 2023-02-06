@@ -1,4 +1,4 @@
-package chapter06.constructor.v1;
+package chapter06.declaring_constructors.v1;
 
 public class Zoo {
     // Since super() can only be called once as the first statement of the constructor, the code will not compile.

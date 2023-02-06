@@ -1,4 +1,8 @@
-package chapter06;
+package chapter06.declaring_constructors;
+
+import chapter06.declaring_constructors.Rabbit1;
+import chapter06.declaring_constructors.Rabbit2;
+import chapter06.declaring_constructors.Rabbit3;
 
 public class RabbitsMultiply {
 

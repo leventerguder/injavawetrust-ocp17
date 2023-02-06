@@ -1,4 +1,4 @@
-package chapter06.constructor.v1;
+package chapter06.declaring_constructors.v1;
 
 public class Animal {
     private int age;

@@ -1,4 +1,4 @@
-package chapter06.constructor.v2;
+package chapter06.declaring_constructors.v2;
 
 public class ConstructorTest1 {
 
