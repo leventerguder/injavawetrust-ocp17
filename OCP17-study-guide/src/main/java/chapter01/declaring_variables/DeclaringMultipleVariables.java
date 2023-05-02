@@ -3,7 +3,6 @@ package chapter01.declaring_variables;
 public class DeclaringMultipleVariables {
 
     // You can declare many variables in the same declaration as long as they are all of the same type.
-    // You can declare many variables in the same declaration as long as they are all of the same type.
     void sandFence() {
         String s1, s2;
         String s3 = "yes", s4 = "no";

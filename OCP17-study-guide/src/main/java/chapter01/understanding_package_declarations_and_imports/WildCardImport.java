@@ -1,6 +1,7 @@
 package chapter01.understanding_package_declarations_and_imports;
 
-//  The import statement doesn’t bring in child packages, fields, or methods; it imports only classes directly under the package.
+//  The import statement doesn’t bring in child packages, fields, or methods;
+//  it imports only classes directly under the package.
 
 //import java.util.*;
 //import java.util.concurrent.*;

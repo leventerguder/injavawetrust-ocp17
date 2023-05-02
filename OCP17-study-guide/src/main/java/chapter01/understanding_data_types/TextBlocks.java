@@ -4,6 +4,7 @@ public class TextBlocks {
 
     public static void main(String[] args) {
 
+
         String textBlocks1 = """
                 Hello TextBlocks
                 """;
@@ -11,41 +12,52 @@ public class TextBlocks {
 
         String textBlocks2 = """
                     line1
-                line2
-                    line3
-                            line4
                 """;
         System.out.println(textBlocks2);
 
+
         String textBlocks3 = """
-                    "line1"
-                "line2"
-                    "line3"
-                        "line4"
+                            line1
                 """;
         System.out.println(textBlocks3);
 
 
         String textBlocks4 = """
+                line1
+                            """;
+
+        System.out.println(textBlocks4);
+
+        String textBlocks5 = """
+                    line1
+                line2
+                    """;
+        System.out.println(textBlocks5);
+
+        String textBlocks6 = """
+                    line1
+                line2
+                   line3
+                            line4       """;
+        System.out.println(textBlocks6);
+
+
+        String textBlocks7 = """
+                    "line1"
+                "line2"
+                    "line3"
+                        "line4"
+                """;
+        System.out.println(textBlocks7);
+
+
+        String textBlocks8 = """
                     \"line1\"
                 \"line2\"
                     \"line3\"
                         \"line4\"
                 """;
-        System.out.println(textBlocks4);
-
-        /*
-        Imagine a vertical line drawn on the leftmost non-whitespace character in your text block.
-        Everything to the left of it is incidental whitespace, and everything to the right is essential whitespace.
-         */
-
-        String pyramid = """
-            *
-           * * 
-          * * *
-      """; //The left most characters, so the line is drawn at the leftmost position.
-
-        System.out.print(pyramid);
+        System.out.println(textBlocks8);
 
     }
 }

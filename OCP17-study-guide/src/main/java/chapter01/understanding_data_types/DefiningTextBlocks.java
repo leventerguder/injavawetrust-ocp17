@@ -18,27 +18,32 @@ public class DefiningTextBlocks {
 
 
         String pyramid = """
-                  * 
-                 * *
-                * * *
-                """;
+          * 
+         * *
+        * * *
+        """;
         System.out.println(pyramid);
+        System.out.println("----");
 
         // Text blocks require a line break after the opening """, making this one invalid.
+
         // String block = """doe"""; // DOES NOT COMPILE
 
         String block = """
-                doe \
-                deer""";
+            doe \
+            deer""";
+
+        // The output is doe deer since the \ tells Java not to add a new line before deer.
 
         System.out.println(block);
-        System.out.println();
+        System.out.println("----");
 
         String block2 = """
-                doe \n
-                deer""";
+            doe \n
+            deer""";
+
         System.out.println(block2);
-        System.out.println();
+        System.out.println("----");
 
         String block3 = """
           "doe\"\"\"
@@ -47,5 +52,12 @@ public class DefiningTextBlocks {
 
         System.out.println(block3);
         // All of the \" escape the ".
+
+        String block4 = """
+          "doe""\"
+          "deer""\"
+         """;
+
+        System.out.println(block4);
     }
 }
