@@ -11,5 +11,8 @@ public class IncrementAndDecrementOperator {
         System.out.println(parkAttendance); // 1
         System.out.println(parkAttendance--); // 1
         System.out.println(parkAttendance); // 0
+
+        // For the exam, it is critical that you know the difference between
+        // expressions like parkAttendance++ and ++parkAttendance.
     }
 }
