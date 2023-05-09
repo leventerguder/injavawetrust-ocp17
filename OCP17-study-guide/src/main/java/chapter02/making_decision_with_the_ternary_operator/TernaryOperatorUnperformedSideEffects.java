@@ -1,4 +1,4 @@
-package chapter02.working_with_binary_arithmetic_operators;
+package chapter02.making_decision_with_the_ternary_operator;
 
 public class TernaryOperatorUnperformedSideEffects {
 

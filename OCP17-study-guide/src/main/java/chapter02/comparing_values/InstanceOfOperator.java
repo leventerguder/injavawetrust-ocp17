@@ -2,24 +2,35 @@ package chapter02.comparing_values;
 
 public class InstanceOfOperator {
 
-    public void openZoo(Number time) {
-        if (time instanceof Integer)
-            System.out.print((Integer) time + " O'clock");
-        else
-            System.out.print(time);
-    }
 
-    // If the compiler can determine that a variable cannot possibly be cast to a specific class, it reports an error.
-    public void openZoo2(Number time) {
-        //if (time instanceof String) // DOES NOT COMPILE
-        System.out.print(time);
-    }
+    public static void main(String[] args) {
 
-    public void nullInstanceOff() {
-        System.out.print(null instanceof Object); // false
-        Object noObjectHere = null;
-        System.out.print(noObjectHere instanceof String); // false
+                /*
+        In this example, only one object is created in memory,
+        but there are three different references to it
+        because Integer inherits both Number and Object.
+         */
+        Integer zooTime = Integer.valueOf(9);
+        Number num = zooTime;
+        Object obj = zooTime;
 
-        // System.out.print(null instanceof null); // DOES NOT COMPILE
+        System.out.println(obj instanceof Integer);
+        System.out.println(obj instanceof Number);
+        System.out.println(obj instanceof Object);
+        System.out.println(obj instanceof Long);
+        System.out.println(obj instanceof String);
+
+        System.out.println(num instanceof Integer);
+        System.out.println(num instanceof Number);
+        System.out.println(num instanceof Object);
+        System.out.println(num instanceof Long);
+        // System.out.println(num instanceof String); // Compile Error
+
+        System.out.println(zooTime instanceof Integer);
+        System.out.println(zooTime instanceof Number);
+        System.out.println(zooTime instanceof Object);
+        // System.out.println(zooTime instanceof Long); // Compile Error
+        // System.out.println(zooTime instanceof String); // Compile Error
+
     }
 }
