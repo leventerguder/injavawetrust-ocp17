@@ -38,6 +38,8 @@ public class PatternMatchingFlowScoping {
         System.out.print(data.intValue());
     }
 
+    // Flow Scoping and else Branches
+    
     void printOnlyIntegersV2(Number number) {
         if (!(number instanceof Integer data))
             return;

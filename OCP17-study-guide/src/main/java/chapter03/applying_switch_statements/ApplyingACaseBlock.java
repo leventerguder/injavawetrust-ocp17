@@ -28,4 +28,17 @@ public class ApplyingACaseBlock {
          */
     }
     // yield statements are not optional if the switch statement returns a value.
+
+
+    private static void semicolons() {
+//        int fish = 5;
+//        var name = switch (fish) {
+//            case 1 -> "Goldfish" // DOES NOT COMPILE (missing semicolon)
+//            case 2 -> {
+//                yield "Trout";
+//            }; //DOES NOT COMPILE (extra semicolon)
+//            default -> "Swordfish";
+//        };
+//        System.out.println(name);
+    }
 }
