@@ -7,5 +7,7 @@ public class TestProps {
 		Properties props = System.getProperties();
 		String myProp = System.getProperty("myProp");
 		System.out.println("propertyValue : " + myProp);
+
+		System.out.println(props);
 	}
 }

@@ -1,0 +1,108 @@
+
+cd example1
+
+levent@192 example1 % javac HelloWorld.java
+levent@192 example1 % ls
+HelloWorld.class	HelloWorld.java
+levent@192 example1 % java HelloWorld 
+HelloWorld!
+
+cd example2
+
+levent@192 example2 % javac -d bin src/HelloWorld.java 
+levent@192 example2 % cd bin
+levent@192 bin % java HelloWorld       
+HelloWorld!
+
+
+cd example3
+levent@192 example3 % javac -d bin src/com/injavawetrust/HelloWorld.java 
+levent@192 example3 % cd bin
+levent@192 bin % java com/injavawetrust/HelloWorld           
+HelloWorld!
+
+
+cd example4
+levent@192 example4 % javac TestProps.java 
+levent@192 example4 % java -DmyProp="cool parameter" TestProps 
+propertyValue : cool parameter
+...
+
+
+cd example5 
+levent@192 example5 % javac CommandLineArgs.java 
+levent@192 example5 % java CommandLineArgs value1 value2 "value3-merged"
+value1
+value2
+value3-merged
+
+
+
+cd example6
+levent@192 example6 % javac Dog.java 
+levent@192 example6 % java Dog 
+Barking...
+
+
+
+cd example7
+levent@192 example7 % javac -cp src src/pack2/Dog.java
+levent@192 example7 % cd src
+levent@192 src % java -cp . pack2/Dog 
+Barking...
+
+
+cd example8
+levent@192 example8 % javac -cp main/src/  main/src/com/bar/PrintMessage.java
+levent@192 example7 % cd main
+levent@192 main % java src/com/bar/PrintMessage
+
+Error: Could not find or load main class src.com.bar.PrintMessage
+Caused by: java.lang.NoClassDefFoundError: com/bar/PrintMessage (wrong name: src/com/bar/PrintMessage)
+
+levent@192 main % java -cp src com/bar/PrintMessage
+Hi!
+
+levent@192 main % cd src
+levent@192 src % java -cp . com.bar.PrintMessage
+Hi!
+levent@192 src % java -classpath . com/bar/PrintMessage
+Hi!
+levent@192 src % java --class-path . com.bar.PrintMessage
+Hi!
+levent@192 src %
+
+cd example9
+
+levent@192 example9 % javac -d target src/pack1/HelloWorld.java
+levent@192 example9 % cd target
+levent@192 target % jar -cvf myNewFile.jar .
+added manifest
+adding: pack1/(in = 0) (out= 0)(stored 0%)
+adding: pack1/HelloWorld.class(in = 431) (out= 292)(deflated 32%)
+adding: sample.txt(in = 11) (out= 13)(deflated -18%)
+levent@192 target %
+
+cd example10
+levent@192 example10 % javac sourcePath/pack1/Greeting.java
+levent@192 example10 % javac otherPath/pack1/Greeting.java
+levent@192 example10 % javac -cp sourcePath src/myPackage/MyClass.java
+levent@192 example10 % javac -cp otherPath src/myPackage/MyClass.java
+levent@192 example10 % java -cp sourcePath:src myPackage/MyClass
+Greeting Message! - from sourcePath
+levent@192 example10 % java -cp otherPath:src myPackage/MyClass
+Greeting Message! - from otherPath
+levent@192 example10 % java -cp sourcePath:otherPath:src myPackage/MyClass
+Greeting Message! - from sourcePath
+levent@192 example10 % java -cp otherPath:sourcePath:src myPackage/MyClass
+Greeting Message! - from otherPath
+
+levent@192 example10 % cd jarPath
+levent@192 jarPath % javac -d target pack1/Greeting.java
+levent@192 example10 % java -cp src:jarPath/target myPackage/MyClass
+Greeting Message! - from jarPath
+
+
+
+
+
