@@ -7,4 +7,5 @@ package chapter01.understanding_package_declarations_and_imports;
 //
 //public class ConflictsV1 {
 //    Date date;
+//    // Reference to 'Date' is ambiguous, both 'java.util.Date' and 'java.sql.Date' match
 //}
