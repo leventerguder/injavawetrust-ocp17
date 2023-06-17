@@ -58,7 +58,7 @@ We can summarize this principle with the following two rules:
 - The type of the object determines which properties exist within the object in memory.
 - The type of the reference to the object determines which methods and variables are accessible to the Java program.
 
-![](understandingpolymorphism/Object-vs-Reference.png)
+![](understanding_polymorphism/Object-vs-Reference.png)
 
 As you can see in the figure, the same object exists in memory regardless of which reference is pointing to it.
 Depending on the type of the reference, we may only have access to certain methods.

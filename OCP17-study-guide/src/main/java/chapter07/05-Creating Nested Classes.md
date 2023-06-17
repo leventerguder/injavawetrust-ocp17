@@ -298,8 +298,8 @@ implementations:
 
 Make sure that you know the information in Table
 
-![](creatingnestedclasses/modifiers-in-nested-classes.png)
+![](creating_nested_classes/modifiers-in-nested-classes.png)
 
 You should also know the information in Table
 
-![](creatingnestedclasses/nested-class-access-rules.png)
+![](creating_nested_classes/nested-class-access-rules.png)

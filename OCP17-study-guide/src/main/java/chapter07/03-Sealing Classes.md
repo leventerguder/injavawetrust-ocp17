@@ -11,7 +11,7 @@ assume that we’re referring to subclasses that directly extend the sealed clas
 A sealed class declares a list of classes that can extend it, while the subclasses declare that they extend the sealed
 class.
 
-![](sealingclasses/defining-sealed-class.png)
+![](sealing_classes/defining-sealed-class.png)
 
     public sealed class Bear permits Kodiak, Panda {}
 
@@ -133,7 +133,7 @@ The following fixes this issue:
 
 When all of your subclasses are nested, we strongly recommend omitting the permits class.
 
-![](sealingclasses/usage-of-the-permits-clause.png)
+![](sealing_classes/usage-of-the-permits-clause.png)
 
 ## Sealing Interfaces
 

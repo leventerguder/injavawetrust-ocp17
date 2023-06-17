@@ -9,7 +9,7 @@ Over time, the precise definition of an interface has changed, as new method typ
 
 In Java, an interface is defined with the interface keyword, analogous to the class keyword used when defining a class.
 
-![](implementinginterfaces/defining-an-interface.png)
+![](implementing_interfaces/defining-an-interface.png)
 
 Our interface declaration includes an abstract method and a constant variable. Interface variables are referred to as
 constants because they are assumed to be public, static, and final. They are initialized with a constant value when they
@@ -59,7 +59,7 @@ a set of rules and methods that a class implementing them must follow.
 Like an abstract class, when a concrete class inherits an interface, all of the inherited abstract methods must be
 implemented.
 
-![](implementinginterfaces/interface-inheritance.png)
+![](implementing_interfaces/interface-inheritance.png)
 
 The concrete Swan class inherits four abstract methods that it must imple- ment: getType(), canSwoop(), fly(), and
 swim().
@@ -183,7 +183,7 @@ The method in the Georgette class reduces the access modifier on the method from
 
 While interfaces started with abstract methods and constants, they’ve grown to include a lot more.
 
-![](implementinginterfaces/interface-member-types.png)
+![](implementing_interfaces/interface-member-types.png)
 
 The membership type determines how it is able to be accessed. A method with a membership type of class is shared among
 all instances of the interface, whereas a method with a membership type of instance is associated with a particular
@@ -384,7 +384,7 @@ Default and private non-static methods can access abstract methods declared in t
 
 ### Reviewing Interface Members
 
-![](implementinginterfaces/interface-member-access.png)
+![](implementing_interfaces/interface-member-access.png)
 
 Here are some quick tips for the exam:
 

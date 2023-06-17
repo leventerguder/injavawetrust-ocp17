@@ -7,7 +7,7 @@ of the year, primary colors, and so on. An enumeration, or enum for short, is li
 
 To create an enum, declare a type with the enum keyword, a name, and a list of values.
 
-![](workingwithenums/defining-a-simple-enum.png)
+![](working_with_enums/defining-a-simple-enum.png)
 
 We refer to an enum that only contains a list of values as a simple enum. When working with simple enums, the semicolon
 at the end of the list is optional.
