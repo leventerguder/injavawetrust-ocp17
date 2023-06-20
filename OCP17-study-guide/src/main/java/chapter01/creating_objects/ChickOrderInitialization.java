@@ -7,17 +7,24 @@ public class ChickOrderInitialization {
     You can’t refer to a variable before it has been defined:
      */
 
-    /*
-    {
-        System.out.println(name); // DOES NOT COMPILE
-    }
-    */
 
+//    {
+//        System.out.println(name); // DOES NOT COMPILE
+//    }
 
     private String name = "Fluffy";
 
     {
+        System.out.println(name); //
+    }
+
+
+    {
         System.out.println("setting field");
+    }
+
+    {
+        System.out.println("setting field-2");
     }
 
     public ChickOrderInitialization() {
@@ -29,5 +36,11 @@ public class ChickOrderInitialization {
         ChickOrderInitialization chick = new ChickOrderInitialization();
         System.out.println(chick.name);
     }
+
+
+    {
+        System.out.println("setting field-3");
+    }
+
 
 }

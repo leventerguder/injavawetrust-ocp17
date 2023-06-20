@@ -6,7 +6,11 @@ public class UsingReferenceTypes {
 
         String greeting = new String("How are you?");
 
-        Object ref = new Object();
+        String anotherObject = "anotherObject";
+
+        greeting = anotherObject;
+
+        System.out.println(greeting);
 
     }
 }

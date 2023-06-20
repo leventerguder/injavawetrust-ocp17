@@ -28,6 +28,14 @@ public class Wrapper {
         System.out.println(sum);
 
 
+        long max2 = Long.max(10, 25);
+        long min2 = Long.min(50, 265);
+        long sum2 = Long.sum(60, 20);
+
+        System.out.println(max2);
+        System.out.println(min2);
+        System.out.println(sum2);
+
     }
 }
 

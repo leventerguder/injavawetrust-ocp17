@@ -54,7 +54,7 @@ Barking...
 
 cd example8
 levent@192 example8 % javac -cp main/src/  main/src/com/bar/PrintMessage.java
-levent@192 example7 % cd main
+levent@192 example8 % cd main
 levent@192 main % java src/com/bar/PrintMessage
 
 Error: Could not find or load main class src.com.bar.PrintMessage
