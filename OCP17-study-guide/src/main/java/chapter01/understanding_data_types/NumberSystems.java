@@ -12,7 +12,7 @@ public class NumberSystems {
         int octalVar2 = 025;
         // 025 -> 8^1*2 + 8^0*5 = 21
 
-        // int octalVar3 = 038; // DOES NOT COMPILE
+        //int octalVar3 = 038; // DOES NOT COMPILE
         // [0-7] numbers are valid.
 
         System.out.println(octalVar1);
@@ -25,7 +25,7 @@ public class NumberSystems {
         int hexadecimal1 = 0xFF;
         // 0xFF -> 16^1*15 + 16^0*15 = 255
 
-        int hexadecimal2 = 0x234;
+        int hexadecimal2 = 0X234;
         // 0x234 -> 16^2*2 + 16^1*3 + 16^0*4 = 564
 
 
@@ -44,7 +44,7 @@ public class NumberSystems {
         int binary2 = 0B1101;
         // 0b10 -> 2^3*1 + 2^2*1 + 2^0*1 = 14
 
-        // int binary3 = 0B210; // DOES NOT COMPILE
+        //int binary3 = 0B210; // DOES NOT COMPILE
         // [0-1]
 
         System.out.println(binary1);

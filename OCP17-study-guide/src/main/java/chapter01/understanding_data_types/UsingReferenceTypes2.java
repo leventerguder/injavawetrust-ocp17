@@ -1,6 +1,6 @@
 package chapter01.understanding_data_types;
 
-public class UsingReferecenTypes2 {
+public class UsingReferenceTypes2 {
 
     public static void main(String[] args) {
 

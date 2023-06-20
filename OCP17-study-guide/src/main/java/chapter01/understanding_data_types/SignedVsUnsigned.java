@@ -24,7 +24,7 @@ public class SignedVsUnsigned {
         System.out.println(Short.MIN_VALUE); // -32768
 
 
-        System.out.println((int) Character.MAX_VALUE);  // 2^16 ->65536
+        System.out.println((int) Character.MAX_VALUE);  // 2^16-1 ->65535
         System.out.println((int) Character.MIN_VALUE);  // 0
     }
 }

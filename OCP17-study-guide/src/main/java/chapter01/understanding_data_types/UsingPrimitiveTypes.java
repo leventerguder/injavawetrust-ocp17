@@ -13,7 +13,7 @@ public class UsingPrimitiveTypes {
         System.out.println("byte min value : " + Byte.MIN_VALUE);
 
         short count = 15000;
-        // short total = 35000; // DOES NOT COMPILE , max value 32767
+        //short total = 35000; // DOES NOT COMPILE , max value 32767
 
         System.out.println("short max value : " + Short.MAX_VALUE);
         System.out.println("short min value : " + Short.MIN_VALUE);
