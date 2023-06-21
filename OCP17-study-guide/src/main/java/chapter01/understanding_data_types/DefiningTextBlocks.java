@@ -25,6 +25,23 @@ public class DefiningTextBlocks {
         System.out.println(pyramid);
         System.out.println("----");
 
+
+        String pyramid2 = """
+              * 
+             * *
+            * * *
+            """;
+        System.out.println(pyramid2);
+        System.out.println("----");
+
+        String pyramid3 = """
+                  * 
+                 * *
+                * * *
+                """;
+        System.out.println(pyramid3);
+        System.out.println("----");
+
         // Text blocks require a line break after the opening """, making this one invalid.
 
         // String block = """doe"""; // DOES NOT COMPILE
@@ -59,5 +76,32 @@ public class DefiningTextBlocks {
          """;
 
         System.out.println(block4);
+
+        System.out.println("----");
+
+        String block5= """
+                a""";
+        System.out.println(block5.length());
+        System.out.println(block5.toCharArray());
+
+        String block6= """
+                a
+                """;
+
+        System.out.println("----");
+        System.out.println(block6.length());
+        System.out.println(block6.toCharArray());
+
+
+        String block7= """
+                a\n
+                """;
+
+        System.out.println("----");
+        System.out.println(block7.length());
+        System.out.println(block7.toCharArray());
+
+
+        System.out.println("----");
     }
 }
