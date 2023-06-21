@@ -16,5 +16,8 @@ public class Identifiers {
 //        int e#;
 //        int .f;
 //        int 7g;
+
+        int ¥Ⅻ₤$ώ	= 100;
+        // https://www.rapidtables.com/code/text/unicode-characters.html
     }
 }
