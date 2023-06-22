@@ -30,5 +30,7 @@ public class FinalLocalVariables {
         final List<Integer> counters = new ArrayList<>();
         counters.add(10);
         counters.add(20);
+
+        // counters = new ArrayList<>();
     }
 }

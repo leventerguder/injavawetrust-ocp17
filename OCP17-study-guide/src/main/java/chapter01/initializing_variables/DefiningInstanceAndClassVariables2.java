@@ -9,6 +9,8 @@ public class DefiningInstanceAndClassVariables2 {
         Sample sample = new Sample();
 
         System.out.println(sample);
+
+        System.out.println(Sample.lock);
     }
 }
 
@@ -22,7 +24,7 @@ class Sample {
     double square;
 
     String name;
-    List<Integer> cofigs;
+    List<Integer> configs;
 
     static Object lock;
 
@@ -36,7 +38,7 @@ class Sample {
                 ", size=" + size +
                 ", square=" + square +
                 ", name=" + name +
-                ", cofigs=" + cofigs +
+                ", configs=" + configs +
                 ", c=" + c +
                 '}';
     }

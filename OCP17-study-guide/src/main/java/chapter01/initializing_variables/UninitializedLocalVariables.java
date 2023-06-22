@@ -9,7 +9,7 @@ public class UninitializedLocalVariables {
     public void notValid() {
         int y = 10;
         int x;
-        //   int reply = x + y; // DOES NOT COMPILE
+        //int reply = x + y; // DOES NOT COMPILE
     }
 
     public int valid() {
@@ -18,6 +18,7 @@ public class UninitializedLocalVariables {
         x = 3; // x is initialized here
         int z; // z is declared here but never initialized or used
 
+        // System.out.println(z);
         int reply = x + y;
         return reply;
     }
@@ -36,7 +37,7 @@ public class UninitializedLocalVariables {
             answer = 2;
         }
         System.out.println(answer);
-        // System.out.println(onlyOneBranch); // DOES NOT COMPILE
+        //System.out.println(onlyOneBranch); // DOES NOT COMPILE
     }
 
 
@@ -52,6 +53,7 @@ public class UninitializedLocalVariables {
         int y;
 
         // System.out.println(y);
+        // System.out.println(x);
 
         return 0;
     }
