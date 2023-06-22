@@ -9,6 +9,12 @@ public class VarExamples {
 //        var question;
 //        question = 1;
 //
+//        var question2
+//                = 1;
+//
+//        var question3
+//        question3 = 1;
+//
 //        var answer;
 //        if (check) {
 //            answer = 2;
@@ -24,6 +30,18 @@ public class VarExamples {
 //        var n = null; // DOES NOT COMPILE
 //    }
 
+    /*
+    While a var cannot be initialized with a null value without a type,
+    it can be reassigned a null value after it is declared,
+    provided that the underlying data type is a reference type.
+     */
+    public void nullVar() {
+        var str = (String) null;
+        str = "content";
+
+        var size = (Integer) null;
+        size = 200;
+    }
 
     // In this example, a and b are method parameters.
     // Remember that var is only used for local variable type inference!
