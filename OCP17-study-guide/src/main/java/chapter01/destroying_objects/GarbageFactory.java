@@ -13,6 +13,10 @@ public class GarbageFactory {
      */
     public static void main(String[] args) {
         Date d = getDate();
+        // Since the method returns the Date object,
+        // it will not be eligible for collection even after the method has completed.
+        // The StringBuffer object, though, will be eligible,
+        // even though we didn't explicitly set the now variable to null.
         doComplicatedStuff();
         System.out.println("d = " + d);
     }
