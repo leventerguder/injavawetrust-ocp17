@@ -17,8 +17,9 @@ public class LimitingScope {
                 var teenyBit = true;
                 System.out.println(bitesOfCheese);
             }
+            // System.out.println(teenyBit); // DOES NOT COMPILE
         }
-        // System.out.println(teenyBit); // DOES NOT COMPILE
+         // System.out.println(teenyBit); // DOES NOT COMPILE
     }
 
 }
