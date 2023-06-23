@@ -5,9 +5,10 @@ public class LimitingScope {
     public void eatIfHungry(boolean hungry) {
         if (hungry) {
             int bitesOfCheese = 1;
+            System.out.println(bitesOfCheese);
         } // bitesOfCheese goes out of scope here
 
-        // System.out.println(bitesOfCheese); // DOES NOT COMPILE
+        //System.out.println(bitesOfCheese); // DOES NOT COMPILE
     }
 
     public void eatIfHungry2(boolean hungry) {
@@ -16,6 +17,7 @@ public class LimitingScope {
             {
                 var teenyBit = true;
                 System.out.println(bitesOfCheese);
+                System.out.println(teenyBit);
             }
             // System.out.println(teenyBit); // DOES NOT COMPILE
         }

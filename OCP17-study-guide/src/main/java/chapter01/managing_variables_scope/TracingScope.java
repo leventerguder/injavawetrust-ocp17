@@ -12,6 +12,8 @@ public class TracingScope {
                 amountOfFood = amountOfFood - amountEaten;
             }
         }
+        // System.out.println(timeToEat); // DOES NOT COMPILE
+        // System.out.println(amountEaten); // DOES NOT COMPILE
         System.out.println(amountOfFood);
     }
 }

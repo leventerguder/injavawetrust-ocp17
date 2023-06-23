@@ -18,12 +18,16 @@ public class ReviewingScope {
             System.out.println(localVariableX);
             System.out.println(localVariableY);
             System.out.println(methodParameter);
+            System.out.println(instanceVariable);
+            System.out.println(classVariable);
         } else {
             int localVariableInTheElseBlock = 50;
             System.out.println(localVariableX);
             System.out.println(localVariableY);
-            // System.out.println(localVariableInTheIfBlock); //DOES NOT COMPILE
+            //System.out.println(localVariableInTheIfBlock); //DOES NOT COMPILE
             System.out.println(methodParameter);
+            System.out.println(instanceVariable);
+            System.out.println(ReviewingScope.classVariable);
         }
 
         // System.out.println(localVariableInTheIfBlock); //DOES NOT COMPILE

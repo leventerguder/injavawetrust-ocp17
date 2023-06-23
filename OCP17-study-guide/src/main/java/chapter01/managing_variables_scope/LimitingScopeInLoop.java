@@ -18,7 +18,7 @@ public class LimitingScopeInLoop {
             int sum = 20;
             //...
         }
-        // System.out.println(sum); // DOES NOT COMPILE
+        //System.out.println(sum); // DOES NOT COMPILE
 
 //        int k = 0;
 //        do {
