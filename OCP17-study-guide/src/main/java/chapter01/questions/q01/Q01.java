@@ -21,7 +21,7 @@ class Option1 {
 }
 
 class Option2 {
-    // public static final main(String[] args) {} // DOES NOT COMPILE
+    //public static final main(String[] args) {} // DOES NOT COMPILE
     // The main() method must have void return type.
 }
 
@@ -44,6 +44,6 @@ class Option5 {
 }
 
 class Option6{
-    // public static main(String[] args) {} // DOES NOT COMPILE
+    //public static main(String[] args) {} // DOES NOT COMPILE
     // The main() method must have void return type.
 }

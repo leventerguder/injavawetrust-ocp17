@@ -1,6 +1,6 @@
 package chapter01.questions.q16;
 
-public class Q18 {
+public class Q16 {
 
     public static void main(String[] args) {
 

@@ -26,6 +26,12 @@ public class NumericPromotion {
         short y = 3;
         var z = x * y;
 
+        //short z2 = x * y; // DOES NOT COMPILE
+        int z3 = x * y;
+        long z4 = x * y;
+        float z5 = x * y;
+        double z6 = x * y;
+
         // that x and y will both be promoted to int before the binary multiplication operation, resulting in an output of type int.
     }
 
@@ -34,6 +40,9 @@ public class NumericPromotion {
         float x = 13;
         double y = 30;
         var z = w * x / y;
+        double z2 = w * x / y;
+
+        // float z3 = w * x / y; // DOES NOT COMPILE
 
         // First, w will automatically be promoted to int solely because it is a short and is being used in an arithmetic binary operation.
         // The promoted w value will then be automatically promoted to a float so that it can be multiplied with x.

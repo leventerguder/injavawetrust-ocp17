@@ -21,14 +21,14 @@ public class Camel {
                 var Private = 2;
             }
             // SCOPE
-//            System.out.println(i);
-//            System.out.println(age);
-//            System.out.println(twoHumps);
-//            System.out.println(distance);
-//            System.out.println(path);
-//            System.out.println(water);
-//            System.out.println(air);
-//
+            System.out.println(i);
+            System.out.println(age);
+            System.out.println(twoHumps);
+            System.out.println(distance);
+            System.out.println(path);
+            System.out.println(water);
+            System.out.println(air);
+
 //            System.out.println(Private); // DOES NOT COMPILE
 //            System.out.println(teeth); // DOES NOT COMPILE
         }

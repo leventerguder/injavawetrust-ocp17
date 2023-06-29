@@ -8,6 +8,9 @@ public class OperatorPrecedence {
         int length = 10;
 
         var perimeter = 2 * height + 2 * length;
+        var perimeterV2 = ((2 * height) + (2 * length));
+
         System.out.println(perimeter);
+        System.out.println(perimeterV2);
     }
 }

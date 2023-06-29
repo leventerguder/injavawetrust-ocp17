@@ -11,10 +11,12 @@ public class OverFlowAndUnderflow {
 
         System.out.println(Integer.MAX_VALUE);
         System.out.println(Integer.MAX_VALUE + 1);
-        System.out.println(2147483647 + 1); // -2147483648
+
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(Integer.MIN_VALUE - 1);
 
 
-        byte b = (byte)-200;
+        byte b = (byte) -200;
         System.out.println(b);
     }
 }
