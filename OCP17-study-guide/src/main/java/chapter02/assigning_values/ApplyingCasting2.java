@@ -13,9 +13,11 @@ public class ApplyingCasting2 {
 
         System.out.println(capybara);
 
+        byte b1 = 100;
+        byte b2 = 30;
+        byte b3 = (byte) (b1 + b2);
 
-        short capybara2 = 10 * 3;
-        System.out.println(capybara2);
+        System.out.println(b3);
 
 
     }

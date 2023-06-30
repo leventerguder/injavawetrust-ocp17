@@ -2,33 +2,41 @@ package chapter02.assigning_values;
 
 public class CompoundAssignmentOperators {
 
-    private static void assignment() {
-        int camel = 2, giraffe = 3;
-        camel = camel * giraffe; // Simple assignment operator
-        System.out.println(camel);
-    }
-
-    private static void compoundAssignment() {
-        int camel = 2, giraffe = 3;
-        camel *= giraffe; // Compound assignment operator
-        System.out.println(camel);
-    }
-
     public static void main(String[] args) {
 
-        assignment();
-        compoundAssignment();
-        compoundAssignmentCasting();
-    }
+        int a = 10;
+        a += 5;
 
-    private static void compoundAssignmentCasting() {
+        System.out.println("a:" + a);
 
-        long goat = 10;
-        int sheep = 5;
-        // sheep = sheep * goat; // DOES NOT COMPILE
-        sheep *= goat;
 
-        // The compound operator will first cast sheep to a long, apply the multiplication of two long values, and then cast the result to an int.
-        System.out.println(sheep);
+        int a2 = 10;
+        a2 = a2 + 5;
+
+        System.out.println("a2:" + a2);
+
+
+        int a3 = 10;
+        a3 = a3 += 5;
+
+        System.out.println("a3:" + a3);
+
+
+        double b = 2.5;
+        b -= 0.2;
+
+        System.out.println("b:" + b);
+
+
+        int c = 20;
+        c *= 100;
+
+        System.out.println("c:" + c);
+
+
+        int d = 20;
+        d /= 4;
+
+        System.out.println("c:" + c);
     }
 }
