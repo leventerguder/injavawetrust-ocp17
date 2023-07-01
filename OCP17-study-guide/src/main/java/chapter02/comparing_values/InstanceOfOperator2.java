@@ -8,7 +8,6 @@ public class InstanceOfOperator2 {
         openZoo(10);
         openZoo(0.5);
         openZoo2(20);
-        nullInstanceOff();
     }
 
     public static void openZoo(Number time) {
@@ -24,11 +23,4 @@ public class InstanceOfOperator2 {
         System.out.println(time);
     }
 
-    public static void nullInstanceOff() {
-        System.out.println(null instanceof Object); // false
-        Object noObjectHere = null;
-        System.out.println(noObjectHere instanceof String); // false
-
-        // System.out.print(null instanceof null); // DOES NOT COMPILE
-    }
 }
