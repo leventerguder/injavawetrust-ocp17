@@ -10,6 +10,9 @@ public class WatchIndentationAndBraces {
     }
 
     private static void withoutBraces() {
+
+        System.out.println("withoutBraces");
+
         int hourOfDay = 12;
         int morningGreetingCount = 0;
 
@@ -27,6 +30,9 @@ public class WatchIndentationAndBraces {
 
 
     private static void withBraces() {
+
+        System.out.println("withBraces");
+
         int hourOfDay = 12;
         int morningGreetingCount = 0;
 
