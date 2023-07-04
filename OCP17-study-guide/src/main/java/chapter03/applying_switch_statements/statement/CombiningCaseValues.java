@@ -1,4 +1,4 @@
-package chapter03.applying_switch_statements;
+package chapter03.applying_switch_statements.statement;
 
 public class CombiningCaseValues {
 

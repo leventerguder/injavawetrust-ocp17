@@ -21,7 +21,7 @@ the first matching branch, known as a case statement. If no such case statement 
 optional default statement will be called. If no such default option is available, the entire switch statement will be
 skipped.
 
-![](applying_switch_statements/The-structure-of-a-switch-statement.png)
+![](applying_switch_statements/statement/The-structure-of-a-switch-statement.png)
 
 **Combining case Values**
 
@@ -177,7 +177,7 @@ A switch expression is a much more compact form of a switch statement, capable o
 
 The switch expression supports two types of branches: an expression and a block.
 
-![](applying_switch_statements/The-structure-of-a-switch-expression.png)
+![](applying_switch_statements/expression/The-structure-of-a-switch-expression.png)
 
 Like a traditional switch statement, a switch expression supports zero or many case branches and an optional default
 branch. Both also support the new feature that allows case values to be combined with a single case statement using

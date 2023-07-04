@@ -1,4 +1,4 @@
-package chapter03.applying_switch_statements;
+package chapter03.applying_switch_statements.expression;
 
 public class SwitchExpression3 {
 
@@ -8,6 +8,13 @@ public class SwitchExpression3 {
         printSeason(14);
         printSeason(4);
 
+        String season1 = printSeason2(5);
+        String season2 = printSeason2(6);
+        String season3 = printSeason2(11);
+
+        System.out.println(season1);
+        System.out.println(season2);
+        System.out.println(season3);
     }
 
 
@@ -21,15 +28,15 @@ public class SwitchExpression3 {
      */
     public static void printSeason(int month) {
         switch (month) {
-            case 1, 2, 3 -> System.out.print("Winter");
-            case 4, 5, 6 -> System.out.print("Spring");
-            case 7, 8, 9 -> System.out.print("Summer");
-            case 10, 11, 12 -> System.out.print("Fall");
+            case 1, 2, 3 -> System.out.println("Winter");
+            case 4, 5, 6 -> System.out.println("Spring");
+            case 7, 8, 9 -> System.out.println("Summer");
+            case 10, 11, 12 -> System.out.println("Fall");
         }
     }
 
-    public static void printSeason2(int month) {
-        var seasons = switch (month) {
+    public static String printSeason2(int month) {
+        var season = switch (month) {
             case 1, 2, 3 -> "Winter";
             case 4, 5, 6 -> "Spring";
             case 7, 8, 9 -> "Summer";
@@ -37,6 +44,8 @@ public class SwitchExpression3 {
             default -> throw new IllegalStateException("Unexpected value: " + month); // default is Required!
             // A default branch is required unless all cases are covered or no value is returned.
         };
+
+        return season;
     }
 
 }

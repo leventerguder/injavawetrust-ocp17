@@ -1,4 +1,4 @@
-package chapter03.applying_switch_statements;
+package chapter03.applying_switch_statements.expression;
 
 public class ApplyingACaseBlock {
 
@@ -12,6 +12,7 @@ public class ApplyingACaseBlock {
         var name = switch (fish) {
             case 1 -> "Goldfish";
             case 2 -> {
+                // return "Trout"; // Return outside of enclosing switch expression
                 yield "Trout";
             }
             case 3 -> {

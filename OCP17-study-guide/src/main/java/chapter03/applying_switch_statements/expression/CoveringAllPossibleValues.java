@@ -1,4 +1,4 @@
-package chapter03.applying_switch_statements;
+package chapter03.applying_switch_statements.expression;
 
 public class CoveringAllPossibleValues {
 
@@ -13,6 +13,19 @@ public class CoveringAllPossibleValues {
 //            case 2 -> "wolf";
 //            case 3 -> "coyote";
 //        };
+
+
+        switch (canis) {
+//            case 1 -> "dog";    // Not a statement. // DOES NOT COMPILE
+//            case 2 -> "wolf";   // Not a statement. // DOES NOT COMPILE
+//            case 3 -> "coyote"; // Not a statement. // DOES NOT COMPILE
+        };
+
+        switch (canis) {
+            case 1 -> System.out.println("dog");
+            case 2 -> System.out.println("wolf");
+            case 3 -> System.out.println("coyote");
+        }
 
 
         String type = switch (canis) {
