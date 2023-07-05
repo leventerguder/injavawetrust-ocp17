@@ -10,5 +10,12 @@ public class DoWhileStatement {
         } while (false);
         System.out.println(lizard); // 1
 
+
+        int counter = 0;
+        do {
+            double price = counter * 10;
+            System.out.println(price);
+            counter++;
+        } while (counter < 10);
     }
 }

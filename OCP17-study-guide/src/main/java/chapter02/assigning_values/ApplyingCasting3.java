@@ -10,6 +10,7 @@ public class ApplyingCasting3 {
         // short capybara = (short)mouse * hamster; // DOES NOT COMPILE
 
         //casting is performed successfully, but the resulting value is automatically promoted to int because it is used with the binary arithmetic operator (+).
-        // short capybara = 1 + (short)(mouse * hamster); // DOES NOT COMPILE
+        //short capybara = 1 + (short)(mouse * hamster); // DOES NOT COMPILE
+        short capybara = (short) (1 + (short) (mouse * hamster)); //
     }
 }
