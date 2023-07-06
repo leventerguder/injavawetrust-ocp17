@@ -2,35 +2,63 @@ package chapter02.comparing_values;
 
 public class InstanceOfOperator {
 
-
     public static void main(String[] args) {
 
-                /*
-        In this example, only one object is created in memory,
-        but there are three different references to it
-        because Integer inherits both Number and Object.
-         */
-        Integer zooTime = Integer.valueOf(9);
-        Number num = zooTime;
-        Object obj = zooTime;
+        Bird bird = new Bird();
 
-        System.out.println(obj instanceof Integer);
-        System.out.println(obj instanceof Number);
-        System.out.println(obj instanceof Object);
-        System.out.println(obj instanceof Long);
-        System.out.println(obj instanceof String);
+        System.out.println("bird instanceof Bird : " + (bird instanceof Bird));
+        System.out.println("bird instanceof Object :" + (bird instanceof Object));
+        // System.out.println("bird instanceof Cat : " + (bird instanceof Cat)); // DOES NOT COMPILE , Inconvertible types; cannot cast
+        // System.out.println("bird instanceof Dog : " + (bird instanceof Dog)); // DOES NOT COMPILE , Inconvertible types; cannot cast
+        System.out.println("bird instanceof Flyable : " + (bird instanceof Flyable));
+        System.out.println("bird instanceof Walkable : " + (bird instanceof Walkable));
+        System.out.println();
 
-        System.out.println(num instanceof Integer);
-        System.out.println(num instanceof Number);
-        System.out.println(num instanceof Object);
-        System.out.println(num instanceof Long);
-        // System.out.println(num instanceof String); // Compile Error
+        Object object = bird;
+        // Cat cat = bird;
+        // Dog dog = bird;
+        Flyable flyable = bird;
+        // Walkable walkable = bird;
 
-        System.out.println(zooTime instanceof Integer);
-        System.out.println(zooTime instanceof Number);
-        System.out.println(zooTime instanceof Object);
-        // System.out.println(zooTime instanceof Long); // Compile Error
-        // System.out.println(zooTime instanceof String); // Compile Error
 
+        Cat cat = new Cat(); // Cat is a final class. Can not be extended.
+
+        // System.out.println("cat instanceof Bird : " + (cat instanceof Bird)); // DOES NOT COMPILE
+        System.out.println("cat instanceof Object : " + (cat instanceof Object));
+        System.out.println("cat instanceof Cat : " + (cat instanceof Cat));
+        // System.out.println("cat instanceof Dog : " + (cat instanceof Dog));  // DOES NOT COMPILE
+        // System.out.println("cat instanceof Flyable : " + (cat instanceof Flyable)); // DOES NOT COMPILE
+        // System.out.println("cat instanceof Walkable : " + (cat instanceof Walkable)); // DOES NOT COMPILE
+        System.out.println();
+
+        Bird chicken = new Chicken();
+
+        System.out.println("chicken instanceof Chicken : " + (chicken instanceof Chicken));
+        System.out.println("chicken instanceof Bird : " + (chicken instanceof Bird));
+        System.out.println("chicken instanceof Object : " + (chicken instanceof Object));
+        // System.out.println("chicken instanceof Cat : " + (chicken instanceof Cat)); //DOES NOT COMPILE
+        // System.out.println("chicken instanceof Dog : " + (chicken instanceof Dog));  // DOES NOT COMPILE
+        System.out.println("chicken instanceof Flyable : " + (chicken instanceof Flyable)); // DOES NOT COMPILE
+        System.out.println("chicken instanceof Walkable : " + (chicken instanceof Walkable)); // DOES NOT COMPILE
     }
+}
+
+interface Flyable {
+
+}
+
+interface Walkable {
+}
+
+class Bird implements Flyable {
+
+}
+
+class Chicken extends Bird implements Walkable {
+}
+
+final class Cat {
+}
+
+class Dog {
 }

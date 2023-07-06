@@ -11,5 +11,11 @@ public class EqualityOperator4 {
         var wednesday = tuesday;
         System.out.println(monday == tuesday); // false
         System.out.println(tuesday == wednesday); // true
+
+        StringBuilder sb1 = new StringBuilder("hello");
+
+        StringBuilder sb2 = new StringBuilder("hello");
+
+        System.out.println(sb1 == sb2);
     }
 }
