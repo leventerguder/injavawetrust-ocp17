@@ -4,8 +4,6 @@ public class TernaryOperator3 {
 
     public static void main(String[] args) {
 
-
-
         /*
         you should know that there is no requirement that second and
         third expressions in ternary operations have the same data types,
