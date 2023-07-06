@@ -8,7 +8,7 @@ public class InstanceOfOperator {
 
         System.out.println("bird instanceof Bird : " + (bird instanceof Bird));
         System.out.println("bird instanceof Object :" + (bird instanceof Object));
-        // System.out.println("bird instanceof Cat : " + (bird instanceof Cat)); // DOES NOT COMPILE , Inconvertible types; cannot cast
+        //System.out.println("bird instanceof Cat : " + (bird instanceof Cat)); // DOES NOT COMPILE , Inconvertible types; cannot cast
         // System.out.println("bird instanceof Dog : " + (bird instanceof Dog)); // DOES NOT COMPILE , Inconvertible types; cannot cast
         System.out.println("bird instanceof Flyable : " + (bird instanceof Flyable));
         System.out.println("bird instanceof Walkable : " + (bird instanceof Walkable));
@@ -23,7 +23,7 @@ public class InstanceOfOperator {
 
         Cat cat = new Cat(); // Cat is a final class. Can not be extended.
 
-        // System.out.println("cat instanceof Bird : " + (cat instanceof Bird)); // DOES NOT COMPILE
+        //System.out.println("cat instanceof Bird : " + (cat instanceof Bird)); // DOES NOT COMPILE
         System.out.println("cat instanceof Object : " + (cat instanceof Object));
         System.out.println("cat instanceof Cat : " + (cat instanceof Cat));
         // System.out.println("cat instanceof Dog : " + (cat instanceof Dog));  // DOES NOT COMPILE
@@ -38,8 +38,8 @@ public class InstanceOfOperator {
         System.out.println("chicken instanceof Object : " + (chicken instanceof Object));
         // System.out.println("chicken instanceof Cat : " + (chicken instanceof Cat)); //DOES NOT COMPILE
         // System.out.println("chicken instanceof Dog : " + (chicken instanceof Dog));  // DOES NOT COMPILE
-        System.out.println("chicken instanceof Flyable : " + (chicken instanceof Flyable)); // DOES NOT COMPILE
-        System.out.println("chicken instanceof Walkable : " + (chicken instanceof Walkable)); // DOES NOT COMPILE
+        System.out.println("chicken instanceof Flyable : " + (chicken instanceof Flyable));
+        System.out.println("chicken instanceof Walkable : " + (chicken instanceof Walkable));
     }
 }
 

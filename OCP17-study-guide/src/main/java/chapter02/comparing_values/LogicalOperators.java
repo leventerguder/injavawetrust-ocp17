@@ -13,5 +13,6 @@ public class LogicalOperators {
         System.out.println(resting); // true
         System.out.println(asleep); // true
         System.out.println(awake); // false
+
     }
 }
