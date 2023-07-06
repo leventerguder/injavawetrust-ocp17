@@ -10,5 +10,11 @@ public class CheckingForUnperformedSideEffects {
 
         // Because rabbit >= 6 is true, the increment operator on the right side of the expression is never evaluated,
         // so the output is 6.
+
+        int number = 10;
+        boolean result = (number >= 20) || (number++ <= 15);
+        System.out.println(result);
+        System.out.println(number);
+
     }
 }
