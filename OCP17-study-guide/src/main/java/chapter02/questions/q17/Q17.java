@@ -7,6 +7,9 @@ public class Q17 {
         int ticketsTaken = 1;
         int ticketsSold = 3;
         ticketsSold += 1 + ticketsTaken++;
+
+//        System.out.println(ticketsSold); //5
+//        System.out.println(ticketsTaken);//2
         // the post-increment operator was used, the value of ticketsTaken++ returns 1
         ticketsTaken *= 2;
         ticketsSold += (long) 1;

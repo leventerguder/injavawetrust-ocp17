@@ -8,7 +8,7 @@ public class Q03 {
 
 //    A. No change; it compiles as is.
 // ++    B. Cast ear on line 4 to int.
-//    C. Change the data type of ear on line 3 to short.
+// ++    C. Change the data type of ear on line 3 to short.
 // ++    D. Cast 2 * ear on line 4 to int.
 //    E. Change the data type of hearing on line 4 to short.
 //++    F. Change the data type of hearing on line 4 to long.
@@ -20,15 +20,20 @@ public class Q03 {
         int hearing = 2 * (int) ear;
     }
 
-    // Cast 2 * ear on line 4 to int.
     void method2() {
+        short ear = 10;
+        int hearing = 2 * ear;
+    }
+
+    // Cast 2 * ear on line 4 to int.
+    void method3() {
         long ear = 10;
         int hearing = (int) (2 * ear);
     }
 
     // Change the data type of hearing on line 4 to long.
-    void method3() {
+    void method4() {
         long ear = 10;
-        long hearing = (int) (2 * ear);
+        long hearing = 2 * ear;
     }
 }
