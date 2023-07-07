@@ -13,12 +13,12 @@ public class Q01 {
 
     public static void main(String[] args) {
 
-        boolean active = true;
+        boolean active = true; // Assignment Operator
 
-        System.out.println(active == true);
+        System.out.println(active == true); // Equality Operator
 
-        System.out.println(!active);
+        System.out.println(!active); //Logical Complement Operator
 
-        System.out.println((boolean) active);
+        System.out.println((boolean) active); // Cast
     }
 }

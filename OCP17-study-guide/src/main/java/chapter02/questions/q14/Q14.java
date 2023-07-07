@@ -20,4 +20,24 @@ public class Q14 {
 
         System.out.println(sb1 != sb2);
     }
+
+    void method2() {
+
+        boolean inactive = true;
+
+        // System.out.println(inactive == 1); // DOES NOT COMPILE
+    }
+
+    void method3() {
+
+        // boolean assigned = 1; // DOES NOT COMPILE
+    }
+
+    void method4() {
+
+        int number = 10;
+        //System.out.println(!number); // DOES NOT COMPILE
+        System.out.println(~number);
+
+    }
 }

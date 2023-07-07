@@ -10,5 +10,8 @@ public class Q13 {
         boolean stayingHome = !(goingToTheStore && goingToTheZoo);
         System.out.println(goingToTheStore + "-" + goingToTheZoo
                 + "-" + stayingHome);
+
+        // https://www.selikoff.net/ocp17/
+        // Errata 915
     }
 }

@@ -9,5 +9,9 @@ public class Q11 {
         int sample3 = 5 * (1 % 2); //5
         System.out.println(sample1 + ", " + sample2 + ", " + sample3);
 
+        /*
+         * and % have the same operator precedence,
+         * so the expression is evaluated from left to right unless parentheses are present.
+         */
     }
 }

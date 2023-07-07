@@ -9,5 +9,13 @@ public class Q21 {
         int plane = -myFavoriteNumber;
         var superman = bird == plane ? 5 : 10;
         System.out.println(bird + "," + plane + "," + --superman); // -9,-8,9
+
+        /*
+        The bitwise complement of 8 can be found by multiplying
+        the number by negative one and subtracting one.
+         */
+        /*
+        The pre-decrement operator takes superman, subtracts 1, and returns the new value, printing 9.
+         */
     }
 }

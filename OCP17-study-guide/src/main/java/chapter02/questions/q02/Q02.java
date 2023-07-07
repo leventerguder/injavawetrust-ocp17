@@ -10,7 +10,7 @@ public class Q02 {
 // ++   A. int
 // ++   B. long
 //    C. boolean
-//    D. double
+// ++   D. double
 //    E. short
 //    F. byte
 

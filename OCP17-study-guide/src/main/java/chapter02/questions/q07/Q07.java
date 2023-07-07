@@ -9,6 +9,9 @@ public class Q07 {
         boolean safe = (vis > 2) && (ph++ > 1);
         boolean tasty = 7 <= --ph;
 
+        // and the pre-decrement operator is applied first,
+        // reducing the expression to 7 <= 6 and resulting in an assignment of false.
+
         System.out.println(clear + "-" + safe + "-" + tasty); // true-false-false
     }
 }

@@ -7,9 +7,20 @@ public class Q12 {
 
     public static void main(String[] args) {
 
-        int number = 10;
-        System.out.println(number++);
+        int i = 10;
+        System.out.println(i++); // post-increment
 
-        System.out.println(--number);
+        int j = 10;
+
+        System.out.println(++j); // pre-increment
+
+        int x = 10;
+        System.out.println(--x); // pre-decrement
+
+
+        int y = 10;
+        System.out.println(y--); // post-decrement
+
+
     }
 }

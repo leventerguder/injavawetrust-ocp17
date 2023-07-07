@@ -10,7 +10,7 @@ public class Q05 {
 // ++   C. =, ==, !
 //    D. (short), =, !, *
 //    E. *,/,%,+,==
-//    F. !, ||, &
-//    G. ^,+,=,+=
+//    F. !, ||, &  // the logical complement operator (!) has the highest order of precedence
+//    G. ^,+,=,+=  // the assignment operators have the lowest order of precedence, not the highest,
 
 }

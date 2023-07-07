@@ -7,6 +7,7 @@ public class Q17 {
         int ticketsTaken = 1;
         int ticketsSold = 3;
         ticketsSold += 1 + ticketsTaken++;
+        // the post-increment operator was used, the value of ticketsTaken++ returns 1
         ticketsTaken *= 2;
         ticketsSold += (long) 1;
 
