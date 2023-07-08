@@ -16,8 +16,7 @@ public class ApplyingSwitchStatements2 {
 //        System.out.print("January");
 //
 //        switch (month) {
-//            case 1:
-//                2:System.out.print("January"); // DOES NOT COMPILE
+//            case 1 : 2:System.out.print("January"); // DOES NOT COMPILE
 //        }
 
         //The first switch statement does not compile because it is missing parentheses around the switch variable.

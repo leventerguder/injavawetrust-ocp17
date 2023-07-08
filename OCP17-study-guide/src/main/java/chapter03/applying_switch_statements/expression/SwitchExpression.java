@@ -56,4 +56,27 @@ public class SwitchExpression {
         };
         System.out.println(result);
     }
+
+    public static void printDayOfWeekV2SwitchExpression2(int day) {
+        var result = switch (day) {
+            case 0 -> {
+                yield "Sunday";
+                //System.out.println("DOES NOT COMPILE");
+            }
+            // case 1 -> {"Monday"}; // Not a statement , DOES NOT COMPILE
+            // case 1 -> return "Monday"; // DOES NOT COMPILE
+            case 1 -> "Monday";
+            //case 1 -> "Duplicate label"; // DOES NOT COMPILE
+            case 2 -> {
+                System.out.println("Valid");
+                yield "Tuesday";
+            }
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            default -> "Invalid value"; // default branch is required!
+        };
+        System.out.println(result);
+    }
 }

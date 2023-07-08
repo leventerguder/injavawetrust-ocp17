@@ -6,6 +6,13 @@ public class ExitingWithBreakStatement {
     public static void main(String[] args) {
         printSeason(2);
         System.out.println();
+
+        printSeason(7);
+        System.out.println();
+
+        printSeason(15);
+        System.out.println();
+
         printSeasonWithBreak(2);
         System.out.println();
         printSeasonWithBreak(15);
