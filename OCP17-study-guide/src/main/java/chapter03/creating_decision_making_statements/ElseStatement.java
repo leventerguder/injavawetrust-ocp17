@@ -20,5 +20,16 @@ public class ElseStatement {
         } else {
             System.out.println("Good Evening");
         }
+
+
+        if (hourOfDay < 11) {
+            System.out.println("Good Morning");
+        } else if (hourOfDay < 15) {
+            System.out.println("Good Afternoon");
+        } else if (hourOfDay < 15) {
+            System.out.println("Good Afternoon-duplicate");
+        } else {
+            System.out.println("Good Evening");
+        }
     }
 }
