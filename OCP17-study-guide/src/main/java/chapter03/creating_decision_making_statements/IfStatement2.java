@@ -11,6 +11,10 @@ public class IfStatement2 {
             System.out.println("Executing...");
         }
 
+        if(!active) {
+            
+        }
+
         if (active == true) { // Not good approach.
             System.out.println("Executing2...");
         }

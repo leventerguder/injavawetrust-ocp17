@@ -1,8 +1,8 @@
-package chapter03.creating_decision_making_statements;
+package chapter03.creating_decision_making_statements.patternmatching;
 
 import java.util.List;
 
-public class LimitationOfSubTypeEnforcement {
+public class PatternMatchingLimitationOfSubTypeEnforcement {
 
     public static void main(String[] args) {
 

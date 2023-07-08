@@ -21,6 +21,7 @@ public class ElseStatement {
             System.out.println("Good Evening");
         }
 
+        hourOfDay = 13;
 
         if (hourOfDay < 11) {
             System.out.println("Good Morning");

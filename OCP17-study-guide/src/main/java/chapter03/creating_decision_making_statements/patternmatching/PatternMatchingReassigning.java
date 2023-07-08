@@ -1,4 +1,4 @@
-package chapter03.creating_decision_making_statements;
+package chapter03.creating_decision_making_statements.patternmatching;
 
 public class PatternMatchingReassigning {
 
