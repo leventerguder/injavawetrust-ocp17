@@ -9,5 +9,10 @@ public class ForStatement {
             System.out.println("Value is: " + i);
         //System.out.println(i); // DOES NOT COMPILE
 
+        System.out.println();
+
+        for(int i=0; i<5; ++i){
+            System.out.println("Value is: " + i);
+        }
     }
 }

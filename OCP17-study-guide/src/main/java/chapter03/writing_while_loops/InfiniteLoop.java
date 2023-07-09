@@ -1,6 +1,6 @@
 package chapter03.writing_while_loops;
 
-public class InfiniteLoop {
+public class    InfiniteLoop {
 
     public static void main(String[] args) {
 
