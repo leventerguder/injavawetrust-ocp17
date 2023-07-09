@@ -1,6 +1,6 @@
 package chapter03.controlling_flow_with_branching;
 
-public class NestedLoopsN {
+public class NestedLoops3 {
 
     public static void main(String[] args) {
 

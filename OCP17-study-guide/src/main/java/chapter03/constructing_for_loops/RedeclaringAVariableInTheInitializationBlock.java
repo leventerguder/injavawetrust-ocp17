@@ -7,12 +7,12 @@ public class RedeclaringAVariableInTheInitializationBlock {
     }
 
     private static void redeclaring() {
-        /*
-        int x = 0;
-        for (int x = 4; x < 5; x++) // DOES NOT COMPILE
-            System.out.print(x + " ");
 
-        */
+//        int x = 0;
+//        for (int x = 4; x < 5; x++) // DOES NOT COMPILE
+//            System.out.print(x + " ");
+
+
     }
 
     private static void fixRedeclaring() {
