@@ -1,5 +1,7 @@
 package chapter03.questions.q04;
 
+import java.util.Random;
+
 public class Q04 {
 
     // 'switch' expression does not cover all possible input values
@@ -11,5 +13,12 @@ public class Q04 {
 //            case 7, 8 -> "Alligator";
 //        };
 //        System.out.print(type);
+
+        // The code does not compile because the switch expression requires all possible case values to be handled.
+
+        //  Unlike traditional switch statements, switch expressions execute exactly one branch and
+        //  do not use break statements between case statements
+
+
     }
 }
