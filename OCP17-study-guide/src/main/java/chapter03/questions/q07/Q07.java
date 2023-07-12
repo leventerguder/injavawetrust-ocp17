@@ -16,11 +16,11 @@ public class Q07 {
 
     }
 
-//    private static void print1(int[] weather) {
-//        for (int i = weather.length; i > 0; i--) { // java.lang.ArrayIndexOutOfBoundsException
-//            System.out.println(weather[i]);
-//        }
-//    }
+    private static void print1(int[] weather) {
+        for (int i = weather.length; i > 0; i--) { // java.lang.ArrayIndexOutOfBoundsException
+            System.out.println(weather[i]);
+        }
+    }
 
     private static void print2(int[] weather) {
         for (int i = 0; i <= weather.length - 1; ++i) {

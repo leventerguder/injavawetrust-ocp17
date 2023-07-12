@@ -13,5 +13,10 @@ public class SearchinForSubstring {
         System.out.println("abc".contains("b"));
         System.out.println("abc".contains("B"));
 
+        System.out.println("injavawetrust".startsWith("in"));
+        System.out.println("injavawetrust".contains("java"));
+        System.out.println("injavawetrust".endsWith("trust"));
+
+
     }
 }

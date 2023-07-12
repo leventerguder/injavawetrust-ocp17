@@ -4,6 +4,7 @@ public class Q20 {
 
     public static void main(String[] args) {
         method1();
+        method2();
     }
 
     private static void method1() {

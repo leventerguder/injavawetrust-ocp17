@@ -7,5 +7,9 @@ public class ReplacingValues {
         System.out.println("abcabc".replace('a', 'A')); // AbcAbc
         System.out.println("abcabc".replace("a", "A")); // AbcAbc
         System.out.println("abcabc".replace("a", "AX")); // AXbcAXbc
+
+        System.out.println("abcabc".replace("a", new StringBuilder("AX"))); // AXbcAXbc
+        System.out.println("abcabc".replace("a", new StringBuffer("AX"))); // AXbcAXbc
+
     }
 }
