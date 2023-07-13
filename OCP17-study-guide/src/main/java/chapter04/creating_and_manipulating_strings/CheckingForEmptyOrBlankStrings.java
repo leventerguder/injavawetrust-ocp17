@@ -7,6 +7,7 @@ public class CheckingForEmptyOrBlankStrings {
         System.out.println(" ".isEmpty()); // false
         System.out.println("".isEmpty()); // true
         System.out.println(" ".isBlank()); // true
+        System.out.println("         ".isBlank()); // true
         System.out.println("".isBlank()); // true
 
     }
