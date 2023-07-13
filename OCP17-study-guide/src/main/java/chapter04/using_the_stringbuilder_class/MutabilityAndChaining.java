@@ -15,6 +15,8 @@ public class MutabilityAndChaining {
 
         System.out.println(sb);
         System.out.println(same);
+
+        System.out.println(sb == same);
     }
 
     private static void mutability2() {
@@ -23,5 +25,7 @@ public class MutabilityAndChaining {
         b = b.append("f").append("g");
         System.out.println("a=" + a);
         System.out.println("b=" + b);
+
+        System.out.println(a == b);
     }
 }

@@ -7,6 +7,7 @@ public class StringBuilderDeleteContents {
         delete1();
         delete2();
         deleteCharAt();
+        //deleteCharAt2();
 
     }
 
@@ -28,6 +29,12 @@ public class StringBuilderDeleteContents {
     }
 
     private static void deleteCharAt() {
+        var sb = new StringBuilder("abcdef");
+        sb.deleteCharAt(3);
+        System.out.println(sb);
+    }
+
+    private static void deleteCharAt2() {
         var sb = new StringBuilder("abcdef");
         sb.deleteCharAt(6); // StringIndexOutOfBoundsException: index 6, length 6
         System.out.println(sb);

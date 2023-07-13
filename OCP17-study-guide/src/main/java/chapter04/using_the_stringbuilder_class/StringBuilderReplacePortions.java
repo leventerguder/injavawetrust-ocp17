@@ -6,6 +6,9 @@ public class StringBuilderReplacePortions {
 
         replace1();
         replace2();
+        replace3();
+        replace4();
+        replace5();
     }
 
     private static void replace1() {
@@ -20,4 +23,20 @@ public class StringBuilderReplacePortions {
         System.out.println(builder);
     }
 
+    private static void replace3() {
+        var builder = new StringBuilder("pigeon dirty");
+        builder.replace(3, 5, "XxXxX");
+        System.out.println(builder);
+    }
+
+    private static void replace4() {
+        var builder = new StringBuilder("pigeon dirty");
+        builder.replace(3, 6, "XxXxX");
+        System.out.println(builder);
+    }
+    private static void replace5() {
+        var builder = new String("pigeon dirty");
+        builder = builder.replace("pig", "l");
+        System.out.println(builder);
+    }
 }
