@@ -12,10 +12,10 @@ public class SearchingArray {
         System.out.println(Arrays.binarySearch(numbers, 1)); // -1
         System.out.println(Arrays.binarySearch(numbers, 3)); // -2
         System.out.println(Arrays.binarySearch(numbers, 9)); // -5
+        System.out.println(Arrays.binarySearch(numbers, 30)); // -5
 
 
-
-        int[] numbersNotSorted = new int[] {3,2,1};
+        int[] numbersNotSorted = new int[]{3, 2, 1};
 
         System.out.println(Arrays.binarySearch(numbersNotSorted, 2));
         System.out.println(Arrays.binarySearch(numbersNotSorted, 3));

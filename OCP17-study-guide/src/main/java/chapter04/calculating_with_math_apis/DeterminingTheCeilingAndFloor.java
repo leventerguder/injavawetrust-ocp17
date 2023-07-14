@@ -4,12 +4,14 @@ public class DeterminingTheCeilingAndFloor {
 
     public static void main(String[] args) {
 
-        long low = Math.round(123.45); // 123
-        long high = Math.round(123.50); // 124
-        int fromFloat = Math.round(123.45f); // 123
+        double c = Math.ceil(3.14); // 4.0
+        double f = Math.floor(3.14); // 3.0
 
-        System.out.println(low);
-        System.out.println(high);
-        System.out.println(fromFloat);
+        System.out.println(c);
+        System.out.println(f);
+
+        System.out.println(Math.ceil(9.00001));
+        System.out.println(Math.floor(9.9999));
+
     }
 }

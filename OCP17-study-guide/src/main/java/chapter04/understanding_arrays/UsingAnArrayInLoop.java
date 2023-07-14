@@ -1,6 +1,6 @@
 package chapter04.understanding_arrays;
 
-public class ArrayUsingLoop {
+public class UsingAnArrayInLoop {
 
     public static void main(String[] args) {
 
