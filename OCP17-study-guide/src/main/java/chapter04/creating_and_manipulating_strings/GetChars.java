@@ -10,7 +10,7 @@ public class GetChars {
         content.getChars(2, 6, charArray, 0);
 
         for (char c : charArray) {
-            System.out.print(c + "-");
+            System.out.print("[" + c + "]");
         }
     }
 }

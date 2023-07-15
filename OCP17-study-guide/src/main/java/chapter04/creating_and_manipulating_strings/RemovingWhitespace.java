@@ -30,9 +30,9 @@ public class RemovingWhitespace {
 
     private static void trimWhiteSpace() {
         System.out.println("##### trimWhiteSpace #####");
-        System.out.println("abc".strip());  //abc
-        System.out.println(" abc ".strip()); //abc
-        System.out.println(" abc ".strip().length()); //3
+        System.out.println("abc".trim());  //abc
+        System.out.println(" abc ".trim()); //abc
+        System.out.println(" abc ".trim().length()); //3
     }
 
     private static void stripTabCharacter() {
