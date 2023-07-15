@@ -1,6 +1,6 @@
 package chapter04.creating_and_manipulating_strings;
 
-public class SearchinForSubstring {
+public class SearchingForSubstring {
 
     public static void main(String[] args) {
 

@@ -13,8 +13,11 @@ public class DeterminingTheLenghth {
         String whitespace = "   ";
         System.out.println(whitespace.length()); // 3
 
-        String escape = "\\-\"-\n";
+        String escape = "\\-\"-\n-\t";
         System.out.println(escape.length());
 
+        for (char c : escape.toCharArray()) {
+            System.out.print("[" + c + "]");
+        }
     }
 }
