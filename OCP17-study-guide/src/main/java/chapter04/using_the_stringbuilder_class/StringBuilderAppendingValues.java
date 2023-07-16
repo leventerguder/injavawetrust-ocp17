@@ -8,5 +8,10 @@ public class StringBuilderAppendingValues {
         sb.append("-").append(true);
         System.out.println(sb); // 1c-true
 
+        //sb.append(null);
+        sb.append("null");
+
+        System.out.println(sb); // 1c-truenull
+
     }
 }

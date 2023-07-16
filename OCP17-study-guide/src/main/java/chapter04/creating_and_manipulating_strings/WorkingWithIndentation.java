@@ -10,6 +10,8 @@ public class WorkingWithIndentation {
 
         indentTextBlock3();
 
+        indentTextBlock4();
+
         indentConcat();
 
         indentConcat2();
@@ -94,14 +96,29 @@ public class WorkingWithIndentation {
         // We have line break! The indent does not add it at the end.
     }
 
+    private static void indentTextBlock4() {
+
+        System.out.println("##### indentTextBlock4 #####");
+
+        var block = """ 
+                a
+                   b
+                c""";
+
+        System.out.println(block);
+        System.out.println(block.length()); // 8
+        System.out.println(block.indent(-1));
+        System.out.println(block.indent(-1).length()); // 8
+
+    }
 
     private static void indentConcat() {
 
         System.out.println("##### indentConcat #####");
 
         var concat = " a\n"
-                + "  b\n"
-                + " c";
+                   + "  b\n"
+                   + " c";
 
         System.out.println(concat.length());    //9
         System.out.println(concat.indent(-1).length()); // 7
@@ -111,6 +128,7 @@ public class WorkingWithIndentation {
         // and added a trailing normalized new line.
 
 
+        System.out.println(concat.indent(-4));
         System.out.println(concat.indent(-4).length()); // 6
 
         // we ask Java to remove four whitespace characters from the same three lines.
@@ -124,8 +142,8 @@ public class WorkingWithIndentation {
         System.out.println("##### indentConcat2 #####");
 
         var concat = " a\n"
-                + "  b\n"
-                + " c\n";
+                   + "  b\n"
+                   + " c\n";
 
         System.out.println(concat.length());    //10
         System.out.println(concat.indent(-1).length()); // 7
@@ -148,10 +166,10 @@ public class WorkingWithIndentation {
         System.out.println("##### stripIndent #####");
 
         var concat = " a\n"
-                + "  b\n"
-                + " c";
+                   + "  b\n"
+                   + " c";
 
-        System.out.println(concat.length());
+        System.out.println(concat.length()); // 9
 
         System.out.println(concat.stripIndent());
         System.out.println(concat.stripIndent().length()); // 6
@@ -168,11 +186,12 @@ public class WorkingWithIndentation {
         System.out.println("##### stripIndent2 #####");
 
         var concat = "a\n"
-                + "  b\n"
-                + " c";
+                   + "  b\n"
+                   + " c";
 
         System.out.println(concat.length()); //8
 
+        System.out.println(concat);
         System.out.println(concat.stripIndent());
         System.out.println(concat.stripIndent().length()); // 8
 

@@ -7,5 +7,8 @@ public class StringBuilderReverse {
         var sb = new StringBuilder("ABC");
         sb.reverse();
         System.out.println(sb); //CBA
+
+        var sb2 = new StringBuilder("hello-world");
+        System.out.println(sb2.reverse());
     }
 }

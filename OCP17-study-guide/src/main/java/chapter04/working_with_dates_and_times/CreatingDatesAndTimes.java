@@ -3,6 +3,7 @@ package chapter04.working_with_dates_and_times;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 
 public class CreatingDatesAndTimes {
@@ -14,5 +15,6 @@ public class CreatingDatesAndTimes {
         System.out.println(LocalTime.now());
         System.out.println(LocalDateTime.now());
         System.out.println(ZonedDateTime.now());
+        System.out.println(OffsetDateTime.now());
     }
 }
