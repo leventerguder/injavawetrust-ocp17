@@ -50,6 +50,6 @@ public class StringPoolFinal {
 
         String msg3 = msg1 + msg2;
 
-        System.out.println(fullMsg == msg3);
+        System.out.println(fullMsg.equals(msg3));
     }
 }

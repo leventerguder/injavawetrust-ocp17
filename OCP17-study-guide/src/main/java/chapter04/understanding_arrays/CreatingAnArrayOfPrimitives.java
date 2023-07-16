@@ -16,10 +16,13 @@ public class CreatingAnArrayOfPrimitives {
 
 
         int[] numAnimals;
-        int  [] numAnimals2;
-        int  []numAnimals3;
+        int[] numAnimals2;
+        int[] numAnimals3;
         int numAnimals4[];
-        int numAnimals5 [];
+        int numAnimals5[];
+
+        //numAnimals = {1, 2, 3};
+        numAnimals = new int[]{1, 2, 3};
 
     }
 }

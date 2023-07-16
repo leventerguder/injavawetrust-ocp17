@@ -6,5 +6,11 @@ public class MultipleArraysInDeclarations {
 
         int[] ids, types;
         int ids2[], types2;
+
+        ids = new int[3];
+        types = new int[5];
+
+        ids2 = new int[3];
+        // types2 = new int[5]; // DOES NOT COMPILE
     }
 }

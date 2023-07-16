@@ -6,7 +6,8 @@ public class UnderstandingEquality3 {
 
         var name = "a";
         var builder = new StringBuilder("a");
-        // System.out.println(name == builder); // DOES NOT COMPILE
+        //System.out.println(name == builder); // DOES NOT COMPILE
+        System.out.println(name.equals(builder)); // false
 
         /*
         Remember that == is checking for object reference equality.
