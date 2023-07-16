@@ -12,5 +12,6 @@ public class MultipleArraysInDeclarations {
 
         ids2 = new int[3];
         // types2 = new int[5]; // DOES NOT COMPILE
+        types2 = 100;
     }
 }

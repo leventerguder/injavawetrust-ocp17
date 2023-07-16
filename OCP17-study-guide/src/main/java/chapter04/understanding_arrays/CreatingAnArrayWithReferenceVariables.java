@@ -12,6 +12,11 @@ public class CreatingAnArrayWithReferenceVariables {
         System.out.println(bugs.toString()); // [Ljava.lang.String;@4617c264
         System.out.println(Arrays.toString(bugs));
 
+        String[] names = new String[4];
+        for (String name : names) {
+            System.out.println(name);
+        }
+
         /*
         We can call equals() because an array is an object. It returns true because of reference equality.
         The equals() method on arrays does not look at the elements of the array.
