@@ -7,6 +7,7 @@ public class ComparingArray {
 
     public static void main(String[] args) {
 
+        System.out.println(Arrays.compare(new int[]{1}, new int[]{1})); // 0
         System.out.println(Arrays.compare(new int[]{1}, new int[]{2})); // negative
         System.out.println(Arrays.compare(new int[]{1, 2}, new int[]{1})); // positive
         System.out.println(Arrays.compare(new int[]{1, 2}, new int[]{2})); // negative

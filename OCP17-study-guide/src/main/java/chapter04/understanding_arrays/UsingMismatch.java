@@ -10,5 +10,6 @@ public class UsingMismatch {
         System.out.println(Arrays.mismatch(new int[]{1}, new int[]{1}));  // -1
         System.out.println(Arrays.mismatch(new String[]{"a"}, new String[]{"A"})); //0
         System.out.println(Arrays.mismatch(new int[]{1, 2}, new int[]{1})); //1
+        System.out.println(Arrays.mismatch(new int[]{1, 2, -1}, new int[]{1, 2, -1, 5})); //3
     }
 }

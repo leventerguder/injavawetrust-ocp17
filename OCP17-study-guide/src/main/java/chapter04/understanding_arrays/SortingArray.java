@@ -23,5 +23,18 @@ public class SortingArray {
         for (String s : strings)
             System.out.print(s + " ");
 
+        System.out.println();
+
+        String[] names = {"ahmet", "mehmet", "tarik", "hasan", "ali"};
+
+        Arrays.sort(names);
+
+        System.out.println(Arrays.toString(names));
+
+        String[] values = {"azz", "aaa", "Aba", "ACa", "Zaz", "ZaA", "ZYa", "1zzz", "zzz"};
+        Arrays.sort(values);
+
+        System.out.println(Arrays.toString(values));
+
     }
 }
