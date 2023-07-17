@@ -13,5 +13,8 @@ public class DeterminingTheCeilingAndFloor {
         System.out.println(Math.ceil(9.00001));
         System.out.println(Math.floor(9.9999));
 
+        System.out.println(Math.round(9.00001));
+        System.out.println(Math.round(9.9999));
+
     }
 }
