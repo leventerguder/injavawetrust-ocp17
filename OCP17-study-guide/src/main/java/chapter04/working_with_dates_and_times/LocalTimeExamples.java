@@ -7,7 +7,7 @@ public class LocalTimeExamples {
 
     public static void main(String[] args) {
 
-        var now = LocalDate.now();
+        var now = LocalTime.now();
         var time1 = LocalTime.of(6, 15);    // hour and minute
         var time2 = LocalTime.of(6, 15, 30); // + seconds
         var time3 = LocalTime.of(6, 15, 30, 200); // + nanoseconds

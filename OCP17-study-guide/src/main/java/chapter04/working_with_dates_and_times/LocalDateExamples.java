@@ -15,5 +15,8 @@ public class LocalDateExamples {
         System.out.println(today);
         System.out.println(date1);
         System.out.println(date2);
+
+        // var d = new LocalDate(); // DOES NOT COMPILE
+        // var d2 = LocalDate.of(2022, Month.JANUARY, 32) // DateTimeException
     }
 }
