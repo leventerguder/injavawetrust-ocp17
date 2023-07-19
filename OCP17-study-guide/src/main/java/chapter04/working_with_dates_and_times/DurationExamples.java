@@ -1,6 +1,7 @@
 package chapter04.working_with_dates_and_times;
 
 import java.time.Duration;
+import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
 public class DurationExamples {
@@ -39,6 +40,7 @@ public class DurationExamples {
         var everyMilli = Duration.of(1, ChronoUnit.MILLIS);
         var everyNano = Duration.of(1, ChronoUnit.NANOS);
 
+        // Period.of(1, ChronoUnit.MONTHS); // DOES NOT COMPILE
 
         System.out.println(daily);
         System.out.println(hourly);

@@ -1,5 +1,7 @@
 package chapter04.working_with_dates_and_times;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
@@ -12,6 +14,12 @@ public class LocalDateTimeTruncatedTo {
         LocalTime truncated = time.truncatedTo(ChronoUnit.MINUTES);
         System.out.println(truncated); // 03:12
 
+
+        LocalDate date = LocalDate.of(2023, 1, 1);
+        LocalDateTime localDateTime = LocalDateTime.of(date, time);
+
+        System.out.println(localDateTime);
+        System.out.println(localDateTime.truncatedTo(ChronoUnit.HOURS));
 
     }
 }
