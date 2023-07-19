@@ -7,7 +7,7 @@ public class DateFormatExample {
 
     public static void main(String[] args) {
 
-        Date d1 = new Date(1000000000000L);
+        Date d1 = new Date();
         DateFormat[] dfa = new DateFormat[6];
         dfa[0] = DateFormat.getInstance();
         dfa[1] = DateFormat.getDateInstance();
