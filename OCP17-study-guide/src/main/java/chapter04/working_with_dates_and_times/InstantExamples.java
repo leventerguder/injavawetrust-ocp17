@@ -7,7 +7,7 @@ public class InstantExamples {
 
     public static void main(String[] args) throws InterruptedException {
 
-
+        System.out.println("executing....");
         var now = Instant.now();
         // do something time consuming
         Thread.sleep(1000);
@@ -15,9 +15,10 @@ public class InstantExamples {
         var later = Instant.now();
 
         var duration = Duration.between(now, later);
-        System.out.println(duration.toMillis()); // Returns number milliseconds
 
         System.out.println(duration);
+        System.out.println(duration.toMillis()); // Returns number milliseconds
+
 
     }
 }

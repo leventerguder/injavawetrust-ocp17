@@ -15,8 +15,15 @@ public class DurationExamples3 {
         var duration = Duration.ofHours(23);
 
         System.out.println(dateTime.plus(duration)); // 2022–01–21T05:15
+
+        var duration2 = Duration.ofDays(365);
+
+        System.out.println(dateTime.plus(duration2)); // 2023–01–21T06:15
+
+
         System.out.println(time.plus(duration)); // 05:15
-        System.out.println(date.plus(duration)); // UnsupportedTemporalTypeException
+        // System.out.println(date.plus(duration)); // UnsupportedTemporalTypeException
+        System.out.println(time.plus(duration2));// 6:15
     }
 
 }

@@ -20,6 +20,7 @@ public class LocalDateTimeTruncatedTo {
 
         System.out.println(localDateTime);
         System.out.println(localDateTime.truncatedTo(ChronoUnit.HOURS));
+        System.out.println(localDateTime.truncatedTo(ChronoUnit.MINUTES));
 
     }
 }
