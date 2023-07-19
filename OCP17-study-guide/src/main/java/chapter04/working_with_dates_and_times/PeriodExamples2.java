@@ -1,21 +1,30 @@
 package chapter04.working_with_dates_and_times;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.Period;
 
 public class PeriodExamples2 {
 
     public static void main(String[] args) {
 
-        var date = LocalDate.of(2022, 1, 20);
-        var time = LocalTime.of(6, 15);
-        var dateTime = LocalDateTime.of(date, time);
+        var annually = Period.ofYears(1); // every 1 year
+        var quarterly = Period.ofMonths(3); // every 3 months
+        var everyThreeWeeks = Period.ofWeeks(3); // every 3 weeks
+        var everyOtherDay = Period.ofDays(2); // every 2 days
+        var everyYearAndAWeek = Period.of(1, 0, 7); // every year and 7 days
 
-        var period = Period.ofMonths(1);
-        System.out.println(date.plus(period)); // 2022–02–20
-        System.out.println(dateTime.plus(period)); // 2022–02–20T06:15
-        System.out.println(time.plus(period)); // java.time.temporal.UnsupportedTemporalTypeException: Unsupported unit: Months
+        System.out.println(annually); // P1Y
+        System.out.println(quarterly);  // P3M
+        System.out.println(everyThreeWeeks); // P21D
+        System.out.println(everyOtherDay);  // P2D
+        System.out.println(everyYearAndAWeek); // P1Y7D
+
+        // There’s one catch. You cannot chain methods when creating a Period.
+        var wrong = Period.ofYears(1).ofWeeks(1); // every week
+        System.out.println(wrong); // P7D
+
+        // This tricky code is really like writing the following:
+        // var wrong = Period.ofYears(1);
+        // wrong = Period.ofWeeks(1);
+
     }
 }
