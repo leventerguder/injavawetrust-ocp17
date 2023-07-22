@@ -6,6 +6,11 @@ public class ZooInventoryManager {
 
     public static void main(String[] args) {
         treats[0] = "popcorn";
+        treats[0] = "popcorn-v2";
+        treats[1] = "popcorn-v3";
+
+        // treats = null; // DOES NOT COMPILE
+        // treats =  new String[4]; // DOES NOT COMPILE
 
         // It actually does compile since treats is a reference variable.
         // We are allowed to modify the referenced object or array’s contents.

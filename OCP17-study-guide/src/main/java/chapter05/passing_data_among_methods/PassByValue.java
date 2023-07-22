@@ -9,6 +9,8 @@ public class PassByValue {
     }
 
     public static void newNumber(int num) {
+        System.out.println("num before assignment : " + num);
         num = 8;
+        System.out.println("num after assignment : " + num);
     }
 }
