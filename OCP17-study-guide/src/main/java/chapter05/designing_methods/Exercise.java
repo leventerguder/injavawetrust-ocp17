@@ -19,6 +19,12 @@ public class Exercise {
     // public void final bike6() {} // DOES NOT COMPILE
     // The bike6() method doesn’t compile because the optional specifier is after the return type.
 
-    final public void bike7() {
+    public final void bike7() {
+    }
+
+    final public static void bike8() {
+    }
+
+    static final public void bike9() {
     }
 }

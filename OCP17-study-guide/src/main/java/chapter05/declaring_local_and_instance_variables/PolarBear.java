@@ -11,6 +11,7 @@ public class PolarBear {
 
     {
         fishEaten = 10;
+
     }
 
     public PolarBear() {

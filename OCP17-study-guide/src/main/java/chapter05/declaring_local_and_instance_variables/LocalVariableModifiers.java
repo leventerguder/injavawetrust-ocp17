@@ -11,9 +11,9 @@ public class LocalVariableModifiers {
         final var giraffe = new Animal();
         final int[] friends = new int[5];
 
-        // rest = 10; // DOES NOT COMPILE
-        // giraffe = new Animal(); // DOES NOT COMPILE
-        // friends = null; // DOES NOT COMPILE
+//         rest = 10; // DOES NOT COMPILE
+//         giraffe = new Animal(); // DOES NOT COMPILE
+//         friends = null; // DOES NOT COMPILE
 
     }
 
@@ -29,5 +29,8 @@ public class LocalVariableModifiers {
         final int[] friends = new int[5];
         giraffe.setName("George");
         friends[2] = 2;
+
+//        giraffe = null;
+//        friends = null;
     }
 }
