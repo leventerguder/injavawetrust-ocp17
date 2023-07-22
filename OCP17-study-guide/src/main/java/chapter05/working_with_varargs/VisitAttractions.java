@@ -12,6 +12,8 @@ public class VisitAttractions {
 
         // You can even omit the varargs values in the method call, and Java will create an array of length zero for you.
         walk1();
+
+        // walk1(null); // NullPointerException
     }
 
     public static void walk1(int... steps) {
@@ -23,7 +25,9 @@ public class VisitAttractions {
     public static void walk2(int start, int... steps) {
     }
 
-    // public static void walk3(int... steps, int start) {} // DOES NOT COMPILE
-
-    // public static void walk4(int... start, int... steps) {} // DOES NOT COMPILE
+//     public static void walk3(int... steps, int start) {} // DOES NOT COMPILE
+//
+//     public static void walk4(int... start, int... steps) {} // DOES NOT COMPILE
+//
+//     public static void walk5(int start, ...int steps) {} // DOES NOT COMPILE
 }
