@@ -14,5 +14,8 @@ public class Dove {
         Dove dove = new Dove();
         dove.fly(1);
         dove.fly((short) 1);
+        dove.fly(Integer.valueOf(1));
+        // dove.fly(1L); // DOES NOT COMPILE
+        dove.fly((byte) 1);
     }
 }

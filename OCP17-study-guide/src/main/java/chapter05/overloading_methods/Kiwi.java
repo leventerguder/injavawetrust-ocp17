@@ -15,6 +15,7 @@ public class Kiwi {
         Kiwi kiwi = new Kiwi();
         kiwi.fly(10);
         kiwi.fly((Integer) 10);
+        kiwi.fly(Integer.valueOf(10));
     }
 
 }

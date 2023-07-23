@@ -21,6 +21,7 @@ public class Kiwi2 {
         kiwi.fly((Integer) 10);
         kiwi.fly((long) 10);
         // kiwi.fly((Long) 10);
+        kiwi.fly((Long) 10L);
         kiwi.fly((Object) 10);
     }
 
