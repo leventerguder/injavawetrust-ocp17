@@ -19,9 +19,12 @@ public class ReferenceTest3 {
 
     private static void method(List<Integer> list) {
 
+        System.out.println(list);
+
         list = new ArrayList<>();
         list.add(40);
         list.add(50);
+        System.out.println(list);
 
     }
 }

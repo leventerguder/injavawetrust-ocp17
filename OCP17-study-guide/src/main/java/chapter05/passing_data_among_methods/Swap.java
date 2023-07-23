@@ -15,7 +15,7 @@ public class Swap {
         a = b;
         b = temp;
 
-        System.out.println("swap a : " + a); // 1
+        System.out.println("swap a : " + a); // 2
         System.out.println("swap b : " + b); // 1
     }
 

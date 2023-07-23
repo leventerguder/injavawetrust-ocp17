@@ -25,10 +25,10 @@ public class ReferenceTest {
 
     }
 
-    static void methodV2(Animal animal) {
+    static void methodV2(Animal animal2) {
 
         System.out.println("methodV2...");
-        animal.setName("boncuk");
+        animal2.setName("boncuk");
 
 
     }

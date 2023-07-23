@@ -22,6 +22,8 @@ public class AutoboxingUnboxingExample {
         Integer e = Integer.valueOf(9);
         long ears = e; // Unboxing, then implicit casting
 
+        // Integer f = ears; // DOES NOT COMPILE
+        Long g = ears;
     }
 
     void method4() {
