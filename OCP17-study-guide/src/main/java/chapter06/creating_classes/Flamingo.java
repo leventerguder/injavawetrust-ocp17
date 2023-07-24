@@ -8,10 +8,6 @@ public class Flamingo {
 
         // Java uses the most granular scope, so when it sees color = color,
         // it thinks you are assigning the method parameter value to itself (not the instance variable).
-
-
-        // The fix when you have a local variable with the same name as an instance variable is to use the this reference or keyword.
-        this.color = color; // Sets the instance variable with method parameter
     }
 
     public static void main(String... unused) {
