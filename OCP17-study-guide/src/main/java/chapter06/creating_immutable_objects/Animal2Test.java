@@ -6,8 +6,9 @@ public class Animal2Test {
 
 
         var zebra = new Animal2();
+
+        System.out.println(zebra.getFavoriteFoodsCount());
         System.out.println(zebra.getFavoriteFoodsItem(0)); // [Apples]
 
-        //zebra.getFavoriteFoods().clear();
     }
 }
