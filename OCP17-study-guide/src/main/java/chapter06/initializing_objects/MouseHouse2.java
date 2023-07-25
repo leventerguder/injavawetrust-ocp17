@@ -6,6 +6,9 @@ public class MouseHouse2 {
 
     public MouseHouse2() {
         this.name = "Empty House";
+    }
+
+    {
         volume = 10; // Instance initializer assignment
     }
 }

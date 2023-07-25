@@ -1,6 +1,8 @@
 package chapter06.inheriting_members;
 
 public class RhinocerosBeetle extends Beetle {
+
+    // @Override // DOES NOT COMPILE
     private int getSize() {
         return 5;
     }

@@ -1,6 +1,6 @@
 package chapter06.inheriting_members;
 
-public class SunBear extends Bear {
+public class SunBear extends BearV2 {
 
     // In this example, sneeze() is marked static in the parent class but not in the child class.
     // The compiler detects that you’re trying to override using an instance method.
