@@ -5,5 +5,8 @@ public class BarkingTest {
     public static void main(String[] p) {
         Canine w = new Fox();
         w.bark(); // Squeak!
+
+        w = new Wolf();
+        w.bark();
     }
 }

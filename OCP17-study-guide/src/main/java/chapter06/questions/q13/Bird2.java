@@ -5,3 +5,10 @@ public class Bird2 {
         return null;
     }
 }
+
+class Test2 {
+    void method() {
+        Bird2 bird = new Bird2();
+    }
+}
+

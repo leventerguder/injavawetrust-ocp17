@@ -5,6 +5,7 @@ public class Cheetah extends Speedster {
     int numSpots;
 
     public Cheetah(int numSpots) {
+        //this.numSpots = numSpots;
         super.numSpots = numSpots;
     }
 
