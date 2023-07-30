@@ -11,7 +11,8 @@ public enum Season4 {
             return "9am-7pm";
         }
     },
-    SPRING, FALL;
+    SPRING,
+    FALL;
 
     public String getHours() {
         return "9am-5pm";

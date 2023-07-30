@@ -4,6 +4,13 @@ public class EnumSwitch {
 
     public static void main(String[] args) {
 
+        switchStatementEnum();
+
+        System.out.println();
+        switchExpressionValid();
+    }
+
+    private static void switchStatementEnum() {
         Season summer = Season.SUMMER;
         switch (summer) {
             case WINTER:
@@ -19,7 +26,7 @@ public class EnumSwitch {
     }
 
 
-    void compileError() {
+    static void switchExpressionInvalid() {
 //        Season summer = Season.SUMMER;
 //        var message = switch (summer) {
 //            case Season.WINTER -> "Get out the sled!"; // DOES NOT COMPILE
@@ -27,5 +34,15 @@ public class EnumSwitch {
 //            default -> "Is it summer yet?";
 //        };
 //        System.out.print(message);
+    }
+
+    static void switchExpressionValid() {
+        Season summer = Season.SUMMER;
+        var message = switch (summer) {
+            case WINTER -> "Get out the sled!";
+            case SUMMER -> "Time for the pool!";
+            default -> "Is it summer yet?";
+        };
+        System.out.print(message);
     }
 }

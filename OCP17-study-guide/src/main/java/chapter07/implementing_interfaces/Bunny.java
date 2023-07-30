@@ -7,5 +7,7 @@ public class Bunny implements Hop {
 
         // Without an explicit reference to the name of the interface,
         // the code will not compile, even though Bunny implements Hop.
+
+        method();
     }
 }
