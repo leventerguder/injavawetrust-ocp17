@@ -1,7 +1,7 @@
-package chapter07.sealing_classes.animal;
-
-//import chapter07.sealing_classes.zoo.Penguin;
+//package chapter07.sealing_classes.animal;
 //
-//public class LittlePenguin extends Penguin {
+//import chapter07.sealing_classes.zoo.Penguin2;
+////
+//public final class LittlePenguin extends Penguin2 {
 //}
-// Class is not allowed to extend sealed class from another package
+//// Class is not allowed to extend sealed class from another package
