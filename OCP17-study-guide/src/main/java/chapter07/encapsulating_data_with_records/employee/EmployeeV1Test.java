@@ -19,5 +19,9 @@ public class EmployeeV1Test {
         emails.clear();
 
         System.out.println(employee);
+
+        // A record class is a concise way to define an object that is shallowly immutable.
+        // Shallowly immutable means that the references that the immutable instance hold cannot change,
+        // but the values inside the referred instance can change
     }
 }
