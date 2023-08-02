@@ -1,4 +1,4 @@
-package chapter07.encapsulating_data_with_records.bad;
+package chapter07.encapsulating_data_with_records.encapsulation.bad;
 
 public class Poacher {
     public void badActor() {

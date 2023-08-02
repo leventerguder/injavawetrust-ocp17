@@ -1,4 +1,4 @@
-package chapter07.encapsulating_data_with_records.good;
+package chapter07.encapsulating_data_with_records.encapsulation.good;
 
 public final class Crane {
     private final int numberEggs;
