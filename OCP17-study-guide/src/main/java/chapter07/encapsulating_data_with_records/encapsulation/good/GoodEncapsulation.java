@@ -1,6 +1,6 @@
 package chapter07.encapsulating_data_with_records.encapsulation.good;
 
-public class GoodEncapstulation {
+public class GoodEncapsulation {
 
     public static void main(String[] args) {
 
