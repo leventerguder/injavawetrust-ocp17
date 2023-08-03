@@ -1,6 +1,6 @@
 package chapter07.encapsulating_data_with_records;
 
-public class CradeTest {
+public class CraneTest {
     public static void main(String[] args) {
 
         var mommy = new Crane(4, "Cammy");

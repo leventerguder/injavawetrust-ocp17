@@ -5,6 +5,6 @@ public record CraneV8(int numberEggs, String name) {
         if (name == null || name.length() < 1)
             throw new IllegalArgumentException();
         name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-        System.out.println("constructor invoked!");
+        System.out.println("CraneV8 - compact constructor invoked...");
     }
 }

@@ -6,6 +6,6 @@ public record CraneV11(int numberEggs, String name) {
         numberEggs = 10; // NO EFFECT (applies to parameter, not instance field)
         //this.numberEggs = 20; // DOES NOT COMPILE
 
-        System.out.println("CraneV11 - constructor...");
+        System.out.println("CraneV11 - constructor invoked...");
     }
 }

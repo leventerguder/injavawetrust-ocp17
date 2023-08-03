@@ -7,5 +7,6 @@ public record CraneV9(int numberEggs, String name) {
     public CraneV9 {
         numberEggs = 20; //constructor parameter. Not field!
         //this.numberEggs = 10; // DOES NOT COMPILE
+        System.out.println("CraneV9 - compact constructor invoked...");
     }
 }
