@@ -14,4 +14,10 @@ public class ZooGiftShop {
         }; // Don't forget the semicolon! r
         return basePrice - sale.dollarsOff();
     }
+
+    public static void main(String[] args) {
+        ZooGiftShop zoo = new ZooGiftShop();
+        System.out.println(zoo.admission(20));
+
+    }
 }

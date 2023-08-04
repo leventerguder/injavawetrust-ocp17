@@ -31,6 +31,18 @@ public class PrintNumbers {
         // For this reason, the local class declaration does not compile.
     }
 
+    public void anotherData(int data) {
+
+        class AnotherCalculator {
+
+            int x = 10;
+
+            public int multiply(int y) {
+                return data * x * y;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         var printer = new PrintNumbers();
         printer.calculate(); // 100
