@@ -14,7 +14,7 @@ public class OuterClass6 {
         interface LocalInterface {
             void method();
         }
-        class LocalInner implements LocalInterface {
+       final class LocalInner implements LocalInterface {
 
             void instanceMethod() {
                 System.out.println("local-class-instance method");

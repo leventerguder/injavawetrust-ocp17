@@ -11,6 +11,7 @@ public class Fox {
 
     public static void visitFriend() {
         //    new Den(); // DOES NOT COMPILE
+        // new Fox().new Den();
     }
 // The first constructor call compiles because goHome() is an instance method, and therefore the call is associated with
 // the this instance.The second call does not compile because it is called inside a static method.

@@ -7,6 +7,7 @@ public class OuterClass4 {
         private static String staticVariable = "I am a static variable";
 
         void method() {
+            System.out.println(instanceVariable);
             System.out.println(staticVariable);
             System.out.println("StaticNested method");
         }

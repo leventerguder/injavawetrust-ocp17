@@ -23,6 +23,7 @@ public class Park {
 
         Ride.innerStaticMethod();
         ride.innerStaticMethod();
+        Park.Ride.innerStaticMethod();
     }
 
     public static void main(String[] args) {

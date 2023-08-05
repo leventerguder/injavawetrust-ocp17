@@ -10,6 +10,7 @@ public class OuterClass {
         OuterClass.InnerClass innerRef = new OuterClass().new InnerClass();
         innerRef.innerTestMethod();
         InnerClass.innerStaticMethod();
+        OuterClass.InnerClass.innerStaticMethod();
         System.out.println(innerRef.privateInnerVariable);
         System.out.println(InnerClass.privateStaticInnerVariable);
     }

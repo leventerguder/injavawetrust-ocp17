@@ -13,6 +13,7 @@ public class ShadowingOuter {
         private String shadowing = "Inner Test";
 
         public void printTest() {
+            String shadowing = "Local Test";
             System.out.println(shadowing);
             System.out.println(this.shadowing);
             System.out.println(ShadowingOuter.this.shadowing);
