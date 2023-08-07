@@ -13,5 +13,7 @@ public class OuterClass3Test {
         OuterClass3.Person person = new OuterClass3.Person("name", "surname");
         System.out.println(person);
 
+        OuterClass3.Colors color = OuterClass3.Colors.RED;
+
     }
 }

@@ -36,17 +36,4 @@ public class OuterClass5 {
             outerClass5.outerMethod();
         }
     }
-
-    public static void main(String[] args) {
-        StaticNested staticNested = new StaticNested();
-        staticNested.innerMethod();
-
-        System.out.println();
-
-        StaticNested.staticInnerMethod();
-
-        System.out.println();
-
-        OuterClass5.StaticNested.staticInnerMethod();
-    }
 }
