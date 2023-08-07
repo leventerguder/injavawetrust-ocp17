@@ -2,6 +2,29 @@ package chapter07.creating_nested_classes;
 
 public class OuterClass8 {
 
+
+    OuterClass8() {
+
+        class LocalInConstructor {
+
+        }
+
+        LocalInConstructor localInConstructor = new LocalInConstructor();
+    }
+
+    {
+        class LocalInInitializer {
+
+        }
+    }
+
+    static {
+
+        class LocalInStaticInitializer {
+
+        }
+    }
+
     void method() {
 
         // private class LocalInner {} // DOES NOT COMPILE
