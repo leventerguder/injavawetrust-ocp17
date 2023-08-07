@@ -6,7 +6,7 @@ public class OuterClass7 {
 
     private Integer number = 10;
 
-    private void outerPrivateOuter() {
+    private void outerMethod() {
         System.out.println("I am an Outer method!");
     }
 
@@ -27,12 +27,12 @@ public class OuterClass7 {
                 System.out.println(number);
                 System.out.println(this.number);
                 System.out.println(OuterClass7.this.number);
-                outerPrivateOuter();
+                outerMethod();
             }
 
             private static void staticInnerMethod() {
                 // System.out.println(privateVar); // DOES NOT COMPILE
-                // outerPrivateOuter(); // DOES NOT COMPILE
+                // outerMethod(); // DOES NOT COMPILE
             }
         }
 

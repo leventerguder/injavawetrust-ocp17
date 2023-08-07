@@ -11,8 +11,5 @@ public class OuterClass5Test {
 
         OuterClass5.StaticNested.staticInnerMethod();
 
-        System.out.println();
-
-        OuterClass5.StaticNested.staticInnerMethod();
     }
 }

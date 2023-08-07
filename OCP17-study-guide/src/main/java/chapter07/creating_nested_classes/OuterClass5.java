@@ -14,9 +14,12 @@ public class OuterClass5 {
     }
 
     static class StaticNested {
+
+        private String staticNestedIntanceVariable = "sample";
         void innerMethod() {
             //System.out.println(outerInstanceVariable);  // DOES NOT COMPILE
             System.out.println(outerStaticVariable);
+            System.out.println(staticNestedIntanceVariable);
             //outerMethod(); // DOES NOT COMPILE
             outerStaticMethod();
 
@@ -28,6 +31,7 @@ public class OuterClass5 {
         static void staticInnerMethod() {
             //System.out.println(outerInstanceVariable);  // DOES NOT COMPILE
             System.out.println(outerStaticVariable);
+            // System.out.println(staticNestedIntanceVariable); // DOES NOT COMPILE
             //outerMethod(); // DOES NOT COMPILE
             outerStaticMethod();
 

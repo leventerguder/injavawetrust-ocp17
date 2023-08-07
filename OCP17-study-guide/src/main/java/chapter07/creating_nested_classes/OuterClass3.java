@@ -25,7 +25,6 @@ public class OuterClass3 {
         StaticNested staticNested = new StaticNested();
 
         InnerClass innerClass = new OuterClass3().new InnerClass();
-        InnerClass innerClass2 = new OuterClass3().new InnerClass();
 
         Person person = new Person("name", "surname");
         System.out.println(person);
@@ -37,7 +36,6 @@ public class OuterClass3 {
         StaticNested staticNested = new StaticNested();
 
         InnerClass innerClass = new InnerClass();
-        InnerClass innerClass2 = new InnerClass();
 
         Person person = new Person("name", "surname");
         System.out.println(person);
