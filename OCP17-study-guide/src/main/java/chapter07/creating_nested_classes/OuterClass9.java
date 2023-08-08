@@ -35,6 +35,9 @@ public class OuterClass9 {
 
         localClass.localInner();
         anonymousClass.localInner();
+
+        System.out.println(localClass.getClass());
+        System.out.println(anonymousClass.getClass());
     }
 
     public static void main(String[] args) {
