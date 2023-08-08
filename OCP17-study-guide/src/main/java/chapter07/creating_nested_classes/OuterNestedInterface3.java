@@ -34,17 +34,17 @@ public interface OuterNestedInterface3 {
         }
     }
 
-    static enum NestedEnum {
+    public static enum NestedEnum {
         RED, BLUE, BLACK;
     }
 
-    static final record ImmutableRecord(int value) {
+    public static final record ImmutableRecord(int value) {
     }
 
-    sealed class Parent {
+    public static sealed class Parent {
 
     }
 
-    final class Child extends Parent {
+    public static final class Child extends Parent {
     }
 }
