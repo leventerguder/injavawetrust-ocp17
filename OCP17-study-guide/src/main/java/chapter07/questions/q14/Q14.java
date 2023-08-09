@@ -13,3 +13,26 @@ public class Q14 {
 //     G. None of the above
 }
 
+sealed interface SealedInterface permits SubInterface, SuperClass {
+
+}
+
+sealed class SealedClass permits SampleAbstract {
+
+}
+
+non-sealed abstract class SampleAbstract extends SealedClass {
+}
+
+non-sealed interface SubInterface extends SealedInterface {
+}
+
+final class SuperClass implements SealedInterface {
+}
+
+class Sample implements SubInterface {
+
+}
+
+class Child extends Sample {
+}

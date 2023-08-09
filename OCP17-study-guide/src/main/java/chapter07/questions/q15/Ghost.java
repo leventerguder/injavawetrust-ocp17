@@ -13,7 +13,8 @@ public class Ghost {
     }
 
     public static void main(String... haunt) {
-        // var g = new Ghost().new Spirit() {}; // DOES NOT COMPILE!
+        //var g = new Ghost().new Spirit() {}; // DOES NOT COMPILE!
+        //var g = new Ghost().new Spirit(); // No problem!
         //Spirit is a final class!
 
     }
