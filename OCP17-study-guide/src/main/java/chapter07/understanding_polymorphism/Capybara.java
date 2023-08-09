@@ -7,6 +7,7 @@ public class Capybara extends Rodent {
 
         if (rodent instanceof Capybara) {
             // Do stuff
+            var capybara = (Capybara) rodent;
         }
     }
 }

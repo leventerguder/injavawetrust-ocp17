@@ -1,6 +1,6 @@
 package chapter07.understanding_polymorphism;
 
-public class EmperorPenguin2 extends Penguin2 {
+public class EmperorPenguin2 extends Penguin {
 
     @Override
     public int getHeight() {
