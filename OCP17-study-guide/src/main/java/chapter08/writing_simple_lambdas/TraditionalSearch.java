@@ -1,4 +1,4 @@
-package chapter08.writingsimplelambdas;
+package chapter08.writing_simple_lambdas;
 
 import java.util.*;
 
@@ -14,6 +14,10 @@ public class TraditionalSearch {
 
         // pass class that does check
         print(animals, new CheckIfHopper());
+
+        print(animals, new CheckIfSwims());
+
+        print(animals, a -> a.canHop());
 
         print(animals, a -> a.canSwim());
 

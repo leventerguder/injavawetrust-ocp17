@@ -92,7 +92,7 @@ Let’s look at what is going on here.
 - The arrow operator (->) to separate the parameter and body
 - A body that calls a single method and returns the result of that method
 
-![](writingsimplelambdas/lambda-syntax-omitting-optional-parts.png)
+![](writing_simple_lambdas/lambda-syntax-omitting-optional-parts.png)
 
 The second example shows the most verbose form of a lambda that returns a boolean;
 
@@ -115,11 +115,11 @@ of code elsewhere.
 Here’s a fun fact: s -> {} is a valid lambda.If there is no code on the right side of the expression, you don’t need the
 semicolon or return statement.
 
-![](writingsimplelambdas/valid-lambdas-that-return-a-boolean.png)
+![](writing_simple_lambdas/valid-lambdas-that-return-a-boolean.png)
 
 Now let’s make sure you can identify invalid syntax for each row.
 
-![](writingsimplelambdas/invalid-lambdas-that-should-return-a-boolean.png)
+![](writing_simple_lambdas/invalid-lambdas-that-should-return-a-boolean.png)
 
 Remember that the parentheses are optional only when there is one parameter and it doesn’t have a type declared.
 
