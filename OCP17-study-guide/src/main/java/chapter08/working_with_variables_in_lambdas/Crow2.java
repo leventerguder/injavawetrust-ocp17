@@ -1,6 +1,4 @@
-package chapter08.workingwithvariablesinlambdas;
-
-import java.util.function.Consumer;
+package chapter08.working_with_variables_in_lambdas;
 
 public class Crow2 {
     private String color;

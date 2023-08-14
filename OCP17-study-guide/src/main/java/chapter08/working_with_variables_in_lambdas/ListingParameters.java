@@ -1,4 +1,4 @@
-package chapter08.workingwithvariablesinlambdas;
+package chapter08.working_with_variables_in_lambdas;
 
 import java.util.List;
 import java.util.function.Consumer;

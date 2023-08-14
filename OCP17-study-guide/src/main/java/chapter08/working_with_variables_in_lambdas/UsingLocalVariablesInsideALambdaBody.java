@@ -1,7 +1,6 @@
-package chapter08.workingwithvariablesinlambdas;
+package chapter08.working_with_variables_in_lambdas;
 
 import java.util.function.BinaryOperator;
-import java.util.function.Predicate;
 
 public class UsingLocalVariablesInsideALambdaBody {
 

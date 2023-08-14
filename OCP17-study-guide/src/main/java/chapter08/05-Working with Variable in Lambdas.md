@@ -3,7 +3,7 @@
 They can appear in three places with respect to lambdas: the parameter list, local variables declared inside the lambda
 body, and variables referenced from the lambda body. All three of these are opportunities for the exam to trick you.
 
-![](workingwithvariablesinlambdas/primitive-specific-functional-interfaces.png)
+![](working_with_variables_in_lambdas/primitive-specific-functional-interfaces.png)
 
 ## Listing Parameters
 
@@ -130,4 +130,4 @@ The compiler errors occur when the variables are not effectively final.
 In this example, the method parameter 'name' is not effectively final.
 The variable volume is not effectively final either since it is updated.
 
-![](workingwithvariablesinlambdas/rules-for-accessing-a-variable-from-a-lambda-body-inside-a-method.png)
+![](working_with_variables_in_lambdas/rules-for-accessing-a-variable-from-a-lambda-body-inside-a-method.png)
