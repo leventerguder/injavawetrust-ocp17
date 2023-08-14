@@ -1,4 +1,4 @@
-package chapter08.usingmethodreference;
+package chapter08.using_method_reference;
 
 public class CallingConstructors {
 
@@ -16,5 +16,29 @@ public class CallingConstructors {
 
         var myString2 = methodRef2.copy("Zebra");
         System.out.println(myString2.equals("Zebra")); // true
+
+        Constructor constructor = MyClassConstructor::new;
+
+        Constructor2 constructor2 = MyClassConstructor::new;
+    }
+}
+
+interface Constructor {
+
+    MyClassConstructor method();
+}
+
+interface Constructor2 {
+
+    MyClassConstructor method(int number);
+}
+
+class MyClassConstructor {
+
+    MyClassConstructor() {
+
+    }
+
+    MyClassConstructor(int number) {
     }
 }

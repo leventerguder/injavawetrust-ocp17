@@ -1,4 +1,4 @@
-package chapter08.workingwithbuiltinfunctionalinterfaces;
+package chapter08.working_with_built_in_functional_interfaces;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

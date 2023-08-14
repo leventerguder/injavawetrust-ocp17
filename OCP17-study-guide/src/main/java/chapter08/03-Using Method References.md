@@ -166,4 +166,4 @@ are passing a String parameter and calls the constructor of String that takes su
 
 ## Reviewing Method References
 
-![](usingmethodreference/method-reference.png)
+![](using_method_reference/method-reference.png)

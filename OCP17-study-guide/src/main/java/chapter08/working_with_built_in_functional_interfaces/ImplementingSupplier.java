@@ -1,4 +1,4 @@
-package chapter08.workingwithbuiltinfunctionalinterfaces;
+package chapter08.working_with_built_in_functional_interfaces;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ public class ImplementingSupplier {
         supplierTest1();
         supplierTest2();
         supplierTest3();
+        supplierTest4();
     }
 
     private static void supplierTest1() {
@@ -44,4 +45,9 @@ public class ImplementingSupplier {
 
     }
 
+    private static void supplierTest4() {
+
+        Supplier<Double> s1 = () -> Math.random();
+        System.out.println(s1.get());
+    }
 }

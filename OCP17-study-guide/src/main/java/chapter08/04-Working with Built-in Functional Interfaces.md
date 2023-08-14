@@ -6,7 +6,7 @@ We cover generics in the next chapter, but for now, you just need to know that <
 object of a specified type. If a second type parameter is needed, we use the next letter, U. If a distinct return type
 is needed, we choose R for return as the generic type.
 
-![](workingwithbuiltinfunctionalinterfaces/common-functional-interfaces.png)
+![](working_with_built_in_functional_interfaces/common-functional-interfaces.png)
 
 ## Implementing Supplier
 
@@ -42,7 +42,7 @@ Notice how we called get() on the functional interface. What would happen if we 
 
     System.out.println(s3);
     
-    chapter08.workingwithbuiltinfunctionalinterfaces.ImplementingSupplier$$Lambda$20/0x0000000800c03440@5caf905d
+    chapter08.working_with_built_in_functional_interfaces.ImplementingSupplier$$Lambda$20/0x0000000800c03440@5caf905d
 
 Then comes $$, which means that the class doesn’t exist in a class file on the file system. It exists only in memory.
 
@@ -225,7 +225,7 @@ of the two since it is more specific.
 By definition, all functional interfaces have a single abstract method. This doesn’t mean they can have only one method,
 though. Several of the common functional interfaces provide a number of helpful default interface methods.
 
-![](workingwithbuiltinfunctionalinterfaces/convenience-methods.png)
+![](working_with_built_in_functional_interfaces/convenience-methods.png)
 
 Let’s start with these two Predicate variables:
 
@@ -282,7 +282,7 @@ Most of them are for the double, int, and long types. There is one exception, wh
 
 Most of the functional interfaces are for double, int, and long.
 
-![](workingwithbuiltinfunctionalinterfaces/common-functional-interfaces-for-primitives.png)
+![](working_with_built_in_functional_interfaces/common-functional-interfaces-for-primitives.png)
 
 Generics are gone from some of the interfaces, and instead the type name tells us what primitive type is involved. In
 other cases, such as IntFunction, only the return type generic is needed because we’re converting a primitive int into
