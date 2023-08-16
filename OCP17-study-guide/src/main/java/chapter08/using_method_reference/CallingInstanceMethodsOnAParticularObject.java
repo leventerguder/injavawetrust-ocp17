@@ -18,6 +18,10 @@ public class CallingInstanceMethodsOnAParticularObject {
         exampleMethod2StringChecker();
 
         exampleMethod3StringChecker();
+
+        exampleMethod1Calculator();
+
+
     }
 
     private static MyClass myClassStaticVariable = new MyClass();
@@ -123,6 +127,39 @@ public class CallingInstanceMethodsOnAParticularObject {
         // StringChecker methodReference = str::startsWith ("Zoo"); // DOES NOT COMPILE
     }
 
+    private static void exampleMethod1Calculator() {
+        Calculator lambda1 = (i, j) -> i * j;
+        Calculator lambda2 = (int i, int j) -> i + j;
+
+        // Incompatible parameter types in lambda expression: expected int but found Integer
+        // Calculator lambda3 = (Integer i, Integer j) -> i + j; // DOES NOT COMPILE
+
+        Calculator lambda4 = (var i, var j) -> i / j;
+        Calculator lambda5 = (int i, int j) -> {
+            return i - j;
+        };
+
+        CalculatorHelper calculatorHelper = new CalculatorHelper();
+        Calculator lambda6 = (int i, int j) -> calculatorHelper.sum(i, j);
+        Calculator lambda7 = (int i, int j) -> calculatorHelper.multiply(i, j);
+
+        Calculator methodReference1 = calculatorHelper::sum;
+        Calculator methodReference2 = calculatorHelper::multiply;
+
+        //Static method referenced through non-static qualifier
+        // Calculator methodReference3 = calculatorHelper::subtraction; // DOES NOT COMPILE
+        Calculator methodReference4 = CalculatorHelper::subtraction;
+
+        System.out.println(lambda1.calculate(10, 5));
+        System.out.println(lambda2.calculate(10, 5));
+        System.out.println(lambda4.calculate(10, 5));
+        System.out.println(lambda5.calculate(10, 5));
+        System.out.println(lambda6.calculate(10, 5));
+        System.out.println(lambda7.calculate(10, 5));
+
+        System.out.println(methodReference1.calculate(10, 5));
+        System.out.println(methodReference2.calculate(10, 5));
+    }
 
 }
 
@@ -145,5 +182,20 @@ class MyClassEmptyCheck {
 
     static boolean staticMethod() {
         return "".isEmpty();
+    }
+}
+
+class CalculatorHelper {
+
+    int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    int multiply(int num1, int num2) {
+        return num1 * num2;
+    }
+
+    static int subtraction(int num1, int num2) {
+        return num1 - num2;
     }
 }
