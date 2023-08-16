@@ -34,7 +34,9 @@ public class CalingInstanceMethodsOnAParameter {
         System.out.println("### exampleMethodStringChecker ###");
 
         var str = "Zoo";
-        //StringParameterChecker methodRef = str::isEmpty; // DOES NOT COMPILE
+
+        // StringParameterChecker methodRef = str::isEmpty; // DOES NOT COMPILE
+
         StringChecker methodRef = str::isEmpty;
         StringChecker lambda = () -> str.isEmpty();
 
@@ -51,10 +53,11 @@ public class CalingInstanceMethodsOnAParameter {
         HelperClass helperRef = new HelperClass();
         StringParameterChecker stringParameterChecker3 = helperRef::method;
         //Static method referenced through non-static qualifier
-        // StringParameterChecker stringParameterChecker4 = helperRef::staticMethod; // DOES NOT COMPILE
+        //StringParameterChecker stringParameterChecker4 = helperRef::staticMethod; // DOES NOT COMPILE
 
         StringParameterChecker stringParameterChecker4 = s -> helperRef.method(s);
         StringParameterChecker stringParameterChecker5 = (String s) -> HelperClass.staticMethod(s);
+        StringParameterChecker stringParameterChecker6 = (String s) -> true;
 
         System.out.println(stringParameterChecker1.check("abc"));
         System.out.println(stringParameterChecker2.check("abc"));
@@ -86,10 +89,12 @@ public class CalingInstanceMethodsOnAParameter {
         System.out.println("### exampleStringTwoParameterChecker ###");
 
         StringTwoParameterChecker lambda = (s, p) -> s.startsWith(p);
+        StringTwoParameterChecker lambda2 = (String s, String p) -> true;
         StringTwoParameterChecker methodRef = String::startsWith;
 
         System.out.println(methodRef.check("Zoo", "Z"));
         System.out.println(lambda.check("Zoo", "A"));
+        System.out.println(lambda2.check("Zoo", "A"));
     }
 
 
@@ -113,6 +118,8 @@ public class CalingInstanceMethodsOnAParameter {
             return new Random().nextInt();
         };
 
+        MyInterface2 lambda5 = (hpc, str) -> 10;
+
 
         MyInterface2 methodReference = HelperClassParameter2::instanceMethod;
 
@@ -124,12 +131,12 @@ public class CalingInstanceMethodsOnAParameter {
 
         MyInterface2 methodReference4 = HelperClassParameter2::staticMethod2;
 
-        System.out.println(lambda1.method(new HelperClassParameter2(),"100"));
-        System.out.println(lambda2.method(new HelperClassParameter2(),"100"));
-        System.out.println(lambda3.method(new HelperClassParameter2(),"100"));
-        System.out.println(lambda4.method(new HelperClassParameter2(),"100"));
-        System.out.println(methodReference.method(new HelperClassParameter2(),"100"));
-        System.out.println(methodReference4.method(new HelperClassParameter2(),"100"));
+        System.out.println(lambda1.method(new HelperClassParameter2(), "100"));
+        System.out.println(lambda2.method(new HelperClassParameter2(), "100"));
+        System.out.println(lambda3.method(new HelperClassParameter2(), "100"));
+        System.out.println(lambda4.method(new HelperClassParameter2(), "100"));
+        System.out.println(methodReference.method(new HelperClassParameter2(), "100"));
+        System.out.println(methodReference4.method(new HelperClassParameter2(), "100"));
 
     }
 }
@@ -171,7 +178,7 @@ class HelperClassParameter2 {
         return Integer.parseInt(sb.toString());
     }
 
-    Integer instanceMethod2(String str, Integer number) {
+    Integer instanceMethod3(String str, Integer number) {
         return Integer.parseInt(str) + number;
 
     }
