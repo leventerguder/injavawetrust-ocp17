@@ -18,6 +18,7 @@ public class ImplementingPredicateAndBiPredicate {
 
     private static void predicateExample1() {
 
+        System.out.println("### predicateExample1 ###");
         Predicate<String> p1 = String::isEmpty;
         Predicate<String> p2 = x -> x.isEmpty();
         Predicate<String> p3 = (String str) -> str.length() > 5;
@@ -30,6 +31,7 @@ public class ImplementingPredicateAndBiPredicate {
 
     private static void predicateExample2() {
 
+        System.out.println("### predicateExample2 ###");
         Predicate<Integer> p1 = number -> number > 100;
         Predicate<Integer> p2 = (Integer number) -> {
             return number > 100;
@@ -45,6 +47,7 @@ public class ImplementingPredicateAndBiPredicate {
 
     private static void predicateExample3() {
 
+        System.out.println("### predicateExample3 ###");
         Predicate<List<Integer>> p1 = (List<Integer> list) -> list.contains(100);
 
         Predicate<List<Integer>> p2 = List::isEmpty;
@@ -54,6 +57,8 @@ public class ImplementingPredicateAndBiPredicate {
     }
 
     private static void predicateHelperExample() {
+
+        System.out.println("### predicateHelperExample ###");
         Predicate<Long> p1 = PredicateHelper::checkSize;
         Predicate<Integer> p2 = PredicateHelper::checkSize;
 
@@ -69,6 +74,7 @@ public class ImplementingPredicateAndBiPredicate {
 
     private static void biPredicateExample() {
 
+        System.out.println("### biPredicateExample ###");
         BiPredicate<String, String> b1 = String::startsWith;
         BiPredicate<String, String> b2 = (string, prefix) -> string.startsWith(prefix);
 
@@ -87,6 +93,7 @@ public class ImplementingPredicateAndBiPredicate {
 
     private static void biPredicateHelperExample() {
 
+        System.out.println("### biPredicateHelperExample ###");
         BiPredicate<Integer, Integer> b1 = BiPredicateHelper::check;
         BiPredicate<String, Integer> b2 = BiPredicateHelper::check2;
 
@@ -96,7 +103,6 @@ public class ImplementingPredicateAndBiPredicate {
 }
 
 class PredicateHelper {
-
 
     private int size;
 
@@ -126,7 +132,6 @@ class PredicateHelper {
 }
 
 class BiPredicateHelper {
-
     static boolean check(Integer i, Integer j) {
         return i > j;
     }
