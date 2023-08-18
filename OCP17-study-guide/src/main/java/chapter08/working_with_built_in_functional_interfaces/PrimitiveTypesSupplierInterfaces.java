@@ -39,6 +39,9 @@ public class PrimitiveTypesSupplierInterfaces {
 
 
     private static void intSupplierExample() {
+
+        System.out.println("### intSupplierExample ###");
+
         IntSupplier is1 = () -> 10;
         IntSupplier is2 = () -> (int) Math.random();
         IntSupplier is3 = () -> new Random().nextInt();
@@ -53,6 +56,9 @@ public class PrimitiveTypesSupplierInterfaces {
     }
 
     private static void longSupplierExample() {
+
+        System.out.println("### longSupplierExample ###");
+
         LongSupplier ls1 = () -> 10;
         LongSupplier ls2 = new Random()::nextInt;
         LongSupplier ls3 = new Random()::nextLong;

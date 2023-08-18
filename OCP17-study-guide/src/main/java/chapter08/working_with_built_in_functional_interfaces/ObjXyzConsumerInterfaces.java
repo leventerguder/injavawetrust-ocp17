@@ -14,16 +14,19 @@ public class ObjXyzConsumerInterfaces {
     }
 
     private static void objDoubleConsumerExample() {
+        System.out.println("### objDoubleConsumerExample ###");
         ObjDoubleConsumer<String> odc1 = (String str, double d) -> System.out.println(Double.parseDouble(str) + d);
         odc1.accept("100.5", 20);
     }
 
     private static void objIntConsumerExample() {
+        System.out.println("### objIntConsumerExample ###");
         ObjIntConsumer<String> odc1 = (String str, int d) -> System.out.println(Double.parseDouble(str) + d);
         odc1.accept("100.5", 20);
     }
 
     private static void objLongConsumerExample() {
+        System.out.println("### objLongConsumerExample ###");
         ObjLongConsumer<String> odc1 = (String str, long d) -> System.out.println(Double.parseDouble(str) + d);
         odc1.accept("100.5", 20);
     }

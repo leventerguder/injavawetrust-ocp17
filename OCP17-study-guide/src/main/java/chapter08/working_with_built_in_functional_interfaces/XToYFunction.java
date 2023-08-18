@@ -22,14 +22,22 @@ public class XToYFunction {
 
 
     private static void doubleToIntFunctionExample() {
+
+        System.out.println("### doubleToIntFunctionExample ###");
         DoubleToIntFunction dtif1 = (double d1) -> (int) d1;
         DoubleToIntFunction dtif2 = Helper::ceil;
 
         System.out.println(dtif1.applyAsInt(10.5));
         System.out.println(dtif2.applyAsInt(10.5));
+
+        var d = 1.0;
+        DoubleToIntFunction f1 = x -> 1;
+        f1.applyAsInt(d);
     }
 
     private static void doubleToLongFunctionExample() {
+
+        System.out.println("### doubleToLongFunctionExample ###");
         DoubleToLongFunction dtlf1 = (double d1) -> (long) d1;
         DoubleToLongFunction dtlf2 = Helper::ceil;
 
@@ -38,6 +46,8 @@ public class XToYFunction {
     }
 
     private static void intToDoubleFunctionExample() {
+
+        System.out.println("### doubleToLongFunctionExample ###");
         IntToDoubleFunction itdf1 = (int i) -> i;
         IntToDoubleFunction itdf2 = (int i) -> Math.sqrt(i);
         IntToDoubleFunction itdf3 = Math::sqrt;
@@ -49,6 +59,8 @@ public class XToYFunction {
 
 
     private static void intToLongFunctionExample() {
+
+        System.out.println("### intToLongFunctionExample ###");
         IntToLongFunction itlf1 = (int i) -> i;
         IntToLongFunction itlf2 = (int i) -> i * 10L;
         IntToLongFunction itlf3 = (int i) -> Long.valueOf(i);
@@ -62,6 +74,8 @@ public class XToYFunction {
 
 
     private static void longToDoubleFunctionExample() {
+
+        System.out.println("### longToDoubleFunctionExample ###");
         LongToDoubleFunction ltdf1 = (long x) -> x;
         LongToDoubleFunction ltdf2 = (var x) -> x * 2.0;
         LongToDoubleFunction ltdf3 = Double::valueOf;
@@ -75,6 +89,9 @@ public class XToYFunction {
     }
 
     private static void longToIntFunctionExample() {
+
+        System.out.println("### longToIntFunctionExample ###");
+
         LongToIntFunction ltif1 = (var x) -> (int) x;
         LongToIntFunction ltif2 = (long i) -> Math.toIntExact(i);
         LongToIntFunction ltif3 = Math::toIntExact;
