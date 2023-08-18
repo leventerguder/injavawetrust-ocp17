@@ -1,12 +1,10 @@
 package chapter08.working_with_built_in_functional_interfaces;
 
-import chapter05.overloading_methods.SystemOut;
-
 import java.util.function.DoublePredicate;
 import java.util.function.IntPredicate;
 import java.util.function.LongPredicate;
 
-public class PredicateForPrimitiveTypes {
+public class PrimitiveTypesPredicateInterfaces {
 
     public static void main(String[] args) {
 

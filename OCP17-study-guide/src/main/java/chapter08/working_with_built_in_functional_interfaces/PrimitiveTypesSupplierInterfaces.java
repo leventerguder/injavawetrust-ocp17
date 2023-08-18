@@ -6,7 +6,7 @@ import java.util.function.IntSupplier;
 import java.util.function.LongSupplier;
 import java.util.function.Supplier;
 
-public class SupplierForPrimitiveTypes {
+public class PrimitiveTypesSupplierInterfaces {
 
     public static void main(String[] args) {
 

@@ -2,7 +2,7 @@ package chapter08.working_with_built_in_functional_interfaces;
 
 import java.util.function.BooleanSupplier;
 
-public class FunctionalInterfacesForBoolean {
+public class PrimitiveTypesSupplierInterfaceForBoolean {
 
     public static void main(String[] args) {
 

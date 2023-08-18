@@ -5,7 +5,7 @@ import java.util.function.DoubleConsumer;
 import java.util.function.IntConsumer;
 import java.util.function.LongConsumer;
 
-public class ConsumerForPrimitiveTypes {
+public class PrimitiveTypesConsumerInterfaces {
 
     public static void main(String[] args) {
 
