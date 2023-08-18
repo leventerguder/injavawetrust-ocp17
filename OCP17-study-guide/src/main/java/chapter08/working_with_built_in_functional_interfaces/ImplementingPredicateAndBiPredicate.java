@@ -22,11 +22,13 @@ public class ImplementingPredicateAndBiPredicate {
         Predicate<String> p1 = String::isEmpty;
         Predicate<String> p2 = x -> x.isEmpty();
         Predicate<String> p3 = (String str) -> str.length() > 5;
+        Predicate<String> p4 = (String str) -> true;
 
 
         System.out.println(p1.test("")); // true
         System.out.println(p2.test("")); // true
         System.out.println(p3.test("Hello Predicate!"));
+        System.out.println(p4.test("always-true"));
     }
 
     private static void predicateExample2() {
@@ -63,7 +65,7 @@ public class ImplementingPredicateAndBiPredicate {
         Predicate<Integer> p2 = PredicateHelper::checkSize;
 
         Predicate<PredicateHelper> p3 = PredicateHelper::sampleMethod;
-        // Predicate<PredicateHelper> p4 = PredicateHelper::sampleStaticMethod; // DOES NOT COMPILE
+        //Predicate<PredicateHelper> p4 = PredicateHelper::sampleStaticMethod; // DOES NOT COMPILE
         Predicate<PredicateHelper> p5 = PredicateHelper::sampleStaticMethod2; // DOES NOT COMPILE
 
         System.out.println(p1.test(20L));

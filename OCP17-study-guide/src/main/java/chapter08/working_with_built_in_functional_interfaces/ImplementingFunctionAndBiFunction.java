@@ -78,10 +78,12 @@ public class ImplementingFunctionAndBiFunction {
         BiFunction<String, String, Integer> bf2 = BiFunctionHelper::length;
 
         BiFunction<BiFunctionHelper, String, Integer> bf3 = BiFunctionHelper::compareTo;
+        BiFunction<BiFunctionHelper, String, Integer> bf4 = BiFunctionHelper::compareToV2;
 
         System.out.println(bf1.apply("hello", "world"));
         System.out.println(bf2.apply("hello", "world"));
-        System.out.println(bf3.apply(new BiFunctionHelper("helllo-world"), "sample"));
+        System.out.println(bf3.apply(new BiFunctionHelper("hello-world"), "sample"));
+        System.out.println(bf4.apply(new BiFunctionHelper("hello-world"), "sample"));
     }
 
 }
@@ -121,5 +123,9 @@ class BiFunctionHelper {
 
     Integer compareTo(String str) {
         return content.compareTo(str);
+    }
+
+    static Integer compareToV2(BiFunctionHelper bfh, String str) {
+        return 10;
     }
 }

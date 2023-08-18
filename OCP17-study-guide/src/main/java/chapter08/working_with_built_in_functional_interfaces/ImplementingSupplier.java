@@ -45,8 +45,12 @@ public class ImplementingSupplier {
 
         System.out.println("### arrayListSupplierExample ###");
         Supplier<ArrayList<String>> s1 = ArrayList::new;
+        Supplier<ArrayList<String>> s2 = () -> new ArrayList<>();
+
         ArrayList<String> a1 = s1.get();
+        ArrayList<String> a2 = s2.get();
         System.out.println(a1); // []
+        System.out.println(a2);
 
         System.out.println(s1);
 
@@ -58,10 +62,12 @@ public class ImplementingSupplier {
         Supplier<Double> s1 = () -> Math.random();
         Supplier<Double> s2 = Math::random;
         Supplier<Integer> s3 = new Random()::nextInt;
+        Supplier<Integer> s4 = () -> 10;
 
         System.out.println(s1.get());
         System.out.println(s2.get());
         System.out.println(s3.get());
+        System.out.println(s4.get());
     }
 
     private static void stringSupplierExample() {
@@ -85,6 +91,7 @@ public class ImplementingSupplier {
     private static void supplierHelperExample() {
 
         System.out.println("### supplierHelperExample ###");
+
         Supplier<Integer> s1 = SupplierHelper::method1;
         Supplier<Integer> s2 = () -> SupplierHelper.method1();
         Supplier<Integer> s3 = () -> {
@@ -95,10 +102,10 @@ public class ImplementingSupplier {
         Supplier<Integer> s5 = SupplierHelper::method2;
 
         // Bad return type in method reference: cannot convert long to java.lang.Integer
-        // Supplier<Integer> s6 = SupplierHelper::method3; // DOES NOT COMPILE
+        //Supplier<Integer> s6 = SupplierHelper::method3; // DOES NOT COMPILE
 
         // ad return type in method reference: cannot convert short to java.lang.Integer
-        // Supplier<Integer> s7 = SupplierHelper::method4; // DOES NOT COMPILE
+        //Supplier<Integer> s7 = SupplierHelper::method4; // DOES NOT COMPILE
 
         // Supplier<Integer> s8 = SupplierHelper::instanceMethod; // DOES NOT COMPILE
 
