@@ -2,6 +2,7 @@ package chapter08.questions.q09;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Q09 {
 
@@ -17,6 +18,9 @@ public class Q09 {
 
         Consumer<String> consumer = System.out::println;
         consumer.accept("hello consumer!");
+
+        Supplier<String> supplier = () -> "sample value";
+        System.out.println(supplier.get());
 
         Predicate<String> predicate = String::isEmpty;
         System.out.println(predicate.test("not-empty"));

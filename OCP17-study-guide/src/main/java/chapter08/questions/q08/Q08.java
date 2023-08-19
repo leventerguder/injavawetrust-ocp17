@@ -11,6 +11,10 @@ public class Q08 {
 
         UnaryOperator<Integer> u = x -> x * x;
 
+        // BiFunction<T, U, R>
+        // BinaryOperator<T>
+        // Function<T, R>
+
         // BiFunction<Integer> f = x -> x * x; // DOES NOT COMPILE
         // BiFunction<Integer, Integer> f = x -> x * x; // DOES NOT COMPILE
         // BinaryOperator<Integer, Integer> f = x -> x * x; // DOES NOT COMPILE
