@@ -9,7 +9,7 @@ public class Q14 {
         // C. (a,b,c) -> {int b = 3; return 2;} // DOES NOT COMPILE
         // D. (x,y) -> new RuntimeException()
         // E. (var y) -> return 0; // DOES NOT COMPILE
-        // F. () -> {float r} // VALID
+        // F. () -> {float r} //  DOES NOT COMPILE
         // G. (Cat a, b) -> {} // DOES NOT COMPILE
     }
 }
