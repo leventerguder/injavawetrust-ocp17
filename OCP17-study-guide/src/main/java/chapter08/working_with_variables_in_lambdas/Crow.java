@@ -9,9 +9,11 @@ public class Crow {
 
     public void caw(String name) {
         String volume = "loudly";
-        Consumer<String> consumer = s ->
-                System.out.println(name + " says "
-                        + volume + " that she is " + color + " size: " + size);
+        Consumer<String> consumer = s -> {
+            s = "new-value";
+            System.out.println(name + " says "
+                    + volume + " that she is " + color + " size: " + size + " " + s);
+        };
         consumer.accept("not-used");
     }
 
