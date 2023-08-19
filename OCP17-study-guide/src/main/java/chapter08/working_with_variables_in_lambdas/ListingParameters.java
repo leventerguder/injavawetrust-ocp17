@@ -32,6 +32,7 @@ public class ListingParameters {
 
     public void counts(List<Integer> list) {
         list.sort((var x, var y) -> x.compareTo(y));
+        list.sort((Integer x, Integer y) -> x.compareTo(y));
     }
 
 

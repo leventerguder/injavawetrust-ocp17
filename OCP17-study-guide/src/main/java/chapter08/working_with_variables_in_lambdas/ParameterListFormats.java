@@ -23,6 +23,7 @@ public class ParameterListFormats {
         // BiFunction<Integer, Integer, String> biFunction4 = (Integer x, y) -> "goodbye"; // DOES NOT COMPILE
         BiFunction<Integer, Integer, String> biFunction5 = (Integer x, Integer y) -> "goodbye";
         BiFunction<Integer, Integer, String> biFunction6 = (x, y) -> "goodbye";
+        BiFunction<Integer, Integer, String> biFunction7 = (var x, var y) -> "goodbye";
     }
 }
 

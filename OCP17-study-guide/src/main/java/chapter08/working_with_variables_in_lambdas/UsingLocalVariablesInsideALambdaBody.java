@@ -1,6 +1,7 @@
 package chapter08.working_with_variables_in_lambdas;
 
 import java.util.function.BinaryOperator;
+import java.util.function.Predicate;
 
 public class UsingLocalVariablesInsideALambdaBody {
 
@@ -40,4 +41,15 @@ public class UsingLocalVariablesInsideALambdaBody {
     - The code attempts to redeclare local variable b.
     - The variable p1 is missing a semicolon at the end. There is a semicolon before the }, but that is inside the block.
      */
+
+    public void sample() {
+
+        Predicate<Integer> p1 = a -> returnSame(a);
+        Predicate<Integer> p2 = this::returnSame;
+        Predicate<Integer> p3 = new UsingLocalVariablesInsideALambdaBody()::returnSame;
+    }
+
+    private boolean returnSame(int number) {
+        return number > 100;
+    }
 }
