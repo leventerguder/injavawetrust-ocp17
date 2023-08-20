@@ -22,7 +22,7 @@ A Deque is a subinterface of Queue that allows access at both ends.
 A map is a collection that maps keys to values, with no duplicate keys allowed. The
 elements in a map are key/value pairs.
 
-![](usingcommoncollectionapis/javacollectionsframework.png)
+![](using_common_collection_apis/javacollectionsframework.png)
 
 ## Using the Diamond Operator
 

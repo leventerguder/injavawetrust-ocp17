@@ -1,4 +1,4 @@
-package chapter09.usingcommoncollectionapis;
+package chapter09.using_common_collection_apis;
 
 import java.util.ArrayList;
 
