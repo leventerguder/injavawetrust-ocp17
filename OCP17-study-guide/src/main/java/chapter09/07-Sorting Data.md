@@ -216,7 +216,7 @@ silly.The point of Comparable is to implement it inside the object being compare
 
 There are several differences between Comparable and Comparator. We’ve listed them for you in Table 9.10.
 
-![](sortingdata/comparison-of-comparable-and-comparator.png)
+![](sorting_data/comparison-of-comparable-and-comparator.png)
 
 Memorize this table—really. The exam will try to trick you by mixing up the two and see- ing if you can catch it. Do you
 see why this doesn’t compile?
@@ -261,9 +261,9 @@ Suppose we want to sort in descending order by species.
 
     var c = Comparator.comparing(Squirrel::getSpecies).reversed();
 
-![](sortingdata/helper-default-methods-for-building-a-comparator.png)
+![](sorting_data/helper-default-methods-for-building-a-comparator.png)
 
-![](sortingdata/helper-default-methods-for-building-a-comparator-2.png)
+![](sorting_data/helper-default-methods-for-building-a-comparator-2.png)
 
 You’ve probably noticed by now that we often ignore null values in checking equality and comparing objects. This works
 fine for the exam. In the real world, though, things aren’t so neat. You will have to decide how to handle null values

@@ -3,11 +3,11 @@
 We conclude this section with a review of all the collection classes. Make sure that you can fill in Table 9.8 to
 compare the four collection types from memory.
 
-![](comparingcollectiontypes/java-collections-framework-types.png)
+![](comparing_collection_types/java-collections-framework-types.png)
 
 Additionally, make sure you can fill in Table 9.9 to describe the types on the exam.
 
-![](comparingcollectiontypes/collection-attributes.png)
+![](comparing_collection_types/collection-attributes.png)
 
 Next, the exam expects you to know which data structures allow null values. The data structures that involve sorting do
 not allow null values.

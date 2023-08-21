@@ -311,7 +311,7 @@ A bounded parameter type is a generic type that specifies a bound for the generi
 A wildcard generic type is an unknown generic type represented with a question mark (?). You can use generic wildcards
 in three ways.
 
-![](workingwithgenerics/types-of-bounds.png)
+![](working_with_generics/types-of-bounds.png)
 
 ### Creating Unbounded Wildcards
 
@@ -431,7 +431,7 @@ Let’s try to write a method that adds a string "quack" to two lists:
     addSound(strings);
     addSound(objects);
 
-![](workingwithgenerics/why-we-need-a-lower-bound.png)
+![](working_with_generics/why-we-need-a-lower-bound.png)
 
 To solve this problem, we need to use a lower bound.
 

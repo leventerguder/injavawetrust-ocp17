@@ -36,8 +36,8 @@ a TreeSet, the trade-off is that adding and checking whether a key is present ta
 Given that Map doesn’t extend Collection, more methods are specified on the Map interface. Since there are both keys and
 values, we need generic type parameters for both.
 
-![](usingthemapinterface/map-methods-1.png)
-![](usingthemapinterface/map-methods-2.png)
+![](using_the_map_interface/map-methods-1.png)
+![](using_the_map_interface/map-methods-2.png)
 
 ## Calling Basic Methods
 
@@ -180,4 +180,4 @@ list. Jenny was removed because the mapping function returned null.
     favorites.merge("Sam", "Skyride", mapper);
     System.out.println(favorites); // {Tom=Bus Tour, Sam=Skyride}
 
-![](usingthemapinterface/behavior-of-the-merge-method.png)
+![](using_the_map_interface/behavior-of-the-merge-method.png)
