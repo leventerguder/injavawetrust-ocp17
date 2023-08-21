@@ -14,7 +14,7 @@ LinkedList is that it implements both the List and Deque interfaces. The trade-o
 The Queue interface contains six methods. We’ve bolded the ones that throw an exception when something goes wrong, like
 trying to read from an empty Queue.
 
-![](usingthequeuanddequeinterfaces/queue-methods-.png)
+![](using_the_queu_and_deque_interfaces/queue-methods-.png)
 
     Queue<Integer> queue = new LinkedList<>();
     queue.add(10);
@@ -27,7 +27,7 @@ trying to read from an empty Queue.
 Next, we move on to the Deque interface. Since the Deque interface supports double-ended queues, it inherits all Queue
 methods and adds more so that it is clear if we are working with the front or back of the queue.
 
-![](usingthequeuanddequeinterfaces/deque-methods.png)
+![](using_the_queu_and_deque_interfaces/deque-methods.png)
 
     Deque<Integer> deque = new LinkedList<>();
     deque.offerFirst(10);   //true
@@ -42,7 +42,7 @@ In addition to FIFO queues, there are LIFO (last-in, first-out) queues, which ar
 Picture a stack of plates. You always add to or remove from the top of the stack to avoid a mess. Luckily, we can use
 the same double-ended queue implementations.
 
-![](usingthequeuanddequeinterfaces/using-a-deque-as-a-stack.png)
+![](using_the_queu_and_deque_interfaces/using-a-deque-as-a-stack.png)
 
 When using a Deque, it is really important to determine if it is being used as a FIFO queue, a LIFO stack, or a
 double-ended queue. To review, a FIFO queue is like a line of people. You get on in the back and off in the front. A

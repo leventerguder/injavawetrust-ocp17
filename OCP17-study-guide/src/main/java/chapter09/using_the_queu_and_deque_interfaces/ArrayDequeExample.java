@@ -1,7 +1,8 @@
-package chapter09.usingthequeuanddequeinterfaces;
+package chapter09.using_the_queu_and_deque_interfaces;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.PriorityQueue;
 
 public class ArrayDequeExample {
 

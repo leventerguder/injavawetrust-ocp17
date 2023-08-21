@@ -1,4 +1,4 @@
-package chapter09.usingthesetinterface;
+package chapter09.using_the_set_interface;
 
 import java.util.HashSet;
 import java.util.Set;

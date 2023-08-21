@@ -34,7 +34,7 @@ When you create a List of type ArrayList or LinkedList, you know the type. There
 a List back but don’t know the type. These methods let you create a List including data in one line using a factory
 method. This is convenient, especially when testing. Some of these methods return an immutable object.
 
-![](usingthelistinerface/factory-methods-to-create-a-list.png)
+![](using_the_list_interface/factory-methods-to-create-a-list.png)
 
 Let’s take a look at an example of these three methods:
 
@@ -94,7 +94,7 @@ the generic, Java has to assume the ultimate superclass.This is a bit silly and 
 
 The methods in the List interface are for working with indexes.
 
-![](usingthelistinerface/List-methods.png)
+![](using_the_list_interface/List-methods.png)
 
 The following statements demonstrate most of these methods for working with a List:
 

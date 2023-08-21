@@ -1,4 +1,4 @@
-package chapter09.usingthelistinerface;
+package chapter09.using_the_list_interface;
 
 import java.util.Arrays;
 
