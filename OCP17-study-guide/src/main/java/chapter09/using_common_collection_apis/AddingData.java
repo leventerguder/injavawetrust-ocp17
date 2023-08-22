@@ -15,5 +15,8 @@ public class AddingData {
         Collection<String> set = new HashSet<>();
         System.out.println(set.add("Sparrow")); // true
         System.out.println(set.add("Sparrow")); // false
+
+        System.out.println(list);
+        System.out.println(set);
     }
 }

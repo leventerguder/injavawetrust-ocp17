@@ -10,8 +10,11 @@ public class OverloadedRemoveMethods {
         list.add(3);    // [3]
         list.add(2);    // [3,2]
         list.add(1);    // [3,2,1]
+        System.out.println(list);
         list.remove(2); // [3,2]
+        System.out.println(list);
         list.remove(Integer.valueOf(2)); //[3]
+        // list.remove(2);
         System.out.println(list);
     }
 }
