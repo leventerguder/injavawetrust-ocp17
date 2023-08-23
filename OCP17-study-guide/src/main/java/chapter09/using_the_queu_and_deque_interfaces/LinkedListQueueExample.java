@@ -9,14 +9,6 @@ public class LinkedListQueueExample {
 
         linkedListQueueExample();
         linkedListQueueExample2();
-//
-//        Queue<Integer> queue2 = new PriorityQueue<>();
-//        queue2.add(10);
-//        queue2.add(4);
-//
-//        System.out.println(queue2.remove()); // 10
-//        System.out.println(queue2.peek()); //4
-//        System.out.println(queue2.peek()); //4
     }
 
     private static void linkedListQueueExample() {

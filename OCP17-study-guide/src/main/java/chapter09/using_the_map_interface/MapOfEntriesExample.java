@@ -12,5 +12,7 @@ public class MapOfEntriesExample {
 
         System.out.println(map1.getClass());
         System.out.println(map1);
+
+        // map1.put("immutable", "UnsupportedOperationException"); // UnsupportedOperationException
     }
 }

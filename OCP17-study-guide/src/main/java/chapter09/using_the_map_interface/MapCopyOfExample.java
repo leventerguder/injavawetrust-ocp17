@@ -11,5 +11,8 @@ public class MapCopyOfExample {
 
         System.out.println(map1);
         System.out.println(copiedMap);
+
+        // copiedMap.put("immutable", "UnsupportedOperationException"); // UnsupportedOperationException
+        // copiedMap.remove("key1"); // UnsupportedOperationException
     }
 }

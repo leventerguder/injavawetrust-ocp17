@@ -14,5 +14,10 @@ public class MapOfExample {
         System.out.println(map1.getClass());
         System.out.println(map1);
         System.out.println(map2);
+
+        // map1.put("immutable", "UnsupportedOperationException"); // UnsupportedOperationException
+        // map1.remove("key1"); // UnsupportedOperationException
+        // map1.remove("not-a-valid-key");  // UnsupportedOperationException
+        // map1.replace("not-a-valid-key", "new-value"); // UnsupportedOperationException
     }
 }
