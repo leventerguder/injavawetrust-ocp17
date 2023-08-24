@@ -13,6 +13,7 @@ public class VectorExample {
         vector.add("value1");
         vector.add("value2");
         vector.add("value3");
+        vector.add(null);
 
         for (String e : vector) {
             System.out.println(e);
