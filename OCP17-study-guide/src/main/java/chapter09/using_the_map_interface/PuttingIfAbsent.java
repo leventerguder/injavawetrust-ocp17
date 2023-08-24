@@ -10,10 +10,14 @@ public class PuttingIfAbsent {
         Map<String, String> favorites = new HashMap<>();
         favorites.put("Jenny", "Bus Tour");
         favorites.put("Tom", null);
+
         favorites.putIfAbsent("Jenny", "Tram");
         favorites.putIfAbsent("Sam", "Tram");
         favorites.putIfAbsent("Tom", "Tram");
-        System.out.println(favorites); // {Tom=Tram, Jenny=Bus Tour, Sam=Tram}
+        favorites.putIfAbsent("Tom", null);
+        favorites.putIfAbsent("Jane", null);
+
+        System.out.println(favorites); // {Tom=Tram, Jenny=Bus Tour, Jane=null, Sam=Tram}
 
     }
 }

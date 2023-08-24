@@ -16,6 +16,8 @@ public class TreeMapExample {
         treeMap.put(60, "value5");
         treeMap.put(5, "value6");
 
+        // treeMap.put(null, "NullPointerException");
+
         System.out.println(treeMap);
     }
 }

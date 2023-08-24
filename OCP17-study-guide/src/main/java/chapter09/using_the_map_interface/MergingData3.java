@@ -16,9 +16,13 @@ public class MergingData3 {
         Map<String, String> favorites = new HashMap<>();
         favorites.put("Jenny", "Bus Tour");
         favorites.put("Tom", "Bus Tour");
-        favorites.merge("Jenny", "Skyride", mapper);
-        favorites.merge("Sam", "Skyride", mapper);
+
+        String jenny = favorites.merge("Jenny", "Skyride", mapper);
+        String sam = favorites.merge("Sam", "Skyride", mapper);
+
         System.out.println(favorites); // {Tom=Bus Tour, Sam=Skyride}
+        System.out.println(jenny);
+        System.out.println(sam);
 
         // Tom was left alone since there was no merge() call for that key.
         // Sam was added since that key was not in the original list.

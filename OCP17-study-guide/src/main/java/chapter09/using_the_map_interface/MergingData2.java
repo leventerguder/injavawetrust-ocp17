@@ -14,9 +14,12 @@ public class MergingData2 {
 
         Map<String, String> favorites = new HashMap<>();
         favorites.put("Sam", null);
-        favorites.merge("Tom", "Skyride", mapper);
-        favorites.merge("Sam", "Skyride", mapper);
+
+        String tom = favorites.merge("Tom", "Skyride", mapper);
+        String sam = favorites.merge("Sam", "Skyride", mapper);
         System.out.println(favorites); // {Tom=Skyride, Sam=Skyride}
+        System.out.println(tom);
+        System.out.println(sam);
 
         // Notice that the mapping function isn’t called. If it were, we’d have a NullPointerException.
         // The mapping function is used only when there are two actual values to decide between.
