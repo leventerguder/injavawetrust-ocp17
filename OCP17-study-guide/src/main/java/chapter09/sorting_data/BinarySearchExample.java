@@ -12,6 +12,7 @@ public class BinarySearchExample {
         Collections.sort(list); // [1, 6, 8, 9]
         System.out.println(Collections.binarySearch(list, 6)); // 1
         System.out.println(Collections.binarySearch(list, 3)); // -2
+        System.out.println(Collections.binarySearch(list, 13)); // -5
 
 // The number 3 would need to be inserted at index 1 (after the number 1 but before the number 6). Negating that gives us
 //−1, and subtracting 1 gives us −2.

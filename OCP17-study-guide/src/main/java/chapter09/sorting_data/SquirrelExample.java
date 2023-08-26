@@ -38,7 +38,9 @@ public class SquirrelExample {
                 .comparing(Squirrel::getSpecies)
                 .thenComparingInt(Squirrel::getWeight);
 
-        squirrels.sort(c);
+        // squirrels.sort(c);
+
+        Collections.sort(squirrels, c);
 
         System.out.println("### After Collections.sort ### ");
 
@@ -52,7 +54,9 @@ public class SquirrelExample {
                 .comparing(Squirrel::getSpecies)
                 .reversed();
 
-        squirrels.sort(c);
+        // squirrels.sort(c);
+
+        Collections.sort(squirrels, c);
 
         System.out.println("### After Collections.sort ### ");
 

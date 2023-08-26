@@ -15,11 +15,11 @@ public class StackExample {
         stack.push("e4");
         stack.push(null);
 
+        System.out.println(stack.pop()); // null
         System.out.println(stack.pop()); // e4
         System.out.println(stack.pop()); // e3
         System.out.println(stack.pop()); // e2
         System.out.println(stack.pop()); // e1
-        System.out.println(stack.pop()); // null
         System.out.println(stack.pop()); // java.util.EmptyStackException
     }
 }

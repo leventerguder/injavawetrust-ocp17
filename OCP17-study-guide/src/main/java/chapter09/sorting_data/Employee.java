@@ -12,7 +12,11 @@ public class Employee implements Comparable<Employee> {
     public int compareTo(Employee employee) {
         //return Integer.compare(id, e employee.id);
         // return Integer.compare(employee.id, id);
-        return firstName.compareTo(employee.firstName);
+        int result = firstName.compareTo(employee.firstName);
+        if (result == 0) {
+            return lastName.compareTo(employee.lastName);
+        }
+        return result;
     }
 
     public Employee(int id, String firstName, String lastName) {
