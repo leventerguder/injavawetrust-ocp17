@@ -24,8 +24,11 @@ public class Duck implements Comparable<Duck> {
         var ducks = new ArrayList<Duck>();
         ducks.add(new Duck("Quack"));
         ducks.add(new Duck("Puddles"));
+        ducks.add(new Duck("Donald"));
+        // ducks.add(null); // Causes Collections.sort throwing NullPointerException
+        // ducks.add(new Duck(null)); // // Causes Collections.sort throwing NullPointerException
         Collections.sort(ducks); // sort by name
 
-        System.out.println(ducks); // [Puddles, Quack]
+        System.out.println(ducks); // [Donald, Puddles, Quack]
     }
 }
