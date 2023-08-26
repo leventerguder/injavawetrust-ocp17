@@ -13,6 +13,6 @@ public class GettingValuesSafely {
         System.out.println("X marks the " + map.getOrDefault('x', ""));
         System.out.println("Y marks the " + map.get('y'));
         System.out.println("Y marks the " + map.getOrDefault('y', ""));
-        System.out.println("Y marks the " + map.getOrDefault('z', "zone"));
+        System.out.println("Z marks the " + map.getOrDefault('z', "zone"));
     }
 }
