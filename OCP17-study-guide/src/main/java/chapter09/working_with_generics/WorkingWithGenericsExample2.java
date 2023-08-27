@@ -12,6 +12,7 @@ public class WorkingWithGenericsExample2 {
         Robot joeBot = new Robot();
         Crate<Robot> robotCrate = new Crate<>();
         robotCrate.packCrate(joeBot);
+        Robot atDestination = robotCrate.lookInCrate();
 
     }
 }

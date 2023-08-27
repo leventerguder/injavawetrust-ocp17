@@ -8,4 +8,12 @@ public class SizeLimitedCrate<T, U> {
         this.contents = contents;
         this.sizeLimit = sizeLimit;
     }
+
+    public T getContents() {
+        return contents;
+    }
+
+    public U getSizeLimit() {
+        return sizeLimit;
+    }
 }
