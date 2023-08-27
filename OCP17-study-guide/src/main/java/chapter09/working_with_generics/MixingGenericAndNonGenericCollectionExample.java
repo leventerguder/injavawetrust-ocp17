@@ -22,5 +22,6 @@ public class MixingGenericAndNonGenericCollectionExample {
 
     private static void legacyList(List legacy) {
         legacy.add(new StringBuilder("adam"));
+        legacy.add(10);
     }
 }

@@ -8,6 +8,10 @@ public class Mammal {
         return List.of();
     }
 
+    public CharSequence[] playArray() {
+        return List.of().toArray(new CharSequence[0]);
+    }
+
     public CharSequence sleep() {
         return "string";
     }
