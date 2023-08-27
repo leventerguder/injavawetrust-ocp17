@@ -26,21 +26,29 @@ class Animal<T> {
 
     void sample2(T t) {
 
-        // System.out.println(T instanceof String); // DOES NOT COMPILE
+        System.out.println(t instanceof String);
     }
 
-    void sample3() {
-        // Animal<int> animal = new Animal<>(); // DOES NOT COMPILE
+    void sample3(List<T> list){
+
+        // System.out.println(list instanceof ArrayList<Integer>); // DOES NOT COMPILE
+        // System.out.println(list instanceof List<Integer>); // DOES NOT COMPILE
+    }
+
+
+    void sample4() {
+
+        //Animal<int> animal = new Animal<>(); // DOES NOT COMPILE
         Animal<Integer> animalV2 = new Animal<>();
 
-        // List<short> list = new ArrayList<>(); // DOES NOT COMPILE
+        //List<short> list = new ArrayList<>(); // DOES NOT COMPILE
         List<Short> listV2 = new ArrayList<>();
     }
 
-    T instanceVariable;
+    private T instanceVariable;
     // static T staticVariable; // DOES NOT COMPILE
 
-    T[] arrayInstanceVariable;
+    protected T[] arrayInstanceVariable;
 
     public Animal() {
     }
