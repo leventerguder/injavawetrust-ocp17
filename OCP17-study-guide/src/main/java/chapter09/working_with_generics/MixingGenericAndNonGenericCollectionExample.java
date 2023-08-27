@@ -9,6 +9,7 @@ public class MixingGenericAndNonGenericCollectionExample {
 
         List<String> names = new ArrayList<>();
         names.add("jack");
+        // names.add(100);
 
         legacyList(names);
         System.out.println(names);

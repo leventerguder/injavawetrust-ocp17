@@ -15,6 +15,12 @@ class ShippableAbstractCrate<U> implements Shippable<U> {
     }
 }
 
+class ShippableAbstractCrateV2<T> implements Shippable<T> {
+    public void ship(T t) {
+    }
+}
+
+
 class ShippableCrate implements Shippable {
     public void ship(Object t) {
     }
