@@ -4,16 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreatingUnboundWildcardsExample2 {
-    public static void printList(List<?> list) {
-        for (Object x : list)
-            System.out.println(x);
+
+
+    public static void sample() {
+
+        List<Object> objects = new ArrayList<>();
+        List<String> strings = new ArrayList<>();
+        List<Integer> integers = new ArrayList<>();
+
+        // objects = strings; // DOES NOT COMPILE
+        // objects = integers; // DOES NOT COMPILE
     }
 
-    public static void main(String[] args) {
-        List<String> keywords = new ArrayList<>();
-        keywords.add("java");
-        printList(keywords);
+    public static void arrays() {
+
+        Object[] objects = new Object[5];
+        String[] strings = new String[5];
+        Integer[] integers = new Integer[5];
+
+        objects = strings;
+        objects = integers;
 
     }
-
 }

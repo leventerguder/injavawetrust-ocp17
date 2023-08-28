@@ -15,6 +15,13 @@ public class CreatingUnboundWildcardsExample1 {
         keywords.add("java");
         //printList(keywords); // DOES NOT COMPILE
         // A String is a subclass of an Object. This is true. However, List<String> cannot be assigned to List<Object>.
+
+        ArrayList<Object> objects = new ArrayList<>();
+        objects.add("java");
+        objects.add("17");
+
+        printList(objects);
+
     }
 
 }
