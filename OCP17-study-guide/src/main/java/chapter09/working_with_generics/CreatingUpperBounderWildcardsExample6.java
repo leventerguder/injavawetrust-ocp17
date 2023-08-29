@@ -13,11 +13,18 @@ public class CreatingUpperBounderWildcardsExample6 {
         remove(list);
 
         System.out.println(list);
+
+
+        List<StringBuilder> sbList = new ArrayList<>();
+
+        remove(sbList);
     }
 
     public static void remove(List<? extends CharSequence> elements) {
         elements.remove("element");
         elements.add(null);
         elements.add(null);
+
+        // elements.add("compile error");
     }
 }

@@ -34,7 +34,7 @@ public class PassingGenericArgumentsExample1 {
         return new B();
     }
 
-//    <? extends A> B thirdV3(List<B> list) {
+//    <? extends A> B thirdV3(List<? extends A> list) {
 //        return new B();
 //    }
 
@@ -49,7 +49,10 @@ public class PassingGenericArgumentsExample1 {
     <T extends A> T thirdV6(List<T> list) {
         return list.get(0);
     }
-
+//
+//    <T super A> T thirdV7(List<T> list) {
+//        return list.get(0);
+//    }
 
     void fourth(List<? super B> list) {
     }
@@ -78,15 +81,12 @@ public class PassingGenericArgumentsExample1 {
     <X extends B> void fifthV4(List<X> list) {
     }
 
-//    <X super B> void fifthV5(List<X> list) {
-//    }
-
     static class A {
     }
 
-    static class B extends CombiningGenericDeclarationsExample1.A {
+    static class B extends A {
     }
 
-    static class C extends CombiningGenericDeclarationsExample1.B {
+    static class C extends B {
     }
 }
