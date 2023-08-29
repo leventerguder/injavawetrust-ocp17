@@ -6,39 +6,17 @@ import java.util.List;
 
 public class CreatingUpperBounderWildcardsExample3 {
 
+    static class Sparrow extends Bird {
+    }
+
+    static class Bird {
+    }
 
     public static void main(String[] args) {
 
-        List<HangGlider> hangGliders = new ArrayList<>();
-        List<Goose> gooses = new ArrayList<>();
-
-        // anyFlyer(hangGliders); // DOES NOT COMPILE
-        // anyFlyer(gooses); // DOES NOT COMPILE
-
-        groupOfFlyers(hangGliders);
-        groupOfFlyers(gooses);
-    }
-
-
-    private static void anyFlyer(List<Flyer> flyer) {
-    }
-
-    private static void groupOfFlyers(List<? extends Flyer> flyer) {
-    }
-}
-
-
-interface Flyer {
-    void fly();
-}
-
-class HangGlider implements Flyer {
-    public void fly() {
-    }
-}
-
-class Goose implements Flyer {
-    public void fly() {
+        List<? extends Bird> birds = new ArrayList<Bird>();
+        // birds.add(new Sparrow()); // DOES NOT COMPILE
+        // birds.add(new Bird()); // DOES NOT COMPILE
     }
 }
 

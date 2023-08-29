@@ -14,6 +14,21 @@ public class CreatingLowerBoundedWildcardsExample2 {
         // exceptions.add(new Exception()); // DOES NOT COMPILE
         exceptions.add(new IOException());
         exceptions.add(new FileNotFoundException());
+
+        List<? super IOException> exceptions2 = new ArrayList<IOException>();
+
+        // exceptions2.add(new Exception()); // DOES NOT COMPILE
+        exceptions2.add(new IOException());
+        exceptions2.add(new FileNotFoundException());
+
+        List<? super IOException> exceptions3 = new ArrayList<Object>();
+
+        // exceptions3.add(new Object());
+        // exceptions3.add(new Exception()); // DOES NOT COMPILE
+        exceptions3.add(new IOException());
+        exceptions3.add(new FileNotFoundException());
+
+        // List<? super IOException> exception4 = new ArrayList<FileNotFoundException>(); // DOES NOT COMPILE
     }
 
 }

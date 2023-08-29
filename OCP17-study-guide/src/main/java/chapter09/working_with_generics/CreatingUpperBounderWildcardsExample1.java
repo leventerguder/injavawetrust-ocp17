@@ -11,5 +11,6 @@ public class CreatingUpperBounderWildcardsExample1 {
 
         // Instead, we need to use a wildcard:
         List<? extends Number> list = new ArrayList<Integer>();
+
     }
 }
