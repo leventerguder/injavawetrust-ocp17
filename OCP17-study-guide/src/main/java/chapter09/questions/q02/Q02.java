@@ -9,9 +9,11 @@ public class Q02 {
         List<?> q = List.of("mouse", "parrot");
         var v = List.of("mouse", "parrot");
 
+        // a List<?>, which means it is treated as if all the elements are of type Object rather than String.
+
         // q.removeIf(String::isEmpty); // DOES NOT COMPILE
         // q.removeIf(s -> s.length() == 4); // DOES NOT COMPILE
-        v.removeIf(String::isEmpty);
+        v.removeIf(String::isEmpty); // UnsupportedOperationException
         v.removeIf(s -> s.length() == 4);
     }
 }

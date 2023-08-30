@@ -18,7 +18,6 @@ public class Q10 {
 
         // map.forEach(System.out::println); // DOES NOT COMPILE
 
-
         // map.keys().forEach(System.out::println); // DOES NOT COMPILE
 
         map.keySet().forEach(System.out::println);

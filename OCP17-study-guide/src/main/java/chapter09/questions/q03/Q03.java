@@ -11,7 +11,9 @@ public class Q03 {
         greetings.offerLast("hello");
         greetings.offerLast("hi");
         greetings.offerFirst("ola");
-        greetings.pop();
+
+        System.out.println(greetings);
+        greetings.pop(); //removeFirst()
         greetings.peek();
 
         while (greetings.peek() != null)

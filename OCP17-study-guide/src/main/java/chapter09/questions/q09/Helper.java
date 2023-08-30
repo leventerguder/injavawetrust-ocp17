@@ -8,6 +8,9 @@ public class Helper {
         System.out.println(u.getMessage());
     }
 
+    // The generic type must be Exception or a subclass of Exception since this is an
+    //upper bound
+
     public static void main(String[] args) {
 
         Helper.printException(new FileNotFoundException("A"));

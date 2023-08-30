@@ -8,6 +8,8 @@ public class Alpaca {
     }
 }
 
+// A valid override of a method with generic arguments must have a return type that is covariant,
+// with matching generic type parameters.
 class A extends Alpaca {
 
     // public List<String> hairy(List<CharSequence> list) { return null; } // DOES NOT COMPILE
@@ -15,10 +17,17 @@ class A extends Alpaca {
 
 class B extends Alpaca {
 
-    // @Override // DOES NO COMPILE
+    // !! Overloaded
     public List<String> hairy(ArrayList<String> list) {
         return null;
     }
+
+    @Override
+    public List<String> hairy(List<String> list) {
+        return null;
+    }
+
+    // https://www.selikoff.net/ocp17/ , page 524
 }
 
 class C extends Alpaca {
