@@ -11,6 +11,8 @@ public class Q15 {
         listExample();
 
         queueExample();
+
+        varExample();
     }
 
     private static void listExample() {
@@ -18,7 +20,7 @@ public class Q15 {
         q.add(10);
         q.add(12);
         q.remove(1);
-        System.out.print(q);
+        System.out.println(q);
     }
 
     private static void queueExample() {
@@ -26,6 +28,14 @@ public class Q15 {
         q.add(10);
         q.add(12);
         q.remove(1);
-        System.out.print(q);
+        System.out.println(q);
+    }
+
+    private static void varExample() {
+        var q = new LinkedList<>();
+        q.add(10);
+        q.add(12);
+        q.remove(1);
+        System.out.println(q);
     }
 }

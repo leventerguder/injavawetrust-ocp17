@@ -13,7 +13,9 @@ class Y extends X {
 }
 
 class Z<Y> {
-// INSERT CODE HERE
+
+    // Y is both a class and a type parameter. This means that within the class Z, when we
+    //refer to Y, it uses the type parameter
 
     W w1 = new W();
     W w2 = new X();

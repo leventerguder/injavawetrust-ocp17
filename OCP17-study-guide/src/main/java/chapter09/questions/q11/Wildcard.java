@@ -17,17 +17,18 @@ public class Wildcard {
 
         Wildcard card = new Wildcard();
 
-        // List<?> list = new HashSet<String>(); // DOES NOT COMPILE
+        // List<?> list1 = new HashSet<String>(); // DOES NOT COMPILE
 
-        // ArrayList<? super Date> list = new ArrayList<Date>();
+        ArrayList<? super Date> list2 = new ArrayList<Date>();
 
-        // List<?> list = new ArrayList<?>(); // DOES NOT COMPILE
+        // List<?> list3 = new ArrayList<?>(); // DOES NOT COMPILE
 
-        // List<Exception> list = new LinkedList<IOException>();
+        // List<Exception> list4 = new LinkedList<IOException>();
 
-        ArrayList<? extends Number> list = new ArrayList<Integer>();
+        ArrayList<? extends Number> list5 = new ArrayList<Integer>();
 
-        card.showSize(list);
+        card.showSize(list2);
+        card.showSize(list5);
 
     }
 }
