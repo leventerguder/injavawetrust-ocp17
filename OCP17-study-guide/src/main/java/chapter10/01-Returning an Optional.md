@@ -42,7 +42,7 @@ this is such a common pattern, Java provides a factory method to do the same thi
 
     Optional o = Optional.ofNullable(value);
 
-![](returninganoptional/Common-Optional-instance-methods.png)
+![](returning_an_optional/Common-Optional-instance-methods.png)
 
 You’ve already seen get() and isPresent(). The other methods allow you to write code that uses an Optional in one line
 without having to use the ternary operator. This makes the code easier to read.
