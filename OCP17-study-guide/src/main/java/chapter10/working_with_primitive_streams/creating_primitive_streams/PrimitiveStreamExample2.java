@@ -1,8 +1,8 @@
-package chapter10.workingwithprimitivestreams;
+package chapter10.working_with_primitive_streams.creating_primitive_streams;
 
 import java.util.stream.DoubleStream;
 
-public class PrimitiveStreamExample3 {
+public class PrimitiveStreamExample2 {
 
     public static void main(String[] args) {
 

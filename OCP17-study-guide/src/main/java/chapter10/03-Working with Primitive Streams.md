@@ -27,9 +27,9 @@ Here are the three types of primitive streams:
 - LongStream: Used for the primitive type long
 - DoubleStream: Used for the primitive types double and float
 
-![](workingwithprimitivestreams/Common-primitive-stream-methods.png)
+![](working_with_primitive_streams/Common-primitive-stream-methods.png)
 
-![](workingwithprimitivestreams/Common-primivite-stream-methods-2.png)
+![](working_with_primitive_streams/Common-primivite-stream-methods-2.png)
 
 You can create an empty stream with this:
 
@@ -69,7 +69,7 @@ Java provides a method that can generate a range of numbers.
 
 Another way to create a primitive stream is by mapping from another stream type.
 
-![](workingwithprimitivestreams/Mapping-methods-between-types-of-streams.png)
+![](working_with_primitive_streams/mapping_streams/Mapping-methods-between-types-of-streams.png)
 
 Java requires a mapping function to be provided as a parameter, for example:
 
@@ -88,7 +88,7 @@ name is different. Here’s an example:
 
     LongStream longs = integerList.stream().flatMapToLong(x -> LongStream.of(x));
 
-![](workingwithprimitivestreams/Function parameters when mapping between types of streams.png)
+![](working_with_primitive_streams/mapping_streams/Function parameters when mapping between types of streams.png)
 
 Additionally, you can create a Stream from a primitive stream. These methods show two ways of accomplishing this:
 
@@ -117,7 +117,7 @@ with the primitive optional class looks similar to working with the Optional cla
 The only noticeable difference is that we called getAsDouble() rather than get(). This makes it clear that we are
 working with a primitive. Also, orElseGet() takes a DoubleSupplier instead of a Supplier.
 
-![](workingwithprimitivestreams/Optional types for primitives.png)
+![](working_with_primitive_streams/using_optional_with_primitive_streams/Optional types for primitives.png)
 
     LongStream longs = LongStream.of(5, 10);
     long sum = longs.sum();

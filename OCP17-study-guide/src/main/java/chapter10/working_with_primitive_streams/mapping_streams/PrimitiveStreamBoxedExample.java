@@ -1,4 +1,4 @@
-package chapter10.workingwithprimitivestreams;
+package chapter10.working_with_primitive_streams.mapping_streams;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
