@@ -1,4 +1,4 @@
-package chapter10.using_streams;
+package chapter10.using_streams.using_common_intermediate_operations;
 
 import java.util.ArrayList;
 import java.util.List;

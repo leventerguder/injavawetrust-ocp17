@@ -1,4 +1,4 @@
-package chapter10.using_streams;
+package chapter10.using_streams.putting_together_the_pipeline;
 
 import java.util.stream.Stream;
 

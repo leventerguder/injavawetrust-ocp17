@@ -1,10 +1,10 @@
-package chapter10.using_streams;
+package chapter10.using_streams.putting_together_the_pipeline;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class StreamPipelineExample {
+public class StreamPipelineExample1 {
 
     public static void main(String[] args) {
 
@@ -12,15 +12,6 @@ public class StreamPipelineExample {
 
         withStreamPipeline();
 
-    }
-
-    private static void withStreamPipeline() {
-        var list = List.of("Toby", "Anna", "Leroy", "Alex");
-        list.stream()
-                .filter(n -> n.length() == 4)
-                .sorted()
-                .limit(2)
-                .forEach(System.out::println);
     }
 
     private static void withoutStreamPipeline() {
@@ -33,6 +24,15 @@ public class StreamPipelineExample {
         var iter = filtered.iterator();
         if (iter.hasNext()) System.out.println(iter.next());
         if (iter.hasNext()) System.out.println(iter.next());
+    }
+
+    private static void withStreamPipeline() {
+        var list = List.of("Toby", "Anna", "Leroy", "Alex");
+        list.stream()
+                .filter(n -> n.length() == 4)
+                .sorted()
+                .limit(2)
+                .forEach(System.out::println);
     }
 
 }

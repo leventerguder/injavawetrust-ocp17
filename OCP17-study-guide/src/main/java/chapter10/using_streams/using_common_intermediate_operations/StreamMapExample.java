@@ -1,4 +1,4 @@
-package chapter10.using_streams;
+package chapter10.using_streams.using_common_intermediate_operations;
 
 import java.util.stream.Stream;
 
@@ -8,6 +8,6 @@ public class StreamMapExample {
 
         Stream<String> s = Stream.of("monkey", "gorilla", "bonobo");
         s.map(String::length)
-                .forEach(System.out::print); // 676
+                .forEach(System.out::println); // 676
     }
 }

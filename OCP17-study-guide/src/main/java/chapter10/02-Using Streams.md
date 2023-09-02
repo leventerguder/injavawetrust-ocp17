@@ -15,11 +15,11 @@ operations.There are three parts to a stream pipeline ;
 - Terminal operation : Produces a result. Since streams can be used only once, the stream is no longer valid after a
   terminal operation completes.
 
-![](using_streams/stream-pipeline.png)
+![](using_streams/putting_together_the_pipeline/stream-pipeline.png)
 
 You will need to know the differences between intermediate and terminal operations well.
 
-![](using_streams/intermediate-vs-terminal-operations.png)
+![](using_streams/using_common_intermediate_operations/intermediate-vs-terminal-operations.png)
 
 ## Creating Stream Sources
 
@@ -74,7 +74,7 @@ What if you wanted just odd numbers less than 100? There’s an overloaded versi
 
 ### Reviewing Stream Creation Methods
 
-![](using_streams/creating-a-source.png)
+![](using_streams/creating_stream_sources/creating-a-source.png)
 
 ## Using CommonTerminal Operations
 
@@ -83,7 +83,7 @@ You can perform a terminal operation without any intermediate operations but not
 Reductions are a special type of terminal operation where all of the contents of the stream are combined into a single
 primitive or Object.
 
-![](using_streams/terminal-stream-operations.png)
+![](using_streams/using_common_terminal_operations/terminal-stream-operations.png)
 
 ### Counting
 

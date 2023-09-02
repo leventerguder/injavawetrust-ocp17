@@ -1,9 +1,9 @@
-package chapter10.using_streams;
+package chapter10.using_streams.putting_together_the_pipeline;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StreamPipelineExample6 {
+public class StreamPipelineExample5 {
 
     public static void main(String[] args) {
 
