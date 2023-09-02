@@ -1,4 +1,4 @@
-package chapter10.usingstreams;
+package chapter10.using_streams.using_common_terminal_operations;
 
 import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
@@ -18,6 +18,8 @@ public class StreamReducingExample {
         reduceMethod5();
 
         reduceMethod6();
+
+        reduceMethod7();
     }
 
     private static void reduceMethod1() {
@@ -57,5 +59,11 @@ public class StreamReducingExample {
         Stream<String> stream = Stream.of("w", "o", "l", "f!");
         int length = stream.reduce(0, (i, s) -> i + s.length(), (a, b) -> a + b);
         System.out.println(length); // 5
+    }
+
+    private static void reduceMethod7() {
+        Stream<String> stream = Stream.of("ab", "abc", "abcd", "abcde");
+        int length = stream.reduce(0, (i, s) -> i + s.length(), (a, b) -> a + b);
+        System.out.println(length); // 14
     }
 }

@@ -1,13 +1,13 @@
-package chapter10.usingstreams;
+package chapter10.using_streams;
 
 import java.util.stream.Stream;
 
-public class StreamCountingExample {
+public class StreamMapExample {
 
     public static void main(String[] args) {
 
         Stream<String> s = Stream.of("monkey", "gorilla", "bonobo");
-        System.out.println(s.count()); // 3
-
+        s.map(String::length)
+                .forEach(System.out::print); // 676
     }
 }

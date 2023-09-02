@@ -1,16 +1,14 @@
-package chapter10.usingstreams;
+package chapter10.using_streams;
 
 import java.util.stream.Stream;
 
-public class StreamPipelineExample2 {
+public class StreamPipelineExample3 {
 
     public static void main(String[] args) {
         Stream.generate(() -> "Elsa")
                 .filter(n -> n.length() == 4)
-                .sorted()
                 .limit(2)
+                .sorted()
                 .forEach(System.out::println);
-
-        // Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
     }
 }

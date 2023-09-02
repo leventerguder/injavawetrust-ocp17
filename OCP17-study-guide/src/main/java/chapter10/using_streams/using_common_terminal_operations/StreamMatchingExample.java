@@ -1,4 +1,4 @@
-package chapter10.usingstreams;
+package chapter10.using_streams.using_common_terminal_operations;
 
 import java.util.List;
 import java.util.function.Predicate;

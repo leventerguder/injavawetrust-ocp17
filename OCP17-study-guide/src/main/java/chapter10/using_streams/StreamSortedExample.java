@@ -1,4 +1,4 @@
-package chapter10.usingstreams;
+package chapter10.using_streams;
 
 import java.util.Comparator;
 import java.util.stream.Stream;
