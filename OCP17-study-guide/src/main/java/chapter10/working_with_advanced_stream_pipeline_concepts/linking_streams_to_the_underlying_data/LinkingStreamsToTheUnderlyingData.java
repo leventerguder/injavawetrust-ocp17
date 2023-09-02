@@ -1,4 +1,4 @@
-package chapter10.workingwithadvancedstreampipelineconcepts;
+package chapter10.working_with_advanced_stream_pipeline_concepts.linking_streams_to_the_underlying_data;
 
 import java.util.ArrayList;
 

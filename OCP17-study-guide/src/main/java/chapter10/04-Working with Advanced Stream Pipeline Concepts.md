@@ -98,7 +98,7 @@ itself is executed lazily rather than when the Spliterator is created.
 
 You do need to know how to work with some of the common methods declared on this interface.
 
-![](workingwithadvancedstreampipelineconcepts/Spliterator-methods.png)
+![](working_with_advanced_stream_pipeline_concepts/using_a_spliterator/Spliterator-methods.png)
 
     var stream = List.of("bird-", "bunny-", "cat-", "dog-", "fish-", "lamb-", "mouse-");
 
@@ -136,9 +136,9 @@ Luckily, many of these collectors work the same way. Let’s look at an example:
     String result = ohMy.collect(Collectors.joining(", "));
     System.out.println(result); // lions, tigers, bears
 
-![](workingwithadvancedstreampipelineconcepts/Examples of grouping-partitioning collectors.png)
+![](working_with_advanced_stream_pipeline_concepts/collecting_results/Examples of grouping-partitioning collectors.png)
 
-![](workingwithadvancedstreampipelineconcepts/Examples of grouping-partitioning collectors-2.png)
+![](working_with_advanced_stream_pipeline_concepts/collecting_results/Examples of grouping-partitioning collectors-2.png)
 
 Let’s try another one. What is the average length of the three animal names?
 

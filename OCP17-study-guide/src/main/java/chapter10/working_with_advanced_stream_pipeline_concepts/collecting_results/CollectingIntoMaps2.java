@@ -1,4 +1,4 @@
-package chapter10.workingwithadvancedstreampipelineconcepts;
+package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -10,7 +10,8 @@ public class CollectingIntoMaps2 {
 
         var ohMy = Stream.of("lions", "tigers", "bears");
         Map<Integer, String> map = ohMy.collect(Collectors.toMap(
-                String::length, k -> k)); // BAD
+                String::length,
+                k -> k)); // BAD
 
         // Exception in thread "main" java.lang.IllegalStateException: Duplicate key 5
     }

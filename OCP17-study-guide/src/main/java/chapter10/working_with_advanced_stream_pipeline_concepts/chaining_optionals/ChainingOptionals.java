@@ -1,8 +1,26 @@
-package chapter10.workingwithadvancedstreampipelineconcepts;
+package chapter10.working_with_advanced_stream_pipeline_concepts.chaining_optionals;
 
 import java.util.Optional;
 
 public class ChainingOptionals {
+
+
+    public static void main(String[] args) {
+
+        threeDigit(Optional.of(10));
+        threeDigit(Optional.of(100));
+        threeDigit(Optional.of(1000));
+
+
+        threeDigitV2(Optional.of(10));
+        threeDigitV2(Optional.of(100));
+        threeDigitV2(Optional.of(1000));
+
+
+        optionalString(Optional.of("10"));
+        optionalString(Optional.of("100"));
+        optionalString(Optional.of("1000"));
+    }
 
     private static void threeDigit(Optional<Integer> optional) {
         if (optional.isPresent()) { // outer if
@@ -21,6 +39,7 @@ public class ChainingOptionals {
 
     private static void optionalString(Optional<String> optional) {
         Optional<Integer> result = optional.map(String::length);
+        System.out.println(result.get());
     }
 
 

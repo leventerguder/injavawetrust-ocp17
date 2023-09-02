@@ -1,4 +1,4 @@
-package chapter10.workingwithadvancedstreampipelineconcepts;
+package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results;
 
 import java.util.List;
 import java.util.stream.Collectors;
