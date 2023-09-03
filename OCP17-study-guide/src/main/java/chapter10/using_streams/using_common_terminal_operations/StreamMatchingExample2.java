@@ -19,6 +19,22 @@ public class StreamMatchingExample2 {
         System.out.println(s2.noneMatch(p -> p.length() == 3));
         System.out.println(s3.anyMatch(p -> p.length() == 3));
 
+        /*
+        anyMatch
 
+        Returns true if there is any elements in the stream that matches the given predicate.
+        Returns false if the stream is empty or if there are no matching elements.
+         */
+
+        /*
+        allMatch
+        Returns true only if all elements in the stream matches the given predicate.
+        Returns true if the stream is empty without evaluating the predicate!
+         */
+
+        /*
+        Returns true only if none of the elements in the stream matches the given predicate.
+        Returns true if the stream is empty without evaluating the predicate!
+         */
     }
 }

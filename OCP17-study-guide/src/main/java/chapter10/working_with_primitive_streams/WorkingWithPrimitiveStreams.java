@@ -14,6 +14,8 @@ public class WorkingWithPrimitiveStreams {
 
         intStreamSum();
 
+        intStreamReduce();
+
         intStreamAverage();
 
     }
@@ -33,6 +35,15 @@ public class WorkingWithPrimitiveStreams {
     private static void intStreamSum() {
         IntStream intStream = IntStream.of(1, 2, 3);
         System.out.println(intStream.sum()); // 6.0
+    }
+
+    /*
+    In fact, the sum() method of IntStream is internally implemented
+    by calling reduce() method (in IntPipeline class):
+     */
+    private static void intStreamReduce() {
+        IntStream intStream = IntStream.of(1, 2, 3);
+        System.out.println(intStream.reduce(0, ((sum, val) -> sum + val))); // 6.0
     }
 
     private static void intStreamAverage() {

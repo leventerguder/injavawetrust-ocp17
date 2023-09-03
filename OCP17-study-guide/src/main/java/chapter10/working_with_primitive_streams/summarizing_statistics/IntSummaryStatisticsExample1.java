@@ -3,7 +3,7 @@ package chapter10.working_with_primitive_streams.summarizing_statistics;
 import java.util.IntSummaryStatistics;
 import java.util.stream.IntStream;
 
-public class SummarizingStatisticsExample {
+public class IntSummaryStatisticsExample1 {
 
     private static int range(IntStream ints) {
         IntSummaryStatistics stats = ints.summaryStatistics();
