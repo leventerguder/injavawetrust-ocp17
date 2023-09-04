@@ -1,4 +1,4 @@
-package chapter10.returning_an_optional;
+package chapter10.working_with_advanced_stream_pipeline_concepts.chaining_optionals;
 
 import java.util.Optional;
 

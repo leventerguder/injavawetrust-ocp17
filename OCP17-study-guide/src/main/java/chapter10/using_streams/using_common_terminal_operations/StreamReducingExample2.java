@@ -8,6 +8,7 @@ public class StreamReducingExample2 {
     public static void main(String[] args) {
         reduce1();
         reduce2();
+        reduce4();
     }
 
     private static void reduce1() {
@@ -32,8 +33,10 @@ public class StreamReducingExample2 {
     }
 
     private static void reduce4() {
+        System.out.println("### reduce4 ###");
         Stream<User> users = Stream.of(new User("John", 30), new User("Julie", 35));
         int computedAges = users.reduce(0, (partialAgeResult, user) -> partialAgeResult + user.getAge(), Integer::sum);
+        System.out.println(computedAges);
     }
 
     static class User {
