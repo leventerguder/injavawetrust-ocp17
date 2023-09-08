@@ -15,6 +15,10 @@ public class CreatingFiniteStreamsExample2 {
 
         iterateV3();
 
+        // iterateV4();
+
+        iterateV5();
+
     }
 
     private static void iterateOddNumberUnder100() {
@@ -54,6 +58,26 @@ public class CreatingFiniteStreamsExample2 {
                 1,
                 n -> n < 4,
                 n -> n + 2);
+
+        stream.forEach(System.out::println);
+    }
+
+    private static void iterateV4() {
+        System.out.println("### iterateV4 ###");
+        Stream<Integer> stream = Stream.iterate(
+                1,
+                n -> n < 4,
+                n -> n++); //Infinite loop!
+
+        stream.forEach(System.out::println);
+    }
+
+    private static void iterateV5() {
+        System.out.println("### iterateV5 ###");
+        Stream<Integer> stream = Stream.iterate(
+                1,
+                n -> n < 4,
+                n -> ++n);
 
         stream.forEach(System.out::println);
     }

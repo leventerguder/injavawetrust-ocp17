@@ -2,7 +2,7 @@ package chapter10.using_streams.creating_stream_sources;
 
 import java.util.stream.Stream;
 
-public class CreatingInfiniteStreamsExample2 {
+public class CreatingInfiniteStreamsWithIterate {
 
     public static void main(String[] args) {
 
