@@ -1,5 +1,6 @@
 package chapter10.using_streams.using_common_terminal_operations;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -9,6 +10,7 @@ public class StreamReducingExample2 {
         reduce1();
         reduce2();
         reduce4();
+        reduce5();
     }
 
     private static void reduce1() {
@@ -36,6 +38,13 @@ public class StreamReducingExample2 {
         System.out.println("### reduce4 ###");
         Stream<User> users = Stream.of(new User("John", 30), new User("Julie", 35));
         int computedAges = users.reduce(0, (partialAgeResult, user) -> partialAgeResult + user.getAge(), Integer::sum);
+        System.out.println(computedAges);
+    }
+
+    private static void reduce5() {
+        System.out.println("### reduce5 ###");
+        List<Integer> ages = Arrays.asList(25, 30, 45, 28, 32);
+        int computedAges = ages.parallelStream().reduce(0, (a, b) -> a + b, Integer::sum);
         System.out.println(computedAges);
     }
 

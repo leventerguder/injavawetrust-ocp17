@@ -7,7 +7,10 @@ import java.util.List;
 public class StreamIteratingExample {
 
     public static void main(String[] args) {
+
         streamForEach();
+
+        streamForEach2();
 
         collectionForEach();
 
@@ -19,6 +22,14 @@ public class StreamIteratingExample {
         System.out.println("### streamForEach ### ");
         Stream<String> s = Stream.of("Monkey", "Gorilla", "Bonobo");
         s.forEach(System.out::print); // MonkeyGorillaBonobo
+        System.out.println();
+    }
+
+    private static void streamForEach2() {
+
+        System.out.println("### streamForEach2 ### ");
+        Stream<String> s = Stream.of("Monkey", "Gorilla", "Bonobo");
+        s.forEach(e -> System.out.print(e + "-")); // MonkeyGorillaBonobo
         System.out.println();
     }
 
