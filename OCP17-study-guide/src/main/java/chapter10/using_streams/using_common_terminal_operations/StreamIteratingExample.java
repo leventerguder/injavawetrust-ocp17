@@ -15,6 +15,8 @@ public class StreamIteratingExample {
     }
 
     private static void streamForEach() {
+
+        System.out.println("### streamForEach ### ");
         Stream<String> s = Stream.of("Monkey", "Gorilla", "Bonobo");
         s.forEach(System.out::print); // MonkeyGorillaBonobo
         System.out.println();
@@ -25,6 +27,8 @@ public class StreamIteratingExample {
     Don’t get confused on the exam when you see both approaches.
      */
     private static void collectionForEach() {
+
+        System.out.println("### collectionForEach ### ");
         List<String> list = List.of("Monkey", "Gorilla", "Bonobo");
         list.forEach(System.out::print); // MonkeyGorillaBonobo
         System.out.println();

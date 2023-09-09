@@ -36,5 +36,7 @@ public class StreamMatchingExample2 {
         Returns true only if none of the elements in the stream matches the given predicate.
         Returns true if the stream is empty without evaluating the predicate!
          */
+
+        // https://en.wikipedia.org/wiki/Vacuous_truth
     }
 }
