@@ -12,6 +12,7 @@ public class StreamSkipAndLimitExample2 {
                 .skip(2)
                 .forEach(i -> System.out.print(i + " "));
 
+        System.out.println();
         System.out.println("### limit ###");
         Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
                 .filter(i -> i % 2 == 0)
