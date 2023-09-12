@@ -13,11 +13,12 @@ public class PrimitiveStreamFlatMapExample {
 
         IntStream ints = integerList.stream().flatMapToInt(x -> IntStream.of(x));
         ints.forEach(i -> System.out.print(i + ","));
+        System.out.println();
 
         DoubleStream doubles = integerList.stream().flatMapToDouble(x -> DoubleStream.of(x));
         System.out.println("sum : " + doubles.sum());
 
-        LongStream longs = integerList.stream().flatMapToLong(x -> LongStream.of(x));
+        LongStream longs = integerList.stream().flatMapToLong(LongStream::of);
         System.out.println("min : " + longs.min());
     }
 }
