@@ -9,7 +9,11 @@ public class PrimitiveStreamExample2 {
 
         var random = DoubleStream.generate(Math::random);
         var fractions = DoubleStream.iterate(.5, d -> d / 2);
+
+        System.out.println("### DoubleStream.generate ###");
         random.limit(3).forEach(System.out::println);
+
+        System.out.println("### DoubleStream.iterate ###");
         fractions.limit(3).forEach(System.out::println);
     }
 }

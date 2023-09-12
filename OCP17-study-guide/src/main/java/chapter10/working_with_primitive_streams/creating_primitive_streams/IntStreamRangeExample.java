@@ -7,7 +7,7 @@ public class IntStreamRangeExample {
 
         System.out.println("### range ##");
         IntStream range = IntStream.range(1, 6);
-        range.forEach(System.out::print); // 12345
+        range.forEach(i -> System.out.print(i + "-")); // 1-2-3-4-5-
 
         System.out.println();
         System.out.println("### rangeClosed ### ");

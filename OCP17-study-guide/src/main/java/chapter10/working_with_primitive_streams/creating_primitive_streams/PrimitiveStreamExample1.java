@@ -7,6 +7,7 @@ public class PrimitiveStreamExample1 {
     public static void main(String[] args) {
 
         DoubleStream empty = DoubleStream.empty();
+        System.out.println(empty);
 
         DoubleStream oneValue = DoubleStream.of(3.14);
         oneValue.forEach(System.out::println);
