@@ -1,4 +1,4 @@
-package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results;
+package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.using_basic_collectors;
 
 import java.util.function.Function;
 import java.util.function.ToIntFunction;
@@ -29,5 +29,12 @@ public class UsingBasicCollectorsAveragingInt {
         ToIntFunction<Integer> mapper = e -> e + 5;
         Double result = stream.collect(Collectors.averagingInt(mapper));
         System.out.println(result);
+    }
+
+    private static void averagingIntExample3() {
+        IntStream stream = IntStream.of(10, 20, 30);
+        ToIntFunction<Integer> mapper = e -> e + 5;
+        // Double result = stream.collect(Collectors.averagingInt(mapper)); // DOES NOT COMPILE
+        // System.out.println(result);
     }
 }

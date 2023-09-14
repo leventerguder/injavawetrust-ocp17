@@ -1,4 +1,4 @@
-package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results;
+package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.grouping_partitioning_mapping;
 
 import java.util.List;
 import java.util.TreeMap;

@@ -1,4 +1,4 @@
-package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results;
+package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.collecting_into_maps;
 
 import java.util.TreeMap;
 import java.util.stream.Collectors;
