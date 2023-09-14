@@ -13,9 +13,12 @@ public class UsingASpliterator {
         Spliterator<String> emmasBag = originalBagOfFood.trySplit();
         emmasBag.forEachRemaining(System.out::print); // bird-bunny-cat-
 
+        System.out.println();
         Spliterator<String> jillsBag = originalBagOfFood.trySplit();
         jillsBag.tryAdvance(System.out::print); // dog-
+        System.out.println();
         jillsBag.forEachRemaining(System.out::print); // fish-
+        System.out.println();
         originalBagOfFood.forEachRemaining(System.out::print); // lamb-mouse-
     }
 }
