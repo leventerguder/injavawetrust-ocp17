@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class GroupingBy6Mapping {
+public class GroupingByMapping {
 
     public static void main(String[] args) {
 

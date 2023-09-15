@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class GroupingBy8 {
+public class GroupingBy5 {
 
     public static void main(String[] args) {
 
