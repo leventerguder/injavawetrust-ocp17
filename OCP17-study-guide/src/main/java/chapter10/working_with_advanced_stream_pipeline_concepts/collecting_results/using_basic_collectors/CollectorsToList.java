@@ -1,39 +1,20 @@
 package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.using_basic_collectors;
 
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class UsingBasicCollectorsToCollection {
+public class CollectorsToList {
 
     public static void main(String[] args) {
-
-        toCollectionExample();
-
-        toSetExample();
-
-        toListExample();
-
-        toUnmodifiableListExample();
+        String frenchCounting = "un:deux:trois:quatre";
+        List gmailList = Pattern.compile(":")
+                .splitAsStream(frenchCounting)
+                .collect(Collectors.toList());
+        gmailList.forEach(System.out::println);
     }
 
-    private static void toCollectionExample() {
-        var ohMy = Stream.of("lions", "tigers", "bears", "tigers");
-        TreeSet<String> result = ohMy
-                .filter(s -> s.startsWith("t"))
-                .collect(Collectors.toCollection(TreeSet::new));
-        System.out.println(result); // [tigers]
-    }
-
-    private static void toSetExample() {
-        var stream = Stream.of("lions", "tigers", "bears", "tigers");
-        Set<String> result = stream
-                .filter(s -> s.startsWith("t"))
-                .collect(Collectors.toSet());
-        System.out.println(result); // [tigers]
-    }
 
     private static void toListExample() {
         var stream = Stream.of("lions", "tigers", "bears", "tigers");
@@ -50,7 +31,7 @@ public class UsingBasicCollectorsToCollection {
                 .collect(Collectors.toUnmodifiableList());
         System.out.println(result); // [tigers, tigers]
 
-       //result.add("UnsupportedOperationException");
+        //result.add("UnsupportedOperationException");
 
 
     }

@@ -1,11 +1,11 @@
-package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.grouping_partitioning_mapping;
+package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.collecting_into_maps;
 
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StreamCollectorsToMap {
+public class CollectingIntoMaps5 {
 
     public static void main(String[] args) {
 

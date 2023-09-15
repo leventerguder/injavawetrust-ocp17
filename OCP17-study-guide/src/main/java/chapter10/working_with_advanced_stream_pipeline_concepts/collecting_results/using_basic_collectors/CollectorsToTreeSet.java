@@ -1,11 +1,11 @@
-package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.grouping_partitioning_mapping;
+package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.using_basic_collectors;
 
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.TreeSet;
 
-public class StreamCollectorsToTreeSet {
+public class CollectorsToTreeSet {
 
     public static void main(String[] args) {
 
