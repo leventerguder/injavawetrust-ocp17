@@ -34,7 +34,8 @@ public class UsingBasicCollectorsAveragingInt {
     private static void averagingIntExample3() {
         IntStream stream = IntStream.of(10, 20, 30);
         ToIntFunction<Integer> mapper = e -> e + 5;
-        // Double result = stream.collect(Collectors.averagingInt(mapper)); // DOES NOT COMPILE
-        // System.out.println(result);
+        //Double result = stream.collect(Collectors.averagingInt(mapper)); // DOES NOT COMPILE
+        Double result = stream.boxed().collect(Collectors.averagingInt(mapper)); // DOES NOT COMPILE
+        System.out.println(result);
     }
 }

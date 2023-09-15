@@ -55,9 +55,9 @@ public class CollectorsSummarizingExample {
 
         System.out.println("### summarizingDoubleMethod ###");
         List<Double> doubleList = Arrays.asList(10.2, 20.1, 30.0, 40.5);
-        Stream<Double> longStream = doubleList.stream();
+        Stream<Double> doubleStream = doubleList.stream();
 
-        DoubleSummaryStatistics doubleSummaryStatistics = longStream
+        DoubleSummaryStatistics doubleSummaryStatistics = doubleStream
                 .collect(Collectors.summarizingDouble(e -> e));
 
         System.out.println("max : " + doubleSummaryStatistics.getMax());

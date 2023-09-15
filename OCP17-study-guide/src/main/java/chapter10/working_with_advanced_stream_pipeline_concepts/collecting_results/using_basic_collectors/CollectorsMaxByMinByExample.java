@@ -31,9 +31,9 @@ public class CollectorsMaxByMinByExample {
         System.out.println("### collectorsMinBy ###");
         IntStream intStream = IntStream.of(60, 5, 3, 10, 1, 2, 40);
 
-        Optional<Integer> optionalMax = intStream.boxed()
+        Optional<Integer> optionalMin = intStream.boxed()
                 .collect(Collectors.minBy(Comparator.naturalOrder()));
 
-        optionalMax.ifPresent(System.out::println);
+        optionalMin.ifPresent(System.out::println);
     }
 }
