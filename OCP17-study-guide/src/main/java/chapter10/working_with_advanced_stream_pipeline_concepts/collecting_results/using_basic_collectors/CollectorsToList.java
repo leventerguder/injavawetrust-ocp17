@@ -8,13 +8,11 @@ import java.util.stream.Stream;
 public class CollectorsToList {
 
     public static void main(String[] args) {
-        String frenchCounting = "un:deux:trois:quatre";
-        List gmailList = Pattern.compile(":")
-                .splitAsStream(frenchCounting)
-                .collect(Collectors.toList());
-        gmailList.forEach(System.out::println);
-    }
 
+        toListExample();
+        toListExample2();
+        toUnmodifiableListExample();
+    }
 
     private static void toListExample() {
         var stream = Stream.of("lions", "tigers", "bears", "tigers");
@@ -23,6 +21,15 @@ public class CollectorsToList {
                 .collect(Collectors.toList());
         System.out.println(result); // [tigers, tigers]
     }
+
+    private static void toListExample2() {
+        String frenchCounting = "un:deux:trois:quatre";
+        List<String> numbers = Pattern.compile(":")
+                .splitAsStream(frenchCounting)
+                .collect(Collectors.toList());
+        numbers.forEach(System.out::println);
+    }
+
 
     private static void toUnmodifiableListExample() {
         var stream = Stream.of("lions", "tigers", "bears", "tigers");

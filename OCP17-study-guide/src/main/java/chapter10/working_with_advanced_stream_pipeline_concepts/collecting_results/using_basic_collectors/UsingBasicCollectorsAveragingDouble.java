@@ -1,8 +1,6 @@
 package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.using_basic_collectors;
 
-import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 public class UsingBasicCollectorsAveragingDouble {

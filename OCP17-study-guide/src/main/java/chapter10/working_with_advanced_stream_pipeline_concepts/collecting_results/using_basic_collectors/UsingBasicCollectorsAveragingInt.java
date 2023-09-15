@@ -12,9 +12,8 @@ public class UsingBasicCollectorsAveragingInt {
     public static void main(String[] args) {
 
         averagingIntExample1();
-
-
         averagingIntExample2();
+        averagingIntExample3();
     }
 
     private static void averagingIntExample1() {
