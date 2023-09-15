@@ -13,7 +13,8 @@ public class GroupingBy8 {
         String[] string = "you never know what you have until you clean your room".split(" ");
         Stream<String> distinctWords = Arrays.stream(string).distinct();
 
-        Map<Integer, List<String>> wordGroups = distinctWords.collect(Collectors.groupingBy(String::length));
+        Map<Integer, List<String>> wordGroups = distinctWords
+                .collect(Collectors.groupingBy(String::length));
 
         wordGroups.forEach(
                 (count, words) -> {

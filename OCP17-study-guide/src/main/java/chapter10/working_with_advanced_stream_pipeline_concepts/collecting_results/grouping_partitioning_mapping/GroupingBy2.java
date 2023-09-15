@@ -9,9 +9,9 @@ public class GroupingBy2 {
 
     public static void main(String[] args) {
 
-        var ohMy = Stream.of("lions", "tigers", "bears", "bears", "bears");
+        var ohMy = Stream.of("lions", "tigers", "bears", "bears", "fish", "fish", "bird");
         Map<Integer, Set<String>> map = ohMy.collect(
                 Collectors.groupingBy(String::length, Collectors.toSet()));
-        System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+        System.out.println(map); // {4=[fish, bird], 5=[lions, bears], 6=[tigers]}
     }
 }

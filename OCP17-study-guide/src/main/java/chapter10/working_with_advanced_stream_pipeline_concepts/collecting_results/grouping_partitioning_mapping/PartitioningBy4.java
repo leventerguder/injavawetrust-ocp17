@@ -3,7 +3,6 @@ package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_resu
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

@@ -8,9 +8,9 @@ public class GroupingBy5Counting {
 
     public static void main(String[] args) {
 
-        var ohMy = Stream.of("lions", "tigers", "bears");
+        var ohMy = Stream.of("lions", "tigers", "bears", "cat", "dog", "bird", "chicken");
         Map<Integer, Long> map = ohMy.collect(
                 Collectors.groupingBy(String::length, Collectors.counting()));
-        System.out.println(map); // {5=2, 6=1}
+        System.out.println(map); // {3=2, 4=1, 5=2, 6=1, 7=1}
     }
 }

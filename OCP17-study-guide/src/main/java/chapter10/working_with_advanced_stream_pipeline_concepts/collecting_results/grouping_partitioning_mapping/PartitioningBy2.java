@@ -8,9 +8,9 @@ import java.util.stream.Stream;
 public class PartitioningBy2 {
 
     public static void main(String[] args) {
-        var ohMy = Stream.of("lions", "tigers", "bears");
+        var ohMy = Stream.of("lions", "tigers", "bears", "cat", "dog", "dog", "cat");
         Map<Boolean, List<String>> map = ohMy.collect(
                 Collectors.partitioningBy(s -> s.length() <= 7));
-        System.out.println(map); // {false=[], true=[lions, tigers, bears]}
+        System.out.println(map); // {false=[], true=[lions, tigers, bears, cat, dog, dog, cat]}
     }
 }

@@ -1,7 +1,5 @@
 package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.teeing_collectors;
 
-import chapter10.working_with_advanced_stream_pipeline_concepts.collecting_results.grouping_partitioning_mapping.Separations;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

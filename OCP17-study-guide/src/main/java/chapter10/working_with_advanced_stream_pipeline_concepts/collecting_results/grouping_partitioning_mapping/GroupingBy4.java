@@ -9,11 +9,11 @@ public class GroupingBy4 {
 
     public static void main(String[] args) {
 
-        var ohMy = Stream.of("lions", "tigers", "bears");
+        var ohMy = Stream.of("lions", "tigers", "bears", "bears", "fish", "fish", "bird");
         TreeMap<Integer, List<String>> map = ohMy.collect(
                 Collectors.groupingBy(String::length,
                         TreeMap::new,
                         Collectors.toList()));
-        System.out.println(map);
+        System.out.println(map); // {4=[fish, fish, bird], 5=[lions, bears, bears], 6=[tigers]}
     }
 }
