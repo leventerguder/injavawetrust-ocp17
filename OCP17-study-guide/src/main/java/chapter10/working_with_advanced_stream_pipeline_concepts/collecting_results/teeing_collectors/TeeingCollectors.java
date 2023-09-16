@@ -7,12 +7,30 @@ public class TeeingCollectors {
 
     public static void main(String[] args) {
 
+        teeingMethod1();
+        teeingMethod2();
+
+    }
+
+    private static void teeingMethod1() {
         var list = List.of("x", "y", "z");
         Separations result = list.stream()
-                .collect(Collectors.teeing(Collectors.joining(" "),
+                .collect(Collectors.teeing(
+                        Collectors.joining(" "),
                         Collectors.joining(","),
-                        (s, c) -> new Separations(s, c)));
+                        (s, c) -> new Separations(s, c))
+                );
         System.out.println(result);
+    }
 
+    private static void teeingMethod2() {
+        var list = List.of("x", "y", "z");
+        Separations result = list.stream()
+                .collect(Collectors.teeing(
+                        Collectors.joining("|"),
+                        Collectors.joining("-"),
+                        Separations::new)
+                );
+        System.out.println(result);
     }
 }

@@ -15,6 +15,7 @@ public class GroupingByMapping4 {
                 new Person("bob", 34),
                 new Person("bob", 43),
                 new Person("mary", 84),
+                new Person("mary", 44),
                 new Person("john", 12),
                 new Person("bob", 22));
 
