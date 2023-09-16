@@ -31,6 +31,6 @@ public class GroupingBy {
     private static void groupingByMethod3() {
         Stream<String> ohMy = Stream.of(null, "element1");
         Map<Integer, List<String>> map = ohMy.collect(Collectors.groupingBy(String::length)); // NullPointerException
-        System.out.println(map); //
+        System.out.println(map); // {}
     }
 }

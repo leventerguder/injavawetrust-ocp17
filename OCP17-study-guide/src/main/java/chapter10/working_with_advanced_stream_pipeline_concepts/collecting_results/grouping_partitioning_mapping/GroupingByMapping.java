@@ -13,7 +13,7 @@ public class GroupingByMapping {
         Map<Integer, Optional<Character>> map = ohMy.collect(
                 Collectors.groupingBy(String::length, Collectors.mapping(
                         s -> s.charAt(0),
-                        Collectors.minBy((a, b) -> a - b))));
+                        Collectors.maxBy((a, b) -> a - b))));
         System.out.println(map); // {3=Optional[c], 4=Optional[b], 5=Optional[b], 6=Optional[t], 7=Optional[c]}
     }
 }
