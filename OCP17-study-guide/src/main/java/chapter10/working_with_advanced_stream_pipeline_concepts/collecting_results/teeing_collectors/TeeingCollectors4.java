@@ -3,7 +3,7 @@ package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_resu
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TeeingCollectors5 {
+public class TeeingCollectors4 {
 
     public static void main(String[] args) {
 
@@ -11,7 +11,7 @@ public class TeeingCollectors5 {
 
         MyList myList = list.stream()
                 .collect(Collectors.teeing(
-                                Collectors.mapping((String e) -> e.toUpperCase(), Collectors.toList()),
+                                Collectors.mapping(String::toUpperCase, Collectors.toList()),
                                 Collectors.mapping(e -> e, Collectors.toList()),
                                 MyList::new
                         )

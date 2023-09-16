@@ -3,6 +3,7 @@ package chapter10.working_with_advanced_stream_pipeline_concepts.collecting_resu
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TeeingCollectors3 {
@@ -22,7 +23,7 @@ public class TeeingCollectors3 {
                         Collectors.teeing(
                                 Collectors.minBy(Comparator.comparing(Item::price)),
                                 Collectors.maxBy(Comparator.comparing(Item::price)),
-                                (e1, e2) -> Map.ofEntries(
+                                (Optional<Item> e1, Optional<Item> e2) -> Map.ofEntries(
                                         Map.entry("min", e1.get()),
                                         Map.entry("max", e2.get())
                                 )
