@@ -75,7 +75,7 @@ what to assume as the default locale, or it uses the second approach.
 Java handles the logic of picking the best available resource bundle for a given key. It tries to find the most specific
 value.
 
-![](loadingpropertieswithresourcebundles/Picing-a-resource-bundle-for-FrenchFrance-with-default-locale-EnglishUS.png)
+![](loading_properties_with_resourcebundles/Picing-a-resource-bundle-for-FrenchFrance-with-default-locale-EnglishUS.png)
 
 - Look for the resource bundle for the requested locale, followed by the one for the default locale.
 - For each locale, check the language/country, followed by just the language.
@@ -102,7 +102,7 @@ Java isn’t required to get all of the keys from the same resource bundle. It c
 matching resource bundle. A parent resource bundle in the hierarchy just removes components of the name until it gets to
 the top.
 
-![](loadingpropertieswithresourcebundles/Selecting-resource-bundle-properties.png)
+![](loading_properties_with_resourcebundles/Selecting-resource-bundle-properties.png)
 
 Once a resource bundle has been selected, only properties along a single hierarchy will be used. Contrast this behavior
 with Table 11.11, in which the default en_US resource bundle is used if no other resource bundles are available.

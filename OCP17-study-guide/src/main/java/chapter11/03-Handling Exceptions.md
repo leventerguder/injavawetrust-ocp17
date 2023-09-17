@@ -4,7 +4,7 @@
 
 Java uses a try statement to separate the logic that might throw an exception from the logic to handle that exception.
 
-![](handlingexceptions/the-syntax-of-a-try-statement.png)
+![](handling_exceptions/the-syntax-of-a-try-statement.png)
 
 The code in the try block is run normally. If any of the statements throws an exception that can be caught by the
 exception type listed in the catch block, the try block stops running, and execution goes to the catch statement. If
@@ -148,7 +148,7 @@ handle other types of exceptions differently.
 The pipe (|) is also used as the “or” operator, making it easy to remember that you can use either/or of the exception
 types.
 
-![](handlingexceptions/the-syntax-of-a-multi-catch-block.png)
+![](handling_exceptions/the-syntax-of-a-multi-catch-block.png)
 
 The exam might try to trick you with invalid syntax. Remember that the exceptions can be listed in any order within the
 catch clause. However, the variable name must appear only once and at the end. Do you see why these are valid or
@@ -204,7 +204,7 @@ after the catch block. If no exception is thrown, the finally block is run after
       goHome();
     }
 
-![](handlingexceptions/the-syntax-of-a-try-statement-with-finally.png)
+![](handling_exceptions/the-syntax-of-a-try-statement-with-finally.png)
 
 The exam will try to trick you with missing clauses or clauses in the wrong order. Do you see why the following do or do
 not compile?

@@ -61,7 +61,7 @@ in the reverse of the order in which they were created.
 
 Also, notice that parentheses are used to list those resources, and semicolons are used to separate the declarations.
 
-![](automatingresourcemanagement/the-syntax-of-a-basic-try-with-resources-statement.png)
+![](automating_resource_management/the-syntax-of-a-basic-try-with-resources-statement.png)
 
 Earlier in the chapter, you learned that a try statement must have one or more catch blocks or a finally block. A
 try-with-resources statement differs from a try statement in that neither of these is required, although a developer may
@@ -282,7 +282,7 @@ The primary exception is a RuntimeException. Since this does not match the catch
 caller
 
     Exception in thread "main" java.lang.RuntimeException: Turkeys ran off
-    at chapter11.automatingresourcemanagement.SuppressedExceptions2.main(SuppressedExceptions2.java:7)
+    at chapter11.automating_resource_management.SuppressedExceptions2.main(SuppressedExceptions2.java:7)
     Suppressed: java.lang.IllegalStateException: Cage door does not close
 
 Java remembers the suppressed exceptions that go with a primary exception even if we don’t handle them in the code.
@@ -303,7 +303,7 @@ exception from throw new IllegalStateException("Turkeys ran off"); is lost, with
 the following:
 
     Exception in thread "main" java.lang.RuntimeException: and we couldn't find them
-	at chapter11.automatingresourcemanagement.SuppressedExceptions3.main(SuppressedExceptions3.java:10)
+	at chapter11.automating_resource_management.SuppressedExceptions3.main(SuppressedExceptions3.java:10)
 
 This has always been and continues to be bad programming practice. We don’t want to lose exceptions! Although out of
 scope for the exam, the reason for this has to do with backward compatibility. This behavior existed before automatic

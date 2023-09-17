@@ -16,7 +16,7 @@ method, you can either deal with the exception or make it the calling code’s p
 An exception is an event that alters program flow. Java has a Throwable class for all objects that represent these
 events.
 
-![](understandingexceptions/Categories-of-exception.png)
+![](understanding_exceptions/Categories-of-exception.png)
 
 ### Checked Exceptions
 
@@ -83,7 +83,7 @@ the Error class.
 For the exam, remember that a Throwable is either an Exception or an Error. You should not catch Throwable directly in
 your code.
 
-![](understandingexceptions/Types-of-exceptions-and-errors.png)
+![](understanding_exceptions/Types-of-exceptions-and-errors.png)
 
 ## Throwing an Exception
 

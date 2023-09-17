@@ -12,7 +12,7 @@ takes a pattern String:
 
     public DecimalFormat(String pattern)
 
-![](formattingvalues/DecimalFormat-symbols.png)
+![](formatting_values/DecimalFormat-symbols.png)
 
     double d = 1234.567;
     NumberFormat f1 = new DecimalFormat("###,###,###.0");
@@ -63,7 +63,7 @@ String.
 For the exam, you should be familiar enough with the various symbols that you can look at a date/time String and have a
 good idea of what the output will be.
 
-![](formattingvalues/Common-date-time-symbols.png)
+![](formatting_values/Common-date-time-symbols.png)
 
     var dt = LocalDateTime.of(2022, Month.OCTOBER, 20, 6, 15, 30);
 
@@ -81,7 +81,7 @@ specified.
 Make sure you know which symbols are compatible with which date/time types. For example, trying to format a month for a
 LocalTime or an hour for a LocalDate will result in a runtime exception.
 
-![](formattingvalues/Supported-date-time-symbols.png)
+![](formatting_values/Supported-date-time-symbols.png)
 
 ### Selecting a format() Method
 

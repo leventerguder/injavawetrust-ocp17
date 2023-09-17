@@ -10,7 +10,7 @@ Machine (JVM) or by a programmer.
 RuntimeException and its subclasses are unchecked exceptions that don’t have to be handled or declared. They can be
 thrown by the programmer or the JVM.
 
-![](recognizingexceptionclasses/Unchecked-exceptions.png)
+![](recognizing_exception_classes/Unchecked-exceptions.png)
 
 ### ArithmeticException
 
@@ -120,7 +120,7 @@ Checked exceptions have Exception in their hierarchy but not RuntimeException. T
 - For the exam, you need to know that these are all checked exceptions that must be handled or declared.
 - You also need to know that FileNotFoundException and NotSerializableException are subclasses of IOException.
 
-![](recognizingexceptionclasses/Checked-exceptions.png)
+![](recognizing_exception_classes/Checked-exceptions.png)
 
 ## Error Classes
 
