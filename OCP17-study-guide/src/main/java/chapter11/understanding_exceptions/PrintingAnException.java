@@ -6,8 +6,10 @@ public class PrintingAnException {
         try {
             hop();
         } catch (Exception e) {
-            System.out.println(e + "\n");
-            System.out.println(e.getMessage() + "\n");
+            System.out.println(e);
+            System.out.println("message : ");
+            System.out.println(e.getMessage());
+            System.out.println("printStackTrace : ");
             e.printStackTrace();
         }
     }
