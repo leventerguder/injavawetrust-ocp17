@@ -9,7 +9,8 @@ public class Q06 {
         optionA();
 
         // optionB();
-
+        // optionC();
+        // optionD();
         // optionE();
     }
 

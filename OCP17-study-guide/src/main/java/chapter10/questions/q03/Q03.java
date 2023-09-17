@@ -11,7 +11,7 @@ public class Q03 {
         var stream = Stream.iterate("-",
                 s -> !s.isEmpty(), (s) -> s + s);
 
-        var b1 = stream.noneMatch(predicate);
+        var b1 = stream.noneMatch(predicate); //false
         var b2 = stream.anyMatch(predicate); //IllegalStateException
         System.out.println(b1 + " " + b2);
     }

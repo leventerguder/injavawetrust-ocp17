@@ -13,6 +13,10 @@ public class Q10 {
 //                .peek(System.out::println)
 //        ;
 
+
+//        Only one of the method calls, forEach(), is a terminal operation, so any answer in
+//        which M is not the last line will not execute the pipeline
+
         optionA();
         optionB();
         optionC();
@@ -24,6 +28,8 @@ public class Q10 {
     }
 
     private static void optionA() {
+
+        System.out.println("### optionA ###");
         Stream.generate(() -> "1")
                 .filter(x -> x.length() > 1)
                 .limit(10);
@@ -31,6 +37,8 @@ public class Q10 {
     }
 
     private static void optionB() {
+
+        System.out.println("### optionB ###");
         Stream.generate(() -> "1")
                 .filter(x -> x.length() > 1)
                 .limit(10)
@@ -39,6 +47,8 @@ public class Q10 {
     }
 
     private static void optionC() {
+
+        System.out.println("### optionC ###");
         Stream.generate(() -> "1")
                 .limit(10)
                 .filter(x -> x.length() > 1)
@@ -47,6 +57,7 @@ public class Q10 {
     }
 
     private static void optionD() {
+        System.out.println("### optionD ###");
 //        Stream.generate(() -> "1")
 //                .limit(10)
 //                .filter(x -> x.length() > 1)
@@ -55,15 +66,17 @@ public class Q10 {
     }
 
     // Hangs!
-//    private static void optionE() {
-//        Stream.generate(() -> "1")
-//                .filter(x -> x.length() > 1)
-//                .peek(System.out::println)
-//                .forEach(System.out::println);
-//
-//    }
+    private static void optionE() {
+        System.out.println("### optionE ###");
+        Stream.generate(() -> "1")
+                .filter(x -> x.length() > 1)
+                .peek(System.out::println)
+                .forEach(System.out::println);
+
+    }
 
     private static void optionF() {
+        System.out.println("### optionF ###");
         Stream.generate(() -> "1")
                 .limit(10)
                 .forEach(System.out::println);
@@ -71,6 +84,7 @@ public class Q10 {
     }
 
     private static void optionG() {
+        System.out.println("### optionG ###");
         Stream.generate(() -> "1")
                 .limit(10)
                 .peek(System.out::println);
