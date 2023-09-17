@@ -8,8 +8,21 @@ public class Q11 {
     public static void main(String[] args) {
 
         System.out.println(
+                Stream.iterate(1, x -> x++)
+                        .limit(5).map(x -> "" + x)
+                        .collect(Collectors.joining()));
+
+        System.out.println(
+                Stream.iterate(1, x -> x++)
+                        .limit(5).map(x -> "" + x)
+                        .collect(Collectors.joining(",")));
+
+        System.out.println(
                 Stream.iterate(1, x -> ++x)
                         .limit(5).map(x -> "" + x)
                         .collect(Collectors.joining()));
+
+        // Change map(x -> x) to map(x -> "" + x)
+        // Change x -> x++ to x -> ++x.
     }
 }

@@ -9,21 +9,33 @@ public class Q19 {
     public static void main(String[] args) {
 
 
-        method();
+        question();
 
         optionB();
 
+        optionC();
+
     }
 
-    private static void optionB() {
-        IntStream.range(1, 6) .forEach(System.out::println);
-    }
-
-    private static void method() {
+    private static void question() {
+        System.out.println("### Question ### ");
         List<Integer> x = IntStream.range(1, 6)
                 .mapToObj(i -> i)
                 .collect(Collectors.toList());
 
         x.forEach(System.out::println);
     }
+
+    // simplest!
+    private static void optionB() {
+        System.out.println("### optionB ### ");
+        IntStream.range(1, 6).forEach(System.out::println);
+    }
+
+    private static void optionC() {
+        System.out.println("### optionC ### ");
+        IntStream.range(1, 6)
+                .mapToObj(i -> i).forEach(System.out::println);
+    }
+
 }
