@@ -5,6 +5,12 @@ import java.io.IOException;
 
 public class IntroducingTryWithResources {
 
+
+    public static void main(String[] args) {
+        var ref = new IntroducingTryWithResources();
+        ref.readFile("sample.txt");
+        ref.readFileV2("sample-v2.txt");
+    }
     public void readFile(String file) {
         FileInputStream is = null;
         try {
@@ -24,7 +30,6 @@ public class IntroducingTryWithResources {
     }
 
     public void readFileV2(String file) {
-
         try (FileInputStream is = new FileInputStream(file)) {
             // Read file data
         } catch (IOException e) {

@@ -5,6 +5,9 @@ public class DeclaringResources {
     public static void main(String[] args) {
 
 
+        // While try-with-resources does support declaring multiple variables,
+        // each variable must be declared in a separate statement. F
+
 //        try (MyFileClass is = new MyFileClass(1),os=new MyFileClass(2)){
 //        }
 //
@@ -16,7 +19,12 @@ public class DeclaringResources {
 //        - The second example does not compile because it also uses a comma (,) instead of a semicolon (;).
 //        - Each resource must include the data type and be separated by a semicolon (;).
 
-        try (MyFileClass ab = new MyFileClass(1); MyFileClass cd = new MyFileClass(2)) {
+        try (MyFileClass ab = new MyFileClass(1);
+             MyFileClass cd = new MyFileClass(2)) {
+        }
+
+        try (MyFileClass ab = new MyFileClass(1);
+             MyFileClass cd = new MyFileClass(2);) { //second semicolon is optional
         }
 
     }
