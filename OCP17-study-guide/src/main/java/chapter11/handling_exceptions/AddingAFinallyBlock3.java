@@ -4,21 +4,15 @@ public class AddingAFinallyBlock3 {
 
 
     public static void main(String[] unused) {
-
-        System.out.println(goHome());
-    }
-
-    static int goHome() {
+        StringBuilder sb = new StringBuilder();
         try {
-            System.out.print("1");
-            return -1;
+            sb.append("t");
         } catch (Exception e) {
-            System.out.print("2");
-            return -2;
+            sb.append("c");
         } finally {
-            System.out.print("3");
-            return -3;
-
+            sb.append("f");
         }
+        sb.append("a");
+        System.out.print(sb.toString());
     }
 }

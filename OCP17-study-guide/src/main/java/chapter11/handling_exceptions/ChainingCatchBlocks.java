@@ -2,15 +2,21 @@ package chapter11.handling_exceptions;
 
 public class ChainingCatchBlocks {
 
+
+    public static void main(String[] args) {
+        ChainingCatchBlocks chainingCatchBlocks = new ChainingCatchBlocks();
+        chainingCatchBlocks.visitPorcupine();
+    }
+
     public void visitPorcupine() {
         try {
             seeAnimal();
         } catch (AnimalsOutForAWalk e) { // first catch block
             System.out.print("try back later");
-        } catch (ExhibitClosed e) { // second catch block System.out.print("not today");
+        } catch (ExhibitClosed e) { // second catch block
+            System.out.print("not today");
         }
     }
-
     public void visitMonkeys() {
         try {
             seeAnimal();
@@ -31,27 +37,8 @@ public class ChainingCatchBlocks {
 //            System.out.print("try back later");
 //        }
     }
-
-    public void visitSnakes() {
-        try {
-        } catch (IllegalArgumentException e) {
-        }
-        //} catch (NumberFormatException e) { // DOES NOT COMPILE }
-
-
-    }
-
-    public void visitManatees() {
-        try {
-        } catch (NumberFormatException e1) {
-            System.out.println(e1);
-        } catch (IllegalArgumentException e2) {
-          //  System.out.println(e1); // DOES NOT COMPILE
-        }
-    }
-
-
     private void seeAnimal() {
+        System.out.println("seeAnimals !!");
     }
 }
 

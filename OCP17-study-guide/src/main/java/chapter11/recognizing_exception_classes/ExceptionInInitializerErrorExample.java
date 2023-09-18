@@ -7,6 +7,11 @@ public class ExceptionInInitializerErrorExample {
         System.out.println(str.toUpperCase()); // java.lang.ExceptionInInitializerError
     }
 
+    static {
+        // Initializer must be able to complete normally
+        // throw new RuntimeException();
+    }
+
     public static void main(String[] args) {
         System.out.println("ExceptionInInitializerError!");
     }

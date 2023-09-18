@@ -2,17 +2,24 @@ package chapter11.handling_exceptions;
 
 public class AddingAFinallyBlock2 {
 
+    void explore() {
 
-    public static void main(String[] unused) {
-        StringBuilder sb = new StringBuilder();
+//        try {
+//            fall();
+//        } finally {
+//            System.out.println("all better");
+//        } catch(Exception e){ // DOES NOT COMPILE
+//            System.out.println("get up");
+//        }
+
         try {
-            sb.append("t");
-        } catch (Exception e) {
-            sb.append("c");
+            fall();
         } finally {
-            sb.append("f");
+            System.out.println("all better");
         }
-        sb.append("a");
-        System.out.print(sb.toString());
+    }
+
+    private void fall() {
+        throw new RuntimeException();
     }
 }

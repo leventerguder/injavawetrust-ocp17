@@ -12,6 +12,7 @@ public class AddingAFinallyBlock {
         try {
             seeAnimas();
             fall();
+            System.out.println("Not executed!");
         } catch (Exception e) {
             getHugFromDaddy();
         } finally {
