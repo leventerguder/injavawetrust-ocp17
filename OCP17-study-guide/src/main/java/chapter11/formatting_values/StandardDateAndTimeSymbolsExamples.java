@@ -2,6 +2,7 @@ package chapter11.formatting_values;
 
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class StandardDateAndTimeSymbolsExamples {
@@ -16,9 +17,12 @@ public class StandardDateAndTimeSymbolsExamples {
         var formatter2 = DateTimeFormatter.ofPattern("MM_yyyy_-_dd");
         System.out.println(dt.format(formatter2)); // 10_2022_-_20
 
-        var formatter3 = DateTimeFormatter.ofPattern("h:mm ");
-        System.out.println(dt.format(formatter3)); // DateTimeException
+//        var formatter3 = DateTimeFormatter.ofPattern("h:mm z");
+//        System.out.println(dt.format(formatter3)); // DateTimeException
 
         // The third example throws an exception at runtime because the underlying LocalDateTime does not have a time zone specified.
+
+        var formatter4 = DateTimeFormatter.ofPattern("h:mm z");
+        System.out.println(ZonedDateTime.now().format(formatter4));
     }
 }
