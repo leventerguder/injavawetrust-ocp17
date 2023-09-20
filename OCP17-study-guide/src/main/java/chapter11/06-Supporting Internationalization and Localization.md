@@ -68,7 +68,7 @@ into a number.
 
 The format classes are not thread-safe. Do not store them in instance variables or static variables.
 
-![](supporting_internationalization_and_localization/Factory-methods-to-get-a-NumberFormat.png)
+![](supporting_internationalization_and_localization/localizing_numbers/Factory-methods-to-get-a-NumberFormat.png)
 
 ### Formatting Numbers
 
@@ -183,7 +183,7 @@ million.
 
 Like numbers, date formats can vary by locale.
 
-![](supporting_internationalization_and_localization/Factory-methods-to-get-a-DateTimeFormatter.png)
+![](supporting_internationalization_and_localization/localizing_dates/Factory-methods-to-get-a-DateTimeFormatter.png)
 
 Each method in the table takes a FormatStyle parameter (or two) with possible values SHORT, MEDIUM, LONG, and FULL. For
 the exam, you are not required to know the format of each of these styles.
@@ -214,7 +214,7 @@ categories with the Locale.Category enum.
 The Locale.Category enum is a nested element in Locale that supports distinct locales for displaying and formatting
 data.
 
-![](supporting_internationalization_and_localization/Locale.Category-values.png)
+![](supporting_internationalization_and_localization/specifying_a_locale_category/Locale.Category-values.png)
 
     public static void printCurrency(Locale locale, double money) {
         System.out.println(NumberFormat.getCurrencyInstance().format(money) + ", " + locale.getDisplayLanguage());

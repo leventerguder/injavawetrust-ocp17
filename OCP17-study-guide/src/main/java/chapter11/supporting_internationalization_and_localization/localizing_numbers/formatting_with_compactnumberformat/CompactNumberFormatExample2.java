@@ -1,12 +1,12 @@
-package chapter11.supporting_internationalization_and_localization;
+package chapter11.supporting_internationalization_and_localization.localizing_numbers.formatting_with_compactnumberformat;
 
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.stream.Stream;
 
-import static java.text.NumberFormat.*;
+import static java.text.NumberFormat.Style;
 
-public class CompactNumberFormatExample {
+public class CompactNumberFormatExample2 {
 
     public static void main(String[] args) {
 
@@ -18,7 +18,6 @@ public class CompactNumberFormatExample {
                 NumberFormat.getCompactNumberInstance(Locale.GERMAN, Style.LONG),
                 NumberFormat.getNumberInstance());
 
-        formatters.map(s -> s.format(7_123_456)).forEach(System.out::println);
-
+        formatters.map(s -> s.format(314_900_000)).forEach(System.out::println);
     }
 }

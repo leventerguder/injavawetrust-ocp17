@@ -1,4 +1,4 @@
-package chapter11.supporting_internationalization_and_localization;
+package chapter11.supporting_internationalization_and_localization.localizing_dates;
 
 import java.time.LocalDateTime;
 import java.time.Month;

@@ -1,4 +1,4 @@
-package chapter11.supporting_internationalization_and_localization;
+package chapter11.supporting_internationalization_and_localization.picking_a_locale;
 
 import java.util.Locale;
 

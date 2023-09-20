@@ -1,4 +1,4 @@
-package chapter11.supporting_internationalization_and_localization;
+package chapter11.supporting_internationalization_and_localization.specifying_a_locale_category;
 
 import java.text.NumberFormat;
 import java.util.Locale;

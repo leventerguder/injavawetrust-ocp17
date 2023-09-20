@@ -1,4 +1,4 @@
-package chapter11.supporting_internationalization_and_localization;
+package chapter11.supporting_internationalization_and_localization.localizing_numbers.formatting_numbers;
 
 import java.util.Currency;
 import java.util.Locale;
