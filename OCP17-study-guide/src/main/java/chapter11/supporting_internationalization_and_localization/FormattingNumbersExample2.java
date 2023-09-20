@@ -3,12 +3,11 @@ package chapter11.supporting_internationalization_and_localization;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class FormattingNumbersExample {
+public class FormattingNumbersExample2 {
 
     public static void main(String[] args) {
 
-        int attendeesPerYear = 3_200_000;
-        int attendeesPerMonth = attendeesPerYear / 12;
+        double attendeesPerMonth = 100_250.5678;
 
         var us = NumberFormat.getInstance(Locale.US);
         System.out.println(us.format(attendeesPerMonth)); // 266,666
@@ -19,10 +18,7 @@ public class FormattingNumbersExample {
         var ca = NumberFormat.getInstance(Locale.CANADA_FRENCH);
         System.out.println(ca.format(attendeesPerMonth)); // 266 666
 
-        NumberFormat tr = NumberFormat.getInstance(new Locale("tr", "TR"));
+        var tr = NumberFormat.getInstance(new Locale("tr", "TR"));
         System.out.println(tr.format(attendeesPerMonth)); // 266 666
-
-        System.out.println(tr.getClass()); // java.text.DecimalFormat
-
     }
 }

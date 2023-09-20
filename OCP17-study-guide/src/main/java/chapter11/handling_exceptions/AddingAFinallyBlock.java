@@ -10,7 +10,7 @@ public class AddingAFinallyBlock {
 
     void explore() {
         try {
-            seeAnimas();
+            seeAnimals();
             fall();
             System.out.println("Not executed!");
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class AddingAFinallyBlock {
         throw new RuntimeException();
     }
 
-    private void seeAnimas() {
-        System.out.println("seeAnimas");
+    private void seeAnimals() {
+        System.out.println("seeAnimals");
     }
 }
