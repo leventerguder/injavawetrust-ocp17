@@ -1,4 +1,4 @@
-package chapter11.formatting_values;
+package chapter11.formatting_values.formattting_numbers;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -29,5 +29,8 @@ public class DecimalFormatExamples {
 
         NumberFormat f7 = new DecimalFormat("##,##.000");
         System.out.println(f7.format(d)); // 12,34.567
+
+        NumberFormat f8 = new DecimalFormat("#,#.###");
+        System.out.println(f8.format(d)); // 12,34.567
     }
 }

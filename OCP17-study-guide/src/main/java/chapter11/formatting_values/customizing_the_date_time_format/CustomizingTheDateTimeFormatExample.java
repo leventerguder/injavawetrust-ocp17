@@ -1,4 +1,4 @@
-package chapter11.formatting_values;
+package chapter11.formatting_values.customizing_the_date_time_format;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,7 +19,7 @@ public class CustomizingTheDateTimeFormatExample {
         // Using m instead of M means it will return the minute of the hour, not the month of the year.
 
         Date date = new Date();
-        DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy E  HH:mm:ss:SS a ");
+        DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy E  HH:mm:ss:SS a z Z");
         System.out.println(sdf.format(date));
 
         // https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/SimpleDateFormat.html
