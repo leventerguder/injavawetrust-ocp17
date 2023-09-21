@@ -20,7 +20,7 @@ public class FormattingNumbersExample {
         System.out.println(ca.format(attendeesPerMonth)); // 266 666
 
         NumberFormat tr = NumberFormat.getInstance(new Locale("tr", "TR"));
-        System.out.println(tr.format(attendeesPerMonth)); // 266 666
+        System.out.println(tr.format(attendeesPerMonth)); // 266.666
 
         System.out.println(tr.getClass()); // java.text.DecimalFormat
 

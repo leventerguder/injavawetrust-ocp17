@@ -27,6 +27,6 @@ public class LegacyDateFormatExample {
         System.out.println("getDateInstance(DateFormat.LONG):" + dateFormat.format(date));
 
         dateFormat = DateFormat.getDateInstance(DateFormat.FULL);
-        System.out.println("getDateInstance(DateFormat.LONG):" + dateFormat.format(date));
+        System.out.println("getDateInstance(DateFormat.FULL):" + dateFormat.format(date));
     }
 }

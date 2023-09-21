@@ -1,7 +1,6 @@
 package chapter11.supporting_internationalization_and_localization.localizing_numbers.formatting_numbers;
 
 import java.text.NumberFormat;
-import java.util.Currency;
 import java.util.Locale;
 
 public class FormattingCurrencyExample3 {
