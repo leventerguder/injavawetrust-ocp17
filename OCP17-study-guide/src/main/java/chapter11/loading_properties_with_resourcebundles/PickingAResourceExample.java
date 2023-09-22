@@ -11,6 +11,7 @@ public class PickingAResourceExample {
         Locale.setDefault(new Locale("hi"));
         ResourceBundle rb = ResourceBundle.getBundle("Zoo", new Locale("en"));
 
+        System.out.println(rb.getString("hello"));
         // 1. Zoo_en.properties
         // 2. Zoo_hi.properties
         // 3. Zoo.properties
