@@ -27,5 +27,7 @@ public class SelectingResourceBundleValuesExample {
         System.out.println(rb.getString("visitors")); // Canada visitors
 
         // Zoo_en_CA has "visitor"
+
+        // rb.getString("close"); //exception
     }
 }
