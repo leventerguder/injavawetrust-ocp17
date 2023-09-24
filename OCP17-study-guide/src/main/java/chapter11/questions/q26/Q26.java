@@ -12,7 +12,7 @@ public class Q26 {
 //            rollOut();
 //        } catch (IllegalArgumentException | IOException a) { // DOES NOT COMPILE
 //        }
-//        // Exception 'java.io.IOException' is never thrown in the corresponding try bloc
+//        // Exception 'java.io.IOException' is never thrown in the corresponding try block
 //    }
 
     public void transformB(String c) {
@@ -20,7 +20,6 @@ public class Q26 {
             rollOut();
         } catch (IllegalArgumentException | Error b) {
         }
-        // Exception 'java.io.IOException' is never thrown in the corresponding try bloc
     }
 
 //    public void transformC(String c) {
@@ -37,8 +36,8 @@ public class Q26 {
 //        } catch (IllegalArgumentException | RuntimeException d) {
 //        }
 //
-//        // s in multi-catch must be disjoint: 'java.lang.IllegalArgumentException'
-//        is a subclass of 'java.lang.RuntimeException
+//        // Types in multi-catch must be disjoint: 'java.lang.IllegalArgumentException'
+//        // is a subclass of 'java.lang.RuntimeException
 //    }
 
 //    public void transformE(String c) {
