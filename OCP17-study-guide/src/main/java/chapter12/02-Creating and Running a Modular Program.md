@@ -25,7 +25,7 @@ There are a few key differences between a module declaration and a regular Java 
 The next step is to make sure the files are in the right directory structure. Figure 12.4 shows the expected directory
 structure.
 
-![](creatingandrunningamodularprogram/Module zoo.animal.feeding directory structure.png)
+![](creating_and_running_a_modular_program/Module zoo.animal.feeding directory structure.png)
 
 In particular, feeding is the module directory, and the module-info.java file is directly under it. Just as with a
 regular JAR file, we also have the zoo.animal.feeding package with one subfolder per portion of the name. The Task class
@@ -67,7 +67,7 @@ means we could have written many other commands in place of the previous command
 
     javac -p mods -d feeding feeding/zoo/animal/feeding/Task.java feeding/*.java
 
-![](creatingandrunningamodularprogram/Options you need to know for using modules with javac.png)
+![](creating_and_running_a_modular_program/Options you need to know for using modules with javac.png)
 
 **Building Modules**
 
@@ -90,7 +90,7 @@ Inside that module is a package named com.sybex, which has a class named OCP wit
 Pay special attention to the book.module/com.sybex.OCP part. It is important to remember that you specify the module
 name followed by a slash (/) followed by the fully qualified class name.
 
-![](creatingandrunningamodularprogram/Running a module using java.png)
+![](creating_and_running_a_modular_program/Running a module using java.png)
 
 Now that we’ve seen the syntax, we can write the command to run the Task class in the zoo.animal.feeding package. In the
 following example, the package name and module name are the same. It is common for the module name to match either the

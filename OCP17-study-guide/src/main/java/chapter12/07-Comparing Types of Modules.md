@@ -74,7 +74,7 @@ Since that’s a number of rules, let’s review the algorithm in a list for det
 - Replace any sequences of dots with a single dot.
 - Remove the dot if it is the first or last character of the result.
 
-![](comparingtypesofmodules/Practicing-with-automatic-module-names.png)
+![](comparing_types_of_modules/Practicing-with-automatic-module-names.png)
 
 ## Unnamed Modules
 
@@ -99,5 +99,5 @@ You can expect to get questions on the exam comparing the three types of modules
 and be prepared to answer questions about these items in any combination. A key point to remember is that code on the
 classpath can access the module path. By contrast, code on the module path is unable to read from the classpath.
 
-![](comparingtypesofmodules/Properties-of-module-types.png)
+![](comparing_types_of_modules/Properties-of-module-types.png)
 

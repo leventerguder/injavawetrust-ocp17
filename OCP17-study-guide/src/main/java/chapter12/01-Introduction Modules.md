@@ -32,11 +32,11 @@ The Java Platform Module System includes the following:
 A module is a group of one or more packages plus a special file called module-info.java. The contents of this file are
 the module declaration.
 
-![](introductionmodules/Design-of-a-modular-system.png)
+![](introduction_modules/Design-of-a-modular-system.png)
 
 Now let’s drill down into one of these modules.
 
-![](introductionmodules/Looking-inside-a-module.png)
+![](introduction_modules/Looking-inside-a-module.png)
 
 ## Benefits of Modules
 

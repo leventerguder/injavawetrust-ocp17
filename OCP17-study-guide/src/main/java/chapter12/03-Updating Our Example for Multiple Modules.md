@@ -25,7 +25,7 @@ The zoo.animal.care.medical package will have the classes and methods that are i
 zoo.animal.care.details package is only going to be used by this module. It will not be exported from the module. Think
 of it as healthcare privacy for the animals.
 
-![](updatingourexampleformultiplemodules/Contents of zoo.animal.care.png)
+![](updating_our_example_for_multiple_modules/Contents of zoo.animal.care.png)
 
 The module contains two basic packages and classes in addition to the module-info.java file:
 
@@ -59,11 +59,11 @@ Now that we have compiled code, it’s time to create the module JAR:
 So far, we’ve used only one exports and requires statement in a module. Now you’ll learn how to handle exporting
 multiple packages or requiring multiple modules.
 
-![](updatingourexampleformultiplemodules/Dependencies for zoo.animal.talks.png)
+![](updating_our_example_for_multiple_modules/Dependencies for zoo.animal.talks.png)
 
 We are going to export all three packages in this module.
 
-![](updatingourexampleformultiplemodules/Contents of zoo.animal.talks.png)
+![](updating_our_example_for_multiple_modules/Contents of zoo.animal.talks.png)
 
 First let’s look at the module-info.java file for zoo.animal.talks:
 
@@ -122,9 +122,9 @@ to compile and build the module:
 Our final module is zoo.staff. Figure 12.10 shows that there is only one package inside. We will not be exposing this
 package outside the module.
 
-![](updatingourexampleformultiplemodules/Contents of zoo.staff.png)
+![](updating_our_example_for_multiple_modules/Contents of zoo.staff.png)
 
-![](updatingourexampleformultiplemodules/Dependencies for zoo.staff.png)
+![](updating_our_example_for_multiple_modules/Dependencies for zoo.staff.png)
 
 There are three arrows in Figure 12.11 pointing from zoo.staff to other modules. These represent the three modules that
 are required. Since no packages are to be exposed from zoo.staff, there are no exports statements. This gives us:

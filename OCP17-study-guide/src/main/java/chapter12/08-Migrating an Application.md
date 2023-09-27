@@ -19,7 +19,7 @@ this module chapter, of course!). Please make sure you have a reason for migrati
 Before we can migrate our application to use modules, we need to know how the packages and libraries in the existing
 application are structured.
 
-![](migratinganapplication/Determining-the-order.png)
+![](migrating_anapplication/Determining-the-order.png)
 
 The right side of the diagram makes it easier to identify the top and bottom that top-down and bottom-up migration
 refer to. Projects that do not have any dependencies are at the bottom. Projects that do have dependencies are at the
@@ -29,7 +29,7 @@ In this example, there is only one order from top to bottom that honors all the 
 the order is not always unique. Since two of the projects do not have an arrow between them, either order is allowed
 when deciding migration order.
 
-![](migratinganapplication/Derermining-the-order-when-not-unique.png)
+![](migrating_anapplication/Derermining-the-order-when-not-unique.png)
 
 ## Exploring a Bottom-Up Migration Strategy
 
@@ -51,7 +51,7 @@ top-level projects at the end. It also encourages care in what is exposed.
 During migration, you have a mix of named modules and unnamed modules. The named modules are the lower-level ones that
 have been migrated. They are on the module path and not allowed to access any unnamed modules.
 
-![](migratinganapplication/Bottom-up-migration.png)
+![](migrating_anapplication/Bottom-up-migration.png)
 
 The unnamed modules are on the classpath. They can access JAR files on both the classpath and the module path.
 
@@ -70,7 +70,7 @@ For a top-down migration, you follow these steps:
    requires directive since most of the projects on the module path do not have names yet.
 4. Repeat with the next-highest-level project until you are done.
 
-![](migratinganapplication/Top-down-migration.png)
+![](migrating_anapplication/Top-down-migration.png)
 
 With a top-down migration, you are conceding that all of the lower-level dependencies are not ready but that you want to
 make the application itself a module.
@@ -79,7 +79,7 @@ During migration, you have a mix of named modules and automatic modules. The nam
 that have been migrated. They are on the module path and have access to the automatic modules. The automatic modules are
 also on the module path.
 
-![](migratinganapplication/Comparing-migration-strategies.png)
+![](migrating_anapplication/Comparing-migration-strategies.png)
 
 ## Splitting a Big Project into Modules
 
@@ -90,7 +90,7 @@ small project.
 Suppose you start with an application that has a number of packages. The first step is to break them into logical
 groupings and draw the dependencies between them.
 
-![](migratinganapplication/First-attempt-at-decomposition.png)
+![](migrating_anapplication/First-attempt-at-decomposition.png)
 
 There’s a problem with this decomposition. Do you see it? The Java Platform
 Module System does not allow for cyclic dependencies. A cyclic dependency, or circular dependency, is when two things
@@ -108,7 +108,7 @@ dependencies!
 It is extremely important to understand that Java will not allow you to compile modules that have circular dependencies.
 In this section, we look at an example leading to that compiler error.
 
-![](migratinganapplication/Removing-the-cyclic-dependencies.png)
+![](migrating_anapplication/Removing-the-cyclic-dependencies.png)
 
 Consider the zoo.butterfly module described here:
 

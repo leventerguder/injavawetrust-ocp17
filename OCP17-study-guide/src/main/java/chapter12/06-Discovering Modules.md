@@ -10,7 +10,7 @@ exam. In fact, it is so important that you don’t even have to use the requires
 applications. Your module-info.java file will still compile if you explicitly require java.base. However, it is
 redundant, so it’s better to omit it. Table 12.6 lists some common modules and what they contain.
 
-![](discoveringmodules/Common-modules.png)
+![](discovering_modules/Common-modules.png)
 
 The exam creators feel it is important to recognize the names of modules supplied by the JDK. While you don’t need to
 know the names by heart, you do need to be able to pick them out of a lineup.
@@ -18,12 +18,12 @@ know the names by heart, you do need to be able to pick them out of a lineup.
 For the exam, you need to know that module names begin with java for APIs you are likely to use and with jdk for APIs
 that are specific to the JDK. Table 12.7 lists all the modules that begin with java.
 
-![](discoveringmodules/Java-modules-prefixed-with-java.png)
+![](discovering_modules/Java-modules-prefixed-with-java.png)
 
 Table 12.8 lists all the modules that begin with jdk. We recommend reviewing this right before the exam to increase the
 chances of them sounding familiar. Remember that you don’t have to memorize them.
 
-![](discoveringmodules/Java-modules-prefixed-with-jdk.png)
+![](discovering_modules/Java-modules-prefixed-with-jdk.png)
 
 ## Getting Details with java
 
@@ -220,7 +220,7 @@ something that can’t go inside a JAR file. This is unlikely to affect you in t
 The most important thing to remember is that jmod is only for working with the JMOD files. Conveniently, you don’t have
 to memorize the syntax for jmod. Table 12.9 lists the common modes.
 
-![](discoveringmodules/Modes-using-jmod.png)
+![](discovering_modules/Modes-using-jmod.png)
 
 ## Creating Java Runtimes with jlink
 
@@ -244,14 +244,14 @@ runtime distribution.
 This section presents a number of tables that cover what you need to know about running command-line options for the
 exam.
 
-![](discoveringmodules/Comparing-command-line-operations-1.png)
+![](discovering_modules/Comparing-command-line-operations-1.png)
 
-![](discoveringmodules/Comparing-command-line-operations-2.png)
+![](discovering_modules/Comparing-command-line-operations-2.png)
 
-![](discoveringmodules/Options-you-need-to-know-for-the-exam:javac.png)
+![](discovering_modules/Options-you-need-to-know-for-the-exam:javac.png)
 
-![](discoveringmodules/Options-you-need-to-know-for-the-exam:java.png)
+![](discovering_modules/Options-you-need-to-know-for-the-exam:java.png)
 
-![](discoveringmodules/Options-you-need-to-know-for-the-exam:jar.png)
+![](discovering_modules/Options-you-need-to-know-for-the-exam:jar.png)
 
-![](discoveringmodules/Options-you-need-to-know-for-the-exam:jdeps.png)
+![](discovering_modules/Options-you-need-to-know-for-the-exam:jdeps.png)

@@ -23,7 +23,7 @@ and records are exported. Further, any public and protected fields and methods i
 Fields and methods that are private are not visible because they are not accessible outside the class. Similarly,
 package fields and methods are not visible because they are not accessible outside the package.
 
-![](divingintothemoduledeclaration/Access-control-with-modules.png)
+![](diving_into_the_module_declaration/Access-control-with-modules.png)
 
 ## Requiring a Module Transitively
 
@@ -31,7 +31,7 @@ As you saw earlier in this chapter, requires moduleName specifies that the curre
 also a **requires** transitive moduleName, which means that any module that requires this module will also depend on
 moduleName.
 
-![](divingintothemoduledeclaration/Transitive-dependency-version-of-our-modules.png)
+![](diving_into_the_module_declaration/Transitive-dependency-version-of-our-modules.png)
 
 For example, zoo.animal.talks depends on zoo.animal.care, which depends on zoo.animal.feeding. That means the arrow
 between zoo.animal.talks and zoo.animal.feeding no longer appears in Figure 12.12.

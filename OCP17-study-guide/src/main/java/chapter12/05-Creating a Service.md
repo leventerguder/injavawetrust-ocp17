@@ -3,7 +3,7 @@
 A service is composed of an interface, any classes the interface references, and a way of looking up implementations of
 the interface. The implementations are not part of the service.
 
-![](creatingaservice/Modules-in-the-tour-application.png)
+![](creating_a_service/Modules-in-the-tour-application.png)
 
 You aren’t required to have four separate modules. We do so to illustrate the concepts. For example, the service
 provider interface and service locator could be in the same module.
@@ -216,6 +216,6 @@ Table 12.4 summarizes what we’ve covered in the section about services. We rec
 when each artifact is in a separate module. That is most likely what you will see on the exam and will ensure that you
 understand the concepts. Table 12.5 lists all the directives you need to know for the exam.
 
-![](creatingaservice/Reviewing-services.png)
+![](creating_a_service/Reviewing-services.png)
 
-![](creatingaservice/Reviewing-directives.png)
+![](creating_a_service/Reviewing-directives.png)
