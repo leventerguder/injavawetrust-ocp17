@@ -1,13 +1,20 @@
-javac -p mods -d feeding feeding/zoo/animal/feeding/*.java feeding/module-info.java
-jar -cvf mods/zoo.animal.feeding.jar -C feeding/ .
+javac -p mods -d feeding/target feeding/zoo/animal/feeding/*.java feeding/module-info.java
+jar -cvf mods/zoo.animal.feeding.jar -C feeding/target .
 
 
-javac -p mods -d care care/zoo/animal/care/details/*.java care/zoo/animal/care/medical/*.java care/module-info.java
-jar -cvf mods/zoo.animal.care.jar -C care/ .
+javac -p mods -d care/target care/zoo/animal/care/details/*.java care/zoo/animal/care/medical/*.java care/module-info.java
+jar -cvf mods/zoo.animal.care.jar -C care/target .
 
 
-javac -p mods -d talks talks/zoo/animal/talks/content/*.java talks/zoo/animal/talks/media/*.java talks/zoo/animal/talks/schedule/*.java talks/module-info.java
-jar -cvf mods/zoo.animal.talks.jar -C talks/ .
+javac -p mods -d talks/target talks/zoo/animal/talks/content/*.java talks/zoo/animal/talks/media/*.java talks/zoo/animal/talks/schedule/*.java talks/module-info.java
+jar -cvf mods/zoo.animal.talks.jar -C talks/target .
 
-javac -p mods -d staff staff/zoo/staff/*.java staff/module-info.java
-jar -cvf mods/zoo.staff.jar -C staff/ .
+
+javac -p mods -d staff/target staff/zoo/staff/*.java staff/module-info.java
+jar -cvf mods/zoo.staff.jar -C staff/target .
+
+
+javac -p mods -d bad/target bad/module-info.java
+
+ error: duplicate requires: zoo.animal.talks
+    requires transitive zoo.animal.talks;
