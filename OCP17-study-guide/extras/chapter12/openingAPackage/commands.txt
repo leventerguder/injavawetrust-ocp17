@@ -1,0 +1,11 @@
+javac -d talks/target talks/zoo/animal/talks/content/*.java talks/zoo/animal/talks/media/*.java talks/zoo/animal/talks/schedule/*.java talks/module-info.java
+jar -cvf mods/zoo.animal.talks.jar -C talks/target .
+
+
+javac -p mods -d staff/target staff/zoo/staff/*.java staff/module-info.java
+jar -cvf mods/zoo.staff.jar -C staff/target .
+
+java -p mods -m zoo.staff/zoo.staff.Jobs
+
+Jobs#main method!
+Invoking Signage constructor!
