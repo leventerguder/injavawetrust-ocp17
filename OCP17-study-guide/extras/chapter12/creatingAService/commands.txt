@@ -18,6 +18,3 @@ java -p mods -m zoo.visitor/zoo.visitor.Tourist
 
 Single tour: zoo.tours.agency.TourImpl@1be6f5c3
 # tours: 1
-
-javac -p mods -d serviceProviderModuleAnother serviceProviderModuleAnother/zoo/tours/agency/*.java serviceProviderModuleAnother/module-info.java
-jar -cvf mods/zoo.tours.agency.another.jar -C serviceProviderModuleAnother/ .
