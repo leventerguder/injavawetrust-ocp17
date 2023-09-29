@@ -1,0 +1,28 @@
+javac -p mods -d feeding/target feeding/zoo/animal/feeding/*.java feeding/module-info.java
+jar -cvf mods/zoo.animal.feeding.jar -C feeding/target .
+
+
+java -p mods -d zoo.animal.feeding
+java -p mods --describe-module zoo.animal.feeding
+
+
+javac -p mods -d care/target care/zoo/animal/care/details/*.java care/zoo/animal/care/medical/*.java care/module-info.java
+jar -cvf mods/zoo.animal.care.jar -C care/target .
+
+java -p mods -d zoo.animal.care
+
+javac -p mods -d talks/target talks/zoo/animal/talks/content/*.java talks/zoo/animal/talks/media/*.java talks/zoo/animal/talks/schedule/*.java talks/module-info.java
+jar -cvf mods/zoo.animal.talks.jar -C talks/target .
+
+
+javac -p mods -d staff/target staff/zoo/staff/*.java staff/module-info.java
+jar -cvf mods/zoo.staff.jar -C staff/target .
+
+
+java --list-modules
+java -p mods --list-modules
+
+java --show-module-resolution -p feeding -m zoo.animal.feeding/zoo.animal.feeding.Task
+
+jar -f mods/zoo.animal.feeding.jar -d
+jar --file mods/zoo.animal.feeding.jar --describe-module
