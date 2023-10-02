@@ -1,3 +1,4 @@
 javac -p mods -d talks/target talks/zoo/animal/talks/content/*.java talks/zoo/animal/talks/media/*.java talks/zoo/animal/talks/schedule/*.java talks/module-info.java
 jar -cvf mods/zoo.animal.talks.jar -C talks/target .
 
+jlink --module-path mods --add-modules zoo.animal.talks --output zooApp
