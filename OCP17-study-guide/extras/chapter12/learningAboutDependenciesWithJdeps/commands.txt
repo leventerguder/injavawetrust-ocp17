@@ -1,0 +1,9 @@
+javac zoo/dinos/*.java
+
+jar -cvf zoo.dino.jar .
+
+jdeps zoo.dino.jar
+
+jdeps -s zoo.dino.jar
+
+jdeps --jdk-internals zoo.dino.jar
