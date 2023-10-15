@@ -11,4 +11,6 @@ public class Q10 {
 //    D. A main method inside the module cannot be run since the class is not exposed.
 //    E. The module-info.java file contains a compiler error.
 //    F. The module-info.java filename is incorrect.
+
+    // Packages inside a module are not exported by default!
 }

@@ -11,4 +11,6 @@ public class Q02 {
 //        exports animal.behavior;
 //    }
 //
+
+    // The exports directive is used when allowing a package to be called by code outside of the module.
 }

@@ -7,6 +7,7 @@ public class Q03 {
 
     // G. None of the above
 
-    // . However, running a program requires specifying the package name with periods (.)
-    // instead of slashes. Since the command is incorrect,
+    // The -m or --module option is used to specify the module and class name.
+    // The -p or --module-path option is used to specify the location of the modules.
+    // Running a program requires specifying the package name with periods (.) instead of slashes. Since the command is incorrect,
 }

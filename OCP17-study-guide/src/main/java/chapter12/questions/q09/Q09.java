@@ -16,4 +16,7 @@ public class Q09 {
 
 
     // F. provides magic.Magic with dragon.Dragon;
+
+    // The provides directive takes the interface name first and the implementing class
+    // name second and also uses with.
 }

@@ -18,4 +18,7 @@ public class Q01 {
 //    directly underneath zoo.
 //    F. None of these changes would make this directory structure a valid module.
 
+
+    // Modules are required to have a module-info.java file at the root directory of the module. !
+
 }
