@@ -7,4 +7,7 @@ public class Q16 {
     // how many of these modules do you need to recompile?
 
     // A. Zero
+
+    // The service locator will see the new service
+    // provider simply by having that new service provider on the module path
 }

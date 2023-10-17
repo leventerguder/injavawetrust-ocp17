@@ -10,4 +10,7 @@ public class Q18 {
 //+++    D. jlink and jmod
 //    E. jmod and jimage
 //    F. jmod and jmod
+
+    // The jlink command creates a directory with a smaller Java runtime containing just
+    // what is needed. The JMOD format is for native code
 }

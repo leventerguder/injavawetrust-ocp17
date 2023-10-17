@@ -8,5 +8,5 @@ public class Q17 {
 //    An unnamed module doesn’t use a module-info.java file. Therefore,
 //    option E is correct. An unnamed module can access an automatic module. The unnamed
 //    module would simply treat the automatic module as a regular JAR without involving the
-//    module.info file.
+//    module-info.java file.
 }
