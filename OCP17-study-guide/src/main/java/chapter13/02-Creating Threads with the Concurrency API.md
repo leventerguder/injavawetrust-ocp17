@@ -50,7 +50,7 @@ while isTerminated() will return false.
 If a new task is submitted to the thread executor while it is shutting down, a RejectedExecutionException will be
 thrown. Once all active tasks have been completed, isShutdown() and isTerminated() will both return true.
 
-![](creatingthreadswiththeconcurrencyapi/ExecutorService-life-cycle.png)
+![](creating_threads_with_the_concurrency_api/ExecutorService-life-cycle.png)
 
 For the exam, you should be aware that shutdown() does not stop any tasks that have already been submitted to the thread
 executor.
@@ -83,7 +83,7 @@ completed.
 In practice, using the submit() method is quite similar to using the execute() method, except that the submit() method
 returns a Future instance that can be used to determine whether the task has completed execution.
 
-![](creatingthreadswiththeconcurrencyapi/ExecutorService-methods.png)
+![](creating_threads_with_the_concurrency_api/ExecutorService-methods.png)
 
 **Submitting Tasks: execute() vs. submit()**
 
@@ -105,7 +105,7 @@ submit() method returns a Future<V> instance that can be used to determine this 
 The Future type is actually an interface. For the exam, you don’t need to know any of the classes that implement Future,
 just that a Future instance is returned by various API methods.
 
-![](creatingthreadswiththeconcurrencyapi/Future-methods.png)
+![](creating_threads_with_the_concurrency_api/Future-methods.png)
 
     public class CheckResults {
         private static int counter = 0;
@@ -138,7 +138,7 @@ working with Runnable expressions.
 The Future.get() method can take an optional value and enum type java.util.concurrent.TimeUnit. Table 13.3 presents the
 full list of TimeUnit values since numerous methods in the Concurrency API use this enum.
 
-![](creatingthreadswiththeconcurrencyapi/TimeUnit-values.png)
+![](creating_threads_with_the_concurrency_api/TimeUnit-values.png)
 
 ## Introducing Callable
 
@@ -229,7 +229,7 @@ as shown in the following snippet:
 We could store an instance of ScheduledExecutorService in an ExecutorService variable, although doing so would mean we’d
 have to cast the object to call any scheduling methods.
 
-![](creatingthreadswiththeconcurrencyapi/ScheduledExecutorService-methods.png)
+![](creating_threads_with_the_concurrency_api/ScheduledExecutorService-methods.png)
 
 In practice, these methods are among the most convenient in the Concurrency API, as they perform relatively complex
 tasks with a single line of code. The delay and period parameters rely on the TimeUnit argument to determine the format
@@ -302,7 +302,7 @@ single thread. A thread pool is a group of pre-instantiated reusable threads tha
 arbitrary tasks. Table 13.5 includes our two previous single-thread executor methods, along with the new ones that you
 should know for the exam.
 
-![](creatingthreadswiththeconcurrencyapi/Executors-factory-methods.png)
+![](creating_threads_with_the_concurrency_api/Executors-factory-methods.png)
 
 As shown in Table 13.5, these methods return the same instance types, ExecutorService and ScheduledExecutorService, that
 we used earlier in this chapter. In other words, all of our previous examples are compatible with these new

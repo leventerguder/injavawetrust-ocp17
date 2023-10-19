@@ -162,7 +162,7 @@ finish.
 After a thread has been created, it is in one of six states, shown in Figure 13.2. You can query a thread’s state by
 calling getState() on the thread object.
 
-![](introducingthreads/Thread-states.png)
+![](introducing_threads/Thread-states.png)
 
 Every thread is initialized with a NEW state. As soon as start() is called, the thread is moved to a RUNNABLE state.
 Does that mean it is actually running? Not exactly: it may be running, or it may not be. The RUNNABLE state just means

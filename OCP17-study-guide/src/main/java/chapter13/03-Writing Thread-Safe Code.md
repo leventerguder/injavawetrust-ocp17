@@ -41,7 +41,7 @@ thread writes the “new” value of the variable. The two assignments become re
 value, with one thread overwriting the results of the other. Figure 13.4 demonstrates this problem with two threads,
 assuming that sheepCount has a starting value of 1.
 
-![](writingthreadsafecode/Lack-of-synchronization.png)
+![](writing_thread_safe_code/Lack-of-synchronization.png)
 
 You can see in Figure 13.4 that both threads read and write the same values, causing one of the two ++sheepCount
 operations to be lost. Therefore, the increment operator ++ is not thread-safe. As you will see later in this chapter,
@@ -93,7 +93,7 @@ wait until the atomic operation on the variable is complete. Conceptually, this 
 workers that there can be only one employee in the field at a time, although they may not each report their results in
 order.
 
-![](writingthreadsafecode/Thread-synchronization-using-atomic-operations.png)
+![](writing_thread_safe_code/Thread-synchronization-using-atomic-operations.png)
 
 Since accessing primitives and references is common in Java, the Concurrency API includes numerous useful classes in the
 java.util.concurrent.atomic package.
@@ -106,7 +106,7 @@ java.util.concurrent.atomic package.
         System.out.print((sheepCount.incrementAndGet()) + " ");
     }
 
-![](writingthreadsafecode/Common-atomic-methods.png)
+![](writing_thread_safe_code/Common-atomic-methods.png)
 
 How does this implementation differ from our previous examples? When we run this modification, we get varying output,
 such as the following:
@@ -267,7 +267,7 @@ you attempt to release a lock that you do not have, you will get an exception at
 While the ReentrantLock class allows you to wait for a lock, it so far suffers from the same problem as a synchronized
 block. A thread could end up waiting forever to obtain a lock
 
-![](writingthreadsafecode/Lock-methods.png)
+![](writing_thread_safe_code/Lock-methods.png)
 
 **tryLock**
 

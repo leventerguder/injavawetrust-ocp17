@@ -128,7 +128,7 @@ A race condition is an undesirable result that occurs when two tasks that should
 completed at the same time. We encountered examples of race conditions earlier in the chapter when we introduced
 synchronization.
 
-![](identifyingthreadingproblems/Race-condition-on-user-creation.png)
+![](identifying_threading_problems/Race-condition-on-user-creation.png)
 
 What result does the web server return when both users attempt to create an account with the same username in Figure
 13.6?
