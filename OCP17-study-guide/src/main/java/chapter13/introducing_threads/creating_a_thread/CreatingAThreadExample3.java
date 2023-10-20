@@ -1,6 +1,6 @@
-package chapter13.introducing_threads;
+package chapter13.introducing_threads.creating_a_thread;
 
-public class CreatingAThreadExample2 {
+public class CreatingAThreadExample3 {
 
     public static void main(String[] args) {
 
@@ -10,10 +10,11 @@ public class CreatingAThreadExample2 {
                 System.out.println("Printing record: " + i);
         };
 
+        // Calling run() on a Thread or a Runnable does not start a new thread. !!
         System.out.println("begin");
-        new Thread(printInventory).start();
-        new Thread(printRecords).start();
-        new Thread(printInventory).start();
+        new Thread(printInventory).run();
+        new Thread(printRecords).run();
+        new Thread(printInventory).run();
         System.out.println("end");
     }
 }
