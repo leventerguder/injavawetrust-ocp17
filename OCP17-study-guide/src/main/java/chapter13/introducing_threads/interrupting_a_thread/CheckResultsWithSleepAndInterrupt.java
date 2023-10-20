@@ -1,4 +1,4 @@
-package chapter13.introducing_threads;
+package chapter13.introducing_threads.interrupting_a_thread;
 
 public class CheckResultsWithSleepAndInterrupt {
 

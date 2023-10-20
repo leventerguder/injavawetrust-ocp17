@@ -1,4 +1,4 @@
-package chapter13.introducing_threads;
+package chapter13.introducing_threads.polling_with_sleep;
 
 
 public class CheckResultsWithSleep {
@@ -12,7 +12,6 @@ public class CheckResultsWithSleep {
             System.out.println("Not reached yet");
             try {
                 Thread.sleep(1_000); // 1 SECOND
-                System.out.println("Interrupted!");
             } catch (InterruptedException e) {
                 System.out.println("Interrupted!");
             }

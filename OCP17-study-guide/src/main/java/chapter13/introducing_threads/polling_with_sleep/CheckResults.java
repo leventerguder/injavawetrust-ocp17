@@ -1,4 +1,4 @@
-package chapter13.introducing_threads;
+package chapter13.introducing_threads.polling_with_sleep;
 
 public class CheckResults {
     private static int counter = 0;

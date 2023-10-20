@@ -1,4 +1,4 @@
-package chapter13.introducing_threads;
+package chapter13.introducing_threads.distinguishing_thread_types;
 
 public class Zoo {
 
