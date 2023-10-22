@@ -105,7 +105,7 @@ submit() method returns a Future<V> instance that can be used to determine this 
 The Future type is actually an interface. For the exam, you don’t need to know any of the classes that implement Future,
 just that a Future instance is returned by various API methods.
 
-![](creating_threads_with_the_concurrency_api/Future-methods.png)
+![](creating_threads_with_the_concurrency_api/waiting_for_results/Future-methods.png)
 
     public class CheckResults {
         private static int counter = 0;
@@ -138,7 +138,7 @@ working with Runnable expressions.
 The Future.get() method can take an optional value and enum type java.util.concurrent.TimeUnit. Table 13.3 presents the
 full list of TimeUnit values since numerous methods in the Concurrency API use this enum.
 
-![](creating_threads_with_the_concurrency_api/TimeUnit-values.png)
+![](creating_threads_with_the_concurrency_api/waiting_for_results/TimeUnit-values.png)
 
 ## Introducing Callable
 
@@ -229,7 +229,7 @@ as shown in the following snippet:
 We could store an instance of ScheduledExecutorService in an ExecutorService variable, although doing so would mean we’d
 have to cast the object to call any scheduling methods.
 
-![](creating_threads_with_the_concurrency_api/ScheduledExecutorService-methods.png)
+![](creating_threads_with_the_concurrency_api/scheduling_tasks/ScheduledExecutorService-methods.png)
 
 In practice, these methods are among the most convenient in the Concurrency API, as they perform relatively complex
 tasks with a single line of code. The delay and period parameters rely on the TimeUnit argument to determine the format
@@ -302,7 +302,7 @@ single thread. A thread pool is a group of pre-instantiated reusable threads tha
 arbitrary tasks. Table 13.5 includes our two previous single-thread executor methods, along with the new ones that you
 should know for the exam.
 
-![](creating_threads_with_the_concurrency_api/Executors-factory-methods.png)
+![](creating_threads_with_the_concurrency_api/increasing_concurrency_with_pools/Executors-factory-methods.png)
 
 As shown in Table 13.5, these methods return the same instance types, ExecutorService and ScheduledExecutorService, that
 we used earlier in this chapter. In other words, all of our previous examples are compatible with these new

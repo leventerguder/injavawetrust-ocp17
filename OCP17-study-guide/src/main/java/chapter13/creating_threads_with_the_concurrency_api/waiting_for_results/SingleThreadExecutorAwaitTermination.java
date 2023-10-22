@@ -1,4 +1,4 @@
-package chapter13.creating_threads_with_the_concurrency_api;
+package chapter13.creating_threads_with_the_concurrency_api.waiting_for_results;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
