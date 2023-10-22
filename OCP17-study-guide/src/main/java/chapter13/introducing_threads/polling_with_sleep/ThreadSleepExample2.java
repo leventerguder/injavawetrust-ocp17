@@ -1,7 +1,5 @@
 package chapter13.introducing_threads.polling_with_sleep;
 
-import java.util.Set;
-
 public class ThreadSleepExample2 {
 
     public static void main(String[] args) {

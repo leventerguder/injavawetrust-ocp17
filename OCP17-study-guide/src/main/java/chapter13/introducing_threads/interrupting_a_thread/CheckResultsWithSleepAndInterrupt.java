@@ -14,7 +14,6 @@ public class CheckResultsWithSleepAndInterrupt {
             System.out.println("Not reached yet");
             try {
                 Thread.sleep(1_000); // 1 SECOND
-                System.out.println("Interrupted!");
             } catch (InterruptedException e) {
                 System.out.println("Interrupted!");
             }

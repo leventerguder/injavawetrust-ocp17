@@ -8,7 +8,8 @@ public class CheckResults {
             for (int i = 0; i < 1_000_000; i++) counter++;
         }).start();
         while (counter < 1_000_000) {
-            System.out.println("Not reached yet");
+            System.out.println(counter);
+            System.out.println("Not reached yet.");
         }
         System.out.println("Reached: " + counter);
     }
