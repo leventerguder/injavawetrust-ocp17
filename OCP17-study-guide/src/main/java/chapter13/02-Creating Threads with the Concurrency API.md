@@ -50,7 +50,7 @@ while isTerminated() will return false.
 If a new task is submitted to the thread executor while it is shutting down, a RejectedExecutionException will be
 thrown. Once all active tasks have been completed, isShutdown() and isTerminated() will both return true.
 
-![](creating_threads_with_the_concurrency_api/ExecutorService-life-cycle.png)
+![](creating_threads_with_the_concurrency_api/introducing_the_single_thread_executor/ExecutorService-life-cycle.png)
 
 For the exam, you should be aware that shutdown() does not stop any tasks that have already been submitted to the thread
 executor.
