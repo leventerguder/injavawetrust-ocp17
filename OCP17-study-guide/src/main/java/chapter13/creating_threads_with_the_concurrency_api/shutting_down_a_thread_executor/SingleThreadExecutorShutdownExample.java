@@ -1,9 +1,9 @@
-package chapter13.creating_threads_with_the_concurrency_api.introducing_the_single_thread_executor;
+package chapter13.creating_threads_with_the_concurrency_api.shutting_down_a_thread_executor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class SingleThreadExecutorExample2 {
+public class SingleThreadExecutorShutdownExample {
 
     public static void main(String[] args) {
 

@@ -83,7 +83,7 @@ completed.
 In practice, using the submit() method is quite similar to using the execute() method, except that the submit() method
 returns a Future instance that can be used to determine whether the task has completed execution.
 
-![](creating_threads_with_the_concurrency_api/ExecutorService-methods.png)
+![](creating_threads_with_the_concurrency_api/submitting_tasks/ExecutorService-methods.png)
 
 **Submitting Tasks: execute() vs. submit()**
 
