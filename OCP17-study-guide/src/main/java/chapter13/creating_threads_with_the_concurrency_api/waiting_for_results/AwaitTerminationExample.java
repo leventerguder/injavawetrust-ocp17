@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class SingleThreadExecutorAwaitTermination {
+public class AwaitTerminationExample {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -29,16 +29,20 @@ public class SingleThreadExecutorAwaitTermination {
             service.execute(printInventory);
             System.out.println("end");
 
-
         } finally {
             service.shutdown();
         }
-        service.awaitTermination(1, TimeUnit.SECONDS);
+        boolean awaitTerminationResult = service.awaitTermination(1, TimeUnit.SECONDS);
         // Check whether all tasks are finished
 
-        if (service.isTerminated())
+        // ExecutorService.awaitTermination() should only be called after an ExecutorService.shutdown() request.
+
+        if (awaitTerminationResult)
             System.out.println("Finished!");
         else
             System.out.println("At least one task is still running");
+
+        // Blocks until all tasks have completed execution after a shutdown request,
+        // or the timeout occurs, or the current thread is interrupted, whichever happens first.
     }
 }
