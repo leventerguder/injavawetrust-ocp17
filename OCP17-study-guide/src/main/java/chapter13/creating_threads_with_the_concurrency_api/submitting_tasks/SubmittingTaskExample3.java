@@ -1,12 +1,10 @@
 package chapter13.creating_threads_with_the_concurrency_api.submitting_tasks;
 
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class SubmittingTaskExample3 {
 

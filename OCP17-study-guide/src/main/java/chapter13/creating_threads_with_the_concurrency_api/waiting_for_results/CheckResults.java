@@ -12,8 +12,9 @@ public class CheckResults {
                 for (int i = 0; i < 1_000_000; i++) counter++;
             }
             );
-            result.get(10, TimeUnit.SECONDS); // Returns null for Runnable
+            Object resultReference = result.get(10, TimeUnit.SECONDS); // Returns null for Runnable
             System.out.println("Reached!");
+            System.out.println(resultReference);
         } catch (TimeoutException e) {
             System.out.println("Not reached in time");
         } finally {
