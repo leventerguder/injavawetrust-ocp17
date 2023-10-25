@@ -2,7 +2,7 @@ package chapter13.creating_threads_with_the_concurrency_api.scheduling_tasks;
 
 import java.util.concurrent.*;
 
-public class SingleThreadSchedulerExample {
+public class ThreadSchedulerExample {
 
     public static void main(String[] args) {
 
