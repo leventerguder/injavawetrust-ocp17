@@ -13,7 +13,6 @@ public class CallableExample {
             System.out.println(result.get()); // 41
             System.out.println(result.isDone());
             System.out.println(result.isCancelled());
-            service.shutdown();
         } finally {
             service.shutdown();
         }

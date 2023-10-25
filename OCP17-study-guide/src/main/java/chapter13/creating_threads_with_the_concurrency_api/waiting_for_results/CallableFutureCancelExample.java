@@ -22,7 +22,7 @@ public class CallableFutureCancelExample {
             System.out.println("Task is still not done...");
             Thread.sleep(200);
             count++;
-            if (count > 3) {  // if (count > 4) {
+            if (count > 2) {  // if (count > 4) {
                 System.out.println("Cancelling....");
                 stringFuture.cancel(true);
             }

@@ -22,7 +22,6 @@ public class CallableExample2 {
 
             System.out.println(result.get(1, TimeUnit.SECONDS));
 
-            service.shutdown();
         } catch (TimeoutException e) {
             e.printStackTrace();
             System.out.println(result.isDone());

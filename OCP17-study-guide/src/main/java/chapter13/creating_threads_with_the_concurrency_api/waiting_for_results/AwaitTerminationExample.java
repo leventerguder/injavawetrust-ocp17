@@ -32,12 +32,13 @@ public class AwaitTerminationExample {
         } finally {
             service.shutdown();
         }
-        boolean awaitTerminationResult = service.awaitTermination(1, TimeUnit.SECONDS);
+        //boolean awaitTerminationResult = service.awaitTermination(1, TimeUnit.SECONDS);
+        boolean awaitTerminationResult = service.awaitTermination(1, TimeUnit.MINUTES);
         // Check whether all tasks are finished
 
         // ExecutorService.awaitTermination() should only be called after an ExecutorService.shutdown() request.
 
-        if (awaitTerminationResult)
+        if (awaitTerminationResult) //   //if (service.isTerminated())
             System.out.println("Finished!");
         else
             System.out.println("At least one task is still running");
