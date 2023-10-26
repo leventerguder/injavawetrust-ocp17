@@ -29,7 +29,7 @@ public class ThreadSchedulerExample5 {
 
         LocalTime now = LocalTime.now();
         System.out.println("Before schedule : " + now);
-        ScheduledFuture<?> r1 = service.scheduleAtFixedRate(task1, 2, 5, TimeUnit.SECONDS);
+        ScheduledFuture<?> r1 = service.scheduleAtFixedRate(task1, 2, 6, TimeUnit.SECONDS);
 
     }
 }

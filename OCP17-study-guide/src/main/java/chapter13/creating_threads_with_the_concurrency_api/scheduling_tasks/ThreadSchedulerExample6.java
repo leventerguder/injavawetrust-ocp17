@@ -29,7 +29,22 @@ public class ThreadSchedulerExample6 {
 
         LocalTime now = LocalTime.now();
         System.out.println("Before schedule : " + now);
-        ScheduledFuture<?> r1 = service.scheduleWithFixedDelay(task1, 2, 5, TimeUnit.SECONDS);
+        ScheduledFuture<?> r1 = service.scheduleWithFixedDelay(task1, 2, 6, TimeUnit.SECONDS);
 
+        // https://stackoverflow.com/questions/24649842/scheduleatfixedrate-vs-schedulewithfixeddelay
+
+//        00:00: Start making coffee
+//        00:10: Finish making coffee
+//        01:00: Start making coffee
+//        01:10: Finish making coffee
+//        02:00: Start making coffee
+//        02:10: Finish making coffee
+
+//        00:00: Start making coffee
+//        00:10: Finish making coffee
+//        01:10: Start making coffee
+//        01:20: Finish making coffee
+//        02:20: Start making coffee
+//        02:30: Finish making coffee
     }
 }
