@@ -21,7 +21,7 @@ public class ThreadSchedulerExample5 {
             System.out.println("Task time : " + now);
             System.out.println("Counter : " + ++counter);
             try {
-                Thread.sleep(10_000);
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -29,7 +29,7 @@ public class ThreadSchedulerExample5 {
 
         LocalTime now = LocalTime.now();
         System.out.println("Before schedule : " + now);
-        ScheduledFuture<?> r1 = service.scheduleAtFixedRate(task1, 3, 5, TimeUnit.SECONDS);
+        ScheduledFuture<?> r1 = service.scheduleAtFixedRate(task1, 2, 5, TimeUnit.SECONDS);
 
     }
 }
