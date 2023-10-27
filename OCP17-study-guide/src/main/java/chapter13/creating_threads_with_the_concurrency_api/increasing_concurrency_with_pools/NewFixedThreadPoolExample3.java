@@ -7,9 +7,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class NewFixedThreadPoolExample2 {
+public class NewFixedThreadPoolExample3 {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
@@ -51,18 +51,8 @@ public class NewFixedThreadPoolExample2 {
 
         List<Callable<String>> tasks = List.of(task1, task2, task3, task4, task5, task6, task7);
 
-        List<Future<String>> futures = executorService.invokeAll(tasks);
-        System.out.println("Results : ");
-        futures.forEach(f -> {
-
-            try {
-                System.out.println(f.get());
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (ExecutionException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        String result  = executorService.invokeAny(tasks);
+        System.out.println(result);
 
         executorService.shutdown();
 
