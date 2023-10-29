@@ -9,8 +9,8 @@ public class AtomicIntegerExample {
         AtomicInteger atomicInteger = new AtomicInteger(100);
 
         System.out.println("get : " + atomicInteger.get());
-        System.out.println("getAndIncrement : " + atomicInteger.getAndIncrement()); // suffix
-        System.out.println("incrementAndGet : " + atomicInteger.incrementAndGet()); // prefix
+        System.out.println("getAndIncrement : " + atomicInteger.getAndIncrement()); // post-increment
+        System.out.println("incrementAndGet : " + atomicInteger.incrementAndGet()); // pre-increment
         System.out.println("addAndGet : " + atomicInteger.addAndGet(500)); //
 
         atomicInteger.set(200);
@@ -19,7 +19,7 @@ public class AtomicIntegerExample {
         int oldValue = atomicInteger.getAndSet(300);
         System.out.println("getAndSet oldValue : " + oldValue);
 
-        System.out.println("getAndDecrement : " + atomicInteger.getAndDecrement());
-        System.out.println("decrementAndGet : " + atomicInteger.decrementAndGet());
+        System.out.println("getAndDecrement : " + atomicInteger.getAndDecrement()); // post-decrement
+        System.out.println("decrementAndGet : " + atomicInteger.decrementAndGet()); // pre-decrement
     }
 }
