@@ -1,4 +1,4 @@
-package chapter13.writing_thread_safe_code;
+package chapter13.writing_thread_safe_code.understanding_thread_safety;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

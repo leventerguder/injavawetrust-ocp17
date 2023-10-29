@@ -1,15 +1,7 @@
 package chapter13.creating_threads_with_the_concurrency_api.increasing_concurrency_with_pools;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
-
-import static java.util.stream.Collectors.toList;
 
 public class NewCachedThreadPoolExample {
 
@@ -25,6 +17,7 @@ public class NewCachedThreadPoolExample {
             executorService.submit(task);
         }
 
+        executorService.shutdown();
 
     }
 

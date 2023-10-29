@@ -1,5 +1,7 @@
 package chapter13.writing_thread_safe_code;
 
+import chapter13.writing_thread_safe_code.understanding_thread_safety.SheepManager;
+
 public class SynchronizingOnMethods {
 
     void singV1() {

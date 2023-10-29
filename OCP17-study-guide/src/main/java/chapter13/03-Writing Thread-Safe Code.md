@@ -41,7 +41,7 @@ thread writes the “new” value of the variable. The two assignments become re
 value, with one thread overwriting the results of the other. Figure 13.4 demonstrates this problem with two threads,
 assuming that sheepCount has a starting value of 1.
 
-![](writing_thread_safe_code/Lack-of-synchronization.png)
+![](writing_thread_safe_code/understanding_thread_safety/Lack-of-synchronization.png)
 
 You can see in Figure 13.4 that both threads read and write the same values, causing one of the two ++sheepCount
 operations to be lost. Therefore, the increment operator ++ is not thread-safe. As you will see later in this chapter,
