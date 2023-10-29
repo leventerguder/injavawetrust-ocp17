@@ -1,4 +1,4 @@
-package chapter13.writing_thread_safe_code;
+package chapter13.writing_thread_safe_code.orchestrating_tasks_with_a_cyclicbarrier;
 
 import java.util.concurrent.Executors;
 

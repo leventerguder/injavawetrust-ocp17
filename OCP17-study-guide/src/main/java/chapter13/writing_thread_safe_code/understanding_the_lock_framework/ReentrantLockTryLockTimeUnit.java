@@ -1,15 +1,16 @@
-package chapter13.writing_thread_safe_code;
+package chapter13.writing_thread_safe_code.understanding_the_lock_framework;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ReentrantLockTryLock {
+public class ReentrantLockTryLockTimeUnit {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Lock lock = new ReentrantLock();
         new Thread(() -> printHello(lock)).start();
-        if (lock.tryLock()) {
+        if(lock.tryLock(10, TimeUnit.SECONDS)) {
             try {
                 System.out.println("Lock obtained, entering protected code");
             } finally {

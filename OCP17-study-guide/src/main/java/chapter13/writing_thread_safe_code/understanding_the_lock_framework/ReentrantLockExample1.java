@@ -1,4 +1,4 @@
-package chapter13.writing_thread_safe_code;
+package chapter13.writing_thread_safe_code.understanding_the_lock_framework;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

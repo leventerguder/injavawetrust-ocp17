@@ -1,4 +1,4 @@
-package chapter13.writing_thread_safe_code;
+package chapter13.writing_thread_safe_code.protecting_data_with_atomic_classes;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
