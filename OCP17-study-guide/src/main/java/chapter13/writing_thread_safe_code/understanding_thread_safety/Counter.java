@@ -2,13 +2,22 @@ package chapter13.writing_thread_safe_code.understanding_thread_safety;
 
 public class Counter {
 
-    private long count = 0;
+    int c = 0;
 
-    public void add(long value) {
-        this.count = this.count + value;
+    public void increment() {
+        c++;
     }
 
-    public long getCount() {
-        return count;
+    public void decrement() {
+        c--;
+    }
+
+    public int getValue() {
+        return c;
+    }
+
+    public void execute() {
+        increment();
+        decrement();
     }
 }
