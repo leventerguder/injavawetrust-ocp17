@@ -23,4 +23,11 @@ public class SynchronizingOnMethods {
     static synchronized void danceV2() {
         System.out.print("Time to dance!");
     }
+
+    static void dance3() throws ClassNotFoundException {
+        Class clazz = Class.forName("SheepManager");
+        synchronized (clazz) {
+            System.out.print("Time to dance!");
+        }
+    }
 }
