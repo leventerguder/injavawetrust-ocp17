@@ -45,13 +45,17 @@ public class ZooEmployeeNameManager {
         ZooEmployeeNameManager manager = new ZooEmployeeNameManager();
         ExecutorService service = null;
         try {
+
             service = Executors.newFixedThreadPool(20);
+
+            service.submit(() -> manager.addName("Grace Hopper"));
+            service.submit(() -> manager.addName("Josephine Davis"));
+
             for (int i = 0; i < 100; i++) {
                 final int employeeNumber = i;
                 service.submit(() -> manager.readNames(employeeNumber));
             }
-            service.submit(() -> manager.addName("Grace Hopper"));
-            service.submit(() -> manager.addName("Josephine Davis"));
+
         } finally {
             if (service != null) service.shutdown();
         }
