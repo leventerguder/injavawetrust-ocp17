@@ -4,13 +4,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ReentrantLockTryLockTimeUnit {
+public class ReentrantLockTryLockTimeUnitExample2 {
 
     public static void main(String[] args) throws InterruptedException {
 
         Lock lock = new ReentrantLock();
         new Thread(() -> printHello(lock)).start();
-        if(lock.tryLock(10, TimeUnit.SECONDS)) {
+
+
+        Thread.sleep(500);
+
+        if(lock.tryLock(1, TimeUnit.SECONDS)) {
             try {
                 System.out.println("Lock obtained, entering protected code");
             } finally {
@@ -25,6 +29,9 @@ public class ReentrantLockTryLockTimeUnit {
         try {
             lock.lock();
             System.out.println("Hello");
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             lock.unlock();
         }
