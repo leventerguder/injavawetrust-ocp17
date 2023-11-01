@@ -5,16 +5,18 @@ import java.util.concurrent.Executors;
 public class LionPenManager {
 
     private void removeLions() {
-        System.out.println("Removing lions");
+        System.out.println("Removing lions. Thread#name" + Thread.currentThread().getName());
     }
 
     private void cleanPen() {
-        System.out.println("Cleaning the pen");
+        System.out.println("Cleaning the pen Thread#name" + Thread.currentThread().getName());
     }
 
+
     private void addLions() {
-        System.out.println("Adding lions");
+        System.out.println("Adding lions Thread#name" + Thread.currentThread().getName());
     }
+
 
     public void performTask() {
         removeLions();
