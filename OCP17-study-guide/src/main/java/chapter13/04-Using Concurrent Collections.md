@@ -43,7 +43,7 @@ If the collection is immutable (and contains immutable objects), the concurrent 
 objects can be accessed by any number of threads and do not require synchronization. By definition, they do not change,
 so there is no chance of a memory consistency error.
 
-![](using_concurrent_collections/Concurrent-collection-classes.png)
+![](using_concurrent_collections/working_with_concurrent_classes/Concurrent-collection-classes.png)
 
 The Skip classes might sound strange, but they are just “sorted” versions of the associ- ated concurrent collections.
 When you see a class with Skip in the name, just think “sorted concurrent” collections, and the rest should follow
@@ -84,7 +84,7 @@ synchronized versions of existing nonconcurrent collection objects. These synchr
 Collections class. They operate on the inputted collection and return a reference that is the same type as the
 underlying collection.
 
-![](using_concurrent_collections/synchronized-collections-methods.png)
+![](using_concurrent_collections/obtaining_syncronized_collections/synchronized-collections-methods.png)
 
 If you’re writing code to create a collection and it requires synchronization, you should use the classes defined in
 Table 13.9. On the other hand, if you are passed a nonconcurrent collection and need synchronization, use the methods in
