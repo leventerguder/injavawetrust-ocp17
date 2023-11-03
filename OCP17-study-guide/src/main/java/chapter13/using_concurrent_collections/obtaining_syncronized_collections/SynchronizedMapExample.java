@@ -17,9 +17,8 @@ public class SynchronizedMapExample {
 
         System.out.println("Map : " + map);
 
-        Map<String, String>
-                synmap = Collections.synchronizedMap(map);
+        Map<String, String> synchronizedMap = Collections.synchronizedMap(map);
 
-        System.out.println("Synchronized map is : " + synmap);
+        System.out.println("Synchronized map is : " + synchronizedMap);
     }
 }

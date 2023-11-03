@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.NavigableSet;
 import java.util.TreeSet;
 
-public class synchronizedNavigableSetExample {
+public class SynchronizedNavigableSetExample {
 
     public static void main(String[] args) {
 
@@ -16,8 +16,8 @@ public class synchronizedNavigableSetExample {
         times.add(2010);
         times.add(2100);
 
-        System.out.println("J6 - last before 4pm is: " + times.lower(1600));
-        System.out.println("J6 - first after 8pm is: " + times.higher(2000));
+        System.out.println("last before 4pm is: " + times.lower(1600));
+        System.out.println("first after 8pm is: " + times.higher(2000));
 
         // the NavigableSet methods related to this type of navigation are
         // lower(), floor(), higher(), ceiling(),
