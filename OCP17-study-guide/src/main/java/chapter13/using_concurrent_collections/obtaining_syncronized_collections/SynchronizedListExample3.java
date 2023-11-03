@@ -6,8 +6,6 @@ import java.util.List;
 
 public class SynchronizedListExample3 {
 
-    private static final Object LOCK = new Object();
-
     public static void main(String[] args) throws InterruptedException {
 
         List<Integer> original = new ArrayList<>();

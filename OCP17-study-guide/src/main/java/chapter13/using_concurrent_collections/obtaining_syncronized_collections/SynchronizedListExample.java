@@ -19,6 +19,7 @@ public class SynchronizedListExample {
 
         list.add(10);
 
+        System.out.println(original);
         System.out.println(list);
     }
 }
