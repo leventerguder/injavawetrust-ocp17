@@ -1,4 +1,4 @@
-package chapter13.working_with_parallel_streams;
+package chapter13.working_with_parallel_streams.creating_parallel_streams;
 
 import java.util.Collection;
 import java.util.List;

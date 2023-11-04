@@ -1,8 +1,8 @@
-package chapter13.working_with_parallel_streams;
+package chapter13.working_with_parallel_streams.performing_a_parallel_decomposition;
 
 import java.util.List;
 
-public class ParallelDecomposition {
+public class SerialDecomposition {
 
 
     private static int doWork(int input) {
@@ -17,7 +17,7 @@ public class ParallelDecomposition {
 
         long start = System.currentTimeMillis();
         List.of(1, 2, 3, 4, 5)
-                .parallelStream()
+                .stream()
                 .map(w -> doWork(w))
                 .forEach(s -> System.out.print(s + " "));
 

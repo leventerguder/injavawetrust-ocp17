@@ -1,4 +1,4 @@
-package chapter13.working_with_parallel_streams;
+package chapter13.working_with_parallel_streams.processing_parallel_reductions;
 
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
