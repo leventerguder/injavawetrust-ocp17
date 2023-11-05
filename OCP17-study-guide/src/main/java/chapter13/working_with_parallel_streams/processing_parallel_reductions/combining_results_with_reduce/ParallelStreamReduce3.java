@@ -6,7 +6,14 @@ public class ParallelStreamReduce3 {
 
     public static void main(String[] args) {
 
-        System.out.println(List.of("w", "o", "l", "f").parallelStream()
+        System.out.println("Parallel Stream : ");
+        System.out.println(List.of("w", "o", "l", "f")
+                .parallelStream()
+                .reduce("X", String::concat)); // XwXoXlXf
+
+        System.out.println("Serial Stream : ");
+        System.out.println(List.of("w", "o", "l", "f")
+                .stream()
                 .reduce("X", String::concat)); // XwXoXlXf
     }
 }
