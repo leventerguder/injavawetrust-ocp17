@@ -2,15 +2,9 @@ package chapter13.working_with_parallel_streams.processing_parallel_reductions.c
 
 import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
-import java.util.concurrent.ConcurrentSkipListSet;
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class ParallelStreamCollect2 {
+public class ParallelStreamCollectToSet {
 
     public static void main(String[] args) {
 
@@ -21,6 +15,8 @@ public class ParallelStreamCollect2 {
         // Collectors.toSet() does have the UNORDERED characteristic, it does not have the CONCURRENT characteristic.
 
         System.out.println(letters);
+
+        System.out.println(Collectors.toSet().characteristics());
     }
 
 

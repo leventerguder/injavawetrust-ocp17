@@ -13,5 +13,7 @@ public class ParallelStreamCollectGroupingByConcurrent {
         ConcurrentMap<Integer, List<String>> map = ohMy.collect(
                 Collectors.groupingByConcurrent(String::length));
         System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+
+        System.out.println(Collectors.groupingByConcurrent(String::length).characteristics());
     }
 }
