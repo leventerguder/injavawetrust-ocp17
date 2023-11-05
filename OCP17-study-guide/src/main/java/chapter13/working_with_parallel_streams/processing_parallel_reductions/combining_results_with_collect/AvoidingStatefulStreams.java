@@ -1,4 +1,4 @@
-package chapter13.working_with_parallel_streams.processing_parallel_reductions;
+package chapter13.working_with_parallel_streams.processing_parallel_reductions.combining_results_with_collect;
 
 import java.util.ArrayList;
 import java.util.Collections;
