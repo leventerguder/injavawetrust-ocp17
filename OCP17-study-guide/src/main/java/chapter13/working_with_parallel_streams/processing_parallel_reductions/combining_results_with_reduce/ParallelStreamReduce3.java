@@ -14,6 +14,6 @@ public class ParallelStreamReduce3 {
         System.out.println("Serial Stream : ");
         System.out.println(List.of("w", "o", "l", "f")
                 .stream()
-                .reduce("X", String::concat)); // XwXoXlXf
+                .reduce("X", String::concat)); // Xwolf
     }
 }

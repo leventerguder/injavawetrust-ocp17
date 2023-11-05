@@ -4,7 +4,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ParallelStreamReductionCollector {
+public class ParallelStreamCollect3ToConcurrentMap {
 
     public static void main(String[] args) {
 

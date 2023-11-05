@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ParallelStreamReductionCollector2 {
+public class ParallelStreamCollectGroupingByConcurrent {
 
     public static void main(String[] args) {
 
