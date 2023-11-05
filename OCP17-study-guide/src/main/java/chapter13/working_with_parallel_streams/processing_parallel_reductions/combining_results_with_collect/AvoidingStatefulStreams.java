@@ -8,13 +8,19 @@ import java.util.stream.IntStream;
 
 public class AvoidingStatefulStreams {
 
-    public static List<Integer> addValues(IntStream source) {
+    private static List<Integer> addValues(IntStream source) {
         var data = Collections.synchronizedList(new ArrayList<Integer>());
         source.filter(s -> s % 2 == 0)
                 .forEach(i -> {
                     data.add(i);
                 }); // STATEFUL: DON'T DO THIS!
         return data;
+    }
+
+    private static List<Integer> addValuesBetter(IntStream source) {
+        return source.filter(s -> s % 2 == 0)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
@@ -36,9 +42,4 @@ public class AvoidingStatefulStreams {
 
     }
 
-    public static List<Integer> addValuesBetter(IntStream source) {
-        return source.filter(s -> s % 2 == 0)
-                .boxed()
-                .collect(Collectors.toList());
-    }
 }
