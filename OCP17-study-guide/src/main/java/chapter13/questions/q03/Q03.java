@@ -11,4 +11,8 @@ public class Q03 {
 //    D. Runnable returns a generic type.
 //    E. Both can throw checked exceptions.
 // +++   F. Callable returns a generic type.
+
+// Runnable returns void and Callable returns a generic type.
+// Only Callable is capable of throwing checked exceptions.
+// Both Runnable and Callable are functional interfaces that can be implemented with a lambda expression.
 }

@@ -16,4 +16,11 @@ public class Flavors {
     public static void main(String[] args) {
         countIceCreamFlavors();
     }
+
+    // Be wary of run() vs. start() on the exam! The method looks like it executes a task concurrently,
+    // but it runs synchronously.
+
+
+    // Note that if start() had been used instead of run() (or the stream was parallel),
+    // then the output would be indeterminate.
 }

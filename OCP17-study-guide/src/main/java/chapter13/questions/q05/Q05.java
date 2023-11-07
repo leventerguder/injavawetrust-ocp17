@@ -16,3 +16,5 @@ public class Q05 {
         System.out.println(value1 + " " + value2[0]);
     }
 }
+// The key here is that the increment operator ++ is not atomic.
+// While the first part of the output will always be 100, the second part is nondeterministic.

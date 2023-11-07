@@ -19,5 +19,17 @@ public class Q10 {
         for (Integer item : bears)
             bears.add(5); // x2
         System.out.println(lions.size() + " " + tigers.size() + " " + bears.size()); // 3 6 4
+
+        /*
+        CopyOnWriteArrrayList class is designed to preserve the original list on iteration, so
+        the first loop will be executed exactly three times and, in the process, will increase the size of
+        tigers to six elements.
+         */
+
+        /*
+        The ConcurrentSkipListSet class allows modifications, and
+        since it enforces the uniqueness of its elements, the value 5 is added only once, leading to a
+        total of four elements in bears. F
+         */
     }
 }
