@@ -30,5 +30,11 @@ public class CountZooAnimals {
         } finally {
             s.shutdown();
         }
+
+        // The return type of performCount() is void,
+        // so submit() is interpreted as being applied to a Runnable expression.
+
+        // While submit(Runnable) does return a Future<?>, calling
+        // get() on it always returns null.
     }
 }

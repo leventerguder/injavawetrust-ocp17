@@ -21,5 +21,10 @@ public class StockRoomTracker {
                 .forEach(i -> await(cb)); // j3
 
         // F.It compiles but waits forever at runtime.
+
+        /*
+        The limit on the cyclic barrier is 10, but the stream can generate only up to
+        9 threads that reach the barrier; therefore, the limit can never be reached,
+         */
     }
 }

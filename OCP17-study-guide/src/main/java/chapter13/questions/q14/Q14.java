@@ -30,6 +30,7 @@ public class Q14 {
         // C. If the code does output anything, the order cannot be determined.
         // E. The code compiles but may produce a deadlock at runtime.
 
+
         // Since both tasks are submitted to the same thread executor pool, the order cannot be determined.
         // The key here is that the order in which the resources o1 and o2 are sychronized could result in a deadlock.
     }

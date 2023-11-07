@@ -11,5 +11,8 @@ public class Q21 {
         data.stream().flatMap(s -> s.stream()).findFirst().ifPresent(System.out::print);
 
         data.parallelStream().flatMap(s -> s.stream()).findFirst().ifPresent(System.out::print);
+
+        // The findFirst() method guarantees the first element in the stream will be returned,
+        // whether it is serial or parallel.
     }
 }
