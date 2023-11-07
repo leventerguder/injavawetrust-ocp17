@@ -11,4 +11,7 @@ public class PrintConstants {
                         () -> System.out.println(10 * c))); // b3
         s.execute(() -> System.out.println("Printed"));
     }
+
+    // E. It compiles, but the output cannot be determined ahead of time.
+    // G. It compiles but waits forever at runtime.
 }

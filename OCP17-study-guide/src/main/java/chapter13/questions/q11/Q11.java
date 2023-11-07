@@ -14,5 +14,13 @@ public class Q11 {
                     .findAny().get(); // y2
             System.out.println(i1 + " " + i2);
         }
+
+        /*
+        There are two important things to notice. First, synchronizing on the first variable doesn’t
+        impact the results of the code. Second, sorting on a parallel stream does not mean that
+        findAny() will return the first record.
+
+        But even on serial streams, findAny() is free to select any element!
+         */
     }
 }

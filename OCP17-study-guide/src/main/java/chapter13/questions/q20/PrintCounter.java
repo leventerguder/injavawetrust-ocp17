@@ -9,6 +9,8 @@ public class PrintCounter {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
+        // The key to solving this question is to remember that the execute() method returns void, not a Future object!
+
         var service = Executors.newSingleThreadExecutor();
         try {
             var r = new ArrayList<Future<?>>();
@@ -26,4 +28,5 @@ public class PrintCounter {
             service.shutdown();
         }
     }
+
 }

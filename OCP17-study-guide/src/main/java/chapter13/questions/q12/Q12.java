@@ -19,7 +19,13 @@ public class Q12 {
         service.awaitTermination(2, TimeUnit.SECONDS);
         System.out.println("DONE!");
 
-        // C. It will pause for 5 seconds and then print DONE!.
+        // B It will pause for 2 seconds and then print DONE!.
+
+        // The awaitTermination() method waits a specified amount of time for all tasks
+        // to complete and the service to finish shutting down.
+        // Since, each five-second task is still executing, the awaitTermination() method will return with a value of false
+        // after two seconds but not throw an exception.
+
     }
 
     private static void takeNap() {
