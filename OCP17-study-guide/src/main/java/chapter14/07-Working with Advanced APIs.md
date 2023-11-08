@@ -61,7 +61,7 @@ behaved like calling skip(1).
 
 ## Reviewing Manipulation APIs
 
-![](workingwithadvancedapis/Common-IO-methods.png)
+![](working_with_advanced_apis/Common-IO-methods.png)
 
 ## Discovering File Attributes
 
@@ -108,7 +108,7 @@ updatable view method. For each method, you need to provide a file system type o
 which type of view you are requesting. By updatable view, we mean that we can both read and write attributes with the
 same object.
 
-![](workingwithadvancedapis/The-attributes-and-view-types.png)
+![](working_with_advanced_apis/The-attributes-and-view-types.png)
 
 ### Retrieving Attributes
 

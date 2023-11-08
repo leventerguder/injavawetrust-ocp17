@@ -179,8 +179,8 @@ Table 14.9 reviews the public common I/O stream methods you should know for read
 and flush() since they are used when performing these actions. Table 14.10 does the same for common public NIO.2 read
 and write methods.
 
-![](readingandwritingfiles/Common IO read and write methods.png)
+![](reading_and_writing_files/Common IO read and write methods.png)
 
-![](readingandwritingfiles/Common IO read and write methods-2.png)
+![](reading_and_writing_files/Common IO read and write methods-2.png)
 
-![](readingandwritingfiles/Common Files NIO.2 read and write methods.png)
+![](reading_and_writing_files/Common Files NIO.2 read and write methods.png)

@@ -119,8 +119,8 @@ the class does. For example, without needing to look it up, it should be clear t
 data from a file as characters or strings. Furthermore, ObjectOutputStream sounds like a class that writes object data
 to a byte stream.
 
-![](introducingiostreams/The-java.io-abstract-stream-base-classes.png)
+![](introducing_io_streams/The-java.io-abstract-stream-base-classes.png)
 
-![](introducingiostreams/The java.io concrete IO stream classes.png)
-![](introducingiostreams/The java.io concrete IO stream classes2.png)
+![](introducing_io_streams/The java.io concrete IO stream classes.png)
+![](introducing_io_streams/The java.io concrete IO stream classes2.png)
 

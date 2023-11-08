@@ -43,7 +43,7 @@ conventions:
 Absolute and relative paths can contain path symbols. A path symbol is one of a reserved series of characters with
 special meaning in some file systems.
 
-![](referencingfilesanddirectories/File-system symbols.png)
+![](referencing_files_and_directories/File-system symbols.png)
 
 A symbolic link is a special file within a file system that serves as a reference or pointer to another file or
 directory. Suppose we have a symbolic link from /zoo/user/favorite to /fish/shark. The shark folder and its elements can
@@ -121,7 +121,7 @@ The model for I/O is smaller, and you only need to understand the File class. In
 makes extensive use of the factory pattern. You should become comfortable with this approach. Many of your interactions
 with NIO.2 will require two types: an abstract class or interface and a factory or helper class.
 
-![](referencingfilesanddirectories/IO-and-NIO2-class-and-interface-relationships.png)
+![](referencing_files_and_directories/IO-and-NIO2-class-and-interface-relationships.png)
 
 In particular, keep an eye on whether the class name is singular or plural. Classes with plural names include methods to
 create or operate on class/interface instances with singular names. Remember, as a convenience (and source of confusion)
@@ -130,5 +130,5 @@ create or operate on class/interface instances with singular names. Remember, as
 The java.io.File is the I/O class, while Files is an NIO.2 helper class. Files operates on Path instances, not
 java.io.File instances. We know this is confusing, but they are from completely different APIs!
 
-![](referencingfilesanddirectories/Options-for-creating-File-and-Path.png)
+![](referencing_files_and_directories/Options-for-creating-File-and-Path.png)
 

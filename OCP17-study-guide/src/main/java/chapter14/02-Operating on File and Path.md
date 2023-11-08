@@ -6,11 +6,11 @@ Now that we know how to create File and Path objects, we can start using them to
 
 Many operations can be done using both the I/O and NIO.2 libraries.
 
-![](operatingonfileandpath/Common-File-and-Path-operations.png)
+![](operating_on_file_and_path/Common-File-and-Path-operations.png)
 
-![](operatingonfileandpath/Common-File-and-Files-operations.png)
+![](operating_on_file_and_path/Common-File-and-Files-operations.png)
 
-![](operatingonfileandpath/Common-File-and-Files-operations-continued.png)
+![](operating_on_file_and_path/Common-File-and-Files-operations-continued.png)
 
     private static void io(File file) {
         if (file.exists()) {
@@ -92,9 +92,9 @@ if a NIO.2 method declares an IOException, it usually requires the paths it oper
 Many of the NIO.2 methods in this chapter include a varargs that takes an optional list of values. Table 14.5 presents
 the arguments you should be familiar with for the exam.
 
-![](operatingonfileandpath/Common-NIO.2-method-arguments.png)
+![](operating_on_file_and_path/Common-NIO.2-method-arguments.png)
 
-![](operatingonfileandpath/Common-NIO.2-method-arguments-continued.png)
+![](operating_on_file_and_path/Common-NIO.2-method-arguments-continued.png)
 
 With the exceptions of Files.copy() and Files.move(), we won’t discuss these varargs parameters each time we present a
 method. Their behavior should be straightforward, though. For example, can you figure out what the following call to
@@ -338,7 +338,7 @@ We can also use the toRealPath() method to gain access to the current working di
 
 ### Reviewing NIO.2 Path APIs
 
-![](operatingonfileandpath/Path-APIs.png)
+![](operating_on_file_and_path/Path-APIs.png)
 
 ## Creating, Moving, and Deleting Files and Directories
 
@@ -509,7 +509,7 @@ While most uses of isSameFile() will trigger an exception if the paths do not ex
 does not. If the two path objects are equal in terms of equals(), the method will just return true without checking
 whether the file exists.
 
-![](operatingonfileandpath/Comparing-file-uniqueness.png)
+![](operating_on_file_and_path/Comparing-file-uniqueness.png)
 
 Given the structure defined in Figure 14.4, what does the following output?
 
