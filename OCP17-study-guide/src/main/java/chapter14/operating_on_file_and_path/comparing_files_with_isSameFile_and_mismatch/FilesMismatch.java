@@ -1,4 +1,4 @@
-package chapter14.operating_on_file_and_path;
+package chapter14.operating_on_file_and_path.comparing_files_with_isSameFile_and_mismatch;
 
 import java.io.IOException;
 import java.nio.file.Files;

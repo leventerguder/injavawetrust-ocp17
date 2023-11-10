@@ -6,11 +6,11 @@ Now that we know how to create File and Path objects, we can start using them to
 
 Many operations can be done using both the I/O and NIO.2 libraries.
 
-![](operating_on_file_and_path/Common-File-and-Path-operations.png)
+![](operating_on_file_and_path/using_shared_functionality/Common-File-and-Path-operations.png)
 
-![](operating_on_file_and_path/Common-File-and-Files-operations.png)
+![](operating_on_file_and_path/using_shared_functionality/Common-File-and-Files-operations.png)
 
-![](operating_on_file_and_path/Common-File-and-Files-operations-continued.png)
+![](operating_on_file_and_path/using_shared_functionality/Common-File-and-Files-operations-continued.png)
 
     private static void io(File file) {
         if (file.exists()) {
@@ -92,9 +92,9 @@ if a NIO.2 method declares an IOException, it usually requires the paths it oper
 Many of the NIO.2 methods in this chapter include a varargs that takes an optional list of values. Table 14.5 presents
 the arguments you should be familiar with for the exam.
 
-![](operating_on_file_and_path/Common-NIO.2-method-arguments.png)
+![](operating_on_file_and_path/providing_nio2_optional_parameters/Common-NIO.2-method-arguments.png)
 
-![](operating_on_file_and_path/Common-NIO.2-method-arguments-continued.png)
+![](operating_on_file_and_path/providing_nio2_optional_parameters/Common-NIO.2-method-arguments-continued.png)
 
 With the exceptions of Files.copy() and Files.move(), we won’t discuss these varargs parameters each time we present a
 method. Their behavior should be straightforward, though. For example, can you figure out what the following call to
@@ -338,7 +338,7 @@ We can also use the toRealPath() method to gain access to the current working di
 
 ### Reviewing NIO.2 Path APIs
 
-![](operating_on_file_and_path/Path-APIs.png)
+![](operating_on_file_and_path/interacting_with_nio2_paths/Path-APIs.png)
 
 ## Creating, Moving, and Deleting Files and Directories
 

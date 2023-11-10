@@ -1,4 +1,4 @@
-package chapter14.operating_on_file_and_path;
+package chapter14.operating_on_file_and_path.interacting_with_nio2_paths.accessing_path_elements;
 
 import java.nio.file.Path;
 

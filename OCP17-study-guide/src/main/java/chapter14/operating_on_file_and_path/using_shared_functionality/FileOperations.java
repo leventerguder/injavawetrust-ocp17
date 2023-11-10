@@ -6,8 +6,8 @@ public class FileOperations {
 
     public static void main(String[] args) {
 
-        var file = new File("text-folder/zoo.txt");
-        var file2 = new File("text-folder");
+        var file = new File("extras/chapter14/text-folder/zoo.txt");
+        var file2 = new File("extras/chapter14/text-folder/text-folder");
         io(file);
         io(file2);
     }

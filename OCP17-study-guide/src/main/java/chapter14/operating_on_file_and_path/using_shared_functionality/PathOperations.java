@@ -10,8 +10,8 @@ public class PathOperations {
 
     public static void main(String[] args) throws IOException {
 
-        var path = Path.of("text-folder/zoo.txt");
-        var path2 = Path.of("text-folder");
+        var path = Path.of("extras/chapter14/text-folder/text-folder/zoo.txt");
+        var path2 = Path.of("extras/chapter14/text-folder/text-folder");
         nio(path);
         nio(path2);
     }

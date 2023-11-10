@@ -1,4 +1,4 @@
-package chapter14.operating_on_file_and_path;
+package chapter14.operating_on_file_and_path.interacting_with_nio2_paths.retrieving_the_real_file_system_path;
 
 import java.io.IOException;
 import java.nio.file.Paths;
