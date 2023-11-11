@@ -11,5 +11,8 @@ public class PathSubPath2 {
          var q = p.subpath(0, 4); // IllegalArgumentException
          var x = p.subpath(1, 1); // IllegalArgumentException
 
+        // Like getNameCount() and getName(), subpath() is zero-indexed and does not include the root.
+        // Also like getName(), subpath() throws an exception if invalid indices are provided.
+
     }
 }

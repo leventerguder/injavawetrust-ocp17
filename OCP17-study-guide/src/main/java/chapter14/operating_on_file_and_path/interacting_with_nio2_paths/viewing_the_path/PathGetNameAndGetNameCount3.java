@@ -9,6 +9,7 @@ public class PathGetNameAndGetNameCount3 {
 
         Path path = Paths.get("land/hippo/harry.happy");
         System.out.println("The Path Name is: " + path);
+        System.out.println("File Name : " + path.getFileName());
         for (int i = 0; i < path.getNameCount(); i++)
             System.out.println(" Element " + i + " is: " + path.getName(i));
 

@@ -17,12 +17,5 @@ public class PathSubPath {
         System.out.println("subpath(1,2): " + p.subpath(1, 2));
         System.out.println("subpath(1,3): " + p.subpath(1, 3));
 
-
-        // Like getNameCount() and getName(), subpath() is zero-indexed and does not include the root. Also like getName(),
-        // subpath() throws an exception if invalid indices are provided.
-
-        // var q = p.subpath(0, 4); // IllegalArgumentException
-        // var x = p.subpath(1, 1); // IllegalArgumentException
-
     }
 }

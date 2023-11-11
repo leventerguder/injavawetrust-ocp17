@@ -11,5 +11,8 @@ public class PathImmutable {
         // Path instances are immutable!
         System.out.println(p); // whale
 
+        Path p2 = Path.of("/zoo/../home").getParent().normalize().toAbsolutePath();
+
+        System.out.println(p2);
     }
 }

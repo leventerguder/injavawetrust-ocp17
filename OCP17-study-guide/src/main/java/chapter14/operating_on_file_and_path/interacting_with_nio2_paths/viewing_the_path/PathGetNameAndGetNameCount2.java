@@ -7,8 +7,9 @@ public class PathGetNameAndGetNameCount2 {
     public static void main(String[] args) {
 
         var p = Path.of("/");
-        System.out.print(p.getNameCount()); // 0
-        System.out.print(p.getName(0)); // IllegalArgumentException
+        System.out.println(p.getNameCount()); // 0
+        System.out.println(p.getFileName());
+        System.out.println(p.getName(0)); // IllegalArgumentException
 
         // Notice that if you try to call getName() with an invalid index,
         // it will throw an exception at runtime.
