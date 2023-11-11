@@ -31,7 +31,7 @@ public class PathOperations {
                 System.out.println("Last Modified: " + Files.getLastModifiedTime(path));
             } else {
                 try (Stream<Path> stream = Files.list(path)) {
-                    stream.forEach(p -> System.out.println(" " + p.getName(0)));
+                    stream.forEach(p -> System.out.println(" " + p.getFileName()));
                 }
             }
             System.out.println();

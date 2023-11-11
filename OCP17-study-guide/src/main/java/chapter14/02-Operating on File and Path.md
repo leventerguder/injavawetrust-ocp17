@@ -509,7 +509,7 @@ While most uses of isSameFile() will trigger an exception if the paths do not ex
 does not. If the two path objects are equal in terms of equals(), the method will just return true without checking
 whether the file exists.
 
-![](operating_on_file_and_path/Comparing-file-uniqueness.png)
+![](operating_on_file_and_path/comparing_files_with_isSameFile_and_mismatch/Comparing-file-uniqueness.png)
 
 Given the structure defined in Figure 14.4, what does the following output?
 
