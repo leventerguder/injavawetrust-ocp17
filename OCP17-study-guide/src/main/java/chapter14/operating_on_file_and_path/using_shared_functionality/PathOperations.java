@@ -10,8 +10,8 @@ public class PathOperations {
 
     public static void main(String[] args) throws IOException {
 
-        var path = Path.of("extras/chapter14/text-folder/text-folder/zoo.txt");
-        var path2 = Path.of("extras/chapter14/text-folder/text-folder");
+        var path = Path.of("extras/chapter14/text-folder/zoo.txt");
+        var path2 = Path.of("extras/chapter14/text-folder");
         nio(path);
         nio(path2);
     }
@@ -21,6 +21,9 @@ public class PathOperations {
         if (Files.exists(path)) {
             System.out.println("Absolute Path: " + path.toAbsolutePath());
             System.out.println("Is Directory: " + Files.isDirectory(path));
+            System.out.println("Is File: " + Files.isRegularFile(path));
+            System.out.println("Is Absolute Path: " + path.isAbsolute());
+            System.out.println("Is Hidden: " + Files.isHidden(path));
             System.out.println("Parent Path: " + path.getParent());
 
             if (Files.isRegularFile(path)) {
@@ -31,7 +34,7 @@ public class PathOperations {
                     stream.forEach(p -> System.out.println(" " + p.getName(0)));
                 }
             }
-
+            System.out.println();
         }
 
     }

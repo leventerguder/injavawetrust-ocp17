@@ -7,7 +7,7 @@ public class FileOperations {
     public static void main(String[] args) {
 
         var file = new File("extras/chapter14/text-folder/zoo.txt");
-        var file2 = new File("extras/chapter14/text-folder/text-folder");
+        var file2 = new File("extras/chapter14/text-folder");
         io(file);
         io(file2);
     }
@@ -16,6 +16,9 @@ public class FileOperations {
         if (file.exists()) {
             System.out.println("Absolute Path: " + file.getAbsolutePath());
             System.out.println("Is Directory: " + file.isDirectory());
+            System.out.println("Is File : " + file.isFile());
+            System.out.println("Is Absolute Path: " + file.isAbsolute());
+            System.out.println("Is Hidden : " + file.isHidden());
             System.out.println("Parent Path: " + file.getParent());
             if (file.isFile()) {
                 System.out.println("Size: " + file.length());
@@ -26,6 +29,7 @@ public class FileOperations {
                     System.out.println(" " + subfile.getName());
                 }
             }
+            System.out.println();
         }
     }
 }
