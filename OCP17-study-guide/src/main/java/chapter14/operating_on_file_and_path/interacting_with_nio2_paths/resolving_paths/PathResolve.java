@@ -9,9 +9,12 @@ public class PathResolve {
         Path path1 = Path.of("/cats/../panther");
         Path path2 = Path.of("food");
         System.out.println(path1.resolve(path2));
+        System.out.println(path2.resolve(path1));
 
         Path path3 = Path.of("/turkey/food");
-        System.out.println(path3.resolve("/tiger/cage"));
+        Path path4 = Path.of("/tiger/cage");
+        System.out.println(path3.resolve(path4));
+        System.out.println(path4.resolve(path3));
 
     }
 }
