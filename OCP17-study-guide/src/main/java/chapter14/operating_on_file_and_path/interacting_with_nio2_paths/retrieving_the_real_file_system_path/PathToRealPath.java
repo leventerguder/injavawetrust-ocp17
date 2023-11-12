@@ -8,5 +8,11 @@ public class PathToRealPath {
     public static void main(String[] args) throws IOException {
 
         System.out.println(Paths.get(".").toRealPath());
+
+        System.out.println(Paths.get("extras/chapter14/zoo.txt").toRealPath());
+        System.out.println(Paths.get("extras/chapter14/food.txt").toRealPath());
+
+        // NoSuchFileException
+        System.out.println(Paths.get("extras/chapter14/missing.txt").toRealPath());
     }
 }

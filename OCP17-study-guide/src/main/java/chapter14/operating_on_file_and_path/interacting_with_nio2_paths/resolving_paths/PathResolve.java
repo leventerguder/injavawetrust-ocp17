@@ -13,6 +13,8 @@ public class PathResolve {
 
         Path path3 = Path.of("/turkey/food");
         Path path4 = Path.of("/tiger/cage");
+
+        System.out.println(path3.resolve("/tiger/cage"));
         System.out.println(path3.resolve(path4));
         System.out.println(path4.resolve(path3));
 
