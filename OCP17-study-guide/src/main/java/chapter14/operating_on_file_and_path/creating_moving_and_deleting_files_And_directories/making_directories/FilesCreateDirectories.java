@@ -8,9 +8,9 @@ public class FilesCreateDirectories {
 
     public static void main(String[] args) throws IOException {
 
-        Files.createDirectory(Path.of("bison"));
-        Files.createDirectory(Path.of("bison/field"));
         Files.createDirectories(Path.of("bison/field/pasture/green"));
-
+        Files.createDirectories(Path.of("parent/child"));
+        Files.createDirectories(Path.of("parent/child")); // No exception!
+        // If all of the directories already exist, createDirectories() will simply complete without doing anything.
     }
 }
