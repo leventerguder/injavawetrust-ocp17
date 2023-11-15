@@ -5,11 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-public class FilesMove3 {
+public class FilesMove4 {
 
     public static void main(String[] args) throws IOException {
 
-        Files.move(Path.of("extras/chapter14/report.xml"), Path.of("extras/chapter14/reports-xml"),
+        Files.move(Path.of("extras/chapter14/report.xml"), Path.of("extras/chapter14/reports"),
                 StandardCopyOption.REPLACE_EXISTING);
         // java.nio.file.DirectoryNotEmptyException
     }
