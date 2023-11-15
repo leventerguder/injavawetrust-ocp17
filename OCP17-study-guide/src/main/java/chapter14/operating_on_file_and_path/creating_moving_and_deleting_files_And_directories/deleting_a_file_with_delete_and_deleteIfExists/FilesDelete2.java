@@ -4,11 +4,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class FilesDelete {
+public class FilesDelete2 {
 
     public static void main(String[] args) throws IOException {
 
-        Files.delete(Paths.get("extras/chapter14/vulture/feathers.txt"));
+        boolean result1 = Files.deleteIfExists(Paths.get("extras/chapter14/pigeon"));
+        boolean result2 = Files.deleteIfExists(Paths.get("extras/chapter14/pigeon"));
+
+        System.out.println(result1);
+        System.out.println(result2);
 
     }
 }

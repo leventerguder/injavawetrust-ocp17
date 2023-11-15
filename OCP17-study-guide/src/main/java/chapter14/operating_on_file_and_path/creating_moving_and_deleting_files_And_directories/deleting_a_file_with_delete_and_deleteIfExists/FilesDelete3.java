@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class FilesDelete {
+public class FilesDelete3 {
 
     public static void main(String[] args) throws IOException {
 
-        Files.delete(Paths.get("extras/chapter14/vulture/feathers.txt"));
+        Files.delete(Paths.get("extras/chapter14/vulture/missing.txt"));
+        // java.nio.file.NoSuchFileException
 
     }
 }
