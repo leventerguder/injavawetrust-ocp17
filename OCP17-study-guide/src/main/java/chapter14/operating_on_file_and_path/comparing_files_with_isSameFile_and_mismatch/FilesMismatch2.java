@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class FilesMismatch {
+public class FilesMismatch2 {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println(Files.mismatch(Path.of("extras/chapter14/animals/monkey.txt"),
+        System.out.println(Files.mismatch(Path.of("extras/chapter14/animals/cat.txt"),
                 Path.of("extras/chapter14/animals/wolf.txt")));
-
-        System.out.println(Files.mismatch(Path.of("extras/chapter14/animals/wolf.txt"),
-                Path.of("extras/chapter14/animals/monkey.txt")));
 
         // The method returns -1 if the files are the same; otherwise,
         // it returns the index of the first position in the file that differs.
