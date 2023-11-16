@@ -9,7 +9,5 @@ public class FilesMove {
     public static void main(String[] args) throws IOException {
 
         Files.move(Path.of("extras/chapter14/zoo.txt"), Path.of("extras/chapter14/zoo-new.txt"));
-
-        Files.move(Path.of("extras/chapter14/user/addresses.txt"), Path.of("extras/chapter14/zoo-new/addresses.txt"));
     }
 }

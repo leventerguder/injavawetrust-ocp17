@@ -12,6 +12,7 @@ public class FileMkDir {
         System.out.println(folder.exists());
 
         boolean result = folder.mkdir();
+        System.out.println(result);
         if (result) {
 
             File file = new File(folder, "dummy-file.xml");

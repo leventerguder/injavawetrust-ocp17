@@ -9,7 +9,7 @@ public class FilesCopyIntoADirectoryBad {
     public static void main(String[] args) throws IOException {
 
         var file = Paths.get("extras/chapter14/food.txt");
-        var directory = Paths.get("extras/chapter14/enclosure2"); // java.nio.file.FileAlreadyExistsException
+        var directory = Paths.get("extras/chapter14/enclosure2");
         Files.copy(file, directory);
 
     }
