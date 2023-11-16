@@ -11,6 +11,5 @@ public class FilesMove3 {
 
         Files.move(Path.of("extras/chapter14/report.xml"), Path.of("extras/chapter14/reports-xml"),
                 StandardCopyOption.REPLACE_EXISTING);
-        // java.nio.file.DirectoryNotEmptyException
     }
 }
