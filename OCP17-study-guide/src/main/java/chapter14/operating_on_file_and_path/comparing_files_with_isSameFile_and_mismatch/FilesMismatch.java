@@ -16,5 +16,8 @@ public class FilesMismatch {
 
         // The method returns -1 if the files are the same; otherwise,
         // it returns the index of the first position in the file that differs.
+
+        // The mismatch() method is symmetric and returns the same result
+        // regardless of the order of the parameters
     }
 }
