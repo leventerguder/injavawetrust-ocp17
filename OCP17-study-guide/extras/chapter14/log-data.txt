@@ -1,0 +1,6 @@
+INFO:Server starting
+DEBUG:Processes available = 10
+WARN:No database could be detected
+DEBUG:Processes available reset to 0
+WARN:Performing manual recovery
+INFO:Server successfully started
