@@ -20,6 +20,7 @@ public class UsingIOStreamsExample2FileReader {
             System.out.print((char) b + " ");
             out.write(b);
         }
+        out.close();
     }
 
 }
