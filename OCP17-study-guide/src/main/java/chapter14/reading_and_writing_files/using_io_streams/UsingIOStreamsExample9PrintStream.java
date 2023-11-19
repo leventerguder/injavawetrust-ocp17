@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
-public class UsingIOStreamsExample8PrintStream {
+public class UsingIOStreamsExample9PrintStream {
 
     public static void main(String[] args) throws IOException {
 

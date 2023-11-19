@@ -7,17 +7,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class UsingIOStreamsExample5BufferedReader {
+public class UsingIOStreamsExample7BufferedReaderAppend {
 
     public static void main(String[] args) throws IOException {
         File fileSrc = new File("extras/chapter14/content-data.txt");
-        File fileDest = new File("extras/chapter14/content-data-out.txt");
+        File fileDest = new File("extras/chapter14/content-data-out-append.txt");
         copyTextFile(fileSrc, fileDest);
     }
 
     static void copyTextFile(File src, File dest) throws IOException {
         try (var reader = new BufferedReader(new FileReader(src));
-             var writer = new BufferedWriter(new FileWriter(dest))) {
+             var writer = new BufferedWriter(new FileWriter(dest, true))) { // append true!
             String line = null;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
