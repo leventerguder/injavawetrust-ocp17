@@ -1,4 +1,4 @@
-package chapter14.serializing_data;
+package chapter14.serializing_data.storing_data_with_objectoutputstream_and_objectinputstream;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -26,6 +26,7 @@ public class StoringData {
                     gorillas.add(g);
             }
         } catch (EOFException e) { // File end reached
+            System.out.println("End of file...");
         }
         return gorillas;
     }

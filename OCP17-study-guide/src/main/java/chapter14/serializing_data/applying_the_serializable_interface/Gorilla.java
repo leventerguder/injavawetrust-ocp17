@@ -1,4 +1,4 @@
-package chapter14.serializing_data;
+package chapter14.serializing_data.applying_the_serializable_interface;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package chapter14.serializing_data;
+package chapter14.serializing_data.understanding_the_deserialization_creation_process;
 
 public class BabyChimpanzee extends Chimpanzee {
 
