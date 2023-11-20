@@ -13,6 +13,7 @@ public class SerializingDataExample4 {
         var objectOutputStream = new ObjectOutputStream(new FileOutputStream("bird.serial"));
 
         Bird bird = new Bird(10, "eagle", null);
+        //Bird bird = new Bird(10, "eagle", new Wing(10)); // NotSerializableException
 
         objectOutputStream.writeObject(bird);
         objectOutputStream.close();

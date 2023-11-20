@@ -1,33 +1,24 @@
 package chapter14.serializing_data.understanding_the_deserialization_creation_process;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.File;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class SerializingDataExample1 {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Collar collar = new Collar(3);
-        Dog dog = new Dog(collar, 8);
 
-        System.out.println("before serialization...");
-        System.out.println(dog);
+        var chimpanzees = new ArrayList<Chimpanzee>();
+        chimpanzees.add(new Chimpanzee("Ham", 2, 'A'));
+        chimpanzees.add(new Chimpanzee("Enos", 4, 'B'));
+        File dataFile = new File("chimpanzee.data");
 
-        var objectOutputStream = new ObjectOutputStream(new FileOutputStream("testSer.ser"));
-        objectOutputStream.writeObject(dog);
-        objectOutputStream.close();
 
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("testSer.ser"));
-        Dog deserializedDog = (Dog) ois.readObject();
-        ois.close();
+        StoringData storingData = new StoringData();
+        storingData.saveToFile(chimpanzees, dataFile);
 
-        System.out.println("after deserialization...");
-        System.out.println(deserializedDog);
-
+        var chimpanzeesFromDisk = storingData.readFromFile(dataFile);
+        System.out.println(chimpanzeesFromDisk);
     }
-
-
 }
