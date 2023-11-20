@@ -22,6 +22,9 @@ public class SerializingDataExample1 {
         Cat deserializedCat = (Cat) objectInputStream.readObject();
         System.out.println(deserializedCat);
         objectInputStream.close();
+
+        // When an instance of a serializable class is deserialized,
+        // the constructor does not run, and instance variables are NOT given their initially assigned values!
     }
 
 
