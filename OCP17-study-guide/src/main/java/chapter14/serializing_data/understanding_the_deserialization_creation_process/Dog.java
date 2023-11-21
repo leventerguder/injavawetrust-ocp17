@@ -39,7 +39,7 @@ public class Dog implements Serializable {
             // the JVM to do the normal serialization process for this object.
 
             // When implementing writeObject(), you will typically request
-            // he normal serialization process, and do some custom writing and reading too.
+            // the normal serialization process, and do some custom writing and reading too.
             os.writeInt(collar.getCollarSize());
         } catch (Exception e) {
             e.printStackTrace();

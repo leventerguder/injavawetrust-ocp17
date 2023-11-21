@@ -18,10 +18,5 @@ public class ClosingSystemStreams {
         try (var err = System.err) {
         }
         System.err.println("Hello");
-
-        var reader = new BufferedReader(new InputStreamReader(System.in));
-        try (reader) {
-        }
-        String data = reader.readLine(); // IOException
     }
 }

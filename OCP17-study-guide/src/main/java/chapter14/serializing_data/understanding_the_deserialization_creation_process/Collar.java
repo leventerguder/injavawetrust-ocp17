@@ -1,8 +1,6 @@
 package chapter14.serializing_data.understanding_the_deserialization_creation_process;
 
-import java.io.Serializable;
-
-public class Collar implements Serializable {
+public class Collar {
     private int collarSize;
 
     public Collar(int collarSize) {
