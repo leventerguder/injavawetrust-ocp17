@@ -61,7 +61,7 @@ behaved like calling skip(1).
 
 ## Reviewing Manipulation APIs
 
-![](working_with_advanced_apis/Common-IO-methods.png)
+![](working_with_advanced_apis/manipulating_input_streams/Common-IO-methods.png)
 
 ## Discovering File Attributes
 
