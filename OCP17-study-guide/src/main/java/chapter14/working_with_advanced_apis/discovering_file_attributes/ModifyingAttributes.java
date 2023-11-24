@@ -1,4 +1,4 @@
-package chapter14.working_with_advanced_apis;
+package chapter14.working_with_advanced_apis.discovering_file_attributes;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,9 +14,14 @@ public class ModifyingAttributes {
         BasicFileAttributeView view = Files.getFileAttributeView(path, BasicFileAttributeView.class);
         BasicFileAttributes attributes = view.readAttributes();
 
+        System.out.println(attributes.lastModifiedTime());
+
         // Modify file last modified time
         FileTime lastModifiedTime = FileTime.fromMillis(attributes.lastModifiedTime().toMillis() + 10_000);
         view.setTimes(lastModifiedTime, null, null);
 
+        view = Files.getFileAttributeView(path, BasicFileAttributeView.class);
+        attributes = view.readAttributes();
+        System.out.println(attributes.lastModifiedTime());
     }
 }

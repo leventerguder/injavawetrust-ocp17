@@ -1,4 +1,4 @@
-package chapter14.working_with_advanced_apis;
+package chapter14.working_with_advanced_apis.traversing_a_directory_tree;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;

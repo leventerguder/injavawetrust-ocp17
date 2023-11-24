@@ -1,9 +1,10 @@
-package chapter14.working_with_advanced_apis;
+package chapter14.working_with_advanced_apis.discovering_file_attributes;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.attribute.PosixFileAttributes;
 
 public class RetrievingAttributes {
 
@@ -17,5 +18,8 @@ public class RetrievingAttributes {
         System.out.println("Is a symbolic link? " + data.isSymbolicLink());
         System.out.println("Size (inbytes): " + data.size());
         System.out.println("Last modified: " + data.lastModifiedTime());
+
+        PosixFileAttributes posixFileAttributes = Files.readAttributes(path, PosixFileAttributes.class);
+        System.out.println(posixFileAttributes.owner());
     }
 }

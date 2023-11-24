@@ -1,4 +1,4 @@
-package chapter14.working_with_advanced_apis;
+package chapter14.working_with_advanced_apis.searching_a_directory;
 
 import java.io.IOException;
 import java.nio.file.Files;
