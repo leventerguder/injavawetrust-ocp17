@@ -2,7 +2,6 @@ package chapter14.working_with_advanced_apis.manipulating_input_streams;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
