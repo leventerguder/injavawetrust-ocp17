@@ -4,7 +4,7 @@ import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
-public class ObtainigAPathFromFileSystem {
+public class ObtainingAPathFromFileSystem {
 
     public static void main(String[] args) {
 
