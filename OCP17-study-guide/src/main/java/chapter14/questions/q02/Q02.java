@@ -1,6 +1,10 @@
 package chapter14.questions.q02;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Q02 {
 
@@ -18,9 +22,13 @@ public class Q02 {
 // The delete method returns false if the file or directory cannot be deleted.
 // Character stream classes often include built-in convenience methods for working with String data.
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         File file = new File("/missing-path");
         new File("/missing-path").delete();
+
+
+        BufferedReader reader = new BufferedReader(new FileReader("extras/chapter14/zoo.txt"));
+        String line1 = reader.readLine();
     }
 }

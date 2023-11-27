@@ -17,7 +17,11 @@ public class Q08 {
 
 // The readAllLines() method returns a List, not a Stream.
 
-    void printData2(Path path) throws IOException {
+    public static void main(String[] args) throws IOException {
+        printData2(Path.of("extras/chapter14/fox/food-schedule.csv"));
+    }
+
+    static void printData2(Path path) throws IOException {
         Files.readAllLines(path) // r1
                 .stream()
                 .flatMap(p -> Stream.of(p.split(","))) // r2  // DOES NOT COMPILE
