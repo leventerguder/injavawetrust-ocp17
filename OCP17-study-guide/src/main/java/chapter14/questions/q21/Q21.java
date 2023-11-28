@@ -9,7 +9,12 @@ public class Q21 {
 
     public static void main(String[] args) throws IOException {
 
-        var f = Path.of("/monkeys");
+        var f = Path.of("extras/chapter14/monkeys");
+        //Files.createDirectory(f);
+
+        //Files.createFile(Path.of(f.toString(), "sample-file.txt"));
+        //Files.createSymbolicLink(Path.of("extras/chapter14/monkeys/symbolic.txt"), f);
+
         try (var m = Files.find(f, 0, (p, a) -> a.isSymbolicLink())) { // y1
             m.map(s -> s.toString())
                     .collect(Collectors.toList())
