@@ -10,15 +10,22 @@ public class Q15 {
 //  create an object that represents the file?
 
 //    A. new File("/weather", "winter", "snow.dat")
-//    B. new File("/weather/winter/snow.dat")
+// +++   B. new File("/weather/winter/snow.dat")
 //    C. new File("/weather/winter", new File("snow.dat"))
 //    D. new File("weather", "/winter/snow.dat")
-//    E. new File(new File("/weather/winter"), "snow.dat")
-//    F. Path.of("/weather/winer/snow.dat").toFile();
+// ++   E. new File(new File("/weather/winter"), "snow.dat")
+// ++   F. Path.of("/weather/winer/snow.dat").toFile();
 //    G. None of the above
 
     public static void main(String[] args) {
+
+        // new File("/weather", "winter", "snow.dat"); // DOES NOT COMPILE
+
         new File("/weather/winter/snow.dat");
+
+        // new File("/weather/winter", new File("snow.dat")); // DOES NOT COMPILE
+
+        new File("weather", "/winter/snow.dat"); // Not absolute path!
 
         new File(new File("/weather/winter"), "snow.dat");
 
