@@ -24,7 +24,7 @@ their data in a format other than tables, such as key/value, document stores, an
 Our sample database has two tables. One has a row for each species that is in our zoo. The other has a row for each
 animal. These two relate to each other because an animal belongs to a species.
 
-![](introducingrelationaldatabasesandsql/Tables-in-our-relational-database.png)
+![](introducing_relational_databases_and_sql/Tables-in-our-relational-database.png)
 
 Each table has a primary key, which gives us a unique way to reference each row. After all, two animals might have the
 same name, but they can’t have the same ID.
@@ -34,7 +34,7 @@ same name, but they can’t have the same ID.
 The most important thing that you need to know about SQL for the exam is that there are four types of statements for
 working with the data in tables. They are referred to as CRUD (Create, Read, Update, Delete).
 
-![](introducingrelationaldatabasesandsql/CRUD-operations.png)
+![](introducing_relational_databases_and_sql/CRUD-operations.png)
 
 Unlike Java, SQL keywords are case insensitive. This means select, SELECT, and Select are all equivalent.
 

@@ -1,4 +1,4 @@
-package chapter15.introducingtheinterfacesofjdbc;
+package chapter15.introducing_the_interfaces_of_jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

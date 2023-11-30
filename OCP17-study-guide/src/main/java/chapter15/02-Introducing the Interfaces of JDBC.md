@@ -15,7 +15,7 @@ What do these five interfaces do? On a very high level, we have the following:
 - CallableStatement: Executes commands stored in the database
 - ResultSet: Reads the results of a query
 
-![](introducingtheinterfacesofjdbc/Key-JDBC-Interfaces.png)
+![](introducing_the_interfaces_of_jdbc/Key-JDBC-Interfaces.png)
 
 All database interfaces are in the package java.sql, so we often omit the imports throughout this chapter.
 
