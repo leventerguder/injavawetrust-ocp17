@@ -89,4 +89,4 @@ Order matters. If we reversed lines the code would throw an exception.
 
 ## Reviewing Transaction APIs
 
-![](controllingdatawithtransactions/Conection-APIs-for-transactions.png)
+![](controlling_data_with_transactions/Conection-APIs-for-transactions.png)

@@ -3,7 +3,7 @@
 A stored procedure is code that is compiled in advance and stored in the database. Stored procedures are commonly
 written in a database-specific variant of SQL, which varies among database software providers.
 
-![](callingacallablestatement/Sample-stored-procedures.png)
+![](calling_a_callablestatement/Sample-stored-procedures.png)
 
 ## Calling a Procedure without Parameters
 
@@ -94,7 +94,7 @@ both.
 
 Table 15.8 reviews the different types of parameters. You need to know this well for the exam.
 
-![](callingacallablestatement/Stored-procedure-parameter-types.png)
+![](calling_a_callablestatement/Stored-procedure-parameter-types.png)
 
 ## Using Additional Options
 

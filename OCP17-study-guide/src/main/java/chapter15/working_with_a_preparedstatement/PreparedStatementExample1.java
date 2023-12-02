@@ -1,6 +1,5 @@
-package chapter15.workingwithapreparedstatement;
+package chapter15.working_with_a_preparedstatement;
 
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.Arrays;
 

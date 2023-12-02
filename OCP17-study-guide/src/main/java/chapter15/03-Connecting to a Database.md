@@ -13,7 +13,7 @@ Colons (:) separate the three parts.
 The subname typically contains information about the database such as its location and/or name. The syntax varies. You
 need to know about the three main parts.
 
-![](connectingtoadatabase/The-JDBC-URL-format.png)
+![](connecting_to_a_database/The-JDBC-URL-format.png)
 
 Notice the three parts. It starts with jdbc, and then comes the subprotocol hsqldb. It ends with the subname, which
 tells us we are using the file system. The location is then the database name.

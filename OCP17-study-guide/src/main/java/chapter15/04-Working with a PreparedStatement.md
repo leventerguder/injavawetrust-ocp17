@@ -3,7 +3,7 @@
 In Java, you have a choice of working with a Statement, PreparedStatement, or CallableStatement. The latter two are
 subinterfaces of Statement.
 
-![](workingwithapreparedstatement/Types-of-statement.png)
+![](working_with_a_preparedstatement/Types-of-statement.png)
 
 Later in the chapter, you learn about using CallableStatement for queries that are inside the database. In this section,
 we look at PreparedStatement.
@@ -137,9 +137,9 @@ SQLException when using executeQuery() with SQL that changes the database.
 To review, make sure that you know Table 15.3 and Table 15.4 well. Table 15.3 shows which SQL statements can be run by
 each of the three key methods on PreparedStatement. Table 15.4 shows what is returned by each method.
 
-![](workingwithapreparedstatement/SQL-runnable-by-the-execute-method.png)
+![](working_with_a_preparedstatement/SQL-runnable-by-the-execute-method.png)
 
-![](workingwithapreparedstatement/Return-types-of-execute-methods.png)
+![](working_with_a_preparedstatement/Return-types-of-execute-methods.png)
 
 ## Working with Parameters
 
@@ -212,7 +212,7 @@ Table 15.5 shows the methods you need to know for the exam to set bind variables
 exam are easy to remember since they are called set followed by the name of the type you are setting. There are many
 others, like dates, that are out of scope for the exam.
 
-![](workingwithapreparedstatement/PreparedStatement-methods.png)
+![](working_with_a_preparedstatement/PreparedStatement-methods.png)
 
 The first column shows the method name, and the second column shows the type that Java uses. The third column shows the
 type name that could be in the database. There is some variation by databases, so check your specific database

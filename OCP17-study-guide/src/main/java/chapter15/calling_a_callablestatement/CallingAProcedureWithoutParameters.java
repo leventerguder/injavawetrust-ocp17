@@ -1,4 +1,4 @@
-package chapter15.callingacallablestatement;
+package chapter15.calling_a_callablestatement;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;

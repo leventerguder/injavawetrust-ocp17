@@ -1,4 +1,4 @@
-package chapter15.controllingdatawithtransactions;
+package chapter15.controlling_data_with_transactions;
 
 import java.sql.*;
 

@@ -1,10 +1,8 @@
-package chapter15.gettingdatafromaresultset;
+package chapter15.getting_data_from_a_resultset;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 
 public class ReadingAResultSet2 {
 

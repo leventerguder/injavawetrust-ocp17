@@ -1,4 +1,4 @@
-package chapter15.connectingtoadatabase;
+package chapter15.connecting_to_a_database;
 
 import java.sql.*;
 
