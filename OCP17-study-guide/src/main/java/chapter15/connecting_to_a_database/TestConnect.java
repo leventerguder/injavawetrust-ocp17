@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class TestConnect {
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException {
 
         try (Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo")) {
             System.out.println(conn
