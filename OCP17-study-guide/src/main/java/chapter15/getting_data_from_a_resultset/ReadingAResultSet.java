@@ -8,9 +8,13 @@ import java.util.HashMap;
 
 public class ReadingAResultSet {
 
-    void test() throws SQLException {
+    public static void main(String[] args) throws SQLException {
+        executeQueryMethod();
+    }
 
-        Connection conn = DriverManager.getConnection("");
+    static void executeQueryMethod() throws SQLException {
+
+        Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
 
         String sql = "SELECT id, name FROM exhibits";
         var idToNameMap = new HashMap<Integer, String>();

@@ -4,9 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ReadingAResultSet2 {
+public class ReadingAResultSet3 {
 
     public static void main(String[] args) throws SQLException {
+
         test();
     }
 
@@ -14,12 +15,15 @@ public class ReadingAResultSet2 {
 
         Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
 
-        var sql = "SELECT count(*) FROM exhibits";
-        try (var ps = conn.prepareStatement(sql); var rs = ps.executeQuery()) {
+        var sql = "SELECT count(*) AS count FROM exhibits";
+        try (var ps = conn.prepareStatement(sql);
+             var rs = ps.executeQuery()) {
             if (rs.next()) {
-                int count = rs.getInt(1);
+                var count = rs.getInt("total");
+                // java.sql.SQLException: Column not found: total
                 System.out.println(count);
             }
         }
     }
+
 }

@@ -4,22 +4,22 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ReadingAResultSet2 {
+public class ReadingAResultSet4 {
 
     public static void main(String[] args) throws SQLException {
+
         test();
     }
-
     static void test() throws SQLException {
 
         Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
 
-        var sql = "SELECT count(*) FROM exhibits";
+        var sql = "SELECT * FROM exhibits where name='Not in table'";
         try (var ps = conn.prepareStatement(sql); var rs = ps.executeQuery()) {
-            if (rs.next()) {
-                int count = rs.getInt(1);
-                System.out.println(count);
-            }
+            rs.next();
+            rs.getInt(1); // SQLException
+            //  invalid cursor state: identifier cursor not positioned on row in
+            //  UPDATE, DELETE, SET, or GET statement: ; ResultSet is empty
         }
     }
 }

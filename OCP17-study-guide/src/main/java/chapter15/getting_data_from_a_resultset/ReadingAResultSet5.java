@@ -4,22 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ReadingAResultSet2 {
+public class ReadingAResultSet5 {
 
     public static void main(String[] args) throws SQLException {
+
         test();
     }
-
     static void test() throws SQLException {
 
         Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
 
         var sql = "SELECT count(*) FROM exhibits";
         try (var ps = conn.prepareStatement(sql); var rs = ps.executeQuery()) {
-            if (rs.next()) {
-                int count = rs.getInt(1);
-                System.out.println(count);
-            }
+            rs.getInt(1); // SQLException
         }
     }
 }
