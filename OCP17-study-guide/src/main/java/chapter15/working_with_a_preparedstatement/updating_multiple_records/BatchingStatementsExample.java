@@ -1,10 +1,18 @@
-package chapter15.working_with_a_preparedstatement;
+package chapter15.working_with_a_preparedstatement.updating_multiple_records;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Arrays;
 
-public class PreparedStatementExample1 {
+public class BatchingStatementsExample {
 
+
+    public static void main(String[] args) throws SQLException {
+
+        Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
+        register(conn, 100, 1, "Elias", "Ester");
+    }
 
     public static void register(Connection conn, int firstKey, int type, String... names) throws SQLException {
 
