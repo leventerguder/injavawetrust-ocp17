@@ -17,7 +17,7 @@ public class WorkingWithAnInOutParameter {
 
         var sql = "{call double_number(?)}";
         try (var cs = conn.prepareCall(sql)) {
-            cs.setInt(1, 8);
+            cs.setInt(1, 18);
             cs.registerOutParameter(1, Types.INTEGER);
             cs.execute();
             System.out.println(cs.getInt("num"));
