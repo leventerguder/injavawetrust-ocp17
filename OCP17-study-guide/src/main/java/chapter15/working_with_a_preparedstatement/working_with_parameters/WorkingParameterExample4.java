@@ -15,7 +15,7 @@ public class WorkingParameterExample4 {
 
     static void register(int key, int type, String name) throws SQLException {
 
-        Connection conn = DriverManager.getConnection("");
+        Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
         String sql = "INSERT INTO names VALUES(?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setObject(1, key);

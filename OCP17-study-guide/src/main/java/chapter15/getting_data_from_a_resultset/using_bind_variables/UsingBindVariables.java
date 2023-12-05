@@ -1,4 +1,4 @@
-package chapter15.getting_data_from_a_resultset;
+package chapter15.getting_data_from_a_resultset.using_bind_variables;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

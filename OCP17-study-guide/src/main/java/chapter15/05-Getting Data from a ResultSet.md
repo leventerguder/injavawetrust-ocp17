@@ -20,7 +20,7 @@ When working with a ResultSet, most of the time, you will write a loop to look a
 
 A ResultSet has a cursor, which points to the current location in the data.
 
-![](getting_data_from_a_resultset/The-ResultSet-cursor.png)
+![](getting_data_from_a_resultset/reading_a_resultset/The-ResultSet-cursor.png)
 
 On the first loop iteration, rs.next() returns true, and the cursor moves
 to point to the first row of data. On the second loop iteration, rs.next() returns true again, and the cursor moves to
@@ -101,7 +101,7 @@ To sum up this section, it is important to remember the following:
 There are lots of get methods on the ResultSet interface. Table 15.6 shows the get methods that you need to know. These
 are the getter equivalents of the setters in Table 15.5.
 
-![](getting_data_from_a_resultset/ResulSet-get-methods.png)
+![](getting_data_from_a_resultset/getting_data_for_a_column/ResulSet-get-methods.png)
 
 You might notice that not all of the primitive types are in Table 15.6. There are getByte() and getFloat() methods, but
 you don’t need to know about them for the exam. There is no getChar() method. Luckily, you don’t need to remember this.

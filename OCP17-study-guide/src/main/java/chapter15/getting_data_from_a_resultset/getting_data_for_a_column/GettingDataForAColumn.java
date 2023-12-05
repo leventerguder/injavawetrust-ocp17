@@ -1,4 +1,4 @@
-package chapter15.getting_data_from_a_resultset;
+package chapter15.getting_data_from_a_resultset.getting_data_for_a_column;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,10 +1,10 @@
-package chapter15.getting_data_from_a_resultset;
+package chapter15.getting_data_from_a_resultset.reading_a_resultset;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ReadingAResultSet3 {
+public class ReadingAResultSet4 {
 
     public static void main(String[] args) throws SQLException {
 
