@@ -6,9 +6,13 @@ import java.sql.SQLException;
 
 public class UsingBindVariables {
 
-    void test() throws SQLException {
+    public static void main(String[] args) throws SQLException {
+        test();
+    }
 
-        Connection conn = DriverManager.getConnection("");
+    static void test() throws SQLException {
+
+        Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
 
         var sql = "SELECT id FROM exhibits WHERE name = ?";
         try (var ps = conn.prepareStatement(sql)) {

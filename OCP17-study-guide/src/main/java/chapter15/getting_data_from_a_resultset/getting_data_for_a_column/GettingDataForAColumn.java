@@ -6,9 +6,12 @@ import java.sql.SQLException;
 
 public class GettingDataForAColumn {
 
-    void test() throws SQLException {
+    public static void main(String[] args) throws SQLException {
+        test();
+    }
+    static void test() throws SQLException {
 
-        Connection conn = DriverManager.getConnection("");
+        Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
 
         var sql = "SELECT id, name FROM exhibits";
         try (var ps = conn.prepareStatement(sql);

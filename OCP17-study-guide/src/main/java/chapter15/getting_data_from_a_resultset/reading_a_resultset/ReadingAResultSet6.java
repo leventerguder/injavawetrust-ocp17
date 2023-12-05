@@ -16,6 +16,7 @@ public class ReadingAResultSet6 {
 
         var sql = "SELECT count(*) FROM exhibits";
         try (var ps = conn.prepareStatement(sql); var rs = ps.executeQuery()) {
+            // rs.next(); // Required!
             rs.getInt(1); // SQLException
         }
     }
