@@ -1,6 +1,7 @@
-package chapter15.controlling_data_with_transactions;
+package chapter15.controlling_data_with_transactions.committing_and_rolling_back;
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class CommittingAndRollingBack {
 
@@ -13,6 +14,10 @@ public class CommittingAndRollingBack {
             conn.setAutoCommit(false);
             var elephantRowsUpdated = updateRow(conn, 5, "African Elephant");
             var zebraRowsUpdated = updateRow(conn, -5, "Zebra");
+
+            System.out.println("elephantRowsUpdated : " + elephantRowsUpdated);
+            System.out.println("zebraRowsUpdated : " + zebraRowsUpdated);
+
             if (!elephantRowsUpdated || !zebraRowsUpdated)
                 conn.rollback();
             else {
@@ -24,11 +29,28 @@ public class CommittingAndRollingBack {
                 try (PreparedStatement ps = conn.prepareStatement(selectSql); ResultSet rs = ps.executeQuery()) {
                     rs.next();
                     int count = rs.getInt(1);
-                    if (count == 0)
+                    if (count == 0) {
+                        System.out.println("Commit...");
                         conn.commit();
-                    else
+                    } else {
+                        System.out.println("Rollback....");
                         conn.rollback();
+                    }
                 }
+            }
+
+            String sql = "SELECT  name , num_acres FROM exhibits";
+            var map = new HashMap<String, Double>();
+
+            try (var ps = conn.prepareStatement(sql);
+                 ResultSet rs = ps.executeQuery()) {
+
+                while (rs.next()) {
+                    String name = rs.getString(1);
+                    Double numAcres = rs.getDouble(2);
+                    map.put(name,numAcres);
+                }
+                System.out.println(map);
             }
         }
     }

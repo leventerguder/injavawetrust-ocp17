@@ -68,18 +68,18 @@ public class ResultSetUpdateRow {
                 );
                 """);
 
-        run(conn,"insert into customers values(1, 'Amit', 25, 3000, 'Hyderabad')");
-        run(conn,"insert into customers values(2, 'Kalyan', 27, 4000, 'Vishakhapatnam')");
-        run(conn,"insert into customers values(3, 'Renuka', 30, 5000, 'Delhi')");
-        run(conn,"insert into customers values(4, 'Archana', 24, 1500, 'Mumbai')");
-        run(conn,"insert into customers values(5, 'Kaushik', 30, 9000, 'Kota')");
-        run(conn,"insert into customers values(6, 'Hardik', 45, 6400, 'Bhopal')");
-        run(conn,"insert into customers values(7, 'Trupthi', 33, 4360, 'Ahmedabad')");
-        run(conn,"insert into customers values(8, 'Mithili', 26, 4100, 'Vijayawada')");
-        run(conn,"insert into customers values(9, 'Maneesh', 39, 4000, 'Hyderabad')");
-        run(conn,"insert into customers values(10, 'Rajaneesh', 30, 6400, 'Delhi')");
-        run(conn,"insert into customers values(11, 'Komal', 29, 8000, 'Ahmedabad')");
-        run(conn,"insert into customers values(12, 'Manyata', 25, 5000, 'Vijayawada')");
+        run(conn, "insert into customers values(1, 'Amit', 25, 3000, 'Hyderabad')");
+        run(conn, "insert into customers values(2, 'Kalyan', 27, 4000, 'Vishakhapatnam')");
+        run(conn, "insert into customers values(3, 'Renuka', 30, 5000, 'Delhi')");
+        run(conn, "insert into customers values(4, 'Archana', 24, 1500, 'Mumbai')");
+        run(conn, "insert into customers values(5, 'Kaushik', 30, 9000, 'Kota')");
+        run(conn, "insert into customers values(6, 'Hardik', 45, 6400, 'Bhopal')");
+        run(conn, "insert into customers values(7, 'Trupthi', 33, 4360, 'Ahmedabad')");
+        run(conn, "insert into customers values(8, 'Mithili', 26, 4100, 'Vijayawada')");
+        run(conn, "insert into customers values(9, 'Maneesh', 39, 4000, 'Hyderabad')");
+        run(conn, "insert into customers values(10, 'Rajaneesh', 30, 6400, 'Delhi')");
+        run(conn, "insert into customers values(11, 'Komal', 29, 8000, 'Ahmedabad')");
+        run(conn, "insert into customers values(12, 'Manyata', 25, 5000, 'Vijayawada')");
     }
 
     private static void run(Connection conn, String sql) throws SQLException {
