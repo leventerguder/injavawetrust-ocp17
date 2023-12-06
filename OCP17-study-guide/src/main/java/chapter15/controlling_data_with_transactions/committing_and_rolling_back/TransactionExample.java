@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-public class TransactionExample2 {
+public class TransactionExample {
 
     public static void main(String[] args) throws SQLException {
 

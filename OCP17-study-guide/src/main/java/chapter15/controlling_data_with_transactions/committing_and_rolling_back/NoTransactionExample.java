@@ -38,9 +38,6 @@ public class NoTransactionExample {
     }
 
     private static final String SQL_INSERT = "INSERT INTO EMPLOYEE (NAME, SALARY, CREATED_DATE) VALUES (?,?,?)";
-
-    private static final String SQL_UPDATE = "UPDATE EMPLOYEE SET SALARY=? WHERE NAME=?";
-
     private static final String SQL_TABLE_CREATE = "CREATE TABLE EMPLOYEE"
             + "("
             + " ID Serial,"
