@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class Q21 {
 
-    public static void main(String[] args) throws SQLException {
+    public static void optionBD() throws SQLException {
 
         Connection conn = DriverManager.getConnection("");
 
@@ -18,6 +18,11 @@ public class Q21 {
                 ps.executeUpdate();
             }
             conn.setAutoCommit(true);  // line W
+
+            // The code starts with autocommit off. As written, we turn autocommit mode back on
+            // and immediately commit the transaction.
+
+            // When line W is commented out the update gets lost
         }
     }
 }

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Q18 {
 
-    public static void main(String[] args) throws SQLException {
+    public static void optionD() throws SQLException {
 
         Connection conn = DriverManager.getConnection("");
 
@@ -18,6 +18,9 @@ public class Q18 {
         try (var ps = conn.prepareStatement(select)) {
             var rs = ps.executeQuery();
             System.out.println(rs.getInt(1));
+
+            // Before accessing data from a ResultSet, the cursor needs to be positioned. The call to
+            // rs.next() is missing from this code causing a SQLException a
         }
 
     }

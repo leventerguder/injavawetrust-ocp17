@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Q17 {
 
-    public static void main(String[] args) throws SQLException {
+    public static void optionD() throws SQLException {
 
         Connection conn = DriverManager.getConnection("");
 

@@ -6,11 +6,6 @@ import java.sql.SQLException;
 
 public class Q15 {
 
-    public static void main(String[] args) throws SQLException {
-
-        optionC();
-    }
-
     private static void optionC() throws SQLException {
         Connection conn = DriverManager.getConnection("");
         conn.setAutoCommit(false);

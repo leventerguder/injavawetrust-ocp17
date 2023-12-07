@@ -7,8 +7,7 @@ import java.sql.SQLException;
 public class Q14 {
 
 
-    public static void main(String[] args) throws SQLException {
-
+    public void test() throws SQLException {
 
         Connection conn = DriverManager.getConnection("");
 
@@ -17,6 +16,8 @@ public class Q14 {
             cs.setInt(1, 8);
             cs.execute();
             System.out.println(cs.getInt(1));
+
+            // Since an OUT parameter is used, the code should call registerOutParameter().
         }
     }
 }

@@ -9,10 +9,10 @@ public class Q20 {
 
         String url = "jdbc:hsqldb:file:zoo";
 //        try (var conn = DriverManager.getConnection(url);
-////             var ps = conn.prepareStatement(); // COMPILE ERROR
-////             var rs = ps.executeQuery("SELECT * FROM swings")) {
-////             while (rs.next()) {
-////                System.out.println(rs.getInteger(1));
+//             var ps = conn.prepareStatement(); // COMPILE ERROR
+//             var rs = ps.executeQuery("SELECT * FROM swings")) {
+//             while (rs.next()) {
+//                System.out.println(rs.getInteger(1));
 ////             }
 //        }
     }
