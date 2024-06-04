@@ -1,4 +1,4 @@
-package chapter13.applying_annotations.example05;
+package chapter13.applying_annotations.example06;
 
 public class Capybara {
 

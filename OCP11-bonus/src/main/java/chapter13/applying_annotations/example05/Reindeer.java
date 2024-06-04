@@ -1,4 +1,4 @@
-package chapter13.applying_annotations.example04;
+package chapter13.applying_annotations.example05;
 
 public class Reindeer {
 
