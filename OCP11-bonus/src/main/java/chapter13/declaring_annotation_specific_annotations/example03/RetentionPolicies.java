@@ -33,4 +33,4 @@ class B {
 
 @Swimmer
 class C {
-};
+}
