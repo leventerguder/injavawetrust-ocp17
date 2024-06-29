@@ -1,5 +1,10 @@
 package chapter13.declaring_annotation_specific_annotations.example01;
 
+
+// @ZooAttraction // DOES NOT COMPILE
+class RollerCoaster {
+}
+
 public class Events {
 
     @ZooAttraction
