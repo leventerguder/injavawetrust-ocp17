@@ -1,4 +1,4 @@
-package chapter13.declaring_annotation_specific_annotations.example10;
+package chapter13.declaring_annotation_specific_annotations.example12;
 
 public class Zoo {
 
