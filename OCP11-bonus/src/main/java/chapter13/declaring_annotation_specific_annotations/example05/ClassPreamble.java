@@ -4,6 +4,7 @@ import java.lang.annotation.Documented;
 
 // https://docs.oracle.com/javase/tutorial/java/annotations/declaring.html
 
+//@Documented
 public @interface ClassPreamble {
 
     String author();
