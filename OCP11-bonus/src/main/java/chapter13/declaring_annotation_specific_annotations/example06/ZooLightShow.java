@@ -9,13 +9,15 @@ public class ZooLightShow {
      *
      * @param distance length the light needs to travel
      * @return the result of the light show
+     * @throws IOException If an input or output exception occurred
      * @author Grace Hopper
      * @since 1.5
      * @deprecated Use EnhancedZooLightShow.lights() instead
-     * @throws IOException  If an input or output exception occurred
      */
 
     @Deprecated(since = "1.5")
+    @AnotherDocumentedAnnotation("documented-value")
+    @NotDocumentedAnnotation("not-documented-value")
     public static String perform(int distance) throws IOException {
         return "Beginning light show";
     }
