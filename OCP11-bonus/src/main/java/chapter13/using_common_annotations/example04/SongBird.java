@@ -11,4 +11,8 @@ public class SongBird {
     static Object chirp(List<String> data) {
         return data.size();
     }
+
+    @Deprecated(forRemoval = true)
+    static void flyWithWings() {
+    }
 }

@@ -12,10 +12,15 @@ public class NightingaleV2 {
     public void goToBed() {
         SongBird.chirp(new ArrayList());
     }
+    @SuppressWarnings("removal")
+    void fly (){
+       SongBird.flyWithWings();
+    }
 
     public static void main(String[] args) {
         var birdy = new NightingaleV2();
         birdy.wakeUp();
         birdy.goToBed();
+        birdy.fly();
     }
 }
