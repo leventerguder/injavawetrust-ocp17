@@ -1,5 +1,6 @@
 package chapter13.questions.q03;
 
+@DeprecatedAnnotation
 public class Q03 {
 
     // Which built-in annotations can be applied to an annotation declaration?

@@ -18,5 +18,7 @@ public @interface Cold {
 
     // UnitOfTemp unit default UnitOfTemp.C; // DOES NOT COMPILE
 
+    UnitOfTemp unit() default UnitOfTemp.C; //
+
     Snow snow() default @Snow(true);
 }
